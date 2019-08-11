@@ -1,0 +1,50 @@
+.Table {
+  width: 100%;
+  border: 1px solid #000;
+  border-collapse: collapse;
+
+  .Col1,
+  .Col2,
+  .Col3,
+  .Col4 {
+    white-space: nowrap;
+  }
+
+  .Col1 {
+    width: calc(100% - 240px);
+  }
+
+  .Col2 {
+    width: 100px;
+  }
+
+  .Col3 {
+    width: 80px;
+  }
+
+  .Col4 {
+    width: 60px;
+  }
+
+  th,
+  td {
+    padding: 6px 12px;
+    border: 1px solid #000;
+  }
+
+  tbody {
+    td {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &.Td1 {
+        max-width: 0; // this column will take the remaining width
+      }
+
+      &.Td4 {
+        max-width: 100px; // this column will take 100px
+      }
+    }
+  }
+}

@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { lazy, Suspense } from 'react';
+import { BrowserRouter, Switch } from 'react-router-dom';
+import Nav from 'components/Nav';
+import { RouteInfo, renderRoutes } from 'helpers/routes';
+import classes from './App.module.scss';
 
-const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const routes: RouteInfo[] = [
+  {
+    name: 'CSS',
+    path: 'css',
+    component: lazy(() => import('questions/css')),
+  },
+  {
+    name: 'React',
+    path: 'react',
+    component: lazy(() => import('questions/react')),
+  },
+];
+
+const App: React.FC = () => (
+  <div className={classes.App}>
+    <Suspense fallback="Loading...">
+      <BrowserRouter>
+        <Nav baseUrl="" routes={routes} />
+        <Switch>{renderRoutes('', routes)}</Switch>
+      </BrowserRouter>
+    </Suspense>
+  </div>
+);
 
 export default App;
