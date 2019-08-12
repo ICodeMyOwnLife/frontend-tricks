@@ -37,16 +37,6 @@
       color: rgb(228, 129, 63);
     }
 
-    pre {
-      margin: 0;
-      padding: 20px;
-      background-color: #082333;
-
-      code {
-        color: #e9f99c;
-      }
-    }
-
     .Question {
       display: flex;
       flex-direction: row;
@@ -65,6 +55,20 @@
       font-size: 14px;
       background-color: #fbfbfb;
       border: 1px solid #d0d0d0;
+
+      pre {
+        margin: 0;
+        padding: 20px;
+        background-color: #082333;
+
+        code {
+          color: #e9f99c;
+        }
+      }
+
+      p {
+        padding-left: 20px;
+      }
     }
 
     .References {
