@@ -5,13 +5,13 @@ import { RouteInfo } from 'helpers/routes';
 
 const routes: RouteInfo[] = [
   {
-    name: 'Newline 1',
-    path: 'newline-1',
+    name: 'Newline',
+    path: 'newline',
     component: lazy(() => import('questions/css/Newline1')),
   },
   {
-    name: 'Text Ellipsis 1',
-    path: 'text-ellipsis-1',
+    name: 'Text Ellipsis',
+    path: 'text-ellipsis',
     component: lazy(() => import('questions/css/TextEllipsis1')),
   },
 ];

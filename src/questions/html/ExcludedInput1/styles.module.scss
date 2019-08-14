@@ -1,0 +1,33 @@
+.InputLine {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+}
+
+.InputGroup {
+  display: flex;
+  justify-content: stretch;
+  align-items: center;
+  flex: 1;
+  margin: 6px;
+
+  label {
+    width: 80px;
+  }
+
+  input {
+    flex: 1;
+    padding: 4px 6px;
+  }
+}
+
+.InputOnly {
+  display: flex;
+  flex: 1;
+  margin: 6px;
+
+  > label,
+  > button {
+    margin-left: 80px;
+  }
+}

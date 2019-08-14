@@ -5,8 +5,8 @@ import { RouteInfo } from 'helpers/routes';
 
 const routes: RouteInfo[] = [
   {
-    name: 'Raw HTML 1',
-    path: 'raw-html-1',
+    name: 'Raw HTML',
+    path: 'raw-html',
     component: lazy(() => import('questions/react/RawHtml1')),
   },
 ];

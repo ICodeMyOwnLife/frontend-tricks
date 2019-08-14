@@ -49,7 +49,7 @@ export default Question;
 export interface QuestionProps {
   title: string;
   questions: QuestionInfo[];
-  children: ReactNode;
+  children?: ReactNode;
 }
 
 export interface QuestionInfo {

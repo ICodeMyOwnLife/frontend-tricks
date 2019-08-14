@@ -6,6 +6,11 @@ import classes from './App.module.scss';
 
 const routes: RouteInfo[] = [
   {
+    name: 'HTML',
+    path: 'html',
+    component: lazy(() => import('questions/html')),
+  },
+  {
     name: 'CSS',
     path: 'css',
     component: lazy(() => import('questions/css')),
