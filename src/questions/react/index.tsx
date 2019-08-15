@@ -14,6 +14,11 @@ const routes: RouteInfo[] = [
     path: 'event',
     component: lazy(() => import('questions/react/Event1')),
   },
+  {
+    name: 'Element',
+    path: 'element',
+    component: lazy(() => import('questions/react/Element1')),
+  },
 ];
 
 export const ReactTricksImpl: FC<ReactTricksProps> = ({ match: { url } }) => (
