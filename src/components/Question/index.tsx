@@ -60,5 +60,5 @@ export interface QuestionInfo {
 
 export interface ReferenceInfo {
   name: string;
-  url: string;
+  url?: string;
 }

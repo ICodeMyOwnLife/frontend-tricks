@@ -9,6 +9,11 @@ const routes: RouteInfo[] = [
     path: 'raw-html',
     component: lazy(() => import('questions/react/RawHtml1')),
   },
+  {
+    name: 'Event',
+    path: 'event',
+    component: lazy(() => import('questions/react/Event1')),
+  },
 ];
 
 export const ReactTricksImpl: FC<ReactTricksProps> = ({ match: { url } }) => (
