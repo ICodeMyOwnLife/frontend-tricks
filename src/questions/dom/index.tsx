@@ -7,16 +7,21 @@ const routes: RouteInfo[] = [
   {
     name: 'Excluded Input',
     path: 'excluded-input',
-    component: lazy(() => import('questions/html/ExcludedInput1')),
+    component: lazy(() => import('questions/dom/ExcludedInput1')),
+  },
+  {
+    name: 'AJAX Download',
+    path: 'ajax-download',
+    component: lazy(() => import('questions/dom/AjaxDownload1')),
   },
 ];
 
-export const HtmlTricksImpl: FC<HtmlTricksProps> = ({ match: { url } }) => (
+export const DomTricksImpl: FC<HtmlTricksProps> = ({ match: { url } }) => (
   <QuestionGroup title="HTML Tricks" baseUrl={url} routes={routes} />
 );
 
-const HtmlTricks = memo(HtmlTricksImpl);
-HtmlTricks.displayName = 'HtmlTricks';
-export default HtmlTricks;
+const DomTricks = memo(DomTricksImpl);
+DomTricks.displayName = 'DomTricks';
+export default DomTricks;
 
 export type HtmlTricksProps = RouteComponentProps;
