@@ -1,0 +1,19 @@
+.InputGroupBase {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.LabelBase {
+  font-size: 14px;
+}
+
+.InputBase {
+  &:focus,
+  &:active {
+    outline: none;
+    box-shadow: none;
+  }
+}

@@ -10,14 +10,19 @@ const routes: RouteInfo[] = [
     component: lazy(() => import('questions/dom/ExcludedInput1')),
   },
   {
-    name: 'AJAX Download',
-    path: 'ajax-download',
-    component: lazy(() => import('questions/dom/AjaxDownload1')),
+    name: 'Download',
+    path: 'download',
+    component: lazy(() => import('questions/dom/Download1')),
+  },
+  {
+    name: 'File Input',
+    path: 'file-input',
+    component: lazy(() => import('questions/dom/FileInput1')),
   },
 ];
 
 export const DomTricksImpl: FC<HtmlTricksProps> = ({ match: { url } }) => (
-  <QuestionGroup title="HTML Tricks" baseUrl={url} routes={routes} />
+  <QuestionGroup title="DOM Tricks" baseUrl={url} routes={routes} />
 );
 
 const DomTricks = memo(DomTricksImpl);

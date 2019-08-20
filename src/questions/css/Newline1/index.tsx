@@ -57,7 +57,7 @@ export const NewlineImpl: FC = () => {
         <div>
           <select
             value={whitespaceStyleValue}
-            onBlur={e =>
+            onChange={e =>
               setWhitespaceStyleValue(e.target.value as WhiteSpaceStyleValue)
             }
           >

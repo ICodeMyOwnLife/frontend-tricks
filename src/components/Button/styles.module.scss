@@ -1,0 +1,5 @@
+@import '../common/ButtonBase.module.scss';
+
+.Button {
+  @extend .ButtonBase;
+}

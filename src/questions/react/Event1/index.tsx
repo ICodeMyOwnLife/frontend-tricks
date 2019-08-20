@@ -1,5 +1,8 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { FC, memo, useState } from 'react';
 import Question, { QuestionInfo } from 'components/Question';
+import Button from 'components/Button';
 import classes from './styles.module.scss';
 import {
   useClickSyncHandler,
@@ -8,6 +11,11 @@ import {
   useChangeTextSyncHandler,
   useChangeTextAsyncHandler,
   useChangeTextAsyncPersistedHandler,
+  handleReactParentClick,
+  handleReactStopPropagationClick,
+  handleNativeStopPropagationClick,
+  useClickEvents,
+  handleNotStopPropagationClick,
 } from './hooks';
 
 const questions: QuestionInfo[] = [
@@ -62,6 +70,63 @@ const questions: QuestionInfo[] = [
       },
     ],
   },
+  {
+    question: `How to stop an event from propagating to its parent?`,
+    answer: (
+      <div>
+        <p>
+          If parent event is a <code>SyntheticEvent</code> one (e.g. registered
+          using <code>onClick</code>): Call <code>stopPropagation()</code> on{' '}
+          <code>SyntheticEvent</code> object
+        </p>
+        <pre>
+          <code>
+            {`const handleClick = (e: BaseSyntheticEvent<Event>) => {
+  e.stopPropagation();
+};`}
+          </code>
+        </pre>
+
+        <p>
+          If parent event is a native <code>Event</code> one (e.g. registered
+          using <code>addEventListener</code>) and parent is{' '}
+          <code>document</code>: Call <code>stopImmediatePropagation</code> on
+          native <code>Event</code> object
+        </p>
+        <pre>
+          <code>
+            {`const handleClick = (e: BaseSyntheticEvent<Event>) => {
+  e.nativeEvent.stopImmediatePropagation();
+};`}
+          </code>
+        </pre>
+
+        <p>
+          If parent event is a native <code>Event</code> one (e.g. registered
+          using <code>addEventListener</code>) and parent is descendant of{' '}
+          <code>document</code>: There is no way to stop propagation using React{' '}
+          <code>SyntheticEvent</code>, child event must to be registered using{' '}
+          <code>addEventListener</code> then call <code>stopPropagation</code>{' '}
+          on native <code>Event</code> object
+        </p>
+        <pre>
+          <code>
+            {`const handleClick = (e: Event) => {
+  e.stopPropagation();
+};
+
+element.addEventListener('click', handleClick);`}
+          </code>
+        </pre>
+      </div>
+    ),
+    references: [
+      {
+        name: `[stack overflow] ReactJS SyntheticEvent stopPropagation() only works with React events`,
+        url: `https://stackoverflow.com/questions/24415631/reactjs-syntheticevent-stoppropagation-only-works-with-react-events`,
+      },
+    ],
+  },
 ];
 
 export const Event1Impl: FC = () => {
@@ -79,20 +144,18 @@ export const Event1Impl: FC = () => {
     setText,
     setEventInfo,
   );
+  useClickEvents();
 
   return (
     <Question title="Event 1" questions={questions}>
       <div className={classes.Group}>
-        <button type="button" onClick={handleClickSync}>
-          Handle Click Sync
-        </button>
-        <button type="button" onClick={handleClickAsync}>
-          Handle Click Async
-        </button>
-        <button type="button" onClick={handleClickAsyncPersisted}>
-          Handle Click Async Persisted
-        </button>
+        <Button onClick={handleClickSync}>Click Sync</Button>
+        <Button onClick={handleClickAsync}>Click Async</Button>
+        <Button onClick={handleClickAsyncPersisted}>
+          Click Async Persisted
+        </Button>
       </div>
+
       <div className={classes.Group}>
         <div className={classes.InputGroup}>
           <label htmlFor="textSync">Sync</label>
@@ -127,7 +190,28 @@ export const Event1Impl: FC = () => {
           />
         </div>
       </div>
+
       {eventInfo && <pre>{JSON.stringify(eventInfo, null, 2)}</pre>}
+
+      <div
+        className={classes.Group}
+        id="parentClick"
+        onClick={handleReactParentClick}
+      >
+        <Button onClick={handleNotStopPropagationClick}>
+          Not Stop Propagation
+        </Button>
+
+        <Button onClick={handleReactStopPropagationClick}>
+          React Stop Propagation
+        </Button>
+
+        <Button onClick={handleNativeStopPropagationClick}>
+          Native Stop Propagation
+        </Button>
+
+        <Button id="domClick">DOM Stop Propagation</Button>
+      </div>
     </Question>
   );
 };

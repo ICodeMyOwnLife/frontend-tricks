@@ -1,0 +1,54 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@mixin space {
+  $spaceUnit: 4px;
+  $spaceLevel: 20;
+
+  @for $i from 0 to $spaceLevel {
+    $space: $i * $spaceUnit;
+
+    .m-#{$i} {
+      margin: $space;
+    }
+
+    .mx-#{$i} {
+      margin-left: $space;
+      margin-right: $space;
+    }
+
+    .my-#{$i} {
+      margin-top: $space;
+      margin-bottom: $space;
+    }
+
+    .ml-#{$i} {
+      margin-left: $space;
+    }
+
+    .mr-#{$i} {
+      margin-left: $space;
+    }
+
+    .mt-#{$i} {
+      margin-top: $space;
+    }
+
+    .mb-#{$i} {
+      margin-bottom: $space;
+    }
+  }
+}
+
+@include space;

@@ -1,4 +1,5 @@
-import { BaseSyntheticEvent, useCallback, ChangeEvent } from 'react';
+/* eslint-disable no-console */
+import { BaseSyntheticEvent, useCallback, ChangeEvent, useEffect } from 'react';
 
 const getEventInfo = ({
   currentTarget,
@@ -97,3 +98,49 @@ export const useChangeTextAsyncPersistedHandler = (
     },
     [setEventInfo, setText],
   );
+
+export const handleNotStopPropagationClick = () => {
+  console.log(`Not Stop Propagation Click`);
+};
+
+export const handleReactStopPropagationClick = (e: BaseSyntheticEvent) => {
+  console.log(`Stop Propagation Click`);
+  e.stopPropagation();
+};
+
+export const handleNativeStopPropagationClick = (
+  e: BaseSyntheticEvent<Event>,
+) => {
+  console.log(`Native Stop Propagation Click`);
+  e.stopPropagation();
+  e.nativeEvent.stopImmediatePropagation();
+};
+
+export const handleReactParentClick = () => console.log(`[React] Parent Click`);
+
+export const handleDomParentClick = () => console.log(`[DOM] Parent Click`);
+
+const handleDomStopPropagationClick = (e: Event) => {
+  console.log(`Dom Stop Propagation Click`);
+  e.stopPropagation();
+};
+
+const handleDocumentClick = () => console.log(`Document Click`);
+
+export const useClickEvents = () =>
+  useEffect(() => {
+    const domClickElement = document.getElementById('domClick')!;
+    const parentClickElement = document.getElementById('parentClick')!;
+    domClickElement.addEventListener('click', handleDomStopPropagationClick);
+    parentClickElement.addEventListener('click', handleDomParentClick);
+    document.addEventListener('click', handleDocumentClick);
+
+    return () => {
+      domClickElement.removeEventListener(
+        'click',
+        handleDomStopPropagationClick,
+      );
+      parentClickElement.removeEventListener('click', handleDomParentClick);
+      document.removeEventListener('click', handleDocumentClick);
+    };
+  }, []);

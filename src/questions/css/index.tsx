@@ -17,7 +17,7 @@ const routes: RouteInfo[] = [
 ];
 
 export const CssTricksImpl: FC<CssTricksProps> = ({ match: { url } }) => (
-  <QuestionGroup title="CSS" baseUrl={url} routes={routes} />
+  <QuestionGroup title="CSS Tricks" baseUrl={url} routes={routes} />
 );
 
 const CssTricks = memo(CssTricksImpl);

@@ -1,0 +1,15 @@
+@import '../common/InputBase.module.scss';
+
+.InputGroup {
+  @extend .InputGroupBase;
+}
+
+.Label {
+  @extend .LabelBase;
+  font-size: 14px;
+}
+
+.Input {
+  @extend .InputBase;
+  margin-right: 10px;
+}

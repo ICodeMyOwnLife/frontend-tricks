@@ -1,0 +1,28 @@
+.ButtonBase {
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: rgb(85, 85, 85);
+  border: 1px solid rgb(49, 49, 49);
+  border-radius: 4px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 200ms all ease;
+
+  &:hover {
+    background-color: rgb(27, 27, 27);
+    border-color: rgb(104, 104, 104);
+  }
+
+  &:active {
+    color: rgb(41, 41, 41);
+    background-color: #fff;
+    border-color: rgb(41, 41, 41);
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}

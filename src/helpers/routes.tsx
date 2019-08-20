@@ -1,10 +1,10 @@
-import React, { ComponentType } from "react";
+import React, { ComponentType, Suspense } from 'react';
 import {
   RouteComponentProps,
   NavLink,
   Route,
-  RouteProps
-} from "react-router-dom";
+  RouteProps,
+} from 'react-router-dom';
 
 export const renderLinks = (url: string, routes: RouteInfo[]) =>
   routes.map(({ name, path }) => (
@@ -13,15 +13,18 @@ export const renderLinks = (url: string, routes: RouteInfo[]) =>
     </NavLink>
   ));
 
-export const renderRoutes = (url: string, routes: RouteInfo[]) =>
-  routes.map(({ name, path, component, exact }) => (
-    <Route<RouteProps>
-      key={name}
-      path={`${url}/${path}`}
-      component={component}
-      exact={exact}
-    />
-  ));
+export const renderRoutes = (url: string, routes: RouteInfo[]) => (
+  <Suspense fallback={<p className="mt-5">Loading...</p>}>
+    {routes.map(({ name, path, component, exact }) => (
+      <Route<RouteProps>
+        key={name}
+        path={`${url}/${path}`}
+        component={component}
+        exact={exact}
+      />
+    ))}
+  </Suspense>
+);
 
 export interface RouteInfo {
   name: string;
