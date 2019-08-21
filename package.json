@@ -7,6 +7,7 @@
     "@types/jest": "24.0.17",
     "@types/lodash": "^4.14.136",
     "@types/node": "12.7.1",
+    "@types/prismjs": "^1.16.0",
     "@types/react": "16.9.1",
     "@types/react-dom": "16.8.5",
     "@types/react-router": "^5.0.3",
@@ -24,6 +25,7 @@
     "lodash": "^4.17.15",
     "node-sass": "^4.12.0",
     "prettier": "^1.18.2",
+    "prismjs": "^1.17.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router": "^5.0.1",
@@ -36,6 +38,36 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ],
+    "plugins": [
+      [
+        "prismjs",
+        {
+          "languages": [
+            "javascript",
+            "jsx",
+            "typescript",
+            "tsx",
+            "markup",
+            "scss",
+            "git"
+          ],
+          "plugins": [
+            "line-highlight",
+            "line-numbers",
+            "previewers",
+            "command-line",
+            "copy-to-clipboard-button"
+          ],
+          "theme": "okaidia",
+          "css": true
+        }
+      ]
+    ]
   },
   "eslintConfig": {
     "extends": "react-app"
