@@ -176,6 +176,34 @@ export const useImageObjectUrl = ({
   return { src, error, imgRef };
 };
 
+export const usePdfIframe = ({
+  files,
+}: {
+  files: FileList | null | undefined;
+}) => {
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [src, setSrc] = useState<string>();
+
+  useEffect(() => {
+    const file = files && files[0];
+    const iframe = iframeRef.current;
+
+    if (!iframe) return;
+
+    if (!file) {
+      setSrc(undefined);
+      return;
+    }
+
+    const objectUrl = URL.createObjectURL(file);
+    iframe.src = objectUrl;
+    setSrc(objectUrl);
+    URL.revokeObjectURL(objectUrl);
+  }, [files]);
+
+  return { src, iframeRef };
+};
+
 interface A {
   name: string;
   a: number;

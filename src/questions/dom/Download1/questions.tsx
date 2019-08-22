@@ -47,7 +47,7 @@ const questions: QuestionInfo[] = [
           <code>objectURL</code> we can revoke it by calling{' '}
           <code>URL.revokeObjectURL(objectURL)</code>
         </p>
-        <Code language="javascript">
+        <Code language="typescript">
           {`const download = ({
   blob,
   contentType,

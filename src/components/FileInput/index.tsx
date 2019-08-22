@@ -5,3 +5,5 @@ export { default as DataUrlImagePreview } from './DataUrlImagePreview';
 export { default as ObjectUrlImagePreview } from './ObjectUrlImagePreview';
 export { default as DataUrlImageInput } from './DataUrlImageInput';
 export { default as ObjectUrlImageInput } from './ObjectUrlImageInput';
+export { default as PdfPreview } from './PdfPreview';
+export { default as PdfInput } from './PdfInput';
