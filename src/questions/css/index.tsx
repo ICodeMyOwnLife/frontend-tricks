@@ -14,6 +14,11 @@ const routes: RouteInfo[] = [
     path: 'text-ellipsis',
     component: lazy(() => import('questions/css/TextEllipsis1')),
   },
+  {
+    name: 'Flex Overflow',
+    path: 'flex-overflow',
+    component: lazy(() => import('questions/css/FlexOverflow1')),
+  },
 ];
 
 export const CssTricksImpl: FC<CssTricksProps> = ({ match: { url } }) => (

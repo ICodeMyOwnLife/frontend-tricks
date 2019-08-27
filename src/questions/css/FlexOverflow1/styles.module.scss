@@ -1,0 +1,43 @@
+.Container {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: stretch;
+}
+
+.LeftBar {
+  flex: 0 0 80px;
+  background-color: #a2a2a2;
+  border: 1px solid lightgray;
+}
+
+.RightBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  align-items: stretch;
+  flex: 1;
+  min-width: 0;
+  margin-left: 8px;
+  padding: 8px;
+  border: 1px solid lightgray;
+}
+
+.LeftColumn {
+  flex: 0 0 64px;
+  background-color: #c4c4c4;
+}
+
+.RightColumn {
+  flex: 1;
+  min-width: 0;
+  margin-left: 8px;
+  overflow-x: auto;
+}
+
+.LongBlock {
+  width: 2000px;
+  height: 120px;
+  background-color: #d8d8d8;
+  border: 1px solid darkgray;
+}
