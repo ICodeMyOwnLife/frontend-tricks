@@ -1,0 +1,8 @@
+<svg width="0" height="0">
+  <defs>
+    <clipPath id="myClip">
+      <circle cx="60" cy="60" r="60"/>
+      <circle cx="160" cy="100" r="84"/>
+    </clipPath>
+  </defs>
+</svg>
