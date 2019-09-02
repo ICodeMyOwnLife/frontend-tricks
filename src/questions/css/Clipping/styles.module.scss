@@ -1,0 +1,49 @@
+.Container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.ImageContainer {
+  max-width: 280px;
+  margin: 6px;
+  border: 1px solid lightgray;
+
+  img {
+    max-width: 100%;
+  }
+}
+
+.Inset1 {
+  clip-path: inset(20px 32px);
+}
+
+.Inset2 {
+  clip-path: inset(20px 32px 12px 24px round 6px 32px 16px 60px);
+}
+
+.Circle1 {
+  clip-path: circle(80px);
+}
+
+.Circle2 {
+  clip-path: circle(136px at 64px 28px);
+}
+
+.Ellipse1 {
+  clip-path: ellipse(120px 80px);
+}
+
+.Ellipse2 {
+  clip-path: ellipse(180px 120px at 200px 47px);
+}
+
+.Polygon1 {
+  clip-path: polygon(50% 10%, 80% 25%, 80% 75%, 50% 90%, 20% 75%, 20% 25%);
+}
+
+.Polygon2 {
+  clip-path: polygon(90% 5%, 12% 75%, 90% 95%, 12% 25%);
+}

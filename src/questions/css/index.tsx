@@ -19,6 +19,11 @@ const routes: RouteInfo[] = [
     path: 'flex-overflow',
     component: lazy(() => import('questions/css/FlexOverflow1')),
   },
+  {
+    name: 'Clipping',
+    path: 'clipping',
+    component: lazy(() => import('questions/css/Clipping')),
+  },
 ];
 
 export const CssTricksImpl: FC<CssTricksProps> = ({ match: { url } }) => (
