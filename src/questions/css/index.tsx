@@ -22,7 +22,17 @@ const routes: RouteInfo[] = [
   {
     name: 'Clipping',
     path: 'clipping',
-    component: lazy(() => import('questions/css/Clipping')),
+    component: lazy(() => import('questions/css/Clipping1')),
+  },
+  {
+    name: 'Text Background',
+    path: 'text-background',
+    component: lazy(() => import('questions/css/TextBackground1')),
+  },
+  {
+    name: 'Shapes',
+    path: 'shapes',
+    component: lazy(() => import('questions/css/Shapes')),
   },
 ];
 

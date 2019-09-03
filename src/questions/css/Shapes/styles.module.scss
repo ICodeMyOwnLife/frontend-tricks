@@ -1,0 +1,312 @@
+$shapeColor: rgb(31, 171, 206);
+$dimension: 60px;
+$cos18deg: 0.9510565162951535;
+$cos30deg: 0.8660254037844386;
+$cos36deg: 0.8090169943749475;
+$cos45deg: 0.7071067811865475;
+$sin36deg: 0.5877852522924731;
+
+.ShapeContainer {
+  padding: 20px;
+  margin-bottom: 20px;
+  border: 1px solid lightgray;
+}
+
+.Title {
+  margin: 0 0 16px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.Shape {
+  display: inline-block;
+  background-color: $shapeColor;
+}
+
+.rectangle {
+  width: $dimension * 2;
+  height: $dimension;
+}
+
+.square {
+  width: $dimension;
+  height: $dimension;
+}
+
+.circle {
+  width: $dimension;
+  height: $dimension;
+  border-radius: 50%;
+}
+
+.oval {
+  width: $dimension * 2;
+  height: $dimension;
+  border-radius: 50%;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
+.triangleUp {
+  @extend .triangle;
+  border-bottom: $dimension * $cos30deg solid $shapeColor;
+  border-left: $dimension/2 solid transparent;
+  border-right: $dimension/2 solid transparent;
+}
+
+.triangleDown {
+  @extend .triangle;
+  border-top: $dimension * $cos30deg solid $shapeColor;
+  border-left: $dimension/2 solid transparent;
+  border-right: $dimension/2 solid transparent;
+}
+
+.triangleLeft {
+  @extend .triangle;
+  border-right: $dimension * $cos30deg solid $shapeColor;
+  border-top: $dimension/2 solid transparent;
+  border-bottom: $dimension/2 solid transparent;
+}
+
+.triangleRight {
+  @extend .triangle;
+  border-left: $dimension * $cos30deg solid $shapeColor;
+  border-top: $dimension/2 solid transparent;
+  border-bottom: $dimension/2 solid transparent;
+}
+
+.triangleTopLeft {
+  @extend .triangle;
+  border-top: $dimension solid $shapeColor;
+  border-right: $dimension solid transparent;
+}
+
+.triangleTopRight {
+  @extend .triangle;
+  border-top: $dimension solid $shapeColor;
+  border-left: $dimension solid transparent;
+}
+
+.triangleBottomLeft {
+  @extend .triangle;
+  border-left: $dimension solid $shapeColor;
+  border-top: $dimension solid transparent;
+}
+
+.triangleBottomRight {
+  @extend .triangle;
+  border-right: $dimension solid $shapeColor;
+  border-top: $dimension solid transparent;
+}
+
+.curvedTailArrow {
+  @extend .triangle;
+  margin-left: $dimension;
+  border-right: $dimension solid $shapeColor;
+  border-top: $dimension solid transparent;
+  transform: rotate(12deg);
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: $dimension;
+    height: $dimension;
+    left: -$dimension * 0.7;
+    top: -$dimension * 1.2;
+    background: transparent;
+    border: 0 solid transparent;
+    border-top: $dimension * 0.4 solid $shapeColor;
+    border-radius: 100% 0 0 0;
+    transform: rotate(45deg);
+  }
+}
+
+.trapezoid {
+  width: $dimension;
+  background-color: transparent;
+  border-bottom: $dimension solid $shapeColor;
+  border-left: $dimension/2 solid transparent;
+  border-right: $dimension/2 solid transparent;
+}
+
+.parallelogram {
+  width: $dimension * 1.5;
+  height: $dimension;
+  margin-left: $dimension * 0.2;
+  transform: skew(-20deg);
+}
+
+.sixPointsStar {
+  position: relative;
+  margin-bottom: $dimension * $cos30deg / 3;
+  @extend .triangleUp;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: $dimension * $cos30deg / 3;
+    left: -$dimension/2;
+    @extend .triangleDown;
+  }
+}
+
+.fivePointsStar {
+  position: relative;
+  margin: 0 $dimension * 0.73 $dimension;
+  @extend .triangle;
+  border-bottom: $dimension * 0.8 solid $shapeColor;
+  border-left: $dimension * 0.3 solid transparent;
+  border-right: $dimension * 0.3 solid transparent;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: $dimension * 7/12;
+    left: -$dimension;
+    @extend .triangle;
+    border-bottom: $dimension * 0.7 solid $shapeColor;
+    border-left: $dimension solid transparent;
+    border-right: $dimension solid transparent;
+  }
+
+  &::before {
+    transform: rotate(-35deg);
+  }
+
+  &::after {
+    transform: rotate(35deg);
+  }
+}
+
+.pentagon {
+  position: relative;
+  margin-bottom: $dimension * $cos18deg;
+  @extend .triangle;
+  border-bottom: $dimension * $sin36deg solid $shapeColor;
+  border-left: $dimension * $cos36deg solid transparent;
+  border-right: $dimension * $cos36deg solid transparent;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: $dimension;
+    left: -$dimension * $cos36deg;
+    top: $dimension * $sin36deg;
+    background-color: transparent;
+    border-top: $dimension * $cos18deg solid $shapeColor;
+    border-left: $dimension * ($cos36deg - 0.5) solid transparent;
+    border-right: $dimension * ($cos36deg - 0.5) solid transparent;
+  }
+}
+
+.hexagon {
+  position: relative;
+  width: $dimension * $cos30deg * 2;
+  height: $dimension;
+  margin: $dimension / 2 0;
+  background-color: $shapeColor;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    border-left: $dimension * $cos30deg solid transparent;
+    border-right: $dimension * $cos30deg solid transparent;
+  }
+
+  &::before {
+    top: -$dimension/2;
+    border-bottom: $dimension/2 solid $shapeColor;
+  }
+
+  &::after {
+    top: $dimension;
+    border-top: $dimension/2 solid $shapeColor;
+  }
+}
+
+.octagon {
+  position: relative;
+  width: $dimension * (1 + 2 * $cos45deg);
+  height: $dimension;
+  margin: $dimension * $cos45deg 0;
+  background-color: $shapeColor;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: $dimension;
+    border-left: $dimension * $cos45deg solid transparent;
+    border-right: $dimension * $cos45deg solid transparent;
+  }
+
+  &::before {
+    top: -$dimension * $cos45deg;
+    border-bottom: $dimension * $cos45deg solid $shapeColor;
+  }
+
+  &::after {
+    top: $dimension;
+    border-top: $dimension * $cos45deg solid $shapeColor;
+  }
+}
+
+.heart {
+  position: relative;
+  margin: $dimension * 0.0375 $dimension * 1.25 $dimension * 1.0375 0;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: $dimension * 5/8;
+    height: $dimension;
+    top: 0;
+    background-color: $shapeColor;
+    border-radius: $dimension * 5/8 $dimension * 5/8 0 0;
+  }
+
+  &::before {
+    left: $dimension * 5/8;
+    transform-origin: 0 100%;
+    transform: rotate(-45deg);
+  }
+
+  &::after {
+    left: 0;
+    transform-origin: 100% 100%;
+    transform: rotate(45deg);
+  }
+}
+
+.infinity {
+  position: relative;
+  margin: 0 $dimension * 3.6 $dimension * 5/3 0;
+  background-color: transparent;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: $dimension;
+    height: $dimension;
+    border: $dimension/3 solid $shapeColor;
+    transform: rotate(-45deg);
+  }
+
+  &::before {
+    left: 0;
+    border-radius: 100% 100% 0;
+  }
+
+  &::after {
+    left: $dimension * 1.9;
+    border-radius: 0 100% 100%;
+  }
+}

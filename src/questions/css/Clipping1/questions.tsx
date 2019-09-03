@@ -4,65 +4,84 @@ import Code from 'components/Code';
 
 const questions: QuestionInfo[] = [
   {
-    question: `How to clip an image?`,
+    question: `How to clip an element into a defined shape?`,
     answer: (
       <div>
         <p>
-          Use <code>clip-path</code> with additional <code>shape-outside</code>:
+          Use <code>clip-path</code> to clip an element.
+        </p>
+        <p>
+          If we want texts wrap around the clipped element, use{' '}
+          <code>float</code> combined with <code>shape-outside</code>
         </p>
         <Code language="scss">
-          {`.Inset1 {
+          {`.left {
+  float: left;
+  margin-right: 20px;
+}
+
+.right {
+  float: right;
+  margin-left: 20px;
+}
+
+.none {
+  shape-outside: none;
+  clip-path: none;
+}
+
+.inset1 {
   $inset1: inset(40px 60px 0 0);
   shape-outside: $inset1;
   clip-path: $inset1;
 }
 
-.Inset2 {
-  $inset2: inset(40px 60px 0 0 round 6px 24px 48px 80px);
+.inset2 {
+  $inset2: inset(40px 0 0 60px round 24px 6px 80px 48px);
   shape-outside: $inset2;
   clip-path: $inset2;
 }
 
-.Circle1 {
+.circle1 {
   $circle1: circle(140px);
   shape-outside: $circle1;
   clip-path: $circle1;
 }
 
-.Circle2 {
-  shape-outside: circle(168px at 64px 28px);
-  clip-path: circle(152px at 64px 28px);
+.circle2 {
+  shape-outside: circle(162px at 180px 40px);
+  clip-path: circle(152px at 160px 28px);
 }
 
-.Ellipse1 {
+.ellipse1 {
   $ellipse1: ellipse(140px 90px);
   shape-outside: $ellipse1;
   clip-path: $ellipse1;
 }
 
-.Ellipse2 {
-  shape-outside: ellipse(180px 120px at 114px 62px);
-  clip-path: ellipse(180px 120px at 100px 50px);
+.ellipse2 {
+  shape-outside: ellipse(192px 124px at 200px 56px);
+  clip-path: ellipse(180px 120px at 180px 44px);
 }
 
-.Polygon1 {
+.polygon1 {
   $polygon1: polygon(50% 0%, 98% 35%, 79% 91%, 21% 91%, 2% 35%);
   shape-outside: $polygon1;
   clip-path: $polygon1;
 }
 
-.Polygon2 {
+.polygon2 {
   $polygon2: polygon(evenodd, 50% 0%, 79% 91%, 2% 35%, 98% 35%, 21% 91%);
   shape-outside: $polygon2;
   clip-path: $polygon2;
 }
 
-.Url1 {
-  shape-outside: url(#myClip);
+.url1 {
+  shape-outside: url(./2.png);
   clip-path: url(#myClip);
 }
 
-.Transition {
+.transition {
   $polygon-normal: polygon(50% 0, 100% 100%, 0 100%);
   shape-outside: $polygon-normal;
   clip-path: $polygon-normal;

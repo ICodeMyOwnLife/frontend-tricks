@@ -3,10 +3,17 @@ import classnames from 'classnames';
 import imgSrc from './1.jpg';
 import classes from './styles.module.scss';
 
-export const SectionImpl: FC<SectionProps> = ({ imageClassName }) => (
+export const SectionImpl: FC<SectionProps> = ({
+  float = 'left',
+  imageClassName,
+}) => (
   <div className={classes.Section}>
     <img
-      className={classnames(classes.SectionImage, imageClassName)}
+      className={classnames(
+        classes.SectionImage,
+        classes[float],
+        imageClassName,
+      )}
       src={imgSrc}
       alt="wild"
     />
@@ -32,5 +39,6 @@ Section.displayName = 'Section';
 export default Section;
 
 export interface SectionProps {
+  float?: 'left' | 'right';
   imageClassName?: string;
 }
