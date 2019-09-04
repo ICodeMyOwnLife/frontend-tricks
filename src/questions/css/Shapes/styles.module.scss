@@ -4,7 +4,9 @@ $cos18deg: 0.9510565162951535;
 $cos30deg: 0.8660254037844386;
 $cos36deg: 0.8090169943749475;
 $cos45deg: 0.7071067811865476;
+$cos54deg: 0.5877852522924731;
 $sin36deg: 0.5877852522924731;
+$tan36deg: 0.7265425280053608;
 
 .ShapeContainer {
   padding: 20px;
@@ -27,6 +29,92 @@ $sin36deg: 0.5877852522924731;
   width: 0;
   height: 0;
   background-color: transparent;
+}
+
+@mixin isoscelesTriangle($height, $width, $apex, $color) {
+  $adjacentSides: (
+    top: left right,
+    bottom: left right,
+    left: top bottom,
+    right: top bottom,
+  );
+  @include triangle();
+  border-#{$apex}: $height solid $color;
+  @each $side in map-get($map: $adjacentSides, $key: $apex) {
+    border-#{$side}: $width/2 solid transparent;
+  }
+}
+
+@mixin equilateralTriangle($height, $apex, $color) {
+  $width: $height / $cos30deg;
+  @include isoscelesTriangle($height, $width, $apex, $color);
+}
+
+@mixin rightAngledTriangle($height, $shownSide, $hiddenSide, $color) {
+  @include triangle();
+  border-#{$shownSide}: $height solid $color;
+  border-#{$hiddenSide}: $height solid transparent;
+}
+
+@mixin trapezoid($upperWidth, $lowerWidth, $height, $color) {
+  width: $upperWidth;
+  background-color: transparent;
+  border-bottom: $height solid $color;
+  border-left: ($lowerWidth - $upperWidth) / 2 solid transparent;
+  border-right: ($lowerWidth - $upperWidth) / 2 solid transparent;
+}
+
+@mixin parallelogram($width, $height, $color) {
+  width: $width;
+  height: $height;
+  margin: 0 $height / $cos30deg / 4;
+  background-color: $color;
+  transform: skew(-30deg);
+}
+
+@mixin sixPointsStar($sideDimension, $color) {
+  $height: $sideDimension * $cos30deg;
+  position: relative;
+  margin-bottom: $height / 3;
+  @include equilateralTriangle($height, bottom, $color);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: $height / 3;
+    left: -$sideDimension / 2;
+    @include equilateralTriangle($height, top, $color);
+  }
+}
+
+@mixin fivePointsStar($sideDimension, $color) {
+  $height: $sideDimension * $tan36deg / 2;
+  $top: $sideDimension * $sin36deg / (2 * (1 + $cos36deg));
+  $bottom: $sideDimension * $cos54deg / (2 * (1 + $cos36deg));
+  position: relative;
+  margin: $top 0 $bottom;
+  @include isoscelesTriangle($height, $sideDimension, top, $color);
+
+  &::before,
+  &::after {
+    top: -50px;
+    content: '';
+    position: absolute;
+  }
+
+  &::before {
+    left: 0;
+    @include isoscelesTriangle($height, $sideDimension, left, $color);
+    transform: rotate(18deg);
+    transform-origin: 100% 0;
+  }
+
+  &::after {
+    left: -26px;
+    @include isoscelesTriangle($height, $sideDimension, right, $color);
+    transform: rotate(-18deg);
+    transform-origin: 0 0;
+  }
 }
 
 .Shape {
@@ -62,25 +150,6 @@ $sin36deg: 0.5877852522924731;
   background-color: transparent;
 }
 
-@mixin isoscelesTriangle($height, $width, $apex, $color) {
-  $adjacentSides: (
-    top: left right,
-    bottom: left right,
-    left: top bottom,
-    right: top bottom,
-  );
-  @include triangle();
-  border-#{$apex}: $height solid $color;
-  @each $side in map-get($map: $adjacentSides, $key: $apex) {
-    border-#{$side}: $width/2 solid transparent;
-  }
-}
-
-@mixin equilateralTriangle($height, $apex, $color) {
-  $width: $height / $cos30deg;
-  @include isoscelesTriangle($height, $width, $apex, $color);
-}
-
 .triangleUp {
   @include equilateralTriangle($dimension, bottom, $shapeColor);
 }
@@ -98,27 +167,19 @@ $sin36deg: 0.5877852522924731;
 }
 
 .triangleTopLeft {
-  @extend .triangle;
-  border-top: $dimension solid $shapeColor;
-  border-right: $dimension solid transparent;
+  @include rightAngledTriangle($dimension, top, right, $shapeColor);
 }
 
 .triangleTopRight {
-  @extend .triangle;
-  border-top: $dimension solid $shapeColor;
-  border-left: $dimension solid transparent;
+  @include rightAngledTriangle($dimension, top, left, $shapeColor);
 }
 
 .triangleBottomLeft {
-  @extend .triangle;
-  border-left: $dimension solid $shapeColor;
-  border-top: $dimension solid transparent;
+  @include rightAngledTriangle($dimension, bottom, right, $shapeColor);
 }
 
 .triangleBottomRight {
-  @extend .triangle;
-  border-right: $dimension solid $shapeColor;
-  border-top: $dimension solid transparent;
+  @include rightAngledTriangle($dimension, bottom, left, $shapeColor);
 }
 
 .curvedTailArrow {
@@ -144,61 +205,45 @@ $sin36deg: 0.5877852522924731;
 }
 
 .trapezoid {
-  width: $dimension;
-  background-color: transparent;
-  border-bottom: $dimension solid $shapeColor;
-  border-left: $dimension/2 solid transparent;
-  border-right: $dimension/2 solid transparent;
+  @include trapezoid($dimension, $dimension * 2, $dimension, $shapeColor);
 }
 
 .parallelogram {
-  width: $dimension * 1.5;
-  height: $dimension;
-  margin-left: $dimension * 0.2;
-  transform: skew(-20deg);
+  @include parallelogram($dimension * 1.5, $dimension, $shapeColor);
 }
 
 .sixPointsStar {
-  position: relative;
-  margin-bottom: $dimension * $cos30deg / 3;
-  @extend .triangleUp;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: $dimension * $cos30deg / 3;
-    left: -$dimension/2;
-    @extend .triangleDown;
-  }
+  @include sixPointsStar($dimension, $shapeColor);
 }
 
 .fivePointsStar {
-  position: relative;
-  margin: 0 $dimension * 0.73 $dimension;
-  @extend .triangle;
-  border-bottom: $dimension * 0.8 solid $shapeColor;
-  border-left: $dimension * 0.3 solid transparent;
-  border-right: $dimension * 0.3 solid transparent;
+  @include fivePointsStar($dimension, $shapeColor);
+  // position: relative;
+  // margin: 0 $dimension * 0.73 $dimension;
+  // @extend .triangle;
+  // border-bottom: $dimension * 0.8 solid $shapeColor;
+  // border-left: $dimension * 0.3 solid transparent;
+  // border-right: $dimension * 0.3 solid transparent;
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    top: $dimension * 7/12;
-    left: -$dimension;
-    @extend .triangle;
-    border-bottom: $dimension * 0.7 solid $shapeColor;
-    border-left: $dimension solid transparent;
-    border-right: $dimension solid transparent;
-  }
+  // &::before,
+  // &::after {
+  //   content: '';
+  //   position: absolute;
+  //   top: $dimension * 7/12;
+  //   left: -$dimension;
+  //   @extend .triangle;
+  //   border-bottom: $dimension * 0.7 solid $shapeColor;
+  //   border-left: $dimension solid transparent;
+  //   border-right: $dimension solid transparent;
+  // }
 
-  &::before {
-    transform: rotate(-35deg);
-  }
+  // &::before {
+  //   transform: rotate(-35deg);
+  // }
 
-  &::after {
-    transform: rotate(35deg);
-  }
+  // &::after {
+  //   transform: rotate(35deg);
+  // }
 }
 
 .pentagon {
