@@ -1,5 +1,6 @@
 import { QuestionInfo } from 'components/Question';
 import React from 'react';
+import Code from 'components/Code';
 
 const questions: QuestionInfo[] = [
   {
@@ -8,7 +9,7 @@ const questions: QuestionInfo[] = [
         How to create shapes using only one <code>div</code>?
       </p>
     ),
-    answer: null,
+    answer: <Code language="scss">a</Code>,
     references: [
       {
         name: `[CSS-TRICKS] The Shapes of CSS`,

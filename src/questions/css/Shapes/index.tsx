@@ -31,6 +31,8 @@ export const Shapes1Impl: FC = () => (
     <Shape name="Octagon" className={classes.octagon} />
     <Shape name="Heart" className={classes.heart} />
     <Shape name="Infinity" className={classes.infinity} />
+    <Shape name="Diamond Square" className={classes.diamondSquare} />
+    <Shape name="Diamond Shield" className={classes.diamondShield} />
   </Question>
 );
 

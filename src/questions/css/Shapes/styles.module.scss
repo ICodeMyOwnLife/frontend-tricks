@@ -1,9 +1,9 @@
-$shapeColor: rgb(31, 171, 206);
-$dimension: 60px;
+$shapeColor: rgb(235, 65, 43);
+$dimension: 80px;
 $cos18deg: 0.9510565162951535;
 $cos30deg: 0.8660254037844386;
 $cos36deg: 0.8090169943749475;
-$cos45deg: 0.7071067811865475;
+$cos45deg: 0.7071067811865476;
 $sin36deg: 0.5877852522924731;
 
 .ShapeContainer {
@@ -16,6 +16,17 @@ $sin36deg: 0.5877852522924731;
   margin: 0 0 16px;
   font-size: 24px;
   font-weight: bold;
+}
+
+@mixin shape($color) {
+  display: inline-block;
+  background-color: $color;
+}
+
+@mixin triangle {
+  width: 0;
+  height: 0;
+  background-color: transparent;
 }
 
 .Shape {
@@ -48,35 +59,42 @@ $sin36deg: 0.5877852522924731;
 .triangle {
   width: 0;
   height: 0;
-  background: transparent;
+  background-color: transparent;
+}
+
+@mixin isoscelesTriangle($height, $width, $apex, $color) {
+  $adjacentSides: (
+    top: left right,
+    bottom: left right,
+    left: top bottom,
+    right: top bottom,
+  );
+  @include triangle();
+  border-#{$apex}: $height solid $color;
+  @each $side in map-get($map: $adjacentSides, $key: $apex) {
+    border-#{$side}: $width/2 solid transparent;
+  }
+}
+
+@mixin equilateralTriangle($height, $apex, $color) {
+  $width: $height / $cos30deg;
+  @include isoscelesTriangle($height, $width, $apex, $color);
 }
 
 .triangleUp {
-  @extend .triangle;
-  border-bottom: $dimension * $cos30deg solid $shapeColor;
-  border-left: $dimension/2 solid transparent;
-  border-right: $dimension/2 solid transparent;
+  @include equilateralTriangle($dimension, bottom, $shapeColor);
 }
 
 .triangleDown {
-  @extend .triangle;
-  border-top: $dimension * $cos30deg solid $shapeColor;
-  border-left: $dimension/2 solid transparent;
-  border-right: $dimension/2 solid transparent;
+  @include equilateralTriangle($dimension, top, $shapeColor);
 }
 
 .triangleLeft {
-  @extend .triangle;
-  border-right: $dimension * $cos30deg solid $shapeColor;
-  border-top: $dimension/2 solid transparent;
-  border-bottom: $dimension/2 solid transparent;
+  @include equilateralTriangle($dimension, right, $shapeColor);
 }
 
 .triangleRight {
-  @extend .triangle;
-  border-left: $dimension * $cos30deg solid $shapeColor;
-  border-top: $dimension/2 solid transparent;
-  border-bottom: $dimension/2 solid transparent;
+  @include equilateralTriangle($dimension, left, $shapeColor);
 }
 
 .triangleTopLeft {
@@ -309,4 +327,35 @@ $sin36deg: 0.5877852522924731;
     left: $dimension * 1.9;
     border-radius: 0 100% 100%;
   }
+}
+
+@mixin diamondSquare($height, $color) {
+  @include shape($color);
+  width: $height * $cos45deg;
+  height: $height * $cos45deg;
+  margin: $height * (1 - $cos45deg) / 2;
+  transform: rotate(45deg);
+}
+
+.diamondSquare {
+  @include diamondSquare($dimension, $shapeColor);
+}
+
+@mixin diamondShield($height, $color) {
+  $width: $height * 4/5 / $cos30deg;
+  position: relative;
+  margin-bottom: $height * 4/5;
+  @include isoscelesTriangle($height/5, $width, bottom, $color);
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: -$width / 2;
+    top: $height/5;
+    @include isoscelesTriangle($height * 4/5, $width, top, $color);
+  }
+}
+
+.diamondShield {
+  @include diamondShield($dimension, $shapeColor);
 }

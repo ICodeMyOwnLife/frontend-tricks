@@ -1,0 +1,31 @@
+@mixin col($colCount) {
+  width: $colCount * 100% / 12;
+}
+
+@mixin grid($levels) {
+  $mediaMap: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+  );
+
+  @for $colCount from 1 through $levels {
+    .col-#{$colCount} {
+      @include col($colCount);
+    }
+  }
+
+  @each $prefix, $breakPoint in $mediaMap {
+    @media (min-width: $breakPoint) {
+      @for $colCount from 1 through 12 {
+        .col-#{$prefix}-#{$colCount} {
+          @include col($colCount);
+        }
+      }
+    }
+  }
+}
+
+@include grid(12);
