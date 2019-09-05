@@ -6,6 +6,7 @@ $cos36deg: 0.8090169943749475;
 $cos45deg: 0.7071067811865476;
 $cos54deg: 0.5877852522924731;
 $sin36deg: 0.5877852522924731;
+$sin72deg: 0.9510565162951535;
 $tan36deg: 0.7265425280053608;
 
 .ShapeContainer {
@@ -20,9 +21,27 @@ $tan36deg: 0.7265425280053608;
   font-weight: bold;
 }
 
+@keyframes rotateClockwise {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@mixin rotateAnimation {
+  animation: rotateClockwise 5s linear infinite;
+  &:hover {
+    opacity: 1;
+  }
+}
+
 @mixin shape($color) {
   display: inline-block;
   background-color: $color;
+  @include rotateAnimation();
 }
 
 @mixin triangle {
@@ -65,18 +84,21 @@ $tan36deg: 0.7265425280053608;
 }
 
 @mixin parallelogram($width, $height, $color) {
+  @include shape($color);
   width: $width;
   height: $height;
   margin: 0 $height / $cos30deg / 4;
-  background-color: $color;
   transform: skew(-30deg);
 }
 
 @mixin sixPointsStar($sideDimension, $color) {
   $height: $sideDimension * $cos30deg;
+  $radius: $sideDimension / $cos30deg / 2;
   position: relative;
   margin-bottom: $height / 3;
+  @include shape($color);
   @include equilateralTriangle($height, bottom, $color);
+  transform-origin: 50% $radius;
 
   &::after {
     content: '';
@@ -88,32 +110,35 @@ $tan36deg: 0.7265425280053608;
 }
 
 @mixin fivePointsStar($sideDimension, $color) {
-  $height: $sideDimension * $tan36deg / 2;
-  $top: $sideDimension * $sin36deg / (2 * (1 + $cos36deg));
-  $bottom: $sideDimension * $cos54deg / (2 * (1 + $cos36deg));
+  $upperThird: $sideDimension * $tan36deg / 2;
+  $middleThird: $upperThird;
+  $lowerThird: $sideDimension * $sin72deg - $middleThird - $upperThird;
+  $radius: $sideDimension / $sin36deg / 2;
   position: relative;
-  margin: $top 0 $bottom;
-  @include isoscelesTriangle($height, $sideDimension, top, $color);
+  margin: $upperThird 0 $lowerThird;
+  @include shape($color);
+  @include isoscelesTriangle($middleThird, $sideDimension, top, $color);
+  transform-origin: 50% $radius - ($upperThird + $middleThird);
 
   &::before,
   &::after {
-    top: -50px;
+    top: -$middleThird - $upperThird;
     content: '';
     position: absolute;
   }
 
   &::before {
     left: 0;
-    @include isoscelesTriangle($height, $sideDimension, left, $color);
+    @include isoscelesTriangle($middleThird, $sideDimension, left, $color);
     transform: rotate(18deg);
-    transform-origin: 100% 0;
+    transform-origin: 0 0;
   }
 
   &::after {
-    left: -26px;
-    @include isoscelesTriangle($height, $sideDimension, right, $color);
+    left: -$middleThird;
+    @include isoscelesTriangle($middleThird, $sideDimension, right, $color);
     transform: rotate(-18deg);
-    transform-origin: 0 0;
+    transform-origin: 100% 0;
   }
 }
 
