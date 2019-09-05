@@ -238,7 +238,8 @@ $tan36deg: 0.7265425280053608;
 @mixin diamondSquare($sideDimension, $color) {
   $width: $sideDimension / $cos45deg;
   position: relative;
-  margin: ($width - $sideDimension) / 2 ($width + $sideDimension) / 2 ($width + $sideDimension) / 2 ($width - $sideDimension) / 2;
+  margin: ($width - $sideDimension) / 2 ($width + $sideDimension) / 2
+    ($width + $sideDimension) / 2 ($width - $sideDimension) / 2;
   transform-origin: $sideDimension / 2 $sideDimension / 2;
 
   &::after {
@@ -246,6 +247,56 @@ $tan36deg: 0.7265425280053608;
     position: absolute;
     @include square($sideDimension, $color);
     transform: rotate(45deg);
+  }
+}
+
+@mixin diamondShield($height, $color) {
+  $width: $height * 4/5 / $cos30deg;
+  position: relative;
+  margin-bottom: $height * 4/5;
+  @include isoscelesTriangle($height/5, $width, bottom, $color);
+  transform-origin: 50% $height / 2;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: -$width / 2;
+    top: $height/5;
+    @include isoscelesTriangle($height * 4/5, $width, top, $color);
+  }
+}
+
+@mixin diamondNarrow($sideDimension, $color) {
+  $height: $sideDimension * $cos30deg;
+  position: relative;
+  margin-bottom: $height;
+  @include equilateralTriangle($height, bottom, $color);
+  transform-origin: 50% $height;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: $height;
+    left: -$sideDimension / 2;
+    @include equilateralTriangle($height, top, $color);
+  }
+}
+
+@mixin cutDiamond($sideDimension, $color) {
+  $lowerHeight: $sideDimension * $cos30deg;
+  $upperHeight: $lowerHeight / 3.2;
+  $upperWidth: $sideDimension * 2 / 3;
+  position: relative;
+  margin-bottom: $lowerHeight;
+  @include trapezoid($upperWidth, $sideDimension, $upperHeight, $color);
+  transform-origin: 50% ($upperHeight + $lowerHeight) / 2;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: $upperHeight;
+    left: ($upperWidth - $sideDimension) / 2;
+    @include equilateralTriangle($lowerHeight, top, $color);
   }
 }
 
@@ -430,21 +481,17 @@ $tan36deg: 0.7265425280053608;
   @include diamondSquare($dimension, $shapeColor);
 }
 
-@mixin diamondShield($height, $color) {
-  $width: $height * 4/5 / $cos30deg;
-  position: relative;
-  margin-bottom: $height * 4/5;
-  @include isoscelesTriangle($height/5, $width, bottom, $color);
-
-  &::after {
-    content: '';
-    position: absolute;
-    left: -$width / 2;
-    top: $height/5;
-    @include isoscelesTriangle($height * 4/5, $width, top, $color);
-  }
+.diamondShield {
+  @include shape($shapeColor);
+  @include diamondShield($dimension, $shapeColor);
 }
 
-.diamondShield {
-  @include diamondShield($dimension, $shapeColor);
+.diamondNarrow {
+  @include shape($shapeColor);
+  @include diamondNarrow($dimension, $shapeColor);
+}
+
+.cutDiamond {
+  @include shape($shapeColor);
+  @include cutDiamond($dimension, $shapeColor);
 }
