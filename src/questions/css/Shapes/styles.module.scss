@@ -5,8 +5,9 @@ $cos30deg: 0.8660254037844386;
 $cos36deg: 0.8090169943749475;
 $cos45deg: 0.7071067811865476;
 $cos54deg: 0.5877852522924731;
+$sin18deg: 0.3090169943749474;
 $sin36deg: 0.5877852522924731;
-$sin72deg: 0.9510565162951535;
+$tan20deg: 0.36397023426620234;
 $tan36deg: 0.7265425280053608;
 
 .ShapeContainer {
@@ -44,6 +45,16 @@ $tan36deg: 0.7265425280053608;
   @include rotateAnimation();
 }
 
+@mixin rectangle($width, $height, $color) {
+  width: $width;
+  height: $height;
+  background-color: $color;
+}
+
+@mixin square($sideDimension, $color) {
+  @include rectangle($sideDimension, $sideDimension, $color);
+}
+
 @mixin triangle {
   width: 0;
   height: 0;
@@ -76,19 +87,37 @@ $tan36deg: 0.7265425280053608;
 }
 
 @mixin trapezoid($upperWidth, $lowerWidth, $height, $color) {
-  width: $upperWidth;
+  $borderWidth: abs(
+      $number: $upperWidth - $lowerWidth,
+    ) / 2;
+  @if $upperWidth < $lowerWidth {
+    width: $upperWidth;
+    border-bottom: $height solid $color;
+  } @else {
+    width: $lowerWidth;
+    border-top: $height solid $color;
+  }
   background-color: transparent;
-  border-bottom: $height solid $color;
-  border-left: ($lowerWidth - $upperWidth) / 2 solid transparent;
-  border-right: ($lowerWidth - $upperWidth) / 2 solid transparent;
+  border-left: $borderWidth solid transparent;
+  border-right: $borderWidth solid transparent;
 }
 
 @mixin parallelogram($width, $height, $color) {
-  @include shape($color);
-  width: $width;
-  height: $height;
-  margin: 0 $height / $cos30deg / 4;
-  transform: skew(-30deg);
+  $skewWidth: ($height * $tan20deg) / 2;
+  position: relative;
+  margin: 0 $width + $skewWidth $height $skewWidth;
+  transform-origin: $width / 2 $height / 2;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: $width;
+    height: $height;
+    background-color: $color;
+    transform: skew(-20deg);
+  }
 }
 
 @mixin sixPointsStar($sideDimension, $color) {
@@ -96,7 +125,6 @@ $tan36deg: 0.7265425280053608;
   $radius: $sideDimension / $cos30deg / 2;
   position: relative;
   margin-bottom: $height / 3;
-  @include shape($color);
   @include equilateralTriangle($height, bottom, $color);
   transform-origin: 50% $radius;
 
@@ -112,11 +140,10 @@ $tan36deg: 0.7265425280053608;
 @mixin fivePointsStar($sideDimension, $color) {
   $upperThird: $sideDimension * $tan36deg / 2;
   $middleThird: $upperThird;
-  $lowerThird: $sideDimension * $sin72deg - $middleThird - $upperThird;
+  $lowerThird: $sideDimension * $cos18deg - $middleThird - $upperThird;
   $radius: $sideDimension / $sin36deg / 2;
   position: relative;
   margin: $upperThird 0 $lowerThird;
-  @include shape($color);
   @include isoscelesTriangle($middleThird, $sideDimension, top, $color);
   transform-origin: 50% $radius - ($upperThird + $middleThird);
 
@@ -142,19 +169,99 @@ $tan36deg: 0.7265425280053608;
   }
 }
 
+@mixin pentagon($sideDimension, $color) {
+  $width: $sideDimension + 2 * $sideDimension * $sin18deg;
+  $height: $sideDimension * $cos18deg;
+  $top: $sideDimension * $sin36deg;
+  $radius: $sideDimension / 2 / $sin36deg;
+  position: relative;
+  margin-bottom: $height;
+  @include isoscelesTriangle($top, $width, bottom, $color);
+  transform-origin: 50% $radius;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: $top;
+    left: -$width / 2;
+    @include trapezoid($width, $sideDimension, $height, $color);
+  }
+}
+
+@mixin hexagon($sideDimension, $color) {
+  $width: $sideDimension * $cos30deg * 2;
+  position: relative;
+  margin: $sideDimension / 2 0;
+  @include rectangle($width, $sideDimension, $color);
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+  }
+
+  &::before {
+    top: -$sideDimension/2;
+    @include isoscelesTriangle($sideDimension / 2, $width, bottom, $color);
+  }
+
+  &::after {
+    top: $sideDimension;
+    @include isoscelesTriangle($sideDimension / 2, $width, top, $color);
+  }
+}
+
+@mixin octagon($sideDimension, $color) {
+  $sideBorder: $sideDimension * $cos45deg;
+  $width: $sideDimension + 2 * $sideBorder;
+  position: relative;
+  margin: $sideBorder 0;
+  @include rectangle($width, $sideDimension, $color);
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+  }
+
+  &::before {
+    top: -$sideBorder;
+    @include trapezoid($sideDimension, $width, $sideBorder, $color);
+  }
+
+  &::after {
+    top: $sideDimension;
+    @include trapezoid($width, $sideDimension, $sideBorder, $color);
+  }
+}
+
+@mixin diamondSquare($sideDimension, $color) {
+  $width: $sideDimension / $cos45deg;
+  position: relative;
+  margin: ($width - $sideDimension) / 2 ($width + $sideDimension) / 2 ($width + $sideDimension) / 2 ($width - $sideDimension) / 2;
+  transform-origin: $sideDimension / 2 $sideDimension / 2;
+
+  &::after {
+    content: '';
+    position: absolute;
+    @include square($sideDimension, $color);
+    transform: rotate(45deg);
+  }
+}
+
 .Shape {
   display: inline-block;
   background-color: $shapeColor;
 }
 
 .rectangle {
-  width: $dimension * 2;
-  height: $dimension;
+  @include shape($shapeColor);
+  @include rectangle($dimension * 1.4, $dimension, $shapeColor);
 }
 
 .square {
-  width: $dimension;
-  height: $dimension;
+  @include shape($shapeColor);
+  @include square($dimension, $shapeColor);
 }
 
 .circle {
@@ -230,119 +337,38 @@ $tan36deg: 0.7265425280053608;
 }
 
 .trapezoid {
-  @include trapezoid($dimension, $dimension * 2, $dimension, $shapeColor);
+  @include shape($shapeColor);
+  @include trapezoid($dimension, $dimension * 1.4, $dimension, $shapeColor);
 }
 
 .parallelogram {
-  @include parallelogram($dimension * 1.5, $dimension, $shapeColor);
+  @include shape($shapeColor);
+  @include parallelogram($dimension, $dimension, $shapeColor);
 }
 
 .sixPointsStar {
+  @include shape($shapeColor);
   @include sixPointsStar($dimension, $shapeColor);
 }
 
 .fivePointsStar {
+  @include shape($shapeColor);
   @include fivePointsStar($dimension, $shapeColor);
-  // position: relative;
-  // margin: 0 $dimension * 0.73 $dimension;
-  // @extend .triangle;
-  // border-bottom: $dimension * 0.8 solid $shapeColor;
-  // border-left: $dimension * 0.3 solid transparent;
-  // border-right: $dimension * 0.3 solid transparent;
-
-  // &::before,
-  // &::after {
-  //   content: '';
-  //   position: absolute;
-  //   top: $dimension * 7/12;
-  //   left: -$dimension;
-  //   @extend .triangle;
-  //   border-bottom: $dimension * 0.7 solid $shapeColor;
-  //   border-left: $dimension solid transparent;
-  //   border-right: $dimension solid transparent;
-  // }
-
-  // &::before {
-  //   transform: rotate(-35deg);
-  // }
-
-  // &::after {
-  //   transform: rotate(35deg);
-  // }
 }
 
 .pentagon {
-  position: relative;
-  margin-bottom: $dimension * $cos18deg;
-  @extend .triangle;
-  border-bottom: $dimension * $sin36deg solid $shapeColor;
-  border-left: $dimension * $cos36deg solid transparent;
-  border-right: $dimension * $cos36deg solid transparent;
-
-  &::after {
-    content: '';
-    position: absolute;
-    width: $dimension;
-    left: -$dimension * $cos36deg;
-    top: $dimension * $sin36deg;
-    background-color: transparent;
-    border-top: $dimension * $cos18deg solid $shapeColor;
-    border-left: $dimension * ($cos36deg - 0.5) solid transparent;
-    border-right: $dimension * ($cos36deg - 0.5) solid transparent;
-  }
+  @include shape($shapeColor);
+  @include pentagon($dimension, $shapeColor);
 }
 
 .hexagon {
-  position: relative;
-  width: $dimension * $cos30deg * 2;
-  height: $dimension;
-  margin: $dimension / 2 0;
-  background-color: $shapeColor;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    border-left: $dimension * $cos30deg solid transparent;
-    border-right: $dimension * $cos30deg solid transparent;
-  }
-
-  &::before {
-    top: -$dimension/2;
-    border-bottom: $dimension/2 solid $shapeColor;
-  }
-
-  &::after {
-    top: $dimension;
-    border-top: $dimension/2 solid $shapeColor;
-  }
+  @include shape($shapeColor);
+  @include hexagon($dimension, $shapeColor);
 }
 
 .octagon {
-  position: relative;
-  width: $dimension * (1 + 2 * $cos45deg);
-  height: $dimension;
-  margin: $dimension * $cos45deg 0;
-  background-color: $shapeColor;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    width: $dimension;
-    border-left: $dimension * $cos45deg solid transparent;
-    border-right: $dimension * $cos45deg solid transparent;
-  }
-
-  &::before {
-    top: -$dimension * $cos45deg;
-    border-bottom: $dimension * $cos45deg solid $shapeColor;
-  }
-
-  &::after {
-    top: $dimension;
-    border-top: $dimension * $cos45deg solid $shapeColor;
-  }
+  @include shape($shapeColor);
+  @include octagon($dimension, $shapeColor);
 }
 
 .heart {
@@ -399,15 +425,8 @@ $tan36deg: 0.7265425280053608;
   }
 }
 
-@mixin diamondSquare($height, $color) {
-  @include shape($color);
-  width: $height * $cos45deg;
-  height: $height * $cos45deg;
-  margin: $height * (1 - $cos45deg) / 2;
-  transform: rotate(45deg);
-}
-
 .diamondSquare {
+  @include shape($shapeColor);
   @include diamondSquare($dimension, $shapeColor);
 }
 
