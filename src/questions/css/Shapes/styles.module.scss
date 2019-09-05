@@ -9,6 +9,7 @@ $sin18deg: 0.3090169943749474;
 $sin36deg: 0.5877852522924731;
 $tan20deg: 0.36397023426620234;
 $tan36deg: 0.7265425280053608;
+$sqrt5: 2.23606797749979;
 
 .ShapeContainer {
   padding: 20px;
@@ -42,23 +43,31 @@ $tan36deg: 0.7265425280053608;
 @mixin shape($color) {
   display: inline-block;
   background-color: $color;
-  @include rotateAnimation();
+}
+
+@mixin emptyShape {
+  width: 0;
+  height: 0;
+  background-color: transparent;
 }
 
 @mixin rectangle($width, $height, $color) {
+  @include shape($color);
   width: $width;
   height: $height;
-  background-color: $color;
 }
 
 @mixin square($sideDimension, $color) {
   @include rectangle($sideDimension, $sideDimension, $color);
 }
 
-@mixin triangle {
-  width: 0;
-  height: 0;
-  background-color: transparent;
+@mixin oval($width, $height, $color) {
+  @include rectangle($width, $height, $color);
+  border-radius: 100%;
+}
+
+@mixin circle($diameter, $color) {
+  @include oval($diameter, $diameter, $color);
 }
 
 @mixin isoscelesTriangle($height, $width, $apex, $color) {
@@ -68,7 +77,7 @@ $tan36deg: 0.7265425280053608;
     left: top bottom,
     right: top bottom,
   );
-  @include triangle();
+  @include emptyShape();
   border-#{$apex}: $height solid $color;
   @each $side in map-get($map: $adjacentSides, $key: $apex) {
     border-#{$side}: $width/2 solid transparent;
@@ -81,7 +90,7 @@ $tan36deg: 0.7265425280053608;
 }
 
 @mixin rightAngledTriangle($height, $shownSide, $hiddenSide, $color) {
-  @include triangle();
+  @include emptyShape();
   border-#{$shownSide}: $height solid $color;
   border-#{$hiddenSide}: $height solid transparent;
 }
@@ -90,6 +99,7 @@ $tan36deg: 0.7265425280053608;
   $borderWidth: abs(
       $number: $upperWidth - $lowerWidth,
     ) / 2;
+  @include shape($color);
   @if $upperWidth < $lowerWidth {
     width: $upperWidth;
     border-bottom: $height solid $color;
@@ -103,6 +113,7 @@ $tan36deg: 0.7265425280053608;
 }
 
 @mixin parallelogram($width, $height, $color) {
+  @include emptyShape();
   $skewWidth: ($height * $tan20deg) / 2;
   position: relative;
   margin: 0 $width + $skewWidth $height $skewWidth;
@@ -237,6 +248,7 @@ $tan36deg: 0.7265425280053608;
 
 @mixin diamondSquare($sideDimension, $color) {
   $width: $sideDimension / $cos45deg;
+  @include emptyShape();
   position: relative;
   margin: ($width - $sideDimension) / 2 ($width + $sideDimension) / 2
     ($width + $sideDimension) / 2 ($width - $sideDimension) / 2;
@@ -300,37 +312,83 @@ $tan36deg: 0.7265425280053608;
   }
 }
 
-.Shape {
-  display: inline-block;
-  background-color: $shapeColor;
+@mixin egg($height, $isUpward, $color) {
+  $width: $height * 0.8;
+  @include shape($color);
+  width: $width;
+  height: $height;
+  @if $isUpward {
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  } @else {
+    border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+  }
+}
+
+@mixin pacman($diameter, $direction, $color) {
+  @include emptyShape();
+  border: $diameter / 2 solid $color;
+  border-#{$direction}-color: transparent;
+  border-radius: 50%;
+}
+
+@mixin talkBubble($width, $height, $color) {
+  $arrowHeight: 20px;
+  $borderRadius: 12px;
+  position: relative;
+  @include shape($color);
+  width: $width;
+  height: $height;
+  border-radius: $borderRadius;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: $height;
+    right: $borderRadius * 1.5;
+    @include equilateralTriangle($arrowHeight, top, $color);
+  }
+}
+
+@mixin twelvePointsBurst($sideDimension, $color) {
+  $margin: $sideDimension * $sqrt5 / (3 + $sqrt5) / 2;
+  position: relative;
+  margin: $margin;
+  @include square($sideDimension, $color);
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    @include square($sideDimension, $color);
+  }
+
+  &::before {
+    transform: rotate(-30deg);
+  }
+
+  &::after {
+    transform: rotate(30deg);
+  }
 }
 
 .rectangle {
-  @include shape($shapeColor);
+  @include rotateAnimation();
   @include rectangle($dimension * 1.4, $dimension, $shapeColor);
 }
 
 .square {
-  @include shape($shapeColor);
+  @include rotateAnimation();
   @include square($dimension, $shapeColor);
 }
 
-.circle {
-  width: $dimension;
-  height: $dimension;
-  border-radius: 50%;
-}
-
 .oval {
-  width: $dimension * 2;
-  height: $dimension;
-  border-radius: 50%;
+  @include rotateAnimation();
+  @include oval($dimension * 1.6, $dimension, $shapeColor);
 }
 
-.triangle {
-  width: 0;
-  height: 0;
-  background-color: transparent;
+.circle {
+  @include rotateAnimation();
+  @include circle($dimension, $shapeColor);
 }
 
 .triangleUp {
@@ -366,7 +424,7 @@ $tan36deg: 0.7265425280053608;
 }
 
 .curvedTailArrow {
-  @extend .triangle;
+  @include emptyShape();
   margin-left: $dimension;
   border-right: $dimension solid $shapeColor;
   border-top: $dimension solid transparent;
@@ -388,37 +446,37 @@ $tan36deg: 0.7265425280053608;
 }
 
 .trapezoid {
-  @include shape($shapeColor);
+  @include rotateAnimation();
   @include trapezoid($dimension, $dimension * 1.4, $dimension, $shapeColor);
 }
 
 .parallelogram {
-  @include shape($shapeColor);
+  @include rotateAnimation();
   @include parallelogram($dimension, $dimension, $shapeColor);
 }
 
 .sixPointsStar {
-  @include shape($shapeColor);
+  @include rotateAnimation();
   @include sixPointsStar($dimension, $shapeColor);
 }
 
 .fivePointsStar {
-  @include shape($shapeColor);
+  @include rotateAnimation();
   @include fivePointsStar($dimension, $shapeColor);
 }
 
 .pentagon {
-  @include shape($shapeColor);
+  @include rotateAnimation();
   @include pentagon($dimension, $shapeColor);
 }
 
 .hexagon {
-  @include shape($shapeColor);
+  @include rotateAnimation();
   @include hexagon($dimension, $shapeColor);
 }
 
 .octagon {
-  @include shape($shapeColor);
+  @include rotateAnimation();
   @include octagon($dimension, $shapeColor);
 }
 
@@ -477,21 +535,41 @@ $tan36deg: 0.7265425280053608;
 }
 
 .diamondSquare {
-  @include shape($shapeColor);
+  @include rotateAnimation();
   @include diamondSquare($dimension, $shapeColor);
 }
 
 .diamondShield {
-  @include shape($shapeColor);
+  @include rotateAnimation();
   @include diamondShield($dimension, $shapeColor);
 }
 
 .diamondNarrow {
-  @include shape($shapeColor);
+  @include rotateAnimation();
   @include diamondNarrow($dimension, $shapeColor);
 }
 
 .cutDiamond {
-  @include shape($shapeColor);
+  @include rotateAnimation();
   @include cutDiamond($dimension, $shapeColor);
+}
+
+.egg {
+  @include rotateAnimation();
+  @include egg($dimension, true, $shapeColor);
+}
+
+.pacman {
+  @include rotateAnimation();
+  @include pacman($dimension, right, $shapeColor);
+}
+
+.talkBubble {
+  @include rotateAnimation();
+  @include talkBubble($dimension * 1.4, $dimension, $shapeColor);
+}
+
+.twelvePointsBurst {
+  @include rotateAnimation();
+  @include twelvePointsBurst($dimension, $shapeColor);
 }

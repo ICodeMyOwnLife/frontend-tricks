@@ -6,10 +6,10 @@ import classes from './styles.module.scss';
 
 export const Shapes1Impl: FC = () => (
   <Question title="Shapes 1" questions={questions}>
-    <Shape name="Square" className={classes.square} />
     <Shape name="Rectangle" className={classes.rectangle} />
-    <Shape name="Circle" className={classes.circle} />
+    <Shape name="Square" className={classes.square} />
     <Shape name="Oval" className={classes.oval} />
+    <Shape name="Circle" className={classes.circle} />
     <Shape name="Triangle Up" className={classes.triangleUp} />
     <Shape name="Triangle Down" className={classes.triangleDown} />
     <Shape name="Triangle Left" className={classes.triangleLeft} />
@@ -35,6 +35,10 @@ export const Shapes1Impl: FC = () => (
     <Shape name="Diamond Shield" className={classes.diamondShield} />
     <Shape name="Diamond Narrow" className={classes.diamondNarrow} />
     <Shape name="Cut Diamond" className={classes.cutDiamond} />
+    <Shape name="Egg" className={classes.egg} />
+    <Shape name="Pac-Man" className={classes.pacman} />
+    <Shape name="Talk Bubble" className={classes.talkBubble} />
+    <Shape name="Twelve-Points Burst" className={classes.twelvePointsBurst} />
   </Question>
 );
 
