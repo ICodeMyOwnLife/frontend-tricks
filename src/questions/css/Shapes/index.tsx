@@ -24,8 +24,8 @@ export const Shapes1Impl: FC = () => (
     <Shape name="Curved Tail Arrow" className={classes.curvedTailArrow} />
     <Shape name="Trapezoid" className={classes.trapezoid} />
     <Shape name="Parallelogram" className={classes.parallelogram} />
-    <Shape name="Six-Points Star" className={classes.sixPointsStar} />
-    <Shape name="Five-Points Star" className={classes.fivePointsStar} />
+    <Shape name="6-Points Star" className={classes.sixPointsStar} />
+    <Shape name="5-Points Star" className={classes.fivePointsStar} />
     <Shape name="Pentagon" className={classes.pentagon} />
     <Shape name="Hexagon" className={classes.hexagon} />
     <Shape name="Octagon" className={classes.octagon} />
@@ -38,10 +38,18 @@ export const Shapes1Impl: FC = () => (
     <Shape name="Egg" className={classes.egg} />
     <Shape name="Pac-Man" className={classes.pacman} />
     <Shape name="Talk Bubble" className={classes.talkBubble} />
-    <Shape name="Twelve-Points Burst" className={classes.twelvePointsBurst} />
+    <Shape name="12-Points Burst" className={classes.twelvePointsBurst} />
+    <Shape name="8-Points Burst" className={classes.eightPointsBurst} />
+    <Shape name="Yin Yang" className={classes.yinYang} />
   </Question>
 );
 
 const Shapes1 = memo(Shapes1Impl);
 Shapes1.displayName = 'Shapes1';
 export default Shapes1;
+
+/**
+ * TODO:
+ * 1. hourglass
+ * 1. use clip-path to create more shape
+ */
