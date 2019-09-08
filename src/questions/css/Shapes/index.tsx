@@ -41,6 +41,9 @@ export const Shapes1Impl: FC = () => (
     <Shape name="12-Points Burst" className={classes.twelvePointsBurst} />
     <Shape name="8-Points Burst" className={classes.eightPointsBurst} />
     <Shape name="Yin Yang" className={classes.yinYang} />
+    <Shape name="Badge Ribbon" className={classes.badgeRibbon} />
+    <Shape name="Space Invader" className={classes.spaceInvader} />
+    <Shape name="TV Screen" className={classes.tvScreen} />
   </Question>
 );
 

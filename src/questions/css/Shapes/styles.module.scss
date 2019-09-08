@@ -1,6 +1,7 @@
-$colorPrimary: rgb(235, 65, 43);
+$colorPrimary: rgb(235, 222, 43);
 $colorSecondary: #fff;
 $dimension: 80px;
+$pixelWidth: 18px;
 $cos18deg: 0.9510565162951535;
 $cos30deg: 0.8660254037844386;
 $cos36deg: 0.8090169943749475;
@@ -24,20 +25,26 @@ $sqrt5: 2.23606797749979;
   font-weight: bold;
 }
 
-@keyframes rotateClockwise {
-  0% {
-    transform: rotate(0);
-  }
+@mixin rotateAnimations {
+  @each $axis in [X Y Z] {
+    @keyframes rotate#{$axis} {
+      0% {
+        transform: rotate#{$axis}#{'(0)'};
+      }
 
-  100% {
-    transform: rotate(360deg);
+      100% {
+        transform: rotate#{$axis}#{'(360deg)'};
+      }
+    }
   }
 }
 
-@mixin rotateAnimation {
-  animation: rotateClockwise 5s linear infinite;
-  opacity: 0.8;
+@mixin rotateAnimation($axis) {
+  opacity: 0.7;
+  animation: rotate#{$axis} 6s linear infinite;
 }
+
+@include rotateAnimations();
 
 @mixin shape($color) {
   display: inline-block;
@@ -85,7 +92,17 @@ $sqrt5: 2.23606797749979;
 
 @mixin equilateralTriangle($height, $apex, $color) {
   $width: $height / $cos30deg;
+  $radius: $height / (2 * $cos30deg * $cos30deg);
   @include isoscelesTriangle($height, $width, $apex, $color);
+  @if $apex == top {
+    transform-origin: $width / 2 $height - $radius;
+  } @else if $apex == bottom {
+    transform-origin: $width / 2 $radius;
+  } @else if $apex == right {
+    transform-origin: $radius $width / 2;
+  } @else if $apex == left {
+    transform-origin: $height - $radius $width / 2;
+  }
 }
 
 @mixin rightAngledTriangle($height, $shownSide, $hiddenSide, $color) {
@@ -112,9 +129,10 @@ $sqrt5: 2.23606797749979;
 }
 
 @mixin parallelogram($width, $height, $color) {
-  @include emptyShape();
   $skewWidth: ($height * $tan20deg) / 2;
+  @include emptyShape();
   position: relative;
+  display: inline-block;
   margin: 0 $width + $skewWidth $height $skewWidth;
   transform-origin: $width / 2 $height / 2;
 
@@ -245,6 +263,38 @@ $sqrt5: 2.23606797749979;
   }
 }
 
+@mixin heart($height, $color) {
+  $halfWidth: $height * 5/8;
+  @include emptyShape();
+  position: relative;
+  display: inline-block;
+  margin: $height * 0.0375 $height * 1.25 $height * 1.0375 0;
+  transform-origin: $halfWidth;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: $halfWidth;
+    height: $height;
+    top: 0;
+    background-color: $color;
+    border-radius: $halfWidth $halfWidth 0 0;
+  }
+
+  &::before {
+    left: $halfWidth;
+    transform-origin: 0 100%;
+    transform: rotate(-45deg);
+  }
+
+  &::after {
+    left: 0;
+    transform-origin: 100% 100%;
+    transform: rotate(45deg);
+  }
+}
+
 @mixin diamondSquare($sideDimension, $color) {
   $width: $sideDimension / $cos45deg;
   @include emptyShape();
@@ -333,8 +383,8 @@ $sqrt5: 2.23606797749979;
 @mixin talkBubble($width, $height, $color) {
   $arrowHeight: 20px;
   $borderRadius: 12px;
-  position: relative;
   @include shape($color);
+  position: relative;
   width: $width;
   height: $height;
   border-radius: $borderRadius;
@@ -343,7 +393,7 @@ $sqrt5: 2.23606797749979;
     content: '';
     position: absolute;
     top: $height;
-    right: $borderRadius * 1.5;
+    right: $width / 4;
     @include equilateralTriangle($arrowHeight, top, $color);
   }
 }
@@ -386,8 +436,8 @@ $sqrt5: 2.23606797749979;
 
 @mixin yinYang($diameter, $color1, $color2) {
   $borderWidth: 2px;
-  $innerDiameter: $diameter / 6;
-  $innerBorderWidth: ($diameter - 2 * $borderWidth - $innerDiameter) / 4;
+  $innerDiameter: $diameter / 8;
+  $innerBorderWidth: ($diameter / 2 - $innerDiameter) / 2;
   $top: ($diameter - ($innerDiameter + 2 * $innerBorderWidth)) / 2;
   @include shape($color1);
   position: relative;
@@ -406,53 +456,131 @@ $sqrt5: 2.23606797749979;
   }
 
   &::before {
-    @include circle($innerDiameter, $color1);
+    @include circle($innerDiameter, $color2);
     top: $top;
     left: 0;
-    border: $innerBorderWidth solid $color2;
+    border: $innerBorderWidth solid $color1;
   }
 
   &::after {
-    @include circle($innerDiameter, $color2);
-    top: 0;
-    right: 2px;
-    border: $innerBorderWidth solid $color1;
+    @include circle($innerDiameter, $color1);
+    top: $top;
+    right: 0;
+    border: $innerBorderWidth solid $color2;
+  }
+}
+
+@mixin badgeRibbon($diameter, $color) {
+  $triangleHeight: $diameter * 0.7;
+  $triangleWidth: $diameter * 0.8;
+  $bottom: $diameter * 0.28;
+  @include circle($diameter, $color);
+  position: relative;
+  margin-bottom: $bottom;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: $diameter / 2;
+  }
+
+  &::before {
+    @include isoscelesTriangle($triangleHeight, $triangleWidth, left, $color);
+    left: $diameter / 4;
+    transform: rotate(12deg);
+    transform-origin: 0 0;
+  }
+
+  &::after {
+    @include isoscelesTriangle($triangleHeight, $triangleWidth, right, $color);
+    right: $diameter / 4;
+    transform: rotate(-12deg);
+    transform-origin: 100% 0;
+  }
+}
+
+@mixin spaceInvader($pixel, $color) {
+  @include shape($color);
+  margin: $pixel * 3 $pixel * 5 $pixel * 4;
+  box-shadow: 0 0 0 1 * $pixel $color, 0 1 * $pixel 0 1 * $pixel $color,
+    -2.5 * $pixel 1.5 * $pixel 0 0.5 * $pixel $color,
+    2.5 * $pixel 1.5 * $pixel 0 0.5 * $pixel $color,
+    -3 * $pixel -3 * $pixel 0 0 $color, 3 * $pixel -3 * $pixel 0 0 $color,
+    -2 * $pixel -2 * $pixel 0 0 $color, 2 * $pixel -2 * $pixel 0 0 $color,
+    -3 * $pixel -1 * $pixel 0 0 $color, -2 * $pixel -1 * $pixel 0 0 $color,
+    2 * $pixel -1 * $pixel 0 0 $color, 3 * $pixel -1 * $pixel 0 0 $color,
+    -4 * $pixel 0 0 0 $color, -3 * $pixel 0 0 0 $color, 3 * $pixel 0 0 0 $color,
+    4 * $pixel 0 0 0 $color, -5 * $pixel 1 * $pixel 0 0 $color,
+    -4 * $pixel 1 * $pixel 0 0 $color, 4 * $pixel 1 * $pixel 0 0 $color,
+    5 * $pixel 1 * $pixel 0 0 $color, -5 * $pixel 2 * $pixel 0 0 $color,
+    5 * $pixel 2 * $pixel 0 0 $color, -5 * $pixel 3 * $pixel 0 0 $color,
+    -3 * $pixel 3 * $pixel 0 0 $color, 3 * $pixel 3 * $pixel 0 0 $color,
+    5 * $pixel 3 * $pixel 0 0 $color, -2 * $pixel 4 * $pixel 0 0 $color,
+    -1 * $pixel 4 * $pixel 0 0 $color, 1 * $pixel 4 * $pixel 0 0 $color,
+    2 * $pixel 4 * $pixel 0 0 $color;
+  width: 1 * $pixel;
+  height: 1 * $pixel;
+}
+
+@mixin tvScreen($height, $color) {
+  $width: $height * 4/3;
+  @include shape($color);
+  position: relative;
+  margin: 0 $height / 15;
+  width: $width;
+  height: $height;
+  border-radius: 50% / 10%;
+
+  &::after {
+    @include shape($color);
+    content: '';
+    position: absolute;
+    top: 10%;
+    bottom: 10%;
+    left: -5%;
+    right: -5%;
+    border-radius: 5% / 50%;
   }
 }
 
 .rectangle {
-  @include rotateAnimation();
+  @include rotateAnimation(Y);
   @include rectangle($dimension * 1.4, $dimension, $colorPrimary);
 }
 
 .square {
-  @include rotateAnimation();
+  @include rotateAnimation(Z);
   @include square($dimension, $colorPrimary);
 }
 
 .oval {
-  @include rotateAnimation();
+  @include rotateAnimation(Y);
   @include oval($dimension * 1.6, $dimension, $colorPrimary);
 }
 
 .circle {
-  @include rotateAnimation();
+  @include rotateAnimation(Z);
   @include circle($dimension, $colorPrimary);
 }
 
 .triangleUp {
+  @include rotateAnimation(Z);
   @include equilateralTriangle($dimension, bottom, $colorPrimary);
 }
 
 .triangleDown {
+  @include rotateAnimation(Z);
   @include equilateralTriangle($dimension, top, $colorPrimary);
 }
 
 .triangleLeft {
+  @include rotateAnimation(Z);
   @include equilateralTriangle($dimension, right, $colorPrimary);
 }
 
 .triangleRight {
+  @include rotateAnimation(Z);
   @include equilateralTriangle($dimension, left, $colorPrimary);
 }
 
@@ -495,66 +623,43 @@ $sqrt5: 2.23606797749979;
 }
 
 .trapezoid {
-  @include rotateAnimation();
+  @include rotateAnimation(Y);
   @include trapezoid($dimension, $dimension * 1.4, $dimension, $colorPrimary);
 }
 
 .parallelogram {
-  @include rotateAnimation();
+  @include rotateAnimation(Y);
   @include parallelogram($dimension, $dimension, $colorPrimary);
 }
 
 .sixPointsStar {
-  @include rotateAnimation();
+  @include rotateAnimation(Z);
   @include sixPointsStar($dimension, $colorPrimary);
 }
 
 .fivePointsStar {
-  @include rotateAnimation();
+  @include rotateAnimation(Z);
   @include fivePointsStar($dimension, $colorPrimary);
 }
 
 .pentagon {
-  @include rotateAnimation();
+  @include rotateAnimation(Z);
   @include pentagon($dimension, $colorPrimary);
 }
 
 .hexagon {
-  @include rotateAnimation();
+  @include rotateAnimation(Z);
   @include hexagon($dimension, $colorPrimary);
 }
 
 .octagon {
-  @include rotateAnimation();
+  @include rotateAnimation(Z);
   @include octagon($dimension, $colorPrimary);
 }
 
 .heart {
-  position: relative;
-  margin: $dimension * 0.0375 $dimension * 1.25 $dimension * 1.0375 0;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    width: $dimension * 5/8;
-    height: $dimension;
-    top: 0;
-    background-color: $colorPrimary;
-    border-radius: $dimension * 5/8 $dimension * 5/8 0 0;
-  }
-
-  &::before {
-    left: $dimension * 5/8;
-    transform-origin: 0 100%;
-    transform: rotate(-45deg);
-  }
-
-  &::after {
-    left: 0;
-    transform-origin: 100% 100%;
-    transform: rotate(45deg);
-  }
+  @include rotateAnimation(Y);
+  @include heart($dimension, $colorPrimary);
 }
 
 .infinity {
@@ -584,51 +689,66 @@ $sqrt5: 2.23606797749979;
 }
 
 .diamondSquare {
-  @include rotateAnimation();
+  @include rotateAnimation(Y);
   @include diamondSquare($dimension, $colorPrimary);
 }
 
 .diamondShield {
-  @include rotateAnimation();
+  @include rotateAnimation(Y);
   @include diamondShield($dimension, $colorPrimary);
 }
 
 .diamondNarrow {
-  @include rotateAnimation();
+  @include rotateAnimation(Y);
   @include diamondNarrow($dimension, $colorPrimary);
 }
 
 .cutDiamond {
-  @include rotateAnimation();
+  @include rotateAnimation(Y);
   @include cutDiamond($dimension, $colorPrimary);
 }
 
 .egg {
-  @include rotateAnimation();
+  @include rotateAnimation(Y);
   @include egg($dimension, true, $colorPrimary);
 }
 
 .pacman {
-  @include rotateAnimation();
+  @include rotateAnimation(Z);
   @include pacman($dimension, right, $colorPrimary);
 }
 
 .talkBubble {
-  @include rotateAnimation();
+  @include rotateAnimation(Y);
   @include talkBubble($dimension * 1.4, $dimension, $colorPrimary);
 }
 
 .twelvePointsBurst {
-  @include rotateAnimation();
+  @include rotateAnimation(Z);
   @include twelvePointsBurst($dimension, $colorPrimary);
 }
 
 .eightPointsBurst {
-  @include rotateAnimation();
+  @include rotateAnimation(Z);
   @include eightPointsBurst($dimension, $colorPrimary);
 }
 
 .yinYang {
-  // @include rotateAnimation();
+  @include rotateAnimation(Z);
   @include yinYang($dimension, $colorPrimary, $colorSecondary);
+}
+
+.badgeRibbon {
+  @include rotateAnimation(Y);
+  @include badgeRibbon($dimension, $colorPrimary);
+}
+
+.spaceInvader {
+  @include rotateAnimation(Y);
+  @include spaceInvader($pixelWidth, $colorPrimary);
+}
+
+.tvScreen {
+  @include rotateAnimation(Y);
+  @include tvScreen($dimension, $colorPrimary);
 }
