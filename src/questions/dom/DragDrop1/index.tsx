@@ -20,21 +20,23 @@ export const DragDrop1Impl: FC = () => {
 
   return (
     <Question title="Drag Drop 1" questions={questions}>
-      <p draggable onDragStart={handleDragStart}>
-        This is text
-      </p>
+      <div className={classes.Text} draggable onDragStart={handleDragStart}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique
+        mollis risus eget suscipit.
+      </div>
 
-      <img src={imgSrc} alt="Bee" />
+      <img className={classes.Image} src={imgSrc} alt="Bee" />
 
       <DropTarget onDrop={handleDrop} />
 
       {dragData && (
-        <div className={classes.List}>
+        <div className={classes.DragData}>
           <p>
             <b>Drop Effect:</b> {dragData.dropEffect}
+          </p>
+          <p>
             <b>Effect Allowed:</b> {dragData.effectAllowed}
           </p>
-
           {dragData.data.map((itemData, itemDataIndex) => (
             <ItemDataViewer
               key={itemDataIndex}

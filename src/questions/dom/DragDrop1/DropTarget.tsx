@@ -54,7 +54,10 @@ export const DropTargetImpl: FC<DropTargetProps> = ({ onDrop }) => {
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
-    />
+    >
+      <h4>DRAG AND DROP HERE</h4>
+      <p>(text, link, image, file, ...)</p>
+    </div>
   );
 };
 

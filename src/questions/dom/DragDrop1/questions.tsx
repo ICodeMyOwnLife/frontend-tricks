@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { QuestionInfo } from 'components/Question';
 import Code from 'components/Code';
@@ -9,14 +10,16 @@ const questions: QuestionInfo[] = [
       <div>
         <ol>
           <li>
-            Set the <code>draggable=&quote;true&quote;</code> on the element
-            that you wish to make draggable.
+            Set the <code>draggable="true"</code> on the element that you wish
+            to make draggable.
           </li>
           <li>
             Add a listener for the <code>dragstart</code> event.
           </li>
           <li>Set the drag data in the above listener.</li>
         </ol>
+
+        <p>Links and images are draggable by default.</p>
 
         <Code language="tsx">
           {`const handleDragStart = (e: DragEvent<HTMLElement>) => {
@@ -89,12 +92,33 @@ export const DropTargetImpl: FC<DropTargetProps> = ({ onDrop }) => {
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
-    />
+    >
+      <h4>DRAG AND DROP HERE</h4>
+      <p>(text, link, image, file, ...)</p>
+    </div>
   );
 };`}
         </Code>
       </div>
     ),
+    references: [
+      {
+        name: `[MDN] draggable`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/draggable`,
+      },
+      {
+        name: `[MDN] HTML Drag and Drop API`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API`,
+      },
+      {
+        name: `[MDN] Drag Operations`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations`,
+      },
+      {
+        name: `[MDN] Recommended Drag Types`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/Recommended_drag_types`,
+      },
+    ],
   },
 ];
 

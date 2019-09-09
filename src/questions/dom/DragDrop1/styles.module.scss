@@ -1,24 +1,67 @@
+.Text {
+  margin-bottom: 20px;
+  padding: 12px;
+  color: #cacaca;
+  background-color: #333;
+  border: 1px solid lightgray;
+}
+
+.Image {
+  width: 240px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  background-color: #fffff5;
+  border: 1px solid #ffafaf;
+}
+
 .DropTarget {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 120px;
-  border: 1px solid rgb(218, 216, 130);
+  color: rgb(132, 187, 22);
+  border: 2px solid rgb(218, 216, 130);
+  transition: 300ms all ease;
 
   &.dragging {
+    color: rgb(72, 109, 0);
     background-color: rgb(255, 255, 242);
     border-color: rgb(190, 188, 27);
     border-style: dashed;
   }
+
+  h4 {
+    margin: 0 0 6px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 14px;
+    margin: 0;
+  }
 }
 
-.List {
+.DragData {
   margin: 0;
-  padding: 0;
-}
-
-.ItemDataViewer {
   padding: 20px;
 
   p {
-    margin: 0 0 4px 0;
+    margin: 0 0 8px;
+  }
+
+  b {
+    font-weight: 600;
+  }
+}
+
+.ItemDataViewer {
+  h4 {
+    margin: 20px 0 12px;
+  }
+  p {
+    margin: 0 0 4px;
   }
 }
