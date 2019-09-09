@@ -24,6 +24,11 @@ const routes: RouteInfo[] = [
     path: 'live-edit',
     component: lazy(() => import('questions/dom/LiveEdit1')),
   },
+  {
+    name: 'Drag Drop',
+    path: 'drag-drop',
+    component: lazy(() => import('questions/dom/DragDrop1')),
+  },
 ];
 
 export const DomTricksImpl: FC<HtmlTricksProps> = ({ match: { url } }) => (
