@@ -1,9 +1,40 @@
+import React from 'react';
 import { QuestionInfo } from 'components/Question';
+import Code from 'components/Code';
 
 const questions: QuestionInfo[] = [
   {
-    question: `How to live edit an element?`,
-    answer: null,
+    question: `How to live edit elements and styles?`,
+    answer: (
+      <div>
+        <p>
+          Set the <code>contenteditable</code> attribute on nearly any HTML
+          element to make it editable
+        </p>
+        <Code language="html">
+          {`<div class="EditableText" contenteditable="true">
+  <p>Lorem ipsum dolor sit amet ...</p>
+</div>`}
+        </Code>
+        <p>
+          For <code>style</code> tag, we have to make it appear using{' '}
+          <code>display: block</code>
+        </p>
+        <Code language="scss">
+          {`.StyleEditor {
+  display: block;
+  padding: 20px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ecffca;
+  background-color: black;
+  white-space: pre;
+  caret-color: aquamarine;
+}`}
+        </Code>
+      </div>
+    ),
     references: [
       {
         name: `[MDN] contenteditable`,
