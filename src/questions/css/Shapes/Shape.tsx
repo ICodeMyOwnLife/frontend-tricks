@@ -1,11 +1,8 @@
 import React, { FC, memo } from 'react';
 import classes from './styles.module.scss';
 
-export const ShapeImpl: FC<ShapeProps> = ({ name, className }) => (
-  <div className={classes.ShapeContainer}>
-    <h4 className={classes.Title}>{name}</h4>
-    <div className={className} />
-  </div>
+export const ShapeImpl: FC<ShapeProps> = ({ type }) => (
+  <div className={classes[type]} />
 );
 
 const Shape = memo(ShapeImpl);
@@ -13,6 +10,44 @@ Shape.displayName = 'Shape';
 export default Shape;
 
 export interface ShapeProps {
-  name: string;
-  className?: string;
+  type: ShapeType;
 }
+
+export type ShapeType =
+  | 'rectangle'
+  | 'square'
+  | 'oval'
+  | 'circle'
+  | 'triangleUp'
+  | 'triangleDown'
+  | 'triangleLeft'
+  | 'triangleRight'
+  | 'triangleTopLeft'
+  | 'triangleTopRight'
+  | 'triangleBottomLeft'
+  | 'triangleBottomRight'
+  | 'curvedTailArrow'
+  | 'trapezoid'
+  | 'parallelogram'
+  | 'sixPointsStar'
+  | 'fivePointsStar'
+  | 'pentagon'
+  | 'hexagon'
+  | 'octagon'
+  | 'heart'
+  | 'infinity'
+  | 'diamondSquare'
+  | 'diamondShield'
+  | 'diamondNarrow'
+  | 'cutDiamond'
+  | 'egg'
+  | 'pacman'
+  | 'talkBubble'
+  | 'twelvePointsBurst'
+  | 'eightPointsBurst'
+  | 'yinYang'
+  | 'badgeRibbon'
+  | 'spaceInvader'
+  | 'tvScreen'
+  | 'chevron'
+  | 'magnifyingGlass';

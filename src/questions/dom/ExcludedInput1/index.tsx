@@ -24,11 +24,11 @@ const questions: QuestionInfo[] = [
     ),
     references: [
       {
-        name: `[stack overflow] Stop an input field in a form from being submitted`,
+        name: `[Stack Overflow] Stop an input field in a form from being submitted`,
         url: `https://stackoverflow.com/questions/3008035/stop-an-input-field-in-a-form-from-being-submitted`,
       },
       {
-        name: `[stack overflow] How do I exclude certain form fields upon submission of the form without disabling the field`,
+        name: `[Stack Overflow] How do I exclude certain form fields upon submission of the form without disabling the field`,
         url: `https://stackoverflow.com/questions/4869987/how-do-i-exclude-certain-form-fields-upon-submission-of-the-form-without-disabli/20877611`,
       },
     ],
@@ -76,11 +76,11 @@ console.log(searchParams.toString());`}
         url: `https://api.jquery.com/serializeArray/`,
       },
       {
-        name: `[stack overflow] How can I get form data with JavaScript/jQuery?`,
+        name: `[Stack Overflow] How can I get form data with JavaScript/jQuery?`,
         url: `https://stackoverflow.com/questions/2276463/how-can-i-get-form-data-with-javascript-jquery`,
       },
       {
-        name: `[stack overflow] JavaScript - Getting HTML form values`,
+        name: `[Stack Overflow] JavaScript - Getting HTML form values`,
         url: `https://stackoverflow.com/questions/3547035/javascript-getting-html-form-values`,
       },
     ],

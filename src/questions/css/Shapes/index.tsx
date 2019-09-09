@@ -1,49 +1,47 @@
 import React, { FC, memo } from 'react';
 import Question from 'components/Question';
-import Shape from './Shape';
+import ShapeContainer from './ShapeContainer';
 import questions from './questions';
-import classes from './styles.module.scss';
 
 export const Shapes1Impl: FC = () => (
   <Question title="Shapes 1" questions={questions}>
-    <Shape name="Rectangle" className={classes.rectangle} />
-    <Shape name="Square" className={classes.square} />
-    <Shape name="Oval" className={classes.oval} />
-    <Shape name="Circle" className={classes.circle} />
-    <Shape name="Triangle Up" className={classes.triangleUp} />
-    <Shape name="Triangle Down" className={classes.triangleDown} />
-    <Shape name="Triangle Left" className={classes.triangleLeft} />
-    <Shape name="Triangle Right" className={classes.triangleRight} />
-    <Shape name="Triangle Top Left" className={classes.triangleTopLeft} />
-    <Shape name="Triangle Top Right" className={classes.triangleTopRight} />
-    <Shape name="Triangle Bottom Left" className={classes.triangleBottomLeft} />
-    <Shape
-      name="Triangle Bottom Right"
-      className={classes.triangleBottomRight}
-    />
-    <Shape name="Curved Tail Arrow" className={classes.curvedTailArrow} />
-    <Shape name="Trapezoid" className={classes.trapezoid} />
-    <Shape name="Parallelogram" className={classes.parallelogram} />
-    <Shape name="6-Points Star" className={classes.sixPointsStar} />
-    <Shape name="5-Points Star" className={classes.fivePointsStar} />
-    <Shape name="Pentagon" className={classes.pentagon} />
-    <Shape name="Hexagon" className={classes.hexagon} />
-    <Shape name="Octagon" className={classes.octagon} />
-    <Shape name="Heart" className={classes.heart} />
-    <Shape name="Infinity" className={classes.infinity} />
-    <Shape name="Diamond Square" className={classes.diamondSquare} />
-    <Shape name="Diamond Shield" className={classes.diamondShield} />
-    <Shape name="Diamond Narrow" className={classes.diamondNarrow} />
-    <Shape name="Cut Diamond" className={classes.cutDiamond} />
-    <Shape name="Egg" className={classes.egg} />
-    <Shape name="Pac-Man" className={classes.pacman} />
-    <Shape name="Talk Bubble" className={classes.talkBubble} />
-    <Shape name="12-Points Burst" className={classes.twelvePointsBurst} />
-    <Shape name="8-Points Burst" className={classes.eightPointsBurst} />
-    <Shape name="Yin Yang" className={classes.yinYang} />
-    <Shape name="Badge Ribbon" className={classes.badgeRibbon} />
-    <Shape name="Space Invader" className={classes.spaceInvader} />
-    <Shape name="TV Screen" className={classes.tvScreen} />
+    <ShapeContainer name="Rectangle" type="rectangle" />
+    <ShapeContainer name="Square" type="square" />
+    <ShapeContainer name="Oval" type="oval" />
+    <ShapeContainer name="Circle" type="circle" />
+    <ShapeContainer name="Triangle Up" type="triangleUp" />
+    <ShapeContainer name="Triangle Down" type="triangleDown" />
+    <ShapeContainer name="Triangle Left" type="triangleLeft" />
+    <ShapeContainer name="Triangle Right" type="triangleRight" />
+    <ShapeContainer name="Triangle Top Left" type="triangleTopLeft" />
+    <ShapeContainer name="Triangle Top Right" type="triangleTopRight" />
+    <ShapeContainer name="Triangle Bottom Left" type="triangleBottomLeft" />
+    <ShapeContainer name="Triangle Bottom Right" type="triangleBottomRight" />
+    <ShapeContainer name="Curved Tail Arrow" type="curvedTailArrow" />
+    <ShapeContainer name="Trapezoid" type="trapezoid" />
+    <ShapeContainer name="Parallelogram" type="parallelogram" />
+    <ShapeContainer name="6-Points Star" type="sixPointsStar" />
+    <ShapeContainer name="5-Points Star" type="fivePointsStar" />
+    <ShapeContainer name="Pentagon" type="pentagon" />
+    <ShapeContainer name="Hexagon" type="hexagon" />
+    <ShapeContainer name="Octagon" type="octagon" />
+    <ShapeContainer name="Heart" type="heart" />
+    <ShapeContainer name="Infinity" type="infinity" />
+    <ShapeContainer name="Diamond Square" type="diamondSquare" />
+    <ShapeContainer name="Diamond Shield" type="diamondShield" />
+    <ShapeContainer name="Diamond Narrow" type="diamondNarrow" />
+    <ShapeContainer name="Cut Diamond" type="cutDiamond" />
+    <ShapeContainer name="Egg" type="egg" />
+    <ShapeContainer name="Pac-Man" type="pacman" />
+    <ShapeContainer name="Talk Bubble" type="talkBubble" />
+    <ShapeContainer name="12-Points Burst" type="twelvePointsBurst" />
+    <ShapeContainer name="8-Points Burst" type="eightPointsBurst" />
+    <ShapeContainer name="Yin Yang" type="yinYang" />
+    <ShapeContainer name="Badge Ribbon" type="badgeRibbon" />
+    <ShapeContainer name="Space Invader" type="spaceInvader" />
+    <ShapeContainer name="TV Screen" type="tvScreen" />
+    <ShapeContainer name="Chevron" type="chevron" />
+    <ShapeContainer name="Magnifying Glass" type="magnifyingGlass" />
   </Question>
 );
 

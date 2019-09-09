@@ -19,6 +19,11 @@ const routes: RouteInfo[] = [
     path: 'file-input',
     component: lazy(() => import('questions/dom/FileInput1')),
   },
+  {
+    name: 'Live Edit',
+    path: 'live-edit',
+    component: lazy(() => import('questions/dom/LiveEdit1')),
+  },
 ];
 
 export const DomTricksImpl: FC<HtmlTricksProps> = ({ match: { url } }) => (

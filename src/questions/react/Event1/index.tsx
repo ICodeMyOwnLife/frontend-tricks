@@ -122,7 +122,7 @@ element.addEventListener('click', handleClick);`}
     ),
     references: [
       {
-        name: `[stack overflow] ReactJS SyntheticEvent stopPropagation() only works with React events`,
+        name: `[Stack Overflow] ReactJS SyntheticEvent stopPropagation() only works with React events`,
         url: `https://stackoverflow.com/questions/24415631/reactjs-syntheticevent-stoppropagation-only-works-with-react-events`,
       },
     ],

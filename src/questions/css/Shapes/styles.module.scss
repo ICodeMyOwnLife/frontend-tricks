@@ -1,6 +1,6 @@
 $colorPrimary: rgb(235, 222, 43);
 $colorSecondary: #fff;
-$dimension: 80px;
+$dimension: 60px;
 $pixelWidth: 18px;
 $cos18deg: 0.9510565162951535;
 $cos30deg: 0.8660254037844386;
@@ -9,9 +9,18 @@ $cos45deg: 0.7071067811865476;
 $cos54deg: 0.5877852522924731;
 $sin18deg: 0.3090169943749474;
 $sin36deg: 0.5877852522924731;
+$tan10deg: 0.17632698070846498;
 $tan20deg: 0.36397023426620234;
 $tan36deg: 0.7265425280053608;
 $sqrt5: 2.23606797749979;
+
+.StyleEditor {
+  display: block;
+  color: rgb(246, 255, 235);
+  background-color: black;
+  white-space: pre;
+  caret-color: rgb(142, 255, 176);
+}
 
 .ShapeContainer {
   padding: 20px;
@@ -544,6 +553,64 @@ $sqrt5: 2.23606797749979;
   }
 }
 
+@mixin chevron($height, $color) {
+  $width: $height * 1.3;
+  $skewAngle: 10deg;
+  $skewHeight: $width * $tan10deg / 2;
+  @include emptyShape();
+  position: relative;
+  display: inline-block;
+  margin: $skewHeight $width * 2 $height + $skewHeight 0;
+  transform-origin: $width 0;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: $width;
+    height: $height;
+    top: $skewHeight;
+    background-color: $color;
+  }
+
+  &::before {
+    left: 0;
+    transform-origin: 100% 0;
+    transform: skewY($skewAngle);
+  }
+
+  &::after {
+    left: $width;
+    transform-origin: 0 0;
+    transform: skewY(-$skewAngle);
+  }
+}
+
+@mixin magnifyingGlass($diameter, $color) {
+  $thickness: $diameter / 5;
+  $innerDiameter: $diameter - 2 * $thickness;
+  $handleLength: $diameter / 2 + $thickness;
+  $margin: $diameter * 0.275;
+  @include emptyShape();
+  position: relative;
+  display: inline-block;
+  width: $innerDiameter;
+  height: $innerDiameter;
+  margin: 0 $margin $margin 0;
+  border: $thickness solid $color;
+  border-radius: 50%;
+
+  &::after {
+    @include rectangle($handleLength, $thickness, $color);
+    content: '';
+    position: absolute;
+    left: $diameter - 2 * $thickness;
+    top: ($diameter - 3 * $thickness) / 2;
+    transform-origin: -($diameter / 2 - $thickness) $thickness / 2;
+    transform: rotateZ(45deg);
+  }
+}
+
 .rectangle {
   @include rotateAnimation(Y);
   @include rectangle($dimension * 1.4, $dimension, $colorPrimary);
@@ -751,4 +818,13 @@ $sqrt5: 2.23606797749979;
 .tvScreen {
   @include rotateAnimation(Y);
   @include tvScreen($dimension, $colorPrimary);
+}
+
+.chevron {
+  @include rotateAnimation(Y);
+  @include chevron($dimension, $colorPrimary);
+}
+
+.magnifyingGlass {
+  @include magnifyingGlass($dimension, $colorPrimary);
 }

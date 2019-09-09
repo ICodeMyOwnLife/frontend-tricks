@@ -27,11 +27,11 @@ const questions: QuestionInfo[] = [
         url: `https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-download`,
       },
       {
-        name: `[stack overflow] how to download file using anchor tag <a>`,
+        name: `[Stack Overflow] how to download file using anchor tag <a>`,
         url: `https://stackoverflow.com/questions/21607309/how-to-download-file-using-anchor-tag-a`,
       },
       {
-        name: `[stack overflow] How can I create download link in HTML?`,
+        name: `[Stack Overflow] How can I create download link in HTML?`,
         url: `https://stackoverflow.com/questions/2793751/how-can-i-create-download-link-in-html`,
       },
     ],
@@ -78,11 +78,11 @@ const questions: QuestionInfo[] = [
     ),
     references: [
       {
-        name: `[stack overflow] download file using an ajax request`,
+        name: `[Stack Overflow] download file using an ajax request`,
         url: `https://stackoverflow.com/questions/20830309/download-file-using-an-ajax-request`,
       },
       {
-        name: `[stack overflow] Download a file by jQuery.Ajax`,
+        name: `[Stack Overflow] Download a file by jQuery.Ajax`,
         url: `https://stackoverflow.com/questions/4545311/download-a-file-by-jquery-ajax`,
       },
       {
