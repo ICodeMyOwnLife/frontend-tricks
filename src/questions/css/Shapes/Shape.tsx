@@ -50,4 +50,5 @@ export type ShapeType =
   | 'spaceInvader'
   | 'tvScreen'
   | 'chevron'
-  | 'magnifyingGlass';
+  | 'magnifyingGlass'
+  | 'moon';

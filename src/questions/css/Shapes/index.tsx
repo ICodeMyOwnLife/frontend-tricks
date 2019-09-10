@@ -42,6 +42,7 @@ export const Shapes1Impl: FC = () => (
     <ShapeContainer name="TV Screen" type="tvScreen" />
     <ShapeContainer name="Chevron" type="chevron" />
     <ShapeContainer name="Magnifying Glass" type="magnifyingGlass" />
+    <ShapeContainer name="Moon" type="moon" />
   </Question>
 );
 

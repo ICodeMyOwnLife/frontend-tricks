@@ -61,6 +61,7 @@ $sqrt5: 2.23606797749979;
 }
 
 @mixin emptyShape {
+  display: inline-block;
   width: 0;
   height: 0;
   background-color: transparent;
@@ -141,7 +142,6 @@ $sqrt5: 2.23606797749979;
   $skewWidth: ($height * $tan20deg) / 2;
   @include emptyShape();
   position: relative;
-  display: inline-block;
   margin: 0 $width + $skewWidth $height $skewWidth;
   transform-origin: $width / 2 $height / 2;
 
@@ -160,9 +160,9 @@ $sqrt5: 2.23606797749979;
 @mixin sixPointsStar($sideDimension, $color) {
   $height: $sideDimension * $cos30deg;
   $radius: $sideDimension / $cos30deg / 2;
+  @include equilateralTriangle($height, bottom, $color);
   position: relative;
   margin-bottom: $height / 3;
-  @include equilateralTriangle($height, bottom, $color);
   transform-origin: 50% $radius;
 
   &::after {
@@ -179,9 +179,9 @@ $sqrt5: 2.23606797749979;
   $middleThird: $upperThird;
   $lowerThird: $sideDimension * $cos18deg - $middleThird - $upperThird;
   $radius: $sideDimension / $sin36deg / 2;
+  @include isoscelesTriangle($middleThird, $sideDimension, top, $color);
   position: relative;
   margin: $upperThird 0 $lowerThird;
-  @include isoscelesTriangle($middleThird, $sideDimension, top, $color);
   transform-origin: 50% $radius - ($upperThird + $middleThird);
 
   &::before,
@@ -211,9 +211,9 @@ $sqrt5: 2.23606797749979;
   $height: $sideDimension * $cos18deg;
   $top: $sideDimension * $sin36deg;
   $radius: $sideDimension / 2 / $sin36deg;
+  @include isoscelesTriangle($top, $width, bottom, $color);
   position: relative;
   margin-bottom: $height;
-  @include isoscelesTriangle($top, $width, bottom, $color);
   transform-origin: 50% $radius;
 
   &::after {
@@ -227,9 +227,9 @@ $sqrt5: 2.23606797749979;
 
 @mixin hexagon($sideDimension, $color) {
   $width: $sideDimension * $cos30deg * 2;
+  @include rectangle($width, $sideDimension, $color);
   position: relative;
   margin: $sideDimension / 2 0;
-  @include rectangle($width, $sideDimension, $color);
 
   &::before,
   &::after {
@@ -251,9 +251,9 @@ $sqrt5: 2.23606797749979;
 @mixin octagon($sideDimension, $color) {
   $sideBorder: $sideDimension * $cos45deg;
   $width: $sideDimension + 2 * $sideBorder;
+  @include rectangle($width, $sideDimension, $color);
   position: relative;
   margin: $sideBorder 0;
-  @include rectangle($width, $sideDimension, $color);
 
   &::before,
   &::after {
@@ -304,6 +304,32 @@ $sqrt5: 2.23606797749979;
   }
 }
 
+@mixin infinity($diameter, $color) {
+  @include emptyShape();
+  position: relative;
+  margin: 0 $diameter * 3.6 $diameter * 5/3 0;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: $diameter;
+    height: $diameter;
+    border: $diameter/3 solid $colorPrimary;
+    transform: rotate(-45deg);
+  }
+
+  &::before {
+    left: 0;
+    border-radius: 100% 100% 0;
+  }
+
+  &::after {
+    left: $diameter * 1.9;
+    border-radius: 0 100% 100%;
+  }
+}
+
 @mixin diamondSquare($sideDimension, $color) {
   $width: $sideDimension / $cos45deg;
   @include emptyShape();
@@ -322,9 +348,9 @@ $sqrt5: 2.23606797749979;
 
 @mixin diamondShield($height, $color) {
   $width: $height * 4/5 / $cos30deg;
+  @include isoscelesTriangle($height/5, $width, bottom, $color);
   position: relative;
   margin-bottom: $height * 4/5;
-  @include isoscelesTriangle($height/5, $width, bottom, $color);
   transform-origin: 50% $height / 2;
 
   &::after {
@@ -338,9 +364,9 @@ $sqrt5: 2.23606797749979;
 
 @mixin diamondNarrow($sideDimension, $color) {
   $height: $sideDimension * $cos30deg;
+  @include equilateralTriangle($height, bottom, $color);
   position: relative;
   margin-bottom: $height;
-  @include equilateralTriangle($height, bottom, $color);
   transform-origin: 50% $height;
 
   &::after {
@@ -356,9 +382,9 @@ $sqrt5: 2.23606797749979;
   $lowerHeight: $sideDimension * $cos30deg;
   $upperHeight: $lowerHeight / 3.2;
   $upperWidth: $sideDimension * 2 / 3;
+  @include trapezoid($upperWidth, $sideDimension, $upperHeight, $color);
   position: relative;
   margin-bottom: $lowerHeight;
-  @include trapezoid($upperWidth, $sideDimension, $upperHeight, $color);
   transform-origin: 50% ($upperHeight + $lowerHeight) / 2;
 
   &::after {
@@ -409,9 +435,9 @@ $sqrt5: 2.23606797749979;
 
 @mixin twelvePointsBurst($sideDimension, $color) {
   $margin: $sideDimension * $sqrt5 / (3 + $sqrt5) / 2;
+  @include square($sideDimension, $color);
   position: relative;
   margin: $margin;
-  @include square($sideDimension, $color);
 
   &::before,
   &::after {
@@ -431,9 +457,9 @@ $sqrt5: 2.23606797749979;
 
 @mixin eightPointsBurst($sideDimension, $color) {
   $margin: $sideDimension / (2 + 2 / $cos45deg);
+  @include square($sideDimension, $color);
   position: relative;
   margin: $margin;
-  @include square($sideDimension, $color);
 
   &::after {
     content: '';
@@ -559,7 +585,6 @@ $sqrt5: 2.23606797749979;
   $skewHeight: $width * $tan10deg / 2;
   @include emptyShape();
   position: relative;
-  display: inline-block;
   margin: $skewHeight $width * 2 $height + $skewHeight 0;
   transform-origin: $width 0;
 
@@ -593,7 +618,6 @@ $sqrt5: 2.23606797749979;
   $margin: $diameter * 0.275;
   @include emptyShape();
   position: relative;
-  display: inline-block;
   width: $innerDiameter;
   height: $innerDiameter;
   margin: 0 $margin $margin 0;
@@ -609,6 +633,17 @@ $sqrt5: 2.23606797749979;
     transform-origin: -($diameter / 2 - $thickness) $thickness / 2;
     transform: rotateZ(45deg);
   }
+}
+
+@mixin moon($diameter, $color) {
+  $thickness: $diameter * 0.1875;
+  $innerDiameter: $diameter - $thickness;
+  @include emptyShape();
+  width: $innerDiameter;
+  height: $innerDiameter;
+  margin: $thickness * -1 $thickness $thickness $thickness * -1;
+  border-radius: 50%;
+  box-shadow: $thickness $thickness 0 0 $color;
 }
 
 .rectangle {
@@ -730,29 +765,7 @@ $sqrt5: 2.23606797749979;
 }
 
 .infinity {
-  position: relative;
-  margin: 0 $dimension * 3.6 $dimension * 5/3 0;
-  background-color: transparent;
-
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    width: $dimension;
-    height: $dimension;
-    border: $dimension/3 solid $colorPrimary;
-    transform: rotate(-45deg);
-  }
-
-  &::before {
-    left: 0;
-    border-radius: 100% 100% 0;
-  }
-
-  &::after {
-    left: $dimension * 1.9;
-    border-radius: 0 100% 100%;
-  }
+  @include infinity($dimension, $colorPrimary);
 }
 
 .diamondSquare {
@@ -827,4 +840,8 @@ $sqrt5: 2.23606797749979;
 
 .magnifyingGlass {
   @include magnifyingGlass($dimension, $colorPrimary);
+}
+
+.moon {
+  @include moon($dimension, $colorPrimary);
 }
