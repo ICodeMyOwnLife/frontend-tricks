@@ -1,8 +1,9 @@
 import { useCallback } from 'react';
+import { BASE_URL } from 'constants/urls';
 
-export const urlAttachment = 'http://localhost:1333/static/1.png';
-export const urlInline = 'http://localhost:1333/public/1.md';
-export const urlDynamic = 'http://localhost:1333/export';
+export const urlAttachment = `${BASE_URL}/static/1.png`;
+export const urlInline = `${BASE_URL}/public/1.md`;
+export const urlDynamic = `${BASE_URL}/export`;
 
 const download = ({
   blob,

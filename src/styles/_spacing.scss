@@ -1,4 +1,13 @@
 @mixin spacing($spaceUnit, $levels) {
+  $map: (
+    x: left right,
+    y: top bottom,
+    l: left,
+    r: right,
+    t: top,
+    b: bottom,
+  );
+
   @for $i from 0 through $levels {
     $space: $i * $spaceUnit;
 
@@ -6,30 +15,12 @@
       margin: $space;
     }
 
-    .mx-#{$i} {
-      margin-left: $space;
-      margin-right: $space;
-    }
-
-    .my-#{$i} {
-      margin-top: $space;
-      margin-bottom: $space;
-    }
-
-    .ml-#{$i} {
-      margin-left: $space;
-    }
-
-    .mr-#{$i} {
-      margin-left: $space;
-    }
-
-    .mt-#{$i} {
-      margin-top: $space;
-    }
-
-    .mb-#{$i} {
-      margin-bottom: $space;
+    @each $key, $values in $map {
+      .m#{$key}-#{$i} {
+        @each $value in $values {
+          margin-#{$value}: $space;
+        }
+      }
     }
   }
 }

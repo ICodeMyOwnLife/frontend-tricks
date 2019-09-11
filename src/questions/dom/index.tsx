@@ -29,6 +29,11 @@ const routes: RouteInfo[] = [
     path: 'drag-drop',
     component: lazy(() => import('questions/dom/DragDrop1')),
   },
+  {
+    name: 'Cancel Request',
+    path: 'cancel-request',
+    component: lazy(() => import('questions/dom/CancelRequest1')),
+  },
 ];
 
 export const DomTricksImpl: FC<HtmlTricksProps> = ({ match: { url } }) => (

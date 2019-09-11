@@ -39,6 +39,12 @@ const questions: QuestionInfo[] = [
           dragged items may be dropped.
         </p>
 
+        <p>
+          Calling the <code>preventDefault()</code> method during both a
+          <code>dragenter</code> and <code>dragover</code> event will indicate
+          that a drop is allowed at that location.
+        </p>
+
         <Code language="tsx">
           {`const getItemData = (item: DataTransferItem) =>
   new Promise<ItemData>(resolve => {

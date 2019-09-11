@@ -1,20 +1,23 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React, { FC, memo } from 'react';
 import Question from 'components/Question';
+import Request from './Request';
 import questions from './questions';
+import { useXMLHttpRequest, useFetch, useAxios } from './hooks';
 
-export const CancelRequest1Impl: FC = () => (
-  <Question title="Cancel Request 1" questions={questions}>
-    <div />
-  </Question>
-);
+export const CancelRequest1Impl: FC = () => {
+  const xmlHttpRequest = useXMLHttpRequest();
+  const fetchRequest = useFetch();
+  const axiosRequest = useAxios();
 
-// https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch
-// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
-// https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal
-// https://developer.mozilla.org/en-US/docs/Web/API/AbortController
-// https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/abort
-// https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
-// https://github.com/axios/axios
+  return (
+    <Question title="Cancel Request 1" questions={questions}>
+      <Request name="XMLHttpRequest" {...xmlHttpRequest} />
+      <Request name="Fetch" {...fetchRequest} />
+      <Request name="Axios" {...axiosRequest} />
+    </Question>
+  );
+};
 
 const CancelRequest1 = memo(CancelRequest1Impl);
 CancelRequest1.displayName = 'CancelRequest1';
