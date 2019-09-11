@@ -1,28 +1,7 @@
 /* eslint-disable react/no-danger */
 import React, { FC, memo } from 'react';
-import Question, { QuestionInfo } from 'components/Question';
-
-const questions: QuestionInfo[] = [
-  {
-    question: (
-      <span>
-        How to insert raw HTML in React (equivalent to setting{' '}
-        <code>innerHTML</code>)?
-      </span>
-    ),
-    answer: (
-      <pre>
-        <code>{`<div dangerouslySetInnerHTML={{ __html: rawHtml }} />`}</code>
-      </pre>
-    ),
-    references: [
-      {
-        name: `[React] dangerouslySetInnerHTML`,
-        url: `https://reactjs.org/docs/dom-elements.html#dangerouslysetinnerhtml`,
-      },
-    ],
-  },
-];
+import Question from 'components/Question';
+import questions from './questions';
 
 const rawHtml = `<ul>
   <li><a href="https://google.com">Go to Google<a/></li>

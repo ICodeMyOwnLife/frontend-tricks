@@ -1,37 +1,6 @@
 import React, { FC, memo, useState, CSSProperties } from 'react';
-import Question, { QuestionInfo } from 'components/Question';
-
-const questions: QuestionInfo[] = [
-  {
-    question: (
-      <span>
-        How to wrap text at a newline (<code>\n</code>) character?
-      </span>
-    ),
-    answer: (
-      <ol>
-        <li>
-          Using <code>white-space: pre</code>, or{' '}
-          <code>white-space: pre-line</code>, or{' '}
-          <code>white-space: pre-wrap</code>.
-        </li>
-        <li>
-          Using a <code>pre</code> element.
-        </li>
-      </ol>
-    ),
-    references: [
-      {
-        name: '[CSS-TRICKS] white-space',
-        url: 'https://css-tricks.com/almanac/properties/w/whitespace/',
-      },
-      {
-        name: '[MDN] white-space',
-        url: 'https://developer.mozilla.org/en-US/docs/Web/CSS/white-space',
-      },
-    ],
-  },
-];
+import Question from 'components/Question';
+import questions from './questions';
 
 const text = `This is first paragraph.\nThis is second paragraph.\nThis is third paragraph.`;
 
