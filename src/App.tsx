@@ -20,6 +20,11 @@ const routes: RouteInfo[] = [
     path: 'react',
     component: lazy(() => import('questions/react')),
   },
+  {
+    name: 'JavaScript',
+    path: 'js',
+    component: lazy(() => import('questions/js')),
+  },
 ];
 
 const App: React.FC = () => (

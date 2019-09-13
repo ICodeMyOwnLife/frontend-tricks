@@ -1,6 +1,6 @@
 import { BASE_URL } from 'constants/urls';
 import { useCallback, useRef, useState } from 'react';
-import Axios, { CancelTokenSource, AxiosResponse } from 'axios';
+import Axios, { CancelTokenSource, AxiosResponse, AxiosInstance } from 'axios';
 
 const url = `${BASE_URL}/long`;
 const params = new URLSearchParams();
@@ -19,15 +19,19 @@ const getXMLHttpResult = (
 });
 
 const getFetchResult = async (
-  { status, statusText, json, text }: Response,
+  response: Response,
   loading: boolean,
-): Promise<FetchResult> => ({
-  loading,
-  status,
-  statusText,
-  body: await json(),
-  responseText: await text(),
-});
+): Promise<FetchResult> => {
+  const { status, statusText } = response;
+
+  return {
+    loading,
+    status,
+    statusText,
+    body: await response.clone().json(),
+    responseText: await response.clone().text(),
+  };
+};
 
 const getFetchError = ({ message, code, name }: DOMException): FetchError => ({
   message,
@@ -47,41 +51,62 @@ const getAxiosError = (error: any) => ({
 export const useXMLHttpRequest = () => {
   const [result, setResult] = useState<XMLHttpResult>({ loading: false });
   const requestRef = useRef<XMLHttpRequest>();
+  const abortableRef = useRef<XMLHttpRequest>();
 
-  const send = useCallback(() => {
+  const initialize = useCallback(() => {
     const request = new XMLHttpRequest();
-    request.open('GET', url);
+    request.open('POST', url);
     request.onload = () => setResult(getXMLHttpResult(request, false));
     request.onerror = () => setResult(getXMLHttpResult(request, false));
     request.onabort = () => setResult(getXMLHttpResult(request, false));
-    request.send(params);
-    setResult(getXMLHttpResult(request, true));
     requestRef.current = request;
+    abortableRef.current = request;
+  }, []);
+
+  const send = useCallback(() => {
+    const request = requestRef.current;
+
+    if (request) {
+      setResult(getXMLHttpResult(request, true));
+      request.send(params);
+      requestRef.current = undefined;
+    }
   }, []);
 
   const cancel = useCallback(() => {
-    if (requestRef.current) requestRef.current.abort();
+    if (abortableRef.current) abortableRef.current.abort();
   }, []);
 
-  return { send, cancel, result };
+  return { initialize, send, cancel, result };
 };
 
 export const useFetch = () => {
   const [result, setResult] = useState<FetchResult>({ loading: false });
+  const requestRef = useRef<Request>();
   const abortControllerRef = useRef<AbortController>();
 
-  const send = useCallback(async () => {
-    const request = new Request(url);
+  const initialize = useCallback(() => {
     const abortController = new AbortController();
+    const request = new Request(url, {
+      method: 'POST',
+      body: params,
+      signal: abortController.signal,
+    });
     abortControllerRef.current = abortController;
+    requestRef.current = request;
+  }, []);
+
+  const send = useCallback(async () => {
+    const request = requestRef.current;
+
+    if (!request) return;
+
     setResult({ loading: true });
+
     try {
-      const response = await fetch(request, {
-        method: 'GET',
-        signal: abortController.signal,
-        body: params,
-      });
+      const response = await fetch(request);
       setResult(await getFetchResult(response, false));
+      requestRef.current = undefined;
     } catch (error) {
       setResult({ loading: false, error: getFetchError(error) });
     }
@@ -91,25 +116,38 @@ export const useFetch = () => {
     if (abortControllerRef.current) abortControllerRef.current.abort();
   }, []);
 
-  return { send, cancel, result };
+  return { initialize, send, cancel, result };
 };
 
 export const useAxios = () => {
   const [result, setResult] = useState<AxiosResult>({ loading: false });
+  const instanceRef = useRef<AxiosInstance>();
   const cancelTokenSourceRef = useRef<CancelTokenSource>();
 
-  const send = useCallback(async () => {
+  const initialize = useCallback(() => {
     const cancelTokenSource = Axios.CancelToken.source();
     cancelTokenSourceRef.current = cancelTokenSource;
+    const instance = Axios.create({
+      cancelToken: cancelTokenSource.token,
+    });
+    instanceRef.current = instance;
+  }, []);
+
+  const send = useCallback(async () => {
+    const instance = instanceRef.current;
+
+    if (!instance) return;
+
     setResult({ loading: true });
+
     try {
-      const response = await Axios.request({
+      const response = await instance.request({
         url,
-        method: 'GET',
+        method: 'POST',
         params,
-        cancelToken: cancelTokenSource.token,
       });
       setResult(getAxiosResult(response, false));
+      instanceRef.current = undefined;
     } catch (error) {
       setResult({ loading: false, error: getAxiosError(error) });
     }
@@ -119,7 +157,7 @@ export const useAxios = () => {
     if (cancelTokenSourceRef.current) cancelTokenSourceRef.current.cancel();
   }, []);
 
-  return { send, cancel, result };
+  return { initialize, send, cancel, result };
 };
 
 const SHOULD_CANCEL_REQUEST = true;
