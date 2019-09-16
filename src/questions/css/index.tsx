@@ -32,7 +32,7 @@ const routes: RouteInfo[] = [
   {
     name: 'Shapes',
     path: 'shapes',
-    component: lazy(() => import('questions/css/Shapes')),
+    component: lazy(() => import('questions/css/Shapes1')),
   },
 ];
 

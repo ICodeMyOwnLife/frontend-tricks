@@ -1,6 +1,6 @@
 $colorPrimary: rgb(235, 222, 43);
 $colorSecondary: #fff;
-$dimension: 60px;
+$dimension: 100px;
 $pixelWidth: 18px;
 $cos18deg: 0.9510565162951535;
 $cos30deg: 0.8660254037844386;
@@ -119,6 +119,29 @@ $sqrt5: 2.23606797749979;
   @include emptyShape();
   border-#{$shownSide}: $height solid $color;
   border-#{$hiddenSide}: $height solid transparent;
+}
+
+@mixin curvedTailArrow($length, $color) {
+  $dimension: $length / 2;
+  @include emptyShape();
+  margin-left: $dimension;
+  border-right: $dimension solid $color;
+  border-top: $dimension solid transparent;
+  transform: rotate(12deg);
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: $dimension;
+    height: $dimension;
+    left: -$dimension * 0.7;
+    top: -$dimension * 1.2;
+    background: transparent;
+    border: 0 solid transparent;
+    border-top: $dimension * 0.4 solid $color;
+    border-radius: 100% 0 0 0;
+    transform: rotate(45deg);
+  }
 }
 
 @mixin trapezoid($upperWidth, $lowerWidth, $height, $color) {
@@ -646,6 +669,72 @@ $sqrt5: 2.23606797749979;
   box-shadow: $thickness $thickness 0 0 $color;
 }
 
+@mixin flag($width, $color) {
+  $top: $width / 2;
+  $bottom: $width / 4;
+  @include emptyShape();
+  border-width: $top $width / 2 $bottom;
+  border-style: solid;
+  border-color: $color $color transparent;
+}
+
+@mixin cone($width, $height, $color) {
+  @include emptyShape();
+  border-width: $height $width / 2 0;
+  border-style: solid;
+  border-color: $color transparent transparent;
+  border-radius: 50%;
+}
+
+@mixin cross($length, $color) {
+  $thickness: $length / 5;
+  $side: ($length - $thickness) / 2;
+  @include rectangle($thickness, $length, $color);
+  position: relative;
+  margin: 0 $side;
+
+  &::after {
+    @include rectangle($length, $thickness, $color);
+    content: '';
+    position: absolute;
+    left: -$side;
+    top: $side;
+  }
+}
+
+@mixin base($width, $color) {
+  $height: $width * 0.5;
+  $top: $width * 0.3;
+  @include rectangle($width, $height, $color);
+  position: relative;
+  margin-top: $top;
+
+  &::before {
+    @include isoscelesTriangle($top, $width, bottom, $color);
+    content: '';
+    position: absolute;
+    top: -$top;
+    left: 0;
+  }
+}
+
+@mixin pointer($width, $height, $color) {
+  @include emptyShape();
+  position: relative;
+  width: $width;
+  border-top: $height solid $color;
+  border-bottom: $height solid $color;
+  border-left: $height solid transparent;
+
+  &::after {
+    @include isoscelesTriangle($height, $height * 2, left, $color);
+    content: '';
+    position: absolute;
+    top: -$height;
+    right: -$height;
+  }
+}
+
 .rectangle {
   @include rotateAnimation(Y);
   @include rectangle($dimension * 1.4, $dimension, $colorPrimary);
@@ -703,25 +792,7 @@ $sqrt5: 2.23606797749979;
 }
 
 .curvedTailArrow {
-  @include emptyShape();
-  margin-left: $dimension;
-  border-right: $dimension solid $colorPrimary;
-  border-top: $dimension solid transparent;
-  transform: rotate(12deg);
-
-  &::after {
-    content: '';
-    position: absolute;
-    width: $dimension;
-    height: $dimension;
-    left: -$dimension * 0.7;
-    top: -$dimension * 1.2;
-    background: transparent;
-    border: 0 solid transparent;
-    border-top: $dimension * 0.4 solid $colorPrimary;
-    border-radius: 100% 0 0 0;
-    transform: rotate(45deg);
-  }
+  @include curvedTailArrow($dimension, $colorPrimary);
 }
 
 .trapezoid {
@@ -844,4 +915,28 @@ $sqrt5: 2.23606797749979;
 
 .moon {
   @include moon($dimension, $colorPrimary);
+}
+
+.flag {
+  @include rotateAnimation(Y);
+  @include flag($dimension, $colorPrimary);
+}
+
+.cone {
+  @include rotateAnimation(Y);
+  @include cone($dimension, $dimension * 0.8, $colorPrimary);
+}
+
+.cross {
+  @include rotateAnimation(Z);
+  @include cross($dimension, $colorPrimary);
+}
+
+.base {
+  @include rotateAnimation(Y);
+  @include base($dimension, $colorPrimary);
+}
+
+.pointer {
+  @include pointer($dimension, $dimension / 10, $colorPrimary);
 }

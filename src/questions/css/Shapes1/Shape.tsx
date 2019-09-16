@@ -51,4 +51,9 @@ export type ShapeType =
   | 'tvScreen'
   | 'chevron'
   | 'magnifyingGlass'
-  | 'moon';
+  | 'moon'
+  | 'flag'
+  | 'cone'
+  | 'cross'
+  | 'base'
+  | 'pointer';

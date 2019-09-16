@@ -43,6 +43,11 @@ export const Shapes1Impl: FC = () => (
     <ShapeContainer name="Chevron" type="chevron" />
     <ShapeContainer name="Magnifying Glass" type="magnifyingGlass" />
     <ShapeContainer name="Moon" type="moon" />
+    <ShapeContainer name="Flag" type="flag" />
+    <ShapeContainer name="Cone" type="cone" />
+    <ShapeContainer name="Cross" type="cross" />
+    <ShapeContainer name="Base" type="base" />
+    <ShapeContainer name="Pointer" type="pointer" />
   </Question>
 );
 
