@@ -2,73 +2,106 @@ import React, { FC, memo, useState } from 'react';
 import Question from 'components/Question';
 import Button from 'components/Button';
 import NumberInput from 'components/NumberInput';
+import DynamicDownloadButton from './DynamicDownloadButton';
 import {
   urlAttachment,
-  handleAttachmentDownload,
   urlInline,
-  handleInlineDownload,
   urlDynamic,
-  useHandleDynamicDownload,
   downloadWithFetch,
   downloadWithRequest,
+  downloadWithAxios,
+  saveFileManually,
+  saveFileWithFileSaver,
 } from './hooks';
 import questions from './questions';
-import classes from './styles.module.scss';
+import StaticDownloadButton from './StaticDownloadButton';
 
 export const Download1Impl: FC = () => {
   const [count, setCount] = useState(0);
-  const handleFetchDownload = useHandleDynamicDownload({
-    count,
-    ajaxDownload: downloadWithFetch,
-  });
-  const handleRequestDownload = useHandleDynamicDownload({
-    count,
-    ajaxDownload: downloadWithRequest,
-  });
 
   return (
     <Question title="Download 1" questions={questions}>
       <div>
         <div>
-          <h5>Attachment Download</h5>
+          <h3>Attachment Download</h3>
           <Button
-            className={classes.Button}
+            className="mr-2"
             href={urlAttachment}
             target="_blank"
             download="1.png"
           >
-            Download
+            Download Link
           </Button>
-          <Button
-            className={classes.Button}
-            type="button"
-            onClick={handleAttachmentDownload}
+
+          <StaticDownloadButton
+            className="mr-2"
+            url={urlAttachment}
+            downloadFile={downloadWithAxios}
+            saveFile={saveFileManually}
           >
-            AJAX Download
-          </Button>
+            Axios Download
+          </StaticDownloadButton>
+
+          <StaticDownloadButton
+            className="mr-2"
+            url={urlAttachment}
+            downloadFile={downloadWithFetch}
+            saveFile={saveFileManually}
+          >
+            Fetch Download
+          </StaticDownloadButton>
+
+          <StaticDownloadButton
+            className="mr-2"
+            url={urlAttachment}
+            downloadFile={downloadWithRequest}
+            saveFile={saveFileManually}
+          >
+            Request Download
+          </StaticDownloadButton>
         </div>
 
         <div>
-          <h5>Inline Download</h5>
+          <h3>Inline Download</h3>
           <Button
-            className={classes.Button}
+            className="mr-2"
             href={urlInline}
             target="_blank"
             download="1.md"
           >
-            Download
+            Download Link
           </Button>
-          <Button
-            className={classes.Button}
-            type="button"
-            onClick={handleInlineDownload}
+
+          <StaticDownloadButton
+            className="mr-2"
+            url={urlInline}
+            downloadFile={downloadWithAxios}
+            saveFile={saveFileWithFileSaver}
           >
-            AJAX Download
-          </Button>
+            Axios Download
+          </StaticDownloadButton>
+
+          <StaticDownloadButton
+            className="mr-2"
+            url={urlInline}
+            downloadFile={downloadWithFetch}
+            saveFile={saveFileWithFileSaver}
+          >
+            Fetch Download
+          </StaticDownloadButton>
+
+          <StaticDownloadButton
+            className="mr-2"
+            url={urlInline}
+            downloadFile={downloadWithRequest}
+            saveFile={saveFileWithFileSaver}
+          >
+            Request Download
+          </StaticDownloadButton>
         </div>
 
         <div>
-          <h5>Dynamic Download</h5>
+          <h3>Dynamic Download</h3>
           <form action={urlDynamic} method="GET">
             <NumberInput
               id="count"
@@ -78,18 +111,65 @@ export const Download1Impl: FC = () => {
               onChange={setCount}
             />
             <div>
-              <Button className={classes.Button} type="submit">
-                Download
+              <Button className="mr-2" type="submit">
+                Submit
               </Button>
-              <Button className={classes.Button} onClick={handleFetchDownload}>
+            </div>
+
+            <div>
+              <h6>Save File Manually</h6>
+              <DynamicDownloadButton
+                className="mr-2"
+                count={count}
+                downloadFile={downloadWithAxios}
+                saveFile={saveFileManually}
+              >
+                Axios Download
+              </DynamicDownloadButton>
+              <DynamicDownloadButton
+                className="mr-2"
+                count={count}
+                downloadFile={downloadWithFetch}
+                saveFile={saveFileManually}
+              >
                 Fetch Download
-              </Button>
-              <Button
-                className={classes.Button}
-                onClick={handleRequestDownload}
+              </DynamicDownloadButton>
+              <DynamicDownloadButton
+                className="mr-2"
+                count={count}
+                downloadFile={downloadWithRequest}
+                saveFile={saveFileManually}
               >
                 Request Download
-              </Button>
+              </DynamicDownloadButton>
+            </div>
+
+            <div>
+              <h6>Use Library</h6>
+              <DynamicDownloadButton
+                className="mr-2"
+                count={count}
+                downloadFile={downloadWithAxios}
+                saveFile={saveFileWithFileSaver}
+              >
+                Axios Download
+              </DynamicDownloadButton>
+              <DynamicDownloadButton
+                className="mr-2"
+                count={count}
+                downloadFile={downloadWithFetch}
+                saveFile={saveFileWithFileSaver}
+              >
+                Fetch Download
+              </DynamicDownloadButton>
+              <DynamicDownloadButton
+                className="mr-2"
+                count={count}
+                downloadFile={downloadWithRequest}
+                saveFile={saveFileWithFileSaver}
+              >
+                Request Download
+              </DynamicDownloadButton>
             </div>
           </form>
         </div>

@@ -41,28 +41,20 @@ const questions: QuestionInfo[] = [
     answer: (
       <div>
         <p>
-          Creating an <code>objectURL</code> by calling{' '}
-          <code>URL.createObjectURL(blob)</code> and use it to set{' '}
+          <b>Saving file manually:</b> Creating an <code>objectURL</code> by
+          calling <code>URL.createObjectURL(blob)</code> and use it to set{' '}
           <code>href</code> of an <code>a</code> element. After using{' '}
           <code>objectURL</code> we can revoke it by calling{' '}
           <code>URL.revokeObjectURL(objectURL)</code>
         </p>
-        <Code language="typescript">
-          {`const download = ({
+
+        <Code language="tsx">
+          {`const saveFileManually: SaveFileFunction = ({
   blob,
   contentType,
   contentDisposition,
-}: {
-  blob: Blob;
-  contentType?: string | null;
-  contentDisposition?: string | null;
 }) => {
-  const extensionMatch = contentType && contentType.match(/\\/(\\w+)/);
-  const extension = (extensionMatch && extensionMatch[1]) || 'txt';
-  const filenameMatch =
-    contentDisposition && contentDisposition.match(/filename="(.+)"/);
-  const filename =
-    (filenameMatch && filenameMatch[1]) || \`unnamed.$\{extension}\`;
+  const filename = createFilename({ contentType, contentDisposition });
   const objectUrl = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = objectUrl;
@@ -73,6 +65,16 @@ const questions: QuestionInfo[] = [
   URL.revokeObjectURL(objectUrl);
   document.body.removeChild(link);
 };`}
+        </Code>
+
+        <p>
+          Using library <code>FileSaver.js</code>
+        </p>
+
+        <Code language="tsx">
+          {`import { saveAs } from 'file-saver';
+
+saveAs(blob, filename);`}
         </Code>
       </div>
     ),
@@ -108,6 +110,18 @@ const questions: QuestionInfo[] = [
       {
         name: `[MDN] Blob`,
         url: `https://developer.mozilla.org/en-US/docs/Web/API/Blob`,
+      },
+      {
+        name: `[GitHub] axios`,
+        url: `https://github.com/axios/axios`,
+      },
+      {
+        name: `[Medium] Handle Blobs requests with Axios the right way`,
+        url: `https://medium.com/@fakiolinho/handle-blobs-requests-with-axios-the-right-way-bb905bdb1c04`,
+      },
+      {
+        name: `[GitHub] FileSaver.js`,
+        url: `https://github.com/eligrey/FileSaver.js`,
       },
     ],
   },
