@@ -56,4 +56,5 @@ export type ShapeType =
   | 'cone'
   | 'cross'
   | 'base'
-  | 'pointer';
+  | 'pointer'
+  | 'lock';

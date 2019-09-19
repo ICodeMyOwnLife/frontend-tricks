@@ -735,6 +735,48 @@ $sqrt5: 2.23606797749979;
   }
 }
 
+@mixin lock($width, $color) {
+  $holeWidth: $width / 6;
+  $holeHeight: $width / 2.8;
+  $loopWidth: $width / 2.2;
+  $loopHeight: $width / 2.5;
+  $thickness: $width / 6;
+  @include emptyShape();
+  position: relative;
+  width: $holeWidth;
+  height: $holeHeight;
+  margin-top: $loopHeight + $thickness;
+  border-style: solid;
+  border-color: $color;
+  border-width: $thickness ($width - $holeWidth) / 2;
+  border-radius: 16%;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+  }
+
+  &::before {
+    @include emptyShape();
+    top: -($loopHeight + 2 * $thickness);
+    left: -(($loopWidth - $holeWidth) / 2 + $thickness);
+    width: $loopWidth;
+    height: $loopHeight;
+    border: $thickness solid $color;
+    border-radius: 50% 50% 0 0;
+  }
+
+  &::after {
+    top: -$thickness;
+    left: -$thickness;
+    width: $holeWidth;
+    height: $holeHeight;
+    border: $thickness solid $color;
+    border-radius: 50%/36%;
+  }
+}
+
 .rectangle {
   @include rotateAnimation(Y);
   @include rectangle($dimension * 1.4, $dimension, $colorPrimary);
@@ -939,4 +981,9 @@ $sqrt5: 2.23606797749979;
 
 .pointer {
   @include pointer($dimension, $dimension / 10, $colorPrimary);
+}
+
+.lock {
+  @include rotateAnimation(Y);
+  @include lock($dimension, $colorPrimary);
 }

@@ -48,6 +48,7 @@ export const Shapes1Impl: FC = () => (
     <ShapeContainer name="Cross" type="cross" />
     <ShapeContainer name="Base" type="base" />
     <ShapeContainer name="Pointer" type="pointer" />
+    <ShapeContainer name="Lock" type="lock" />
   </Question>
 );
 
