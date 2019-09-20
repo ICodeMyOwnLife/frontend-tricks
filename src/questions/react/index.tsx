@@ -19,6 +19,16 @@ const routes: RouteInfo[] = [
     path: 'element',
     component: lazy(() => import('questions/react/Element1')),
   },
+  {
+    name: 'TypeScript',
+    path: 'typescript',
+    component: lazy(() => import('questions/react/TypeScript1')),
+  },
+  {
+    name: 'Bundle Size',
+    path: 'bundle-size',
+    component: lazy(() => import('questions/react/BundleSize1')),
+  },
 ];
 
 export const ReactTricksImpl: FC<ReactTricksProps> = ({ match: { url } }) => (

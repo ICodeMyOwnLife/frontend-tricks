@@ -10,7 +10,7 @@ const questions: QuestionInfo[] = [
         <p>
           Using inputs without <code>name</code> attribute
         </p>
-        <Code language="html">
+        <Code language="markup">
           {`<!-- This input value will be included in form data because its name attribute is set -->
 <input type="text" id="text" name="text" />
 
@@ -38,7 +38,7 @@ const questions: QuestionInfo[] = [
         <p>
           Using <code>FormData</code>
         </p>
-        <Code language="ts">
+        <Code language="typescript">
           {`const formData = new FormData(form);
 const searchParams = new URLSearchParams(formData);
 console.log(searchParams.toString());`}
@@ -47,7 +47,7 @@ console.log(searchParams.toString());`}
           Using <code>jQuery.serialize()</code> or{' '}
           <code>jQuery.serializeArray()</code>
         </p>
-        <Code language="ts">
+        <Code language="typescript">
           {`console.log($form.serialize());
 console.log($form.serializeArray());`}
         </Code>

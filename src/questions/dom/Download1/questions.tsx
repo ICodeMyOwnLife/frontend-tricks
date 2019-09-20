@@ -14,7 +14,7 @@ const questions: QuestionInfo[] = [
         <p>
           Setting <code>href</code> and <code>download</code> attribute
         </p>
-        <Code language="html">
+        <Code language="markup">
           {
             '<a href="http://localhost:1333/static/1.png" download="1.png">Download<a/>'
           }

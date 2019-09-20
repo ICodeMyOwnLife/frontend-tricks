@@ -34,6 +34,11 @@ const routes: RouteInfo[] = [
     path: 'cancel-request',
     component: lazy(() => import('questions/dom/CancelRequest1')),
   },
+  {
+    name: 'Device Detection',
+    path: 'device-detection',
+    component: lazy(() => import('questions/dom/DeviceDetection1')),
+  },
 ];
 
 export const DomTricksImpl: FC<HtmlTricksProps> = ({ match: { url } }) => (

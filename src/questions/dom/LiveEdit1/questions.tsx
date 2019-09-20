@@ -11,7 +11,7 @@ const questions: QuestionInfo[] = [
           Set the <code>contenteditable</code> attribute on nearly any HTML
           element to make it editable
         </p>
-        <Code language="html">
+        <Code language="markup">
           {`<div class="EditableText" contenteditable="true">
   <p>Lorem ipsum dolor sit amet ...</p>
 </div>`}
