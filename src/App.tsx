@@ -29,7 +29,7 @@ const routes: RouteInfo[] = [
 
 const App: React.FC = () => (
   <div className={classes.App}>
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <Nav baseUrl="" routes={routes} />
       {renderRoutes('', routes)}
     </BrowserRouter>

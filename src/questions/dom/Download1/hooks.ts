@@ -1,11 +1,10 @@
 import { useCallback } from 'react';
 import Axios, { AxiosRequestConfig } from 'axios';
 import { saveAs } from 'file-saver';
-import { BASE_URL } from 'constants/urls';
 
-export const urlAttachment = `${BASE_URL}/static/1.png`;
-export const urlInline = `${BASE_URL}/public/1.md`;
-export const urlDynamic = `${BASE_URL}/export`;
+export const urlAttachment = `${process.env.REACT_APP_BASE_URL}/static/1.png`;
+export const urlInline = `${process.env.REACT_APP_BASE_URL}/public/1.md`;
+export const urlDynamic = `${process.env.REACT_APP_BASE_URL}/export`;
 const headerContentType = 'content-type';
 const headerContentDisposition = 'content-disposition';
 

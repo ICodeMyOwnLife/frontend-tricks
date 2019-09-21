@@ -1,8 +1,7 @@
-import { BASE_URL } from 'constants/urls';
 import { useCallback, useRef, useState } from 'react';
 import Axios, { CancelTokenSource, AxiosResponse, AxiosInstance } from 'axios';
 
-const url = `${BASE_URL}/long`;
+const url = `${process.env.REACT_APP_BASE_URL}/long`;
 const params = new URLSearchParams();
 params.set('duration', '5000');
 
