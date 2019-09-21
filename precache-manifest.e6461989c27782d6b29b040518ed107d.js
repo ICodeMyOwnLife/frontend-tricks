@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "dfeff3aadc7a22d1cc93c832eef3b2d3",
+    "revision": "7eb41152f33e2fdaf44a888be5f65867",
     "url": "/frontend-tricks/index.html"
   },
   {
@@ -60,19 +60,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/frontend-tricks/static/css/23.b647b66e.chunk.css"
   },
   {
-    "revision": "bf3c6a44fe90664e54be",
+    "revision": "5c4aecf7b31bba34a83c",
     "url": "/frontend-tricks/static/css/25.a71bae1d.chunk.css"
   },
   {
-    "revision": "22db81320a1104a22675",
+    "revision": "e900c5f21a5365842589",
     "url": "/frontend-tricks/static/css/26.a71bae1d.chunk.css"
   },
   {
-    "revision": "01edb618c0a324ff9534",
+    "revision": "fd526316784f130e20d8",
     "url": "/frontend-tricks/static/css/27.a71bae1d.chunk.css"
   },
   {
-    "revision": "ecbe1629a1038e6538d3",
+    "revision": "5a30c216079581d14a0f",
     "url": "/frontend-tricks/static/css/28.a71bae1d.chunk.css"
   },
   {
@@ -96,7 +96,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/frontend-tricks/static/css/9.fb79eb16.chunk.css"
   },
   {
-    "revision": "7c0111749ac474c91b4a",
+    "revision": "1204b76550d35d2a3b3f",
     "url": "/frontend-tricks/static/css/main.81602e2a.chunk.css"
   },
   {
@@ -168,20 +168,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/frontend-tricks/static/js/24.cf2cc2f4.chunk.js"
   },
   {
-    "revision": "bf3c6a44fe90664e54be",
-    "url": "/frontend-tricks/static/js/25.b575e273.chunk.js"
+    "revision": "5c4aecf7b31bba34a83c",
+    "url": "/frontend-tricks/static/js/25.029b2b66.chunk.js"
   },
   {
-    "revision": "22db81320a1104a22675",
-    "url": "/frontend-tricks/static/js/26.7e0bfd20.chunk.js"
+    "revision": "e900c5f21a5365842589",
+    "url": "/frontend-tricks/static/js/26.55234949.chunk.js"
   },
   {
-    "revision": "01edb618c0a324ff9534",
-    "url": "/frontend-tricks/static/js/27.912bf220.chunk.js"
+    "revision": "fd526316784f130e20d8",
+    "url": "/frontend-tricks/static/js/27.77c63cbc.chunk.js"
   },
   {
-    "revision": "ecbe1629a1038e6538d3",
-    "url": "/frontend-tricks/static/js/28.5b4ea072.chunk.js"
+    "revision": "5a30c216079581d14a0f",
+    "url": "/frontend-tricks/static/js/28.ddfe3d53.chunk.js"
   },
   {
     "revision": "e4a18d0a85a26709351b",
@@ -212,12 +212,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/frontend-tricks/static/js/9.9a549b38.chunk.js"
   },
   {
-    "revision": "7c0111749ac474c91b4a",
-    "url": "/frontend-tricks/static/js/main.300e83fc.chunk.js"
+    "revision": "1204b76550d35d2a3b3f",
+    "url": "/frontend-tricks/static/js/main.bab8a2f3.chunk.js"
   },
   {
-    "revision": "e006a48074fbee2429fe",
-    "url": "/frontend-tricks/static/js/runtime~main.fb9d155f.js"
+    "revision": "43968c7e057a5023cfab",
+    "url": "/frontend-tricks/static/js/runtime~main.739fdac2.js"
   },
   {
     "revision": "195411ab66516d4c31ef716fd95004fd",
