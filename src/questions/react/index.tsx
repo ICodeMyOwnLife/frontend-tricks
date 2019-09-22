@@ -29,6 +29,11 @@ const routes: RouteInfo[] = [
     path: 'bundle-size',
     component: lazy(() => import('questions/react/BundleSize1')),
   },
+  {
+    name: 'Deployment',
+    path: 'deployment',
+    component: lazy(() => import('questions/react/Deployment1')),
+  },
 ];
 
 export const ReactTricksImpl: FC<ReactTricksProps> = ({ match: { url } }) => (
