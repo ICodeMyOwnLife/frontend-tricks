@@ -124,7 +124,7 @@ app.listen(Number(process.env.PORT) || 4000);`}
       },
 
       {
-        name: `[GitHub] Deploying a React App\* to GitHub Pages`,
+        name: `[GitHub] Deploying a React App* to GitHub Pages`,
         url: `https://github.com/gitname/react-gh-pages`,
       },
 
