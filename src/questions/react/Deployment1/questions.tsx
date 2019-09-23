@@ -79,7 +79,9 @@ app.listen(Number(process.env.PORT) || 4000);`}
 
         <p>
           Add <code>homepage</code> entry and scripts to{' '}
-          <code>package.json</code>
+          <code>package.json</code>. <b>Note:</b> The <code>homepage</code>{' '}
+          entry is very important for GitHub pages to work properly, but it may
+          cause routing problems with other deployment methods.
         </p>
 
         <Code language="json">
@@ -99,7 +101,7 @@ app.listen(Number(process.env.PORT) || 4000);`}
         <Code language="bash">yarn deploy</Code>
 
         <p>
-          make sure GitHub Pages option in your GitHub project settings is set
+          Make sure GitHub Pages option in your GitHub project settings is set
           to use the <code>gh-pages</code> branch
         </p>
 
