@@ -33,4 +33,4 @@ repos:
           - --fix
           - --quiet
           - --config ./.eslintrc
-        files: \.tsx$
+        files: (\.ts|\.tsx|\.js|\.jsx)$
