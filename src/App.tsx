@@ -25,6 +25,11 @@ const routes: RouteInfo[] = [
     path: 'js',
     component: lazy(() => import('questions/js')),
   },
+  {
+    name: 'CI/CD',
+    path: 'ci-cd',
+    component: lazy(() => import('questions/ci_cd')),
+  },
 ];
 
 const App: React.FC = () => (
