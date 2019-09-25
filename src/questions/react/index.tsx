@@ -34,6 +34,11 @@ const routes: RouteInfo[] = [
     path: 'deployment',
     component: lazy(() => import('questions/react/Deployment1')),
   },
+  {
+    name: 'Jest',
+    path: 'jest',
+    component: lazy(() => import('questions/react/Jest1')),
+  },
 ];
 
 export const ReactTricksImpl: FC<ReactTricksProps> = ({ match: { url } }) => (

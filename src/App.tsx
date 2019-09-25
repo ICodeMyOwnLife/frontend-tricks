@@ -35,6 +35,11 @@ const routes: RouteInfo[] = [
     path: 'git',
     component: lazy(() => import('questions/git')),
   },
+  {
+    name: 'Performance',
+    path: 'performance',
+    component: lazy(() => import('questions/performance')),
+  },
 ];
 
 const App: React.FC = () => (
