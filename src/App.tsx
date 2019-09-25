@@ -30,6 +30,11 @@ const routes: RouteInfo[] = [
     path: 'ci-cd',
     component: lazy(() => import('questions/ci_cd')),
   },
+  {
+    name: 'Git',
+    path: 'git',
+    component: lazy(() => import('questions/git')),
+  },
 ];
 
 const App: React.FC = () => (
