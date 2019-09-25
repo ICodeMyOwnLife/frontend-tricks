@@ -146,6 +146,103 @@ app.listen(Number(process.env.PORT) || 4000);`}
       },
     ],
   },
+  {
+    question: `How to deploy to Heroku?`,
+    answer: (
+      <div>
+        <p>
+          <a href="https://devcenter.heroku.com/articles/heroku-cli">
+            Download and install <code>heroku</code>
+          </a>
+        </p>
+
+        <p>
+          Create an Heroku app using <code>create-react-app-buildpack</code>
+        </p>
+
+        <Code language="bash">
+          heroku create frontend-tricks-web -b
+          https://github.com/mars/create-react-app-buildpack.git
+        </Code>
+
+        <p>Deploy</p>
+
+        <Code language="bash">git push heroku master</Code>
+
+        <p>Open website</p>
+
+        <Code language="bash">heroku open</Code>
+      </div>
+    ),
+    references: [
+      {
+        name: `[Heroku] Deploying React with Zero Configuration`,
+        url: `https://blog.heroku.com/deploying-react-with-zero-configuration`,
+      },
+      {
+        name: `[GitHub] Heroku Buildpack for create-react-app`,
+        url: `https://github.com/mars/create-react-app-buildpack`,
+      },
+      {
+        name: `[Create React App] Deployment`,
+        url: `https://create-react-app.dev/docs/deployment#heroku-https-wwwherokucom`,
+      },
+    ],
+  },
+  {
+    question: `How to create a staging build (with customizing environment variables)?`,
+    answer: (
+      <div>
+        <p>
+          Create a file called <code>.env.staging</code> in root project
+          directory
+        </p>
+
+        <Code language="yaml">
+          {`NODE_ENV = "staging"
+REACT_APP_BASE_URL=http://127.0.0.1:1333`}
+        </Code>
+
+        <p>
+          Install <code>env-cmd</code>
+        </p>
+
+        <Code language="bash">yarn add -D env-cmd</Code>
+
+        <p>
+          Add <code>build:staging</code> script to <code>package.json</code>
+        </p>
+
+        <Code language="json">
+          {`{
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build:staging": "env-cmd -f .env.staging yarn build"
+  }
+}`}
+        </Code>
+
+        <p>Create a build for staging</p>
+
+        <Code language="bash">yarn build:staging</Code>
+      </div>
+    ),
+    references: [
+      {
+        name: `[Create React App] Customizing Environment Variables for Arbitrary Build Environments`,
+        url: `https://create-react-app.dev/docs/deployment#customizing-environment-variables-for-arbitrary-build-environments`,
+      },
+      {
+        name: `[DEV] Managing .env variables for provisional builds with Create React App`,
+        url: `https://dev.to/jam3/managing-env-variables-for-provisional-builds-h37`,
+      },
+      {
+        name: `[GitHub] env-cmd`,
+        url: `https://github.com/toddbluhm/env-cmd`,
+      },
+    ],
+  },
 ];
 
 export default questions;

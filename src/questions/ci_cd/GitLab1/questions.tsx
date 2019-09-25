@@ -56,6 +56,10 @@ git push`}
     ),
     references: [
       {
+        name: `[GitLab] GitLab CI/CD Pipeline Configuration Reference`,
+        url: `https://docs.gitlab.com/ee/ci/yaml/README.html`,
+      },
+      {
         name: `[Medium] React continuous deployment with gitlab-ci and S3`,
         url: `https://medium.com/@trevlinp/react-continuous-deployment-with-gitlab-ci-and-s3-46987e30dc54`,
       },
