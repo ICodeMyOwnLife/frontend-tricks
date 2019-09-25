@@ -31,6 +31,5 @@ repos:
           - '@typescript-eslint/parser@^2.3.0'
         args:
           - --fix
-          - --quiet
           - --config ./.eslintrc
         files: (\.ts|\.tsx|\.js|\.jsx)$
