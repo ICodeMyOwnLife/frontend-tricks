@@ -8,7 +8,8 @@ const questions: QuestionInfo[] = [
     answer: (
       <div>
         <p>
-          Set max heap size using <code>NODE_OPTIONS</code> environment variable
+          Set max heap usage using <code>NODE_OPTIONS</code> environment
+          variable
         </p>
 
         <Code language="bash">

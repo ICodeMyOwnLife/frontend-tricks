@@ -32,4 +32,3 @@ repos:
         args:
           - --fix
           - --quiet
-        files: (\.ts|\.tsx|\.js|\.jsx)$
