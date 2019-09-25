@@ -79,9 +79,17 @@ app.listen(Number(process.env.PORT) || 4000);`}
 
         <p>
           Add <code>homepage</code> entry and scripts to{' '}
-          <code>package.json</code>. <b>Note:</b> The <code>homepage</code>{' '}
-          entry is very important for GitHub pages to work properly, but it may
-          cause routing problems with other deployment methods.
+          <code>package.json</code>.
+        </p>
+
+        <p>
+          <b>Note:</b> The <code>homepage</code> entry is very important for
+          GitHub pages to work properly. React will build paths to static files
+          based on <code>homepage</code>, (e.g.{' '}
+          <code>
+            {`<script src="/frontend-tricks/static/js/4.3e25585d.chunk.js"></script>`}
+          </code>
+          ), which may cause problems with other deployment methods.
         </p>
 
         <Code language="json">
