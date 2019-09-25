@@ -33,4 +33,3 @@ repos:
           - --fix
           - --quiet
         files: (\.ts|\.tsx|\.js|\.jsx)$
-        exclude: \.test\.(ts|tsx|js|jsx)$
