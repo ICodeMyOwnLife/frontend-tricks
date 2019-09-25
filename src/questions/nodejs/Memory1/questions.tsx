@@ -4,7 +4,7 @@ import Code from 'components/Code';
 
 const questions: QuestionInfo[] = [
   {
-    question: `How to increase heap memory of an Node app?`,
+    question: `How to increase heap memory of an NodeJS app?`,
     answer: (
       <div>
         <p>
@@ -31,6 +31,10 @@ const questions: QuestionInfo[] = [
         url: `https://nodejs.org/api/cli.html#cli_node_options_options`,
       },
     ],
+  },
+  {
+    question: `How to get used memory size in NodeJS app?`,
+    answer: <div />,
   },
 ];
 

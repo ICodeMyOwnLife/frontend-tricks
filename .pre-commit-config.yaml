@@ -32,3 +32,5 @@ repos:
         args:
           - --fix
           - --quiet
+          - --config ./.eslintrc
+        files: \.tsx$
