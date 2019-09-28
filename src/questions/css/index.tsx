@@ -34,6 +34,11 @@ const routes: RouteInfo[] = [
     path: 'shapes',
     component: lazy(() => import('questions/css/Shapes1')),
   },
+  {
+    name: 'Replaced Elements',
+    path: 'replaced-elements',
+    component: lazy(() => import('questions/css/ReplacedElements1')),
+  },
 ];
 
 export const CssTricksImpl: FC<CssTricksProps> = ({ match: { url } }) => (

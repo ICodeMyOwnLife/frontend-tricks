@@ -1,5 +1,7 @@
 import React, { lazy } from 'react';
 import { BrowserRouter } from 'react-router-dom';
+import { createMuiTheme, CssBaseline } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/styles';
 import Nav from 'components/Nav';
 import { RouteInfo, renderRoutes } from 'helpers/routes';
 import classes from './App.module.scss';
@@ -42,12 +44,17 @@ const routes: RouteInfo[] = [
   },
 ];
 
+const theme = createMuiTheme({});
+
 const App: React.FC = () => (
   <div className={classes.App}>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-      <Nav baseUrl="" routes={routes} />
-      {renderRoutes('', routes)}
-    </BrowserRouter>
+    <CssBaseline />
+    <ThemeProvider theme={theme}>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <Nav baseUrl="" routes={routes} />
+        {renderRoutes('', routes)}
+      </BrowserRouter>
+    </ThemeProvider>
   </div>
 );
 
