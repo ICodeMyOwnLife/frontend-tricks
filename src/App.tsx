@@ -42,6 +42,11 @@ const routes: RouteInfo[] = [
     path: 'performance',
     component: lazy(() => import('questions/performance')),
   },
+  {
+    name: 'Webpack',
+    path: 'webpack',
+    component: lazy(() => import('questions/webpack')),
+  },
 ];
 
 const theme = createMuiTheme({});
