@@ -1,5 +1,14 @@
 import React, { FC, memo } from 'react';
-import { Card, CardContent, Link } from '@material-ui/core';
+import {
+  Card,
+  CardContent,
+  Grid,
+  FormLabel,
+  Input,
+  CardHeader,
+  Button,
+  Typography,
+} from '@material-ui/core';
 import clsx from 'clsx';
 import Question from 'components/Question';
 import questions from './questions';
@@ -10,8 +19,59 @@ export const Content1Component: FC = () => {
 
   return (
     <Question title="Content 1" questions={questions}>
-      <Card className={clsx(classes.Section, classes.SectionLink)}>
-        <CardContent />
+      <Card className={classes.Section}>
+        <CardHeader title="Text Content" />
+        <CardContent>
+          <Grid container spacing={3}>
+            <Grid
+              item
+              className={clsx(classes.FormGroup, 'required')}
+              xs={12}
+              sm={6}
+            >
+              <FormLabel htmlFor="name" className={classes.FormLabel}>
+                Name
+              </FormLabel>
+              <Input className={classes.FormControl} id="name" name="name" />
+            </Grid>
+
+            <Grid item className={clsx(classes.FormGroup)} xs={12} sm={6}>
+              <FormLabel htmlFor="value" className={classes.FormLabel}>
+                Value
+              </FormLabel>
+              <Input
+                type="number"
+                className={classes.FormControl}
+                id="value"
+                name="value"
+              />
+            </Grid>
+          </Grid>
+        </CardContent>
+      </Card>
+
+      <Card className={classes.Section}>
+        <CardHeader title="Image Content" />
+        <CardContent>
+          <Button className={classes.ButtonTime} variant="outlined">
+            Time
+          </Button>
+          <Button className={classes.ButtonDate} variant="outlined">
+            Date
+          </Button>
+        </CardContent>
+      </Card>
+
+      <Card className={classes.Section}>
+        <CardHeader title="Attr Content" />
+        <CardContent>
+          <Typography className={classes.Task} data-status="&#x2705;">
+            Do homework
+          </Typography>
+          <Typography className={classes.Task} data-status="&#10062;">
+            Hangout with friends
+          </Typography>
+        </CardContent>
       </Card>
     </Question>
   );
