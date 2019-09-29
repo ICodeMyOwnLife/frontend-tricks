@@ -1,23 +1,53 @@
+$mediaBreakPointMap: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
+
+@mixin media-xs {
+  @media (min-width: map-get($map: $mediaBreakPointMap, $key: xs)) {
+    @content;
+  }
+}
+
+@mixin media-sm {
+  @media (min-width: map-get($map: $mediaBreakPointMap, $key: sm)) {
+    @content;
+  }
+}
+
+@mixin media-md {
+  @media (min-width: map-get($map: $mediaBreakPointMap, $key: md)) {
+    @content;
+  }
+}
+
+@mixin media-lg {
+  @media (min-width: map-get($map: $mediaBreakPointMap, $key: lg)) {
+    @content;
+  }
+}
+
+@mixin media-xl {
+  @media (min-width: map-get($map: $mediaBreakPointMap, $key: xl)) {
+    @content;
+  }
+}
+
 @mixin col($colCount) {
   width: $colCount * 100% / 12;
 }
 
 @mixin grid($levels) {
-  $mediaMap: (
-    xs: 0,
-    sm: 576px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px,
-  );
-
   @for $colCount from 1 through $levels {
     .col-#{$colCount} {
       @include col($colCount);
     }
   }
 
-  @each $prefix, $breakPoint in $mediaMap {
+  @each $prefix, $breakPoint in $mediaBreakPointMap {
     @media (min-width: $breakPoint) {
       @for $colCount from 1 through 12 {
         .col-#{$prefix}-#{$colCount} {

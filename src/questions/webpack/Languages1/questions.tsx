@@ -111,6 +111,68 @@ export default config;
       },
     ],
   },
+  {
+    question: 'How to resolve module using absolute paths?',
+    answer: (
+      <div>
+        <p>
+          Install <code>tsconfig-paths-webpack-plugin</code>
+        </p>
+        <Code language="bash">yarn add tsconfig-paths-webpack-plugin</Code>
+
+        <p>
+          Config Webpack to use <code>tsconfig-paths-webpack-plugin</code>
+        </p>
+        <Code language="typescript">
+          {`import path from 'path';
+import { Configuration } from 'webpack';
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+
+const tsConfigPathsPlugin = new TsconfigPathsPlugin();
+
+const config: Configuration = {
+  entry: { index: './src/index.ts' },
+  output: {
+    path: path.resolve('dist'),
+    filename: 'seller-wallet-widget.js',
+  },
+  resolve: {
+    extensions: ['.ts', '.js'],
+    plugins: [tsConfigPathsPlugin],
+  },
+};
+
+export default config;`}
+        </Code>
+
+        <p>
+          Config <code>baseUrl</code> in <code>tsconfig.json</code>
+        </p>
+        <Code language="json">
+          {`{
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "baseUrl": "./src",
+  }
+}`}
+        </Code>
+
+        <p>Replace relative imports with absolute imports</p>
+        <Code language="typescript">
+          {`import Widget from 'views/widget';
+import WalletService from 'services/walletService';
+import debug from 'services/debug';`}
+        </Code>
+      </div>
+    ),
+    references: [
+      {
+        name: `[GitHub] tsconfig-paths-webpack-plugin`,
+        url: `https://github.com/dividab/tsconfig-paths-webpack-plugin`,
+      },
+    ],
+  },
 ];
 
 export default questions;
