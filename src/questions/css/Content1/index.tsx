@@ -8,6 +8,7 @@ import {
   CardHeader,
   Button,
   Typography,
+  Box,
 } from '@material-ui/core';
 import clsx from 'clsx';
 import Question from 'components/Question';
@@ -71,6 +72,35 @@ export const Content1Component: FC = () => {
           <Typography className={classes.Task} data-status="&#10062;">
             Hangout with friends
           </Typography>
+        </CardContent>
+      </Card>
+
+      <Card className={classes.Section}>
+        <CardHeader title="Quote Content" />
+        <CardContent>
+          <Typography className={classes.Quote}>
+            Life is just a chance to grow a soul.
+          </Typography>
+          <Typography className={classes.Quote}>
+            People living deeply have no fear of death.
+          </Typography>
+        </CardContent>
+      </Card>
+
+      <Card className={classes.Section}>
+        <CardHeader title="Counter Content" />
+        <CardContent>
+          <Box>
+            <Typography className={classes.DecimalCounterItem}>
+              Apple
+            </Typography>
+            <Typography className={classes.DecimalCounterItem}>
+              Banana
+            </Typography>
+            <Typography className={classes.DecimalCounterItem}>
+              Coconut
+            </Typography>
+          </Box>
         </CardContent>
       </Card>
     </Question>

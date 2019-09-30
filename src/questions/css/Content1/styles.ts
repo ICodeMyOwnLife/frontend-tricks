@@ -44,7 +44,22 @@ const useStyles = makeStyles((theme: Theme) => ({
   Task: {
     display: 'block',
     '&::before': {
-      content: 'attr(data-status)',
+      content: `attr(data-status)`,
+      marginRight: theme.spacing(1),
+    },
+  },
+  Quote: {
+    '&::before': {
+      content: `open-quote`,
+    },
+    '&::after': {
+      content: 'close-quote',
+    },
+  },
+  DecimalCounterItem: {
+    counterIncrement: 'decimalCounter',
+    '&::before': {
+      content: `counter(decimalCounter)". "`,
     },
   },
 }));
