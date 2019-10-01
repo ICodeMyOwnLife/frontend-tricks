@@ -59,7 +59,25 @@ const useStyles = makeStyles((theme: Theme) => ({
   DecimalCounterItem: {
     counterIncrement: 'decimalCounter',
     '&::before': {
-      content: `counter(decimalCounter)". "`,
+      content: `counter(decimalCounter)" ."`,
+    },
+  },
+  LowerRomanCounterItem: {
+    counterIncrement: 'lowerRomanCounter',
+    '&::before': {
+      content: `counter(lowerRomanCounter, lower-roman)" ."`,
+    },
+  },
+  UpperAlphaCounterItem: {
+    counterIncrement: 'upperAlphaCounter',
+    '&::before': {
+      content: `counter(upperAlphaCounter, upper-alpha)" ."`,
+    },
+  },
+  LowerGreekCounterItem: {
+    counterIncrement: 'lowerGreekCounter',
+    '&::before': {
+      content: `counter(lowerGreekCounter, lower-greek)" ."`,
     },
   },
 }));

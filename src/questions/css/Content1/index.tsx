@@ -8,7 +8,6 @@ import {
   CardHeader,
   Button,
   Typography,
-  Box,
 } from '@material-ui/core';
 import clsx from 'clsx';
 import Question from 'components/Question';
@@ -90,17 +89,59 @@ export const Content1Component: FC = () => {
       <Card className={classes.Section}>
         <CardHeader title="Counter Content" />
         <CardContent>
-          <Box>
-            <Typography className={classes.DecimalCounterItem}>
-              Apple
-            </Typography>
-            <Typography className={classes.DecimalCounterItem}>
-              Banana
-            </Typography>
-            <Typography className={classes.DecimalCounterItem}>
-              Coconut
-            </Typography>
-          </Box>
+          <Grid container spacing={2}>
+            <Grid item sm={6} lg={3}>
+              <Typography variant="h6">Decimal</Typography>
+              <Typography className={classes.DecimalCounterItem}>
+                Apple
+              </Typography>
+              <Typography className={classes.DecimalCounterItem}>
+                Banana
+              </Typography>
+              <Typography className={classes.DecimalCounterItem}>
+                Coconut
+              </Typography>
+            </Grid>
+
+            <Grid item sm={6} lg={3}>
+              <Typography variant="h6">Lower Roman</Typography>
+              <Typography className={classes.LowerRomanCounterItem}>
+                Apple
+              </Typography>
+              <Typography className={classes.LowerRomanCounterItem}>
+                Banana
+              </Typography>
+              <Typography className={classes.LowerRomanCounterItem}>
+                Coconut
+              </Typography>
+            </Grid>
+
+            <Grid item sm={6} lg={3}>
+              <Typography variant="h6">Upper Alpha</Typography>
+              <Typography className={classes.UpperAlphaCounterItem}>
+                Apple
+              </Typography>
+              <Typography className={classes.UpperAlphaCounterItem}>
+                Banana
+              </Typography>
+              <Typography className={classes.UpperAlphaCounterItem}>
+                Coconut
+              </Typography>
+            </Grid>
+
+            <Grid item sm={6} lg={3}>
+              <Typography variant="h6">Lower Greek</Typography>
+              <Typography className={classes.LowerGreekCounterItem}>
+                Apple
+              </Typography>
+              <Typography className={classes.LowerGreekCounterItem}>
+                Banana
+              </Typography>
+              <Typography className={classes.LowerGreekCounterItem}>
+                Coconut
+              </Typography>
+            </Grid>
+          </Grid>
         </CardContent>
       </Card>
     </Question>
