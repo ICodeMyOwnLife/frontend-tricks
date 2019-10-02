@@ -39,6 +39,11 @@ const routes: RouteInfo[] = [
     path: 'device-detection',
     component: lazy(() => import('questions/dom/DeviceDetection1')),
   },
+  {
+    name: 'Upload',
+    path: 'upload',
+    component: lazy(() => import('questions/dom/Upload1')),
+  },
 ];
 
 export const DomTricksImpl: FC<HtmlTricksProps> = ({ match: { url } }) => (
