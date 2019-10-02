@@ -1,23 +1,24 @@
 import React, { FC, memo } from 'react';
 import Question from 'components/Question';
 import { BASE_URL } from 'constants/common';
-import Button from 'components/Button';
-import { Card, CardHeader, CardContent, Typography } from '@material-ui/core';
+import { Card, CardHeader, CardContent } from '@material-ui/core';
 import questions from './questions';
 import useStyles from './styles';
 import { useUploadSingle, useUploadMultiple } from './hooks';
+import AjaxUpload from './AjaxUpload';
+import FormUpload from './FormUpload';
 
 export const Upload1Component: FC = () => {
   const classes = useStyles();
   const {
     handleUploadSingle,
     inputSingleRef,
-    uploadSingleResult,
+    uploadSingleStatus,
   } = useUploadSingle();
   const {
     handleUploadMultiple,
     inputMultipleRef,
-    uploadMultipleResult,
+    uploadMultipleStatus,
   } = useUploadMultiple();
 
   return (
@@ -25,78 +26,42 @@ export const Upload1Component: FC = () => {
       <Card className={classes.Section}>
         <CardHeader title="Upload Form" />
         <CardContent>
-          <form
-            className={classes.Form}
-            action={`${BASE_URL}/upload-single`}
-            method="POST"
-            encType="multipart/form-data"
-          >
-            <Typography variant="h6">Upload single file</Typography>
-            <input type="hidden" name="redirect" value={window.location.href} />
-            <input
-              className={classes.FileInput}
-              type="file"
-              name="single-file"
-              id="inpSingleFile"
-              required
-            />
-            <Button type="submit">Upload</Button>
-          </form>
-
-          <form
-            className={classes.Form}
-            action={`${BASE_URL}/upload-multiple`}
-            method="POST"
-            encType="multipart/form-data"
-          >
-            <Typography variant="h6">Upload multiple files</Typography>
-            <input type="hidden" name="redirect" value={window.location.href} />
-            <input
-              className={classes.FileInput}
-              type="file"
-              name="multiple-files"
-              id="inputMultipleFile"
-              required
-              multiple
-            />
-            <Button type="submit">Upload</Button>
-          </form>
+          <FormUpload
+            title="Upload single"
+            fieldName="single-file"
+            url={`${BASE_URL}/upload-single`}
+            multiple={false}
+          />
+          <FormUpload
+            title="Upload multiple"
+            fieldName="multiple-files"
+            url={`${BASE_URL}/upload-multiple`}
+            multiple
+          />
         </CardContent>
       </Card>
 
       <Card className={classes.Section}>
         <CardHeader title="Upload AJAX" />
         <CardContent>
-          <form className={classes.Form} onSubmit={handleUploadSingle}>
-            <Typography variant="h6">Upload single</Typography>
-            <input
-              className={classes.FileInput}
-              type="file"
-              name="ajaxSingle"
-              ref={inputSingleRef}
-              required
-            />
-            <Button type="submit">Upload</Button>
-            {uploadSingleResult && (
-              <pre>{JSON.stringify(uploadSingleResult)}</pre>
-            )}
-          </form>
-
-          <form className={classes.Form} onSubmit={handleUploadMultiple}>
-            <Typography variant="h6">Upload multiple</Typography>
-            <input
-              className={classes.FileInput}
-              type="file"
-              name="ajaxSingle"
-              ref={inputMultipleRef}
-              required
-              multiple
-            />
-            <Button type="submit">Upload</Button>
-            {uploadMultipleResult && (
-              <pre>{JSON.stringify(uploadMultipleResult)}</pre>
-            )}
-          </form>
+          <AjaxUpload
+            title="Upload single"
+            inputRef={inputSingleRef}
+            handleUpload={handleUploadSingle}
+            loading={uploadSingleStatus.loading}
+            progressPercentage={uploadSingleStatus.progressPercentage}
+            result={uploadSingleStatus.result}
+            multiple={false}
+          />
+          <AjaxUpload
+            title="Upload multiple"
+            inputRef={inputMultipleRef}
+            handleUpload={handleUploadMultiple}
+            loading={uploadMultipleStatus.loading}
+            progressPercentage={uploadMultipleStatus.progressPercentage}
+            result={uploadMultipleStatus.result}
+            multiple
+          />
         </CardContent>
       </Card>
     </Question>

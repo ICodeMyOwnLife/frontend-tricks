@@ -4,14 +4,14 @@ import { QuestionInfo } from 'components/Question';
 const questions: QuestionInfo[] = [
   {
     question: (
-      <p>
+      <span>
         How to upload file(s) using a <code>form</code>?
-      </p>
+      </span>
     ),
     answer: <div />,
   },
   {
-    question: <p>How to upload file(s) using AJAX requests?</p>,
+    question: <span>How to upload file(s) using AJAX requests?</span>,
     answer: <div />,
   },
 ];
