@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import {
   useCallback,
   FormEvent,
@@ -5,33 +6,19 @@ import {
   useState,
   Dispatch,
   SetStateAction,
+  FormEventHandler,
 } from 'react';
 import { BASE_URL } from 'constants/common';
 
-export const upload = async ({
-  input,
-  method,
+const upload = ({
+  formData,
   url,
-  fieldName,
-  multiple,
   setStatus,
 }: {
-  input: HTMLInputElement | undefined | null;
-  method: string;
+  formData: FormData;
   url: string;
-  fieldName: string;
-  multiple: boolean;
   setStatus: Dispatch<SetStateAction<UploadStatus>>;
 }) => {
-  const files = input && input.files;
-  if (!files) return;
-  const count = multiple ? files.length : Math.max(1, files.length);
-  const formData = new FormData();
-  for (let i = 0; i < count; ++i) {
-    const file = files[i];
-    formData.append(fieldName, file, file.name);
-  }
-
   const xhr = new XMLHttpRequest();
   xhr.addEventListener(
     'progress',
@@ -54,9 +41,87 @@ export const upload = async ({
       }),
     false,
   );
-  xhr.open(method, url);
+  xhr.addEventListener('error', e => {
+    console.log(xhr, e);
+    // eslint-disable-next-line no-debugger
+    debugger;
+  });
+  xhr.open('POST', url, true);
+  xhr.timeout = 2000;
   setStatus({ loading: true, progressPercentage: 0 });
   xhr.send(formData);
+};
+
+export const uploadWholeForm = ({
+  form,
+  url,
+  setStatus,
+}: {
+  form: HTMLFormElement | null | undefined;
+  url: string;
+  setStatus: Dispatch<SetStateAction<UploadStatus>>;
+}) => {
+  if (!form) return;
+
+  const formData = new FormData(form);
+  upload({ formData, url, setStatus });
+};
+
+export const uploadFileOnly = ({
+  input,
+  url,
+  fieldName,
+  multiple,
+  setStatus,
+}: {
+  input: HTMLInputElement | undefined | null;
+  url: string;
+  fieldName: string;
+  multiple: boolean;
+  setStatus: Dispatch<SetStateAction<UploadStatus>>;
+}) => {
+  const files = input && input.files;
+
+  if (!files) return;
+
+  const count = multiple ? files.length : Math.max(1, files.length);
+  const formData = new FormData();
+
+  for (let i = 0; i < count; ++i) {
+    const file = files[i];
+    formData.append(fieldName, file, file.name);
+  }
+
+  upload({ formData, url, setStatus });
+};
+
+export const useUploadWholeForm = ({ url }: { url: string }) => {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [uploadWholeFormStatus, setUploadWholeFormStatus] = useState<
+    UploadStatus
+  >({
+    loading: false,
+    progressPercentage: 0,
+  });
+
+  const handleUploadWholeForm = useCallback<FormEventHandler>(
+    e => {
+      e.preventDefault();
+
+      uploadWholeForm({
+        form: formRef.current,
+        url,
+        setStatus: setUploadWholeFormStatus,
+      });
+    },
+    [url],
+  );
+
+  return {
+    formRef,
+    handleUploadWholeForm,
+    uploadWholeFormStatus,
+  };
 };
 
 export const useUploadSingle = () => {
@@ -70,10 +135,9 @@ export const useUploadSingle = () => {
     async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
-      upload({
+      uploadFileOnly({
         input: inputSingleRef.current,
         url: `${BASE_URL}/upload-single`,
-        method: 'POST',
         fieldName: 'single-file',
         setStatus: setUploadSingleStatus,
         multiple: false,
@@ -99,10 +163,9 @@ export const useUploadMultiple = () => {
     async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
-      upload({
+      uploadFileOnly({
         input: inputMultipleRef.current,
         url: `${BASE_URL}/upload-multiple`,
-        method: 'POST',
         fieldName: 'multiple-files',
         setStatus: setUploadMultipleStatus,
         multiple: true,

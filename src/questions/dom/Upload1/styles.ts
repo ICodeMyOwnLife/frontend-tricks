@@ -11,14 +11,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     position: 'relative',
     display: 'inline-block',
     marginTop: theme.spacing(1),
-    padding: theme.spacing(3),
-  },
-  UploadForm: {
-    marginBottom: theme.spacing(2),
+    padding: theme.spacing(2),
   },
   FileInput: {
     display: 'block',
-    margin: `${theme.spacing(2)}px 0`,
+    marginBottom: theme.spacing(2),
+    fontSize: 14,
     textAlign: 'right',
   },
   ProgressOverlay: {

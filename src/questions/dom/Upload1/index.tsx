@@ -4,45 +4,59 @@ import { BASE_URL } from 'constants/common';
 import { Card, CardHeader, CardContent } from '@material-ui/core';
 import questions from './questions';
 import useStyles from './styles';
-import { useUploadSingle, useUploadMultiple } from './hooks';
+import {
+  useUploadSingle,
+  useUploadMultiple,
+  useUploadWholeForm,
+} from './hooks';
 import AjaxUpload from './AjaxUpload';
 import FormUpload from './FormUpload';
 
+const URL_UPLOAD_SINGLE = `${BASE_URL}/upload-single`;
+const URL_UPLOAD_MULTIPLE = `${BASE_URL}/upload-multiple`;
 export const Upload1Component: FC = () => {
   const classes = useStyles();
+
   const {
     handleUploadSingle,
     inputSingleRef,
     uploadSingleStatus,
   } = useUploadSingle();
+
   const {
     handleUploadMultiple,
     inputMultipleRef,
     uploadMultipleStatus,
   } = useUploadMultiple();
 
+  const {
+    handleUploadWholeForm,
+    formRef,
+    uploadWholeFormStatus,
+  } = useUploadWholeForm({ url: URL_UPLOAD_MULTIPLE });
+
   return (
     <Question title="Upload 1" questions={questions}>
       <Card className={classes.Section}>
-        <CardHeader title="Upload Form" />
+        <CardHeader title="Form Upload" />
         <CardContent>
           <FormUpload
             title="Upload single"
             fieldName="single-file"
-            url={`${BASE_URL}/upload-single`}
+            url={URL_UPLOAD_SINGLE}
             multiple={false}
           />
           <FormUpload
             title="Upload multiple"
             fieldName="multiple-files"
-            url={`${BASE_URL}/upload-multiple`}
+            url={URL_UPLOAD_MULTIPLE}
             multiple
           />
         </CardContent>
       </Card>
 
       <Card className={classes.Section}>
-        <CardHeader title="Upload AJAX" />
+        <CardHeader title="AJAX Upload" />
         <CardContent>
           <AjaxUpload
             title="Upload single"
@@ -60,6 +74,15 @@ export const Upload1Component: FC = () => {
             loading={uploadMultipleStatus.loading}
             progressPercentage={uploadMultipleStatus.progressPercentage}
             result={uploadMultipleStatus.result}
+            multiple
+          />
+          <AjaxUpload
+            title="Upload whole form"
+            formRef={formRef}
+            handleUpload={handleUploadWholeForm}
+            loading={uploadWholeFormStatus.loading}
+            progressPercentage={uploadWholeFormStatus.progressPercentage}
+            result={uploadWholeFormStatus.result}
             multiple
           />
         </CardContent>

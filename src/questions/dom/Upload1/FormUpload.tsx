@@ -14,12 +14,7 @@ export const FormUploadComponent: FC<FormUploadProps> = ({
     <Box className={classes.UploadContainer}>
       <Typography variant="h6">{title}</Typography>
       <Paper className={classes.UploadWrapper}>
-        <form
-          className={classes.UploadForm}
-          action={url}
-          method="POST"
-          encType="multipart/form-data"
-        >
+        <form action={url} method="POST" encType="multipart/form-data">
           <input type="hidden" name="redirect" value={window.location.href} />
           <input
             className={classes.FileInput}
@@ -28,7 +23,12 @@ export const FormUploadComponent: FC<FormUploadProps> = ({
             required
             multiple={multiple}
           />
-          <Button type="submit" variant="contained" color="default">
+          <Button
+            type="submit"
+            variant="contained"
+            color="default"
+            size="small"
+          >
             Upload
           </Button>
         </form>

@@ -10,6 +10,7 @@ import useStyles from './styles';
 
 export const AjaxUploadComponent: FC<AjaxUploadProps> = ({
   title,
+  formRef,
   inputRef,
   handleUpload,
   loading,
@@ -24,7 +25,7 @@ export const AjaxUploadComponent: FC<AjaxUploadProps> = ({
       <Typography variant="h6">{title}</Typography>
 
       <Paper className={classes.UploadWrapper}>
-        <form className={classes.UploadForm} onSubmit={handleUpload}>
+        <form onSubmit={handleUpload} ref={formRef}>
           <input
             className={classes.FileInput}
             type="file"
@@ -33,7 +34,12 @@ export const AjaxUploadComponent: FC<AjaxUploadProps> = ({
             required
             multiple={multiple}
           />
-          <Button type="submit" variant="contained" color="default">
+          <Button
+            type="submit"
+            variant="contained"
+            color="default"
+            size="small"
+          >
             Upload
           </Button>
           {result && <pre>{JSON.stringify(result)}</pre>}
@@ -59,7 +65,8 @@ export default AjaxUpload;
 
 export interface AjaxUploadProps {
   title: string;
-  inputRef: RefObject<HTMLInputElement>;
+  formRef?: RefObject<HTMLFormElement>;
+  inputRef?: RefObject<HTMLInputElement>;
   handleUpload: FormEventHandler;
   loading: boolean;
   progressPercentage: number;
