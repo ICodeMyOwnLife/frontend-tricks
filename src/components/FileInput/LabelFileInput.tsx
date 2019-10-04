@@ -1,9 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { FC, memo } from 'react';
 import classnames from 'classnames';
+import { Button, Typography } from '@material-ui/core';
 import { useInputChangeHandler, useDragDrop, getFileName } from './hooks';
 import { FileInputProps } from './types';
-import classes from './styles.module.scss';
+import useStyles from './styles';
 
 export const LabelFileInputImpl: FC<FileInputProps> = ({
   className,
@@ -14,6 +15,7 @@ export const LabelFileInputImpl: FC<FileInputProps> = ({
   children = 'Choose File',
   ...props
 }) => {
+  const classes = useStyles();
   const handleInputChange = useInputChangeHandler({ onChange });
   const containerRef = useDragDrop({ onChange, draggable });
   const filename = getFileName(files);
@@ -23,20 +25,32 @@ export const LabelFileInputImpl: FC<FileInputProps> = ({
       className={classnames(classes.FileInput, className)}
       ref={containerRef}
     >
-      <label className={classes.Button} htmlFor={id}>
+      <Button
+        variant="contained"
+        color="primary"
+        size="small"
+        component="label"
+        htmlFor={id}
+      >
         {children}
-      </label>
+      </Button>
+
       <input
-        className={classnames(classes.Input, classes.visuallyHidden)}
+        className={classnames(classes.HiddenInput)}
         id={id}
         type="file"
         onChange={handleInputChange}
         {...props}
       />
+
       {filename && (
-        <span className={classes.Filename} title={filename}>
+        <Typography
+          className={classes.Filename}
+          title={filename}
+          variant="body1"
+        >
           {filename}
-        </span>
+        </Typography>
       )}
     </div>
   );

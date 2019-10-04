@@ -1,33 +1,36 @@
 import React, { FC, memo } from 'react';
-import classnames from 'classnames';
-import { ImagePreviewProps } from './types';
-import classes from './styles.module.scss';
+import clsx from 'clsx';
+import PreviewContainer from './PreviewContainer';
+import { PreviewProps } from './types';
+import useStyles from './styles';
 
-export const ImagePreviewImpl: FC<ImagePreviewProps> = ({
+export const ImagePreviewImpl: FC<PreviewProps> = ({
   className,
-  imageClassName,
-  errorClassName,
+  previewClassName,
   src,
   error,
-  imgRef,
-}) => (
-  <div
-    className={classnames(classes.ImagePreview, className)}
-    hidden={!src && !error}
-  >
-    <p className={classnames(classes.Error, errorClassName)} hidden={!error}>
-      {error}
-    </p>
+  errorClassName,
+  title,
+  onLoad,
+}) => {
+  const classes = useStyles();
 
-    <img
-      ref={imgRef}
-      className={classnames(classes.Image, imageClassName)}
-      src={src}
-      alt="Preview"
-      hidden={!src}
-    />
-  </div>
-);
+  return (
+    <PreviewContainer
+      className={className}
+      error={error}
+      errorClassName={errorClassName}
+      hidden={!src && !error}
+    >
+      <img
+        className={clsx(classes.Preview, previewClassName)}
+        src={src}
+        alt={title}
+        onLoad={onLoad}
+      />
+    </PreviewContainer>
+  );
+};
 
 const ImagePreview = memo(ImagePreviewImpl);
 ImagePreview.displayName = 'ImagePreview';

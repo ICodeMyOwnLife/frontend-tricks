@@ -1,38 +1,37 @@
 import React, { FC, memo } from 'react';
-import { Box } from '@material-ui/core';
 import clsx from 'clsx';
-import { useObjectUrl } from './hooks';
+import PreviewContainer from './PreviewContainer';
+import { PreviewProps } from './types';
 import useStyles from './styles';
 
-export const CommonPreviewComponent: FC<CommonPreviewProps> = ({
+export const CommonPreviewComponent: FC<PreviewProps> = ({
   className,
   previewClassName,
+  src,
+  error,
+  errorClassName,
   title,
-  files,
+  onLoad,
 }) => {
   const classes = useStyles();
-  const { src, cleanupCallback } = useObjectUrl({ files });
 
   return (
-    <Box className={clsx(classes.IframePreview, className)}>
+    <PreviewContainer
+      className={className}
+      error={error}
+      errorClassName={errorClassName}
+      hidden={!src && !error}
+    >
       <iframe
-        className={previewClassName}
+        className={clsx(classes.Preview, previewClassName)}
         title={title}
         src={src}
-        hidden={!src}
-        onLoad={cleanupCallback}
+        onLoad={onLoad}
       />
-    </Box>
+    </PreviewContainer>
   );
 };
 
 const CommonPreview = memo(CommonPreviewComponent);
 CommonPreview.displayName = 'CommonPreview';
 export default CommonPreview;
-
-export interface CommonPreviewProps {
-  className?: string;
-  previewClassName?: string;
-  title: string;
-  files: FileList | null | undefined;
-}

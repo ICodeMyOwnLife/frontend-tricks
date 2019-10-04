@@ -1,6 +1,6 @@
 import React, { FC, memo, useState } from 'react';
+import { Checkbox, FormControlLabel } from '@material-ui/core';
 import Question from 'components/Question';
-import Checkbox from 'components/Checkbox';
 import {
   ButtonFileInput,
   LabelFileInput,
@@ -23,13 +23,15 @@ export const FileInput1Impl: FC = () => {
 
   return (
     <Question title="File Input 1" questions={questions}>
-      <div className="mb-5">
-        <h5>Button File Input</h5>
-        <Checkbox
+      <Section title="Button File Input">
+        <FormControlLabel
           label="Draggable?"
-          id="buttonDraggable"
-          checked={buttonDraggable}
-          onChange={setButtonDraggable}
+          control={
+            <Checkbox
+              checked={buttonDraggable}
+              onChange={e => setButtonDraggable(e.target.checked)}
+            />
+          }
         />
         <ButtonFileInput
           id="buttonFileInput"
@@ -38,15 +40,18 @@ export const FileInput1Impl: FC = () => {
           files={buttonFiles}
           onChange={setButtonFiles}
         />
-      </div>
+      </Section>
 
-      <div className="mb-5">
-        <h5>Label File Input</h5>
-        <Checkbox
+      <Section title="Label File Input">
+        <FormControlLabel
           label="Draggable?"
-          id="labelDraggable"
-          checked={labelDraggable}
-          onChange={setLabelDraggable}
+          control={
+            <Checkbox
+              id="labelDraggable"
+              checked={labelDraggable}
+              onChange={e => setLabelDraggable(e.target.checked)}
+            />
+          }
         />
         <LabelFileInput
           id="labelFileInput"
@@ -55,27 +60,29 @@ export const FileInput1Impl: FC = () => {
           files={labelFiles}
           onChange={setLabelFiles}
         />
-      </div>
+      </Section>
 
-      <div className="mb-5">
-        <h5>Data URL Image Input</h5>
+      <Section title="Data URL Image Input">
         <DataUrlImageInput
           id="dataUrlImageInput"
+          title="Data URL Image Input"
           draggable
           files={dataUrlFiles}
           onChange={setDataUrlFiles}
+          accept="image/*"
         />
-      </div>
+      </Section>
 
-      <div className="mb-5">
-        <h5>Object URL Image Input</h5>
+      <Section title="Object URL Image Input">
         <ObjectUrlImageInput
           id="objectUrlImageInput"
+          title="Object URL Image Input"
           draggable
           files={objectUrlFiles}
           onChange={setObjectUrlFiles}
+          accept="image/*"
         />
-      </div>
+      </Section>
 
       <Section title="PDF Input">
         <CommonInput

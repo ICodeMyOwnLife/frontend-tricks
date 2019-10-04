@@ -1,4 +1,11 @@
-import { InputHTMLAttributes, ReactNode, RefObject } from 'react';
+import {
+  InputHTMLAttributes,
+  ReactNode,
+  EventHandler,
+  SyntheticEvent,
+} from 'react';
+
+export type TriggerComponent = 'button' | 'label';
 
 export interface FileInputProps
   extends Omit<
@@ -12,13 +19,25 @@ export interface FileInputProps
   children?: ReactNode;
 }
 
-export interface ImagePreviewProps {
+export interface PreviewContainerProps {
   className?: string;
-  imageClassName?: string;
   errorClassName?: string;
-  src?: string;
   error?: string;
-  imgRef?: RefObject<HTMLImageElement>;
+  hidden?: boolean;
+  children?: ReactNode;
+}
+
+export interface PreviewProps extends PreviewContainerProps {
+  previewClassName?: string;
+  title?: string;
+  src?: string;
+  onLoad?: EventHandler<SyntheticEvent>;
+}
+
+export interface WrappedInputProps extends FileInputProps {
+  title: string;
+  triggerComponent?: TriggerComponent;
+  supportedFileTypes?: string[];
 }
 
 export interface UrlImagePreviewProps {

@@ -16,24 +16,32 @@ const questions: QuestionInfo[] = [
   className={classnames(classes.FileInput, className)}
   ref={containerRef}
 >
-  <button
-    className={classes.Button}
+  <Button
     type="button"
+    variant="contained"
+    color="primary"
+    size="small"
     onClick={triggerInputClick}
   >
     {children}
-  </button>
+  </Button>
+
   <input
-    className={classnames(classes.Input, classes.displayNone)}
     ref={inputRef}
     type="file"
     onChange={handleInputChange}
+    hidden
     {...props}
   />
+
   {filename && (
-    <span className={classes.Filename} title={filename}>
+    <Typography
+      className={classes.Filename}
+      title={filename}
+      variant="body1"
+    >
       {filename}
-    </span>
+    </Typography>
   )}
 </div>`}
         </Code>
@@ -46,20 +54,32 @@ const questions: QuestionInfo[] = [
   className={classnames(classes.FileInput, className)}
   ref={containerRef}
 >
-  <label className={classes.Button} htmlFor={id}>
+  <Button
+    variant="contained"
+    color="primary"
+    size="small"
+    component="label"
+    htmlFor={id}
+  >
     {children}
-  </label>
+  </Button>
+
   <input
-    className={classnames(classes.Input, classes.visuallyHidden)}
+    className={classnames(classes.HiddenInput)}
     id={id}
     type="file"
     onChange={handleInputChange}
     {...props}
   />
+
   {filename && (
-    <span className={classes.Filename} title={filename}>
+    <Typography
+      className={classes.Filename}
+      title={filename}
+      variant="body1"
+    >
       {filename}
-    </span>
+    </Typography>
   )}
 </div>`}
         </Code>
@@ -91,6 +111,7 @@ const questions: QuestionInfo[] = [
   onChange: FilesChangeListener | undefined;
   draggable: boolean | undefined;
 }) => {
+  const draggingClass = 'dragging';
   const containerRef = useRef<HTMLDivElement>(null);
   const onChangeRef = useRef<FilesChangeListener>();
 
@@ -103,9 +124,9 @@ const questions: QuestionInfo[] = [
 
     if (!container || !draggable) return undefined;
 
-    const highlight = () => container.classList.add(classes.dragging);
+    const highlight = () => container.classList.add(draggingClass);
 
-    const unhighlight = () => container.classList.remove(classes.dragging);
+    const unhighlight = () => container.classList.remove(draggingClass);
 
     const handleDragEnter = (e: Event) => {
       preventDefaults(e);
@@ -166,17 +187,17 @@ const questions: QuestionInfo[] = [
     ],
   },
   {
-    question: `How to show user-selected images?`,
+    question: `How to view user-selected files?`,
     answer: (
       <div>
         <p>Using data URL</p>
         <Code language="tsx">
-          {`export const useImageDataUrl = ({
+          {`export const useDataUrl = ({
   files,
   supportedFileTypes,
 }: {
   files: FileList | null | undefined;
-  supportedFileTypes: string[];
+  supportedFileTypes?: string[];
 }) => {
   const [src, setSrc] = useState<string>();
   const [error, setError] = useState<string>();
@@ -184,32 +205,23 @@ const questions: QuestionInfo[] = [
   useEffect(() => {
     const file = files && files[0];
 
-    if (!file) return undefined;
+    if (!file) return;
 
-    if (!supportedFileTypes.includes(file.type)) {
-      return setError('Invalid file type');
+    if (supportedFileTypes && !supportedFileTypes.includes(file.type)) {
+      setError('Unsupported file type');
+      setSrc(undefined);
+      return;
     }
 
     const fileReader = new FileReader();
-    const handleLoad = (e: ProgressEvent) => {
-      console.log(e);
+    fileReader.onload = () => {
       const dataUrl = fileReader.result as string;
       setSrc(dataUrl);
     };
-    const handleError = (e: ProgressEvent) => {
-      console.log(e);
+    fileReader.onerror = () => {
       if (fileReader.error) setError(fileReader.error.message);
     };
-    fileReader.addEventListener('load', handleLoad);
-    fileReader.addEventListener('error', handleError);
-    setSrc(undefined);
-    setError(undefined);
     fileReader.readAsDataURL(file);
-
-    return () => {
-      fileReader.removeEventListener('load', handleLoad);
-      fileReader.removeEventListener('error', handleError);
-    };
   }, [files, supportedFileTypes]);
 
   return { src, error };
@@ -218,40 +230,53 @@ const questions: QuestionInfo[] = [
 
         <p>Using object URL</p>
         <Code language="tsx">
-          {`export const useImageObjectUrl = ({
+          {`export const useObjectUrl = ({
   files,
   supportedFileTypes,
 }: {
-  files: FileList | null | undefined;
-  supportedFileTypes: string[];
+  files: FileList | undefined | null;
+  supportedFileTypes?: string[];
 }) => {
-  const imgRef = useRef<HTMLImageElement>(null);
   const [src, setSrc] = useState<string>();
   const [error, setError] = useState<string>();
+  const cleanupRef = useRef<VoidFunction>();
+  const cleanupCallback = useCallback(() => {
+    if (cleanupRef.current) {
+      cleanupRef.current();
+    }
+  }, []);
 
   useEffect(() => {
     const file = files && files[0];
-    const img = imgRef.current;
 
-    if (!file || !img) return undefined;
-
-    if (!supportedFileTypes.includes(file.type)) {
-      return setError('Invalid file type');
+    if (!file) {
+      setSrc(undefined);
+      return undefined;
     }
 
-    const objectUrl = URL.createObjectURL(file);
-    const handleLoad = () => URL.revokeObjectURL(objectUrl);
-    img.addEventListener('load', handleLoad);
-    setSrc(objectUrl);
-    setError(undefined);
+    if (supportedFileTypes && !supportedFileTypes.includes(file.type)) {
+      setError('Unsupported file type');
+      setSrc(undefined);
+      return undefined;
+    }
 
-    return () => {
-      img.removeEventListener('load', handleLoad);
-      URL.revokeObjectURL(objectUrl);
+    let objectUrl: string | undefined;
+
+    try {
+      objectUrl = URL.createObjectURL(file);
+      setSrc(objectUrl);
+    } catch (e) {
+      setError(e);
+    }
+
+    const cleanup = () => {
+      if (objectUrl) URL.revokeObjectURL(objectUrl);
     };
+    cleanupRef.current = cleanup;
+    return cleanup;
   }, [files, supportedFileTypes]);
 
-  return { src, error, imgRef };
+  return { src, error, cleanupCallback };
 };`}
         </Code>
       </div>
@@ -264,6 +289,14 @@ const questions: QuestionInfo[] = [
       {
         name: `[MDN] Using object URLs to display images`,
         url: `https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications#Example_Using_object_URLs_to_display_images`,
+      },
+      {
+        name: `[MDN] Using object URLs to display PDF`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications#Example_Using_object_URLs_to_display_PDF`,
+      },
+      {
+        name: `[MDN] Using object URLs with other file types`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications#Example_Using_object_URLs_with_other_file_types`,
       },
       {
         name: `[MDN] URL.createObjectURL()`,

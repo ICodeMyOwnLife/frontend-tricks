@@ -1,7 +1,6 @@
 /* eslint-disable no-console */
 import { useCallback, ChangeEvent, useRef, useEffect, useState } from 'react';
 import { FilesChangeListener } from './types';
-import classes from './styles.module.scss';
 
 export const getFileName = (files: FileList | null | undefined) => {
   if (!files) {
@@ -47,6 +46,7 @@ export const useDragDrop = ({
   onChange: FilesChangeListener | undefined;
   draggable: boolean | undefined;
 }) => {
+  const draggingClass = 'dragging';
   const containerRef = useRef<HTMLDivElement>(null);
   const onChangeRef = useRef<FilesChangeListener>();
 
@@ -59,9 +59,9 @@ export const useDragDrop = ({
 
     if (!container || !draggable) return undefined;
 
-    const highlight = () => container.classList.add(classes.dragging);
+    const highlight = () => container.classList.add(draggingClass);
 
-    const unhighlight = () => container.classList.remove(classes.dragging);
+    const unhighlight = () => container.classList.remove(draggingClass);
 
     const handleDragEnter = (e: Event) => {
       preventDefaults(e);
@@ -96,12 +96,12 @@ export const useDragDrop = ({
   return containerRef;
 };
 
-export const useImageDataUrl = ({
+export const useDataUrl = ({
   files,
   supportedFileTypes,
 }: {
   files: FileList | null | undefined;
-  supportedFileTypes: string[];
+  supportedFileTypes?: string[];
 }) => {
   const [src, setSrc] = useState<string>();
   const [error, setError] = useState<string>();
@@ -109,109 +109,37 @@ export const useImageDataUrl = ({
   useEffect(() => {
     const file = files && files[0];
 
-    if (!file) return undefined;
+    if (!file) return;
 
-    if (!supportedFileTypes.includes(file.type)) {
-      return setError('Invalid file type');
+    if (supportedFileTypes && !supportedFileTypes.includes(file.type)) {
+      setError('Unsupported file type');
+      setSrc(undefined);
+      return;
     }
 
     const fileReader = new FileReader();
-    const handleLoad = (e: ProgressEvent) => {
-      console.log(e);
+    fileReader.onload = () => {
       const dataUrl = fileReader.result as string;
       setSrc(dataUrl);
     };
-    const handleError = (e: ProgressEvent) => {
-      console.log(e);
+    fileReader.onerror = () => {
       if (fileReader.error) setError(fileReader.error.message);
     };
-    fileReader.addEventListener('load', handleLoad);
-    fileReader.addEventListener('error', handleError);
-    setSrc(undefined);
-    setError(undefined);
     fileReader.readAsDataURL(file);
-
-    return () => {
-      fileReader.removeEventListener('load', handleLoad);
-      fileReader.removeEventListener('error', handleError);
-    };
   }, [files, supportedFileTypes]);
 
   return { src, error };
 };
 
-export const useImageObjectUrl = ({
+export const useObjectUrl = ({
   files,
   supportedFileTypes,
 }: {
-  files: FileList | null | undefined;
-  supportedFileTypes: string[];
+  files: FileList | undefined | null;
+  supportedFileTypes?: string[];
 }) => {
-  const imgRef = useRef<HTMLImageElement>(null);
   const [src, setSrc] = useState<string>();
   const [error, setError] = useState<string>();
-
-  useEffect(() => {
-    const file = files && files[0];
-    const img = imgRef.current;
-
-    if (!file || !img) return undefined;
-
-    if (!supportedFileTypes.includes(file.type)) {
-      return setError('Invalid file type');
-    }
-
-    const objectUrl = URL.createObjectURL(file);
-    const handleLoad = () => URL.revokeObjectURL(objectUrl);
-    img.addEventListener('load', handleLoad);
-    setSrc(objectUrl);
-    setError(undefined);
-
-    return () => {
-      img.removeEventListener('load', handleLoad);
-      URL.revokeObjectURL(objectUrl);
-    };
-  }, [files, supportedFileTypes]);
-
-  return { src, error, imgRef };
-};
-
-export const useIframePreview = ({
-  files,
-}: {
-  files: FileList | null | undefined;
-}) => {
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-  const [src, setSrc] = useState<string>();
-
-  useEffect(() => {
-    const file = files && files[0];
-    const iframe = iframeRef.current;
-
-    if (!iframe) return;
-
-    if (!file) {
-      setSrc(undefined);
-      return;
-    }
-
-    const objectUrl = URL.createObjectURL(file);
-
-    // Set src here instead of binding in JSX to make sure it is used before revoked
-    iframe.src = objectUrl;
-    setSrc(objectUrl);
-    URL.revokeObjectURL(objectUrl);
-  }, [files]);
-
-  return { iframeRef, src };
-};
-
-export const useObjectUrl = ({
-  files,
-}: {
-  files: FileList | undefined | null;
-}) => {
-  const [src, setSrc] = useState<string>();
   const cleanupRef = useRef<VoidFunction>();
   const cleanupCallback = useCallback(() => {
     if (cleanupRef.current) {
@@ -227,43 +155,27 @@ export const useObjectUrl = ({
       return undefined;
     }
 
-    const objectUrl = URL.createObjectURL(file);
-    setSrc(objectUrl);
+    if (supportedFileTypes && !supportedFileTypes.includes(file.type)) {
+      setError('Unsupported file type');
+      setSrc(undefined);
+      return undefined;
+    }
+
+    let objectUrl: string | undefined;
+
+    try {
+      objectUrl = URL.createObjectURL(file);
+      setSrc(objectUrl);
+    } catch (e) {
+      setError(e);
+    }
+
     const cleanup = () => {
-      URL.revokeObjectURL(objectUrl);
-      console.log(`Cleaned up`);
+      if (objectUrl) URL.revokeObjectURL(objectUrl);
     };
     cleanupRef.current = cleanup;
     return cleanup;
-  }, [files]);
+  }, [files, supportedFileTypes]);
 
-  return { src, cleanupCallback };
-};
-
-export const usePdfIframe = ({
-  files,
-}: {
-  files: FileList | null | undefined;
-}) => {
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-  const [src, setSrc] = useState<string>();
-
-  useEffect(() => {
-    const file = files && files[0];
-    const iframe = iframeRef.current;
-
-    if (!iframe) return;
-
-    if (!file) {
-      setSrc(undefined);
-      return;
-    }
-
-    const objectUrl = URL.createObjectURL(file);
-    iframe.src = objectUrl;
-    setSrc(objectUrl);
-    URL.revokeObjectURL(objectUrl);
-  }, [files]);
-
-  return { src, iframeRef };
+  return { src, error, cleanupCallback };
 };

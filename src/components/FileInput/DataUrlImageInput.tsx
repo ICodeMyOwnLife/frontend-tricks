@@ -1,21 +1,29 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { FC, memo } from 'react';
-import { ButtonFileInput, DataUrlImagePreview } from '.';
-import { ImageInputProps } from './types';
+import { useDataUrl } from './hooks';
+import ImagePreview from './ImagePreview';
+import InputContainer from './InputContainer';
+import { WrappedInputProps } from './types';
 
-export const DataUrlImageInputImpl: FC<ImageInputProps> = ({
-  supportedFileTypes,
+export const DataUrlImageInputImpl: FC<WrappedInputProps> = ({
+  title,
+  triggerComponent = 'button',
   files,
+  supportedFileTypes,
   ...props
-}) => (
-  <div>
-    <ButtonFileInput files={files} {...props} />
-    <DataUrlImagePreview
+}) => {
+  const { src, error } = useDataUrl({ files, supportedFileTypes });
+
+  return (
+    <InputContainer
+      triggerComponent={triggerComponent}
       files={files}
-      supportedFileTypes={supportedFileTypes}
-    />
-  </div>
-);
+      {...props}
+    >
+      <ImagePreview title={title} src={src} error={error} />
+    </InputContainer>
+  );
+};
 
 const DataUrlImageInput = memo(DataUrlImageInputImpl);
 DataUrlImageInput.displayName = 'DataUrlImageInput';

@@ -55,9 +55,10 @@
     "react/jsx-filename-extension": [
       "error",
       {
-        "extensions": [".jsx", ".tsx"]
+        "extensions": [".tsx"]
       }
     ],
+    "react/jsx-wrap-multilines": ["error", { "prop": "ignore" }],
     "no-plusplus": ["warn", { "allowForLoopAfterthoughts": true }]
   },
   "settings": {

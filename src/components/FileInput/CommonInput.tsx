@@ -1,44 +1,38 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { FC, memo } from 'react';
-import { Box } from '@material-ui/core';
-import ButtonFileInput from './ButtonFileInput';
-import LabelFileInput from './LabelFileInput';
-import { FileInputProps } from './types';
+import { useObjectUrl } from './hooks';
 import CommonPreview from './CommonPreview';
+import InputContainer from './InputContainer';
+import { WrappedInputProps } from './types';
 
-const getInputElement = (triggerComponent: TriggerComponent) => {
-  switch (triggerComponent) {
-    case 'label':
-      return LabelFileInput;
-
-    default:
-      return ButtonFileInput;
-  }
-};
-
-export const CommonInputComponent: FC<CommonInputProps> = ({
+export const CommonInputComponent: FC<WrappedInputProps> = ({
   title,
   triggerComponent = 'button',
   files,
+  supportedFileTypes,
   ...props
 }) => {
-  const InputElement = getInputElement(triggerComponent);
+  const { src, error, cleanupCallback } = useObjectUrl({
+    files,
+    supportedFileTypes,
+  });
 
   return (
-    <Box>
-      <InputElement files={files} {...props} />
-      <CommonPreview title={title} files={files} />
-    </Box>
+    <InputContainer
+      triggerComponent={triggerComponent}
+      files={files}
+      {...props}
+    >
+      <CommonPreview
+        title={title}
+        src={src}
+        error={error}
+        onLoad={cleanupCallback}
+      />
+    </InputContainer>
   );
 };
 
 const CommonInput = memo(CommonInputComponent);
 CommonInput.displayName = 'CommonInput';
 export default CommonInput;
-
-export interface CommonInputProps extends FileInputProps {
-  title: string;
-  triggerComponent?: TriggerComponent;
-}
-
-export type TriggerComponent = 'button' | 'label';
