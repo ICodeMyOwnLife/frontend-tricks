@@ -176,6 +176,70 @@ export const useImageObjectUrl = ({
   return { src, error, imgRef };
 };
 
+export const useIframePreview = ({
+  files,
+}: {
+  files: FileList | null | undefined;
+}) => {
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [src, setSrc] = useState<string>();
+
+  useEffect(() => {
+    const file = files && files[0];
+    const iframe = iframeRef.current;
+
+    if (!iframe) return;
+
+    if (!file) {
+      setSrc(undefined);
+      return;
+    }
+
+    const objectUrl = URL.createObjectURL(file);
+
+    // Set src here instead of binding in JSX to make sure it is used before revoked
+    iframe.src = objectUrl;
+    setSrc(objectUrl);
+    URL.revokeObjectURL(objectUrl);
+  }, [files]);
+
+  return { iframeRef, src };
+};
+
+export const useObjectUrl = ({
+  files,
+}: {
+  files: FileList | undefined | null;
+}) => {
+  const [src, setSrc] = useState<string>();
+  const cleanupRef = useRef<VoidFunction>();
+  const cleanupCallback = useCallback(() => {
+    if (cleanupRef.current) {
+      cleanupRef.current();
+    }
+  }, []);
+
+  useEffect(() => {
+    const file = files && files[0];
+
+    if (!file) {
+      setSrc(undefined);
+      return undefined;
+    }
+
+    const objectUrl = URL.createObjectURL(file);
+    setSrc(objectUrl);
+    const cleanup = () => {
+      URL.revokeObjectURL(objectUrl);
+      console.log(`Cleaned up`);
+    };
+    cleanupRef.current = cleanup;
+    return cleanup;
+  }, [files]);
+
+  return { src, cleanupCallback };
+};
+
 export const usePdfIframe = ({
   files,
 }: {
@@ -203,21 +267,3 @@ export const usePdfIframe = ({
 
   return { src, iframeRef };
 };
-
-interface A {
-  name: string;
-  a: number;
-  aa: string;
-}
-
-interface B {
-  name: string;
-  b: number;
-  bb: string;
-}
-
-type C = A | B;
-
-const c: C = { a: 5, aa: '', name: '' };
-
-console.log(c);

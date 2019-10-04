@@ -6,8 +6,9 @@ import {
   LabelFileInput,
   DataUrlImageInput,
   ObjectUrlImageInput,
-  PdfInput,
+  CommonInput,
 } from 'components/FileInput';
+import Section from 'components/Section';
 import questions from './questions';
 
 export const FileInput1Impl: FC = () => {
@@ -18,6 +19,7 @@ export const FileInput1Impl: FC = () => {
   const [dataUrlFiles, setDataUrlFiles] = useState<FileList | null>();
   const [objectUrlFiles, setObjectUrlFiles] = useState<FileList | null>();
   const [pdfFiles, setPdfFiles] = useState<FileList | null>();
+  const [videoFiles, setVideoFiles] = useState<FileList | null>();
 
   return (
     <Question title="File Input 1" questions={questions}>
@@ -75,15 +77,27 @@ export const FileInput1Impl: FC = () => {
         />
       </div>
 
-      <div className="mb-5">
-        <h5>PDF Input</h5>
-        <PdfInput
+      <Section title="PDF Input">
+        <CommonInput
           id="pdfInput"
+          title="PDF Input"
           draggable
           files={pdfFiles}
           onChange={setPdfFiles}
+          accept="application/pdf,.pdf"
         />
-      </div>
+      </Section>
+
+      <Section title="Video Input">
+        <CommonInput
+          id="videoInput"
+          title="Video Input"
+          draggable
+          files={videoFiles}
+          onChange={setVideoFiles}
+          accept="video/*,.mp4,.flv,.mov,.avi,.wmv,.3pg"
+        />
+      </Section>
     </Question>
   );
 };

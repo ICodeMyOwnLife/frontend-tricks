@@ -42,6 +42,6 @@ export const LabelFileInputImpl: FC<FileInputProps> = ({
   );
 };
 
-const ButtonFileInput = memo(LabelFileInputImpl);
-ButtonFileInput.displayName = 'ButtonFileInput';
-export default ButtonFileInput;
+const LabelFileInput = memo(LabelFileInputImpl);
+LabelFileInput.displayName = 'LabelFileInput';
+export default LabelFileInput;
