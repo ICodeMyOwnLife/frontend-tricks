@@ -41,10 +41,9 @@ const upload = ({
       }),
     false,
   );
-  xhr.addEventListener('error', e => {
-    console.log(xhr, e);
-    // eslint-disable-next-line no-debugger
-    debugger;
+  xhr.addEventListener('error', () => {
+    const error = xhr.responseText || 'UNKNOWN ERROR';
+    setStatus({ loading: false, error, progressPercentage: 0 });
   });
   xhr.open('POST', url, true);
   xhr.timeout = 2000;
@@ -67,7 +66,7 @@ export const uploadWholeForm = ({
   upload({ formData, url, setStatus });
 };
 
-export const uploadFileOnly = ({
+export const uploadFilesOnly = ({
   input,
   url,
   fieldName,
@@ -135,7 +134,7 @@ export const useUploadSingle = () => {
     async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
-      uploadFileOnly({
+      uploadFilesOnly({
         input: inputSingleRef.current,
         url: `${BASE_URL}/upload-single`,
         fieldName: 'single-file',
@@ -163,7 +162,7 @@ export const useUploadMultiple = () => {
     async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
-      uploadFileOnly({
+      uploadFilesOnly({
         input: inputMultipleRef.current,
         url: `${BASE_URL}/upload-multiple`,
         fieldName: 'multiple-files',
@@ -185,4 +184,5 @@ export interface UploadStatus {
   progressPercentage: number;
   loading: boolean;
   result?: any;
+  error?: string;
 }

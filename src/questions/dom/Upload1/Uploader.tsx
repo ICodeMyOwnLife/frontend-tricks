@@ -1,4 +1,4 @@
-import React, { FC, memo, RefObject, FormEventHandler } from 'react';
+import React, { FC, memo, RefObject, FormEventHandler, ReactNode } from 'react';
 import {
   Typography,
   Button,
@@ -7,34 +7,50 @@ import {
   Paper,
 } from '@material-ui/core';
 import useStyles from './styles';
+import { UploadStatus } from './hooks';
 
-export const AjaxUploadComponent: FC<AjaxUploadProps> = ({
+export const UploaderComponent: FC<UploaderProps> = ({
   title,
+  url,
+  fieldName,
   formRef,
   inputRef,
-  handleUpload,
-  loading,
-  progressPercentage,
-  result,
+  handleSubmit,
+  status,
   multiple,
+  children,
 }) => {
   const classes = useStyles();
+  const {
+    loading = false,
+    progressPercentage = 0,
+    result = undefined,
+    error = undefined,
+  } = status || {};
 
   return (
     <Box className={classes.UploadContainer}>
       <Typography variant="h6">{title}</Typography>
 
       <Paper className={classes.UploadWrapper}>
-        <form onSubmit={handleUpload} ref={formRef}>
+        <form
+          onSubmit={handleSubmit}
+          ref={formRef}
+          action={url}
+          method="POST"
+          encType="multipart/form-data"
+        >
           <input
             className={classes.FileInput}
             type="file"
-            name="ajaxSingle"
+            name={fieldName}
             ref={inputRef}
             required
             multiple={multiple}
           />
+          {children}
           <Button
+            className={classes.ButtonSubmit}
             type="submit"
             variant="contained"
             color="default"
@@ -44,6 +60,16 @@ export const AjaxUploadComponent: FC<AjaxUploadProps> = ({
           </Button>
           {result && <pre>{JSON.stringify(result)}</pre>}
         </form>
+
+        {error && (
+          <Typography
+            className={classes.ErrorText}
+            color="error"
+            variant="subtitle1"
+          >
+            {error}
+          </Typography>
+        )}
 
         {loading && (
           <Box className={classes.ProgressOverlay}>
@@ -59,17 +85,18 @@ export const AjaxUploadComponent: FC<AjaxUploadProps> = ({
   );
 };
 
-const AjaxUpload = memo(AjaxUploadComponent);
-AjaxUpload.displayName = 'AjaxUpload';
-export default AjaxUpload;
+const Uploader = memo(UploaderComponent);
+Uploader.displayName = 'Uploader';
+export default Uploader;
 
-export interface AjaxUploadProps {
+export interface UploaderProps {
   title: string;
+  url?: string;
+  fieldName?: string;
   formRef?: RefObject<HTMLFormElement>;
   inputRef?: RefObject<HTMLInputElement>;
-  handleUpload: FormEventHandler;
-  loading: boolean;
-  progressPercentage: number;
-  result: any;
-  multiple: boolean;
+  handleSubmit?: FormEventHandler;
+  status?: UploadStatus;
+  multiple?: boolean;
+  children?: ReactNode;
 }

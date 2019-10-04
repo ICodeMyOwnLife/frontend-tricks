@@ -15,9 +15,11 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   FileInput: {
     display: 'block',
-    marginBottom: theme.spacing(2),
     fontSize: 14,
     textAlign: 'right',
+  },
+  ButtonSubmit: {
+    marginTop: theme.spacing(2),
   },
   ProgressOverlay: {
     position: 'absolute',
@@ -30,6 +32,16 @@ const useStyles = makeStyles((theme: Theme) => ({
     bottom: theme.spacing(1),
     backgroundColor: 'white',
     opacity: 0.5,
+  },
+  ErrorText: {
+    marginTop: theme.spacing(1),
+  },
+  UploaderInput: {
+    display: 'block',
+    margin: `${theme.spacing(1)}px 0`,
+    '& .MuiInput-formControl': {
+      width: '100%',
+    },
   },
 }));
 

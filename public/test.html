@@ -1,0 +1,21 @@
+<form
+  action="http://127.0.0.1:1333/upload-single"
+  method="POST"
+  enctype="multipart/form-data"
+>
+  <input type="file" name="single-file" required="" />
+  <input
+    type="hidden"
+    name="redirect"
+    value="http://localhost:3000/dom/upload"
+  />
+
+  <input
+    aria-invalid="false"
+    name="description"
+    required=""
+    type="text"
+    value=""
+  />
+  <button type="submit">Upload</button>
+</form>

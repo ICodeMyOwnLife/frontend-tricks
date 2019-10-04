@@ -1,7 +1,8 @@
 import React, { FC, memo } from 'react';
 import Question from 'components/Question';
 import { BASE_URL } from 'constants/common';
-import { Card, CardHeader, CardContent } from '@material-ui/core';
+import { Card, CardHeader, CardContent, TextField } from '@material-ui/core';
+import Uploader from './Uploader';
 import questions from './questions';
 import useStyles from './styles';
 import {
@@ -9,8 +10,6 @@ import {
   useUploadMultiple,
   useUploadWholeForm,
 } from './hooks';
-import AjaxUpload from './AjaxUpload';
-import FormUpload from './FormUpload';
 
 const URL_UPLOAD_SINGLE = `${BASE_URL}/upload-single`;
 const URL_UPLOAD_MULTIPLE = `${BASE_URL}/upload-multiple`;
@@ -40,51 +39,76 @@ export const Upload1Component: FC = () => {
       <Card className={classes.Section}>
         <CardHeader title="Form Upload" />
         <CardContent>
-          <FormUpload
+          <Uploader
             title="Upload single"
             fieldName="single-file"
             url={URL_UPLOAD_SINGLE}
-            multiple={false}
-          />
-          <FormUpload
+          >
+            <input type="hidden" name="redirect" value={window.location.href} />
+            <TextField
+              className={classes.UploaderInput}
+              label="Description"
+              name="description"
+              required
+            />
+          </Uploader>
+
+          <Uploader
             title="Upload multiple"
             fieldName="multiple-files"
             url={URL_UPLOAD_MULTIPLE}
             multiple
-          />
+          >
+            <input type="hidden" name="redirect" value={window.location.href} />
+            <TextField
+              className={classes.UploaderInput}
+              label="Category"
+              name="category"
+              required
+            />
+          </Uploader>
         </CardContent>
       </Card>
 
       <Card className={classes.Section}>
         <CardHeader title="AJAX Upload" />
         <CardContent>
-          <AjaxUpload
+          <Uploader
             title="Upload single"
             inputRef={inputSingleRef}
-            handleUpload={handleUploadSingle}
-            loading={uploadSingleStatus.loading}
-            progressPercentage={uploadSingleStatus.progressPercentage}
-            result={uploadSingleStatus.result}
-            multiple={false}
+            handleSubmit={handleUploadSingle}
+            status={uploadSingleStatus}
           />
-          <AjaxUpload
+          <Uploader
             title="Upload multiple"
             inputRef={inputMultipleRef}
-            handleUpload={handleUploadMultiple}
-            loading={uploadMultipleStatus.loading}
-            progressPercentage={uploadMultipleStatus.progressPercentage}
-            result={uploadMultipleStatus.result}
+            handleSubmit={handleUploadMultiple}
+            status={uploadMultipleStatus}
             multiple
           />
-          <AjaxUpload
+          <Uploader
             title="Upload whole form"
             formRef={formRef}
-            handleUpload={handleUploadWholeForm}
-            loading={uploadWholeFormStatus.loading}
-            progressPercentage={uploadWholeFormStatus.progressPercentage}
-            result={uploadWholeFormStatus.result}
+            fieldName="multiple-files"
+            handleSubmit={handleUploadWholeForm}
+            status={uploadWholeFormStatus}
             multiple
-          />
+          >
+            <TextField
+              className={classes.UploaderInput}
+              type="text"
+              name="name"
+              label="Name"
+              required
+            />
+            <TextField
+              className={classes.UploaderInput}
+              type="number"
+              name="value"
+              label="Value"
+              required
+            />
+          </Uploader>
         </CardContent>
       </Card>
     </Question>
