@@ -1,66 +1,36 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { createMuiTheme, CssBaseline } from '@material-ui/core';
-import { ThemeProvider } from '@material-ui/styles';
-import Nav from 'components/Nav';
-import { RouteInfo, renderRoutes } from 'helpers/routes';
-import classes from './App.module.scss';
-
-const routes: RouteInfo[] = [
-  {
-    name: 'DOM',
-    path: 'dom',
-    component: lazy(() => import('questions/dom')),
-  },
-  {
-    name: 'CSS',
-    path: 'css',
-    component: lazy(() => import('questions/css')),
-  },
-  {
-    name: 'React',
-    path: 'react',
-    component: lazy(() => import('questions/react')),
-  },
-  {
-    name: 'JavaScript',
-    path: 'js',
-    component: lazy(() => import('questions/js')),
-  },
-  {
-    name: 'CI/CD',
-    path: 'ci-cd',
-    component: lazy(() => import('questions/ci_cd')),
-  },
-  {
-    name: 'Git',
-    path: 'git',
-    component: lazy(() => import('questions/git')),
-  },
-  {
-    name: 'Performance',
-    path: 'performance',
-    component: lazy(() => import('questions/performance')),
-  },
-  {
-    name: 'Webpack',
-    path: 'webpack',
-    component: lazy(() => import('questions/webpack')),
-  },
-];
+import { createMuiTheme, CssBaseline, Box, Container } from '@material-ui/core';
+import ThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import MenuBar from 'components/MenuBar';
+import SideBar from 'components/SideBar';
+import AppRouter from 'components/AppRouter';
+import useToggle from 'hooks/useToggle';
+import { ROUTES } from 'helpers/routes';
 
 const theme = createMuiTheme({});
 
-const App: React.FC = () => (
-  <div className={classes.App}>
-    <CssBaseline />
-    <ThemeProvider theme={theme}>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <Nav baseUrl="" routes={routes} />
-        {renderRoutes('', routes)}
-      </BrowserRouter>
-    </ThemeProvider>
-  </div>
-);
+const App: React.FC = () => {
+  const [drawerVisible, toggleDrawerVisible] = useToggle(false);
+
+  return (
+    <Box>
+      <CssBaseline />
+      <ThemeProvider theme={theme}>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
+          <MenuBar toggleDrawerVisible={toggleDrawerVisible} />
+          <SideBar
+            drawerVisible={drawerVisible}
+            toggleDrawerVisible={toggleDrawerVisible}
+            routes={ROUTES}
+          />
+          <Container>
+            <AppRouter routes={ROUTES} />
+          </Container>
+        </BrowserRouter>
+      </ThemeProvider>
+    </Box>
+  );
+};
 
 export default App;
