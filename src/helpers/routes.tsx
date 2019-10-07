@@ -3,6 +3,17 @@ import { RouteInfo } from 'types/app-common';
 
 const ROUTES: RouteInfo[] = [
   {
+    name: 'Architecture',
+    path: 'architecture',
+    childRoutes: [
+      {
+        name: 'Single Page App',
+        path: '/architecture/single-page-app',
+        component: lazy(() => import('questions/architecture/SinglePageApp1')),
+      },
+    ],
+  },
+  {
     name: 'CI/CD',
     path: 'ci-cd',
     childRoutes: [

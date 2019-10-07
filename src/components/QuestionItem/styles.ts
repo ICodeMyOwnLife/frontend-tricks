@@ -17,6 +17,10 @@ const useStyles = makeStyles((theme: Theme) => ({
       padding: theme.spacing(0, 2.5),
     },
 
+    '& ol,ul': {
+      margin: theme.spacing(1.5, 0),
+    },
+
     '& img': {
       maxWidth: '100%',
     },
