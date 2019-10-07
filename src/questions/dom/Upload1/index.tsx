@@ -1,5 +1,5 @@
 import React, { FC, memo } from 'react';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import { BASE_URL } from 'constants/common';
 import { Card, CardHeader, CardContent, TextField } from '@material-ui/core';
 import Uploader from './Uploader';
@@ -35,7 +35,7 @@ export const Upload1Component: FC = () => {
   } = useUploadWholeForm({ url: URL_UPLOAD_MULTIPLE });
 
   return (
-    <Question title="Upload 1" questions={questions}>
+    <QuestionPage title="Upload 1" questions={questions}>
       <Card className={classes.Section}>
         <CardHeader title="Form Upload" />
         <CardContent>
@@ -111,7 +111,7 @@ export const Upload1Component: FC = () => {
           </Uploader>
         </CardContent>
       </Card>
-    </Question>
+    </QuestionPage>
   );
 };
 

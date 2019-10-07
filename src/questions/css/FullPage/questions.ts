@@ -1,4 +1,4 @@
-import { QuestionInfo } from 'components/Question';
+import { QuestionInfo } from 'types/app-common';
 
 const questions: QuestionInfo[] = [
   { question: `This is undone`, answer: null },

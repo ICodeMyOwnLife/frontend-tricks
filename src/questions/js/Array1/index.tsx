@@ -1,5 +1,5 @@
 import React, { FC, memo, useState, useMemo } from 'react';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import TextInput from 'components/TextInput';
 import NumberInput from 'components/NumberInput';
 import questions from './questions';
@@ -32,7 +32,7 @@ export const Array1Impl: FC = () => {
   }, [itemsString]);
 
   return (
-    <Question title="Array 1" questions={questions}>
+    <QuestionPage title="Array 1" questions={questions}>
       <div className={classes.Section}>
         <h4>Convert text to array of character</h4>
         <TextInput label="Text" value={text} onChange={setText} />
@@ -69,7 +69,7 @@ export const Array1Impl: FC = () => {
         />
       </div>
       <pre>{JSON.stringify(uniqueArray)}</pre>
-    </Question>
+    </QuestionPage>
   );
 };
 

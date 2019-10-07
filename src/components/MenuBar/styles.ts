@@ -7,8 +7,12 @@ const useStyles = makeStyles((theme: Theme) => ({
   Toolbar: {
     flexWrap: 'wrap',
   },
-  ToolbarTitle: {
+  HomeLink: {
     color: 'white',
+
+    '&:hover': {
+      textDecoration: 'none',
+    },
   },
 }));
 

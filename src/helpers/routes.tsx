@@ -1,8 +1,69 @@
-import React, { lazy } from 'react';
-import { NavLink } from 'react-router-dom';
+import { lazy } from 'react';
 import { RouteInfo } from 'types/app-common';
 
-export const ROUTES: RouteInfo[] = [
+const ROUTES: RouteInfo[] = [
+  {
+    name: 'CI/CD',
+    path: 'ci-cd',
+    childRoutes: [
+      {
+        name: 'GitLab',
+        path: '/ci-cd/gitlab',
+        component: lazy(() => import('questions/ci_cd/GitLab1')),
+      },
+    ],
+  },
+  {
+    name: 'CSS',
+    path: 'css',
+    childRoutes: [
+      {
+        name: 'Clipping',
+        path: '/css/clipping',
+        component: lazy(() => import('questions/css/Clipping1')),
+      },
+      {
+        name: 'Content',
+        path: '/css/content',
+        component: lazy(() => import('questions/css/Content1')),
+      },
+      {
+        name: 'Flex Overflow',
+        path: '/css/flex-overflow',
+        component: lazy(() => import('questions/css/FlexOverflow1')),
+      },
+      {
+        name: 'Full Page',
+        path: '/css/full-page',
+        component: lazy(() => import('questions/css/FullPage')),
+      },
+      {
+        name: 'Newline',
+        path: '/css/newline',
+        component: lazy(() => import('questions/css/Newline1')),
+      },
+      {
+        name: 'Replaced Elements',
+        path: '/css/replaced-elements',
+        component: lazy(() => import('questions/css/ReplacedElements1')),
+      },
+      {
+        name: 'Shapes',
+        path: '/css/shapes',
+        component: lazy(() => import('questions/css/Shapes1')),
+      },
+      {
+        name: 'Text Background',
+        path: '/css/text-background',
+        component: lazy(() => import('questions/css/TextBackground1')),
+      },
+      {
+        name: 'Text Ellipsis',
+        path: '/css/text-ellipsis',
+        component: lazy(() => import('questions/css/TextEllipsis1')),
+      },
+    ],
+  },
   {
     name: 'DOM',
     path: 'dom',
@@ -50,45 +111,101 @@ export const ROUTES: RouteInfo[] = [
     ],
   },
   {
-    name: 'CSS',
-    path: 'css',
-    childRoutes: [],
-  },
-  {
-    name: 'React',
-    path: 'react',
-    childRoutes: [],
+    name: 'Git',
+    path: 'git',
+    childRoutes: [
+      {
+        name: 'Pre-Commit',
+        path: '/git/pre-commit',
+        component: lazy(() => import('questions/git/PreCommit1')),
+      },
+    ],
   },
   {
     name: 'JavaScript',
     path: 'js',
-    childRoutes: [],
+    childRoutes: [
+      {
+        name: 'Array',
+        path: '/js/array',
+        component: lazy(() => import('questions/js/Array1')),
+      },
+    ],
   },
   {
-    name: 'CI/CD',
-    path: 'ci-cd',
-    childRoutes: [],
-  },
-  {
-    name: 'Git',
-    path: 'git',
-    childRoutes: [],
+    name: 'NodeJS',
+    path: 'nodejs',
+    childRoutes: [
+      {
+        name: 'Memory',
+        path: '/nodejs/memory',
+        component: lazy(() => import('questions/nodejs/Memory1')),
+      },
+    ],
   },
   {
     name: 'Performance',
     path: 'performance',
-    childRoutes: [],
+    childRoutes: [
+      {
+        name: 'Memory',
+        path: '/performance/memory',
+        component: lazy(() => import('questions/performance/Memory1')),
+      },
+    ],
+  },
+  {
+    name: 'React',
+    path: 'react',
+    childRoutes: [
+      {
+        name: 'Bundle Size',
+        path: '/react/bundle-size',
+        component: lazy(() => import('questions/react/BundleSize1')),
+      },
+      {
+        name: 'Deployment',
+        path: '/react/deployment',
+        component: lazy(() => import('questions/react/Deployment1')),
+      },
+      {
+        name: 'Element',
+        path: '/react/element',
+        component: lazy(() => import('questions/react/Element1')),
+      },
+      {
+        name: 'Event',
+        path: '/react/event',
+        component: lazy(() => import('questions/react/Event1')),
+      },
+      {
+        name: 'Jest',
+        path: '/react/jest',
+        component: lazy(() => import('questions/react/Jest1')),
+      },
+      {
+        name: 'Raw HTML',
+        path: '/react/raw-html',
+        component: lazy(() => import('questions/react/RawHtml1')),
+      },
+      {
+        name: 'TypeScript',
+        path: '/react/typescript',
+        component: lazy(() => import('questions/react/TypeScript1')),
+      },
+    ],
   },
   {
     name: 'Webpack',
     path: 'webpack',
-    childRoutes: [],
+    childRoutes: [
+      {
+        name: 'Languages',
+        path: '/webpack/languages',
+        component: lazy(() => import('questions/webpack/Languages1')),
+      },
+    ],
   },
 ];
 
-export const renderLinks = (url: string, routes: RouteInfo[]) =>
-  routes.map(({ name, path }) => (
-    <NavLink key={name} to={`${url}/${path}`}>
-      {name}
-    </NavLink>
-  ));
+export default ROUTES;

@@ -1,0 +1,309 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppRouter renders without crashing 1`] = `
+<Suspense
+  fallback="Loading..."
+>
+  <Switch>
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/ci-cd/gitlab"
+      name="GitLab"
+      path="/ci-cd/gitlab"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/css/clipping"
+      name="Clipping"
+      path="/css/clipping"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/css/content"
+      name="Content"
+      path="/css/content"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/css/flex-overflow"
+      name="Flex Overflow"
+      path="/css/flex-overflow"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/css/full-page"
+      name="Full Page"
+      path="/css/full-page"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/css/newline"
+      name="Newline"
+      path="/css/newline"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/css/replaced-elements"
+      name="Replaced Elements"
+      path="/css/replaced-elements"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/css/shapes"
+      name="Shapes"
+      path="/css/shapes"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/css/text-background"
+      name="Text Background"
+      path="/css/text-background"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/css/text-ellipsis"
+      name="Text Ellipsis"
+      path="/css/text-ellipsis"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/dom/cancel-request"
+      name="Cancel Request"
+      path="/dom/cancel-request"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/dom/device-detection"
+      name="Device Detection"
+      path="/dom/device-detection"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/dom/download"
+      name="Download"
+      path="/dom/download"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/dom/drag-drop"
+      name="Drag Drop"
+      path="/dom/drag-drop"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/dom/excluded-input"
+      name="Excluded Input"
+      path="/dom/excluded-input"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/dom/file-input"
+      name="File Input"
+      path="/dom/file-input"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/dom/live-edit"
+      name="Live Edit"
+      path="/dom/live-edit"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/dom/upload"
+      name="Upload"
+      path="/dom/upload"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/git/pre-commit"
+      name="Pre-Commit"
+      path="/git/pre-commit"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/js/array"
+      name="Array"
+      path="/js/array"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/nodejs/memory"
+      name="Memory"
+      path="/nodejs/memory"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/performance/memory"
+      name="Memory"
+      path="/performance/memory"
+    />
+    <Route
+      component={
+        Object {
+          "$$typeof": Symbol(react.lazy),
+          "_ctor": [Function],
+          "_result": null,
+          "_status": -1,
+        }
+      }
+      key="/react/bundle-size"
+      name="Bundle Size"
+      path="/react/bundle-size"
+    />
+  </Switch>
+</Suspense>
+`;

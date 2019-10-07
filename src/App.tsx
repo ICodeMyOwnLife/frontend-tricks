@@ -6,7 +6,7 @@ import MenuBar from 'components/MenuBar';
 import SideBar from 'components/SideBar';
 import AppRouter from 'components/AppRouter';
 import useToggle from 'hooks/useToggle';
-import { ROUTES } from 'helpers/routes';
+import ROUTES from 'helpers/routes';
 
 const theme = createMuiTheme({});
 

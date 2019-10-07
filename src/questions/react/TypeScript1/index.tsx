@@ -1,9 +1,9 @@
 import React, { FC, memo } from 'react';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import questions from './questions';
 
 export const TypeScript1Component: FC = () => (
-  <Question title="TypeScript 1" questions={questions} />
+  <QuestionPage title="TypeScript 1" questions={questions} />
 );
 
 const TypeScript1 = memo(TypeScript1Component);

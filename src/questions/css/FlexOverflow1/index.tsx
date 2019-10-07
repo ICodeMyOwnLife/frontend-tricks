@@ -1,10 +1,10 @@
 import React, { FC, memo } from 'react';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import questions from './questions';
 import classes from './styles.module.scss';
 
 export const FlexOverflow1Impl: FC = () => (
-  <Question title="Flew Overflow 1" questions={questions}>
+  <QuestionPage title="Flew Overflow 1" questions={questions}>
     <div className={classes.Container}>
       <div className={classes.LeftBar} />
       <div className={classes.RightBar}>
@@ -14,7 +14,7 @@ export const FlexOverflow1Impl: FC = () => (
         </div>
       </div>
     </div>
-  </Question>
+  </QuestionPage>
 );
 
 const FlexOverflow1 = memo(FlexOverflow1Impl);

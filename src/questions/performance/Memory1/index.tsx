@@ -1,5 +1,5 @@
 import React, { FC, memo, useState, useCallback } from 'react';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import NumberInput from 'components/NumberInput';
 import Button from 'components/Button';
 import backendService from 'services/backendService';
@@ -40,7 +40,7 @@ export const Performance1Component: FC = () => {
   }, [length]);
 
   return (
-    <Question title="Performance 1" questions={questions}>
+    <QuestionPage title="Performance 1" questions={questions}>
       <div>
         <NumberInput label="Length:" value={length} onChange={setLength} />
       </div>
@@ -79,7 +79,7 @@ export const Performance1Component: FC = () => {
           </tr>
         </tbody>
       </table>
-    </Question>
+    </QuestionPage>
   );
 };
 

@@ -1,5 +1,5 @@
 import React, { FC, memo, useState } from 'react';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import Button from 'components/Button';
 import NumberInput from 'components/NumberInput';
 import DynamicDownloadButton from './DynamicDownloadButton';
@@ -20,7 +20,7 @@ export const Download1Impl: FC = () => {
   const [count, setCount] = useState(0);
 
   return (
-    <Question title="Download 1" questions={questions}>
+    <QuestionPage title="Download 1" questions={questions}>
       <div>
         <div>
           <h3>Attachment Download</h3>
@@ -174,7 +174,7 @@ export const Download1Impl: FC = () => {
           </form>
         </div>
       </div>
-    </Question>
+    </QuestionPage>
   );
 };
 

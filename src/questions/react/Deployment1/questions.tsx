@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { QuestionInfo } from 'components/Question';
+import { QuestionInfo } from 'types/app-common';
 import React from 'react';
 import Code from 'components/Code';
 import ghPagesSrc from './gh-pages.png';

@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React, { FC, memo, DragEvent, useState, useCallback } from 'react';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import questions from './questions';
 import DropTarget, { DragData } from './DropTarget';
 import ItemDataViewer from './ItemDataViewer';
@@ -19,7 +19,7 @@ export const DragDrop1Impl: FC = () => {
   }, []);
 
   return (
-    <Question title="Drag Drop 1" questions={questions}>
+    <QuestionPage title="Drag Drop 1" questions={questions}>
       <div className={classes.Text} draggable onDragStart={handleDragStart}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique
         mollis risus eget suscipit.
@@ -46,7 +46,7 @@ export const DragDrop1Impl: FC = () => {
           ))}
         </div>
       )}
-    </Question>
+    </QuestionPage>
   );
 };
 

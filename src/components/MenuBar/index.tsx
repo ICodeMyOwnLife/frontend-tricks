@@ -2,6 +2,7 @@ import React, { FC, memo } from 'react';
 import { AppBar, Toolbar, IconButton } from '@material-ui/core';
 import { Menu as MenuIcon } from '@material-ui/icons';
 import AppLink from 'components/AppLink';
+import { APP_NAME } from 'constants/common';
 import useStyles from './styles';
 
 export const MenuBarComponent: FC<MenuBarProps> = ({ toggleDrawerVisible }) => {
@@ -23,8 +24,8 @@ export const MenuBarComponent: FC<MenuBarProps> = ({ toggleDrawerVisible }) => {
         >
           <MenuIcon />
         </IconButton>
-        <AppLink className={classes.ToolbarTitle} variant="button" to="/">
-          FE Tricks
+        <AppLink className={classes.HomeLink} variant="button" to="/">
+          {APP_NAME}
         </AppLink>
       </Toolbar>
     </AppBar>

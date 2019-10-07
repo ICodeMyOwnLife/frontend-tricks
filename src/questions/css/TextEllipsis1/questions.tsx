@@ -1,5 +1,5 @@
 import React from 'react';
-import { QuestionInfo } from 'components/Question';
+import { QuestionInfo } from 'types/app-common';
 import Code from 'components/Code';
 
 const questions: QuestionInfo[] = [
@@ -11,13 +11,13 @@ const questions: QuestionInfo[] = [
         <Code language="scss">
           {`td {
     white-space: nowrap;
-    
+
   &.Td1 {
     max-width: 0; // this column will take the remaining width
     overflow: hidden;
     text-overflow: ellipsis;
   }
-  
+
   &.Td4 {
     max-width: 100px; // this column will take 100px
     overflow: hidden;
@@ -30,7 +30,7 @@ const questions: QuestionInfo[] = [
         <Code language="scss">
           {`td {
     white-space: nowrap;
-    
+
   &.Td1 {
     width: 100%;
     max-width: 0;

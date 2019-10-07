@@ -1,4 +1,4 @@
-import { QuestionInfo } from 'components/Question';
+import { QuestionInfo } from 'types/app-common';
 import React from 'react';
 import Code from 'components/Code';
 

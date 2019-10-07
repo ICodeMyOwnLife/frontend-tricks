@@ -1,10 +1,11 @@
 import React, { FC, memo } from 'react';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import questions from './questions';
 import classes from './styles.module.scss';
 
 export const FullPage1Impl: FC = () => (
-  <Question title="" questions={questions}>
+  <QuestionPage title="" questions={questions}>
+    Unimplemented
     <div className={classes.Container}>
       <p>
         debounceTime delays values emitted by the source Observable, but drops
@@ -106,7 +107,7 @@ export const FullPage1Impl: FC = () => (
         SchedulerLike for managing timers.
       </p>
     </div>
-  </Question>
+  </QuestionPage>
 );
 
 const FullPage1 = memo(FullPage1Impl);

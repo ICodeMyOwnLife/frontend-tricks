@@ -1,10 +1,10 @@
 import React, { FC, memo } from 'react';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import questions from './questions';
 import classes from './styles.module.scss';
 
 export const LiveEdit1Impl: FC = () => (
-  <Question title="Live Edit 1" questions={questions}>
+  <QuestionPage title="Live Edit 1" questions={questions}>
     <div
       className="EditableText"
       contentEditable
@@ -54,7 +54,7 @@ export const LiveEdit1Impl: FC = () => (
 }
 `}
     </style>
-  </Question>
+  </QuestionPage>
 );
 
 const LiveEdit1 = memo(LiveEdit1Impl);

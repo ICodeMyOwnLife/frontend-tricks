@@ -1,6 +1,6 @@
 /* eslint-disable react/no-danger */
 import React, { FC, memo } from 'react';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import questions from './questions';
 
 const rawHtml = `<ul>
@@ -10,10 +10,10 @@ const rawHtml = `<ul>
 </ul>`;
 
 export const RawHtml1Impl: FC = () => (
-  <Question title="Raw HTML 1" questions={questions}>
+  <QuestionPage title="Raw HTML 1" questions={questions}>
     <div>{rawHtml}</div>
     <div dangerouslySetInnerHTML={{ __html: rawHtml }} />
-  </Question>
+  </QuestionPage>
 );
 
 const RawHtml1 = memo(RawHtml1Impl);

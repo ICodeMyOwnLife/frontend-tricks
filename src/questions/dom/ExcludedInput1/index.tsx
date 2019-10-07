@@ -1,5 +1,5 @@
 import React, { FC, memo, useState, FormEvent, useCallback } from 'react';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import questions from './questions';
 import classes from './styles.module.scss';
 
@@ -17,7 +17,7 @@ export const ExcludedInput1Impl: FC = () => {
   }, []);
 
   return (
-    <Question title="Excluded Input 1" questions={questions}>
+    <QuestionPage title="Excluded Input 1" questions={questions}>
       <div>
         <form onSubmit={handleSubmit}>
           <div className={classes.InputLine}>
@@ -75,7 +75,7 @@ export const ExcludedInput1Impl: FC = () => {
         </form>
         {query && <pre>{query}</pre>}
       </div>
-    </Question>
+    </QuestionPage>
   );
 };
 

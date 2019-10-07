@@ -1,6 +1,6 @@
 import React, { FC, memo, useState, useEffect } from 'react';
 import MobileDetect from 'mobile-detect';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import questions from './questions';
 
 export const DeviceDetection1Component: FC = () => {
@@ -21,9 +21,9 @@ export const DeviceDetection1Component: FC = () => {
   }, []);
 
   return (
-    <Question title="Device Detection 1" questions={questions}>
+    <QuestionPage title="Device Detection 1" questions={questions}>
       <pre>{JSON.stringify(status, null, 2)}</pre>
-    </Question>
+    </QuestionPage>
   );
 };
 

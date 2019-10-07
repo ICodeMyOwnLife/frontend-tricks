@@ -1,10 +1,10 @@
 import React, { FC, memo } from 'react';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import ShapeContainer from './ShapeContainer';
 import questions from './questions';
 
 export const Shapes1Impl: FC = () => (
-  <Question title="Shapes 1" questions={questions}>
+  <QuestionPage title="Shapes 1" questions={questions}>
     <ShapeContainer name="Rectangle" type="rectangle" />
     <ShapeContainer name="Square" type="square" />
     <ShapeContainer name="Oval" type="oval" />
@@ -49,7 +49,7 @@ export const Shapes1Impl: FC = () => (
     <ShapeContainer name="Base" type="base" />
     <ShapeContainer name="Pointer" type="pointer" />
     <ShapeContainer name="Lock" type="lock" />
-  </Question>
+  </QuestionPage>
 );
 
 const Shapes1 = memo(Shapes1Impl);

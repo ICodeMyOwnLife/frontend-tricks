@@ -1,5 +1,5 @@
 import React, { FC, memo } from 'react';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import Frame from './Frame';
 import questions from './questions';
 import imgSrc from './1.png';
@@ -14,10 +14,10 @@ const video = (
 );
 
 export const ReplacedElements1Component: FC = () => (
-  <Question title="Replaced Elements 1" questions={questions}>
+  <QuestionPage title="Replaced Elements 1" questions={questions}>
     <Frame name="IMAGE" element={image} />
     <Frame name="VIDEO" element={video} />
-  </Question>
+  </QuestionPage>
 );
 
 const ReplacedElements1 = memo(ReplacedElements1Component);

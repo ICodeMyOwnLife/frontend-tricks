@@ -1,8 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { FC, memo, useMemo } from 'react';
+import React, { FC, memo } from 'react';
 import { Drawer, useTheme, Toolbar, Divider, List } from '@material-ui/core';
 import AppLink from 'components/AppLink';
 import NestableLinkItem from 'components/NestableLinkItem';
+import useRouter from 'hooks/useRouter';
+import { APP_NAME } from 'constants/common';
 import { LinkInfo } from 'types/app-common';
 import useStyles from './styles';
 
@@ -13,16 +15,9 @@ export const SideBarComponent: FC<SideBarProps> = ({
 }) => {
   const theme = useTheme();
   const classes = useStyles();
-  const menu = useMemo(
-    () => (
-      <List component="nav">
-        {routes.map(props => (
-          <NestableLinkItem key={props.path} {...props} />
-        ))}
-      </List>
-    ),
-    [routes],
-  );
+  const {
+    location: { pathname },
+  } = useRouter();
 
   return (
     <Drawer
@@ -35,12 +30,21 @@ export const SideBarComponent: FC<SideBarProps> = ({
       ModalProps={{ keepMounted: true }}
     >
       <Toolbar className={classes.Toolbar}>
-        <AppLink variant="button" to="/">
-          FE Tricks
+        <AppLink className={classes.HomeLink} variant="button" to="/">
+          {APP_NAME}
         </AppLink>
       </Toolbar>
       <Divider />
-      {menu}
+      <List component="nav">
+        {routes.map(props => (
+          <NestableLinkItem
+            key={props.path}
+            nestedLevel={0}
+            pathname={pathname}
+            {...props}
+          />
+        ))}
+      </List>
     </Drawer>
   );
 };

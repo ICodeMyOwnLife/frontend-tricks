@@ -1,5 +1,5 @@
 import React, { FC, memo, useState, CSSProperties } from 'react';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import questions from './questions';
 
 const text = `This is first paragraph.\nThis is second paragraph.\nThis is third paragraph.`;
@@ -21,7 +21,7 @@ export const NewlineImpl: FC = () => {
   );
 
   return (
-    <Question title="Newline 1" questions={questions}>
+    <QuestionPage title="Newline 1" questions={questions}>
       <div>
         <div>
           <select
@@ -40,7 +40,7 @@ export const NewlineImpl: FC = () => {
         <p style={{ whiteSpace: whitespaceStyleValue }}>{text}</p>
         <pre>{text}</pre>
       </div>
-    </Question>
+    </QuestionPage>
   );
 };
 

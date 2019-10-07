@@ -1,9 +1,9 @@
 import React, { FC, memo } from 'react';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import questions from './questions';
 
 export const Memory1Component: FC = () => (
-  <Question title="Memory 1" questions={questions} />
+  <QuestionPage title="Memory 1" questions={questions} />
 );
 
 const Memory1 = memo(Memory1Component);

@@ -10,7 +10,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import clsx from 'clsx';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import questions from './questions';
 import useStyles from './styles';
 
@@ -18,7 +18,7 @@ export const Content1Component: FC = () => {
   const classes = useStyles();
 
   return (
-    <Question title="Content 1" questions={questions}>
+    <QuestionPage title="Content 1" questions={questions}>
       <Card className={classes.Section}>
         <CardHeader title="Text Content" />
         <CardContent>
@@ -144,7 +144,7 @@ export const Content1Component: FC = () => {
           </Grid>
         </CardContent>
       </Card>
-    </Question>
+    </QuestionPage>
   );
 };
 

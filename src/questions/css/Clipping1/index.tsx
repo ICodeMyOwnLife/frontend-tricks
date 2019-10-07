@@ -1,11 +1,11 @@
 import React, { FC, memo } from 'react';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import Section from './Section';
 import questions from './questions';
 import classes from './styles.module.scss';
 
 export const Clipping1Impl: FC = () => (
-  <Question title="Clipping 1" questions={questions}>
+  <QuestionPage title="Clipping 1" questions={questions}>
     <div className={classes.Container}>
       <Section imageClassName={classes.none} float="right" />
       <Section imageClassName={classes.inset1} />
@@ -28,7 +28,7 @@ export const Clipping1Impl: FC = () => (
         </clipPath>
       </defs>
     </svg>
-  </Question>
+  </QuestionPage>
 );
 
 const Clipping1 = memo(Clipping1Impl);

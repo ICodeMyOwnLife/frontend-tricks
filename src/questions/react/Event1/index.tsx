@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { FC, memo, useState } from 'react';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import Button from 'components/Button';
 import {
   useClickSyncHandler,
@@ -37,7 +37,7 @@ export const Event1Impl: FC = () => {
   useClickEvents();
 
   return (
-    <Question title="Event 1" questions={questions}>
+    <QuestionPage title="Event 1" questions={questions}>
       <div className={classes.Group}>
         <Button onClick={handleClickSync}>Click Sync</Button>
         <Button onClick={handleClickAsync}>Click Async</Button>
@@ -102,7 +102,7 @@ export const Event1Impl: FC = () => {
 
         <Button id="domClick">DOM Stop Propagation</Button>
       </div>
-    </Question>
+    </QuestionPage>
   );
 };
 

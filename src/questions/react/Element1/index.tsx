@@ -1,5 +1,5 @@
 import React, { FC, memo } from 'react';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import useForm from './hooks';
 import questions from './questions';
 import classes from './styles.module.scss';
@@ -12,7 +12,7 @@ export const Element1Impl: FC = () => {
   });
 
   return (
-    <Question title="Element 1" questions={questions}>
+    <QuestionPage title="Element 1" questions={questions}>
       <form className={classes.Form}>
         <div className={classes.InputGroup}>
           <label className={classes.InputLabel} htmlFor="name">
@@ -42,7 +42,7 @@ export const Element1Impl: FC = () => {
       <div className={classes.Data}>
         <pre>{JSON.stringify(data, null, 2)}</pre>
       </div>
-    </Question>
+    </QuestionPage>
   );
 };
 

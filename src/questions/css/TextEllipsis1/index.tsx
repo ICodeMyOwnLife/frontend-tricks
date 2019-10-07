@@ -1,11 +1,11 @@
 import React, { FC, memo } from 'react';
 import classnames from 'classnames';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import questions from './questions';
 import classes from './styles.module.scss';
 
 export const TextEllipsis1Impl: FC = () => (
-  <Question title="Text Ellipsis 1" questions={questions}>
+  <QuestionPage title="Text Ellipsis 1" questions={questions}>
     <table className={classnames(classes.Table, classes.Table1)}>
       <colgroup>
         <col className={classes.Col1} />
@@ -67,7 +67,7 @@ export const TextEllipsis1Impl: FC = () => (
         ))}
       </tbody>
     </table>
-  </Question>
+  </QuestionPage>
 );
 
 const TextEllipsis1 = memo(TextEllipsis1Impl);

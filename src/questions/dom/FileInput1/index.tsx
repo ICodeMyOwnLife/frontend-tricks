@@ -1,6 +1,6 @@
 import React, { FC, memo, useState } from 'react';
 import { Checkbox, FormControlLabel } from '@material-ui/core';
-import Question from 'components/Question';
+import QuestionPage from 'components/QuestionPage';
 import {
   ButtonFileInput,
   LabelFileInput,
@@ -22,7 +22,7 @@ export const FileInput1Impl: FC = () => {
   const [videoFiles, setVideoFiles] = useState<FileList | null>();
 
   return (
-    <Question title="File Input 1" questions={questions}>
+    <QuestionPage title="File Input 1" questions={questions}>
       <Section title="Button File Input">
         <FormControlLabel
           label="Draggable?"
@@ -105,7 +105,7 @@ export const FileInput1Impl: FC = () => {
           accept="video/*,.mp4,.flv,.mov,.avi,.wmv,.3pg"
         />
       </Section>
-    </Question>
+    </QuestionPage>
   );
 };
 
