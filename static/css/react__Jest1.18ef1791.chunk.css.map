@@ -1,0 +1,1 @@
+{"version":3,"sources":["styles.module.scss"],"names":[],"mappings":"AAAA,wBAEI,kBAAoB,CACpB,iBAAkB","file":"react__Jest1.18ef1791.chunk.css","sourcesContent":[".Code {\n  pre {\n    margin: 0 !important;\n    border-radius: 6px;\n  }\n}\n"]}
