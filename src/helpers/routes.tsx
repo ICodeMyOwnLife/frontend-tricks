@@ -329,11 +329,11 @@ const ROUTES: RouteInfo[] = [
     path: 'webpack',
     childRoutes: [
       {
-        name: 'Languages',
-        path: '/webpack/languages',
+        name: 'TypeScript',
+        path: '/webpack/typescript',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "webpack__Languages1" */ 'questions/webpack/Languages1'
+            /* webpackChunkName: "webpack__TypeScript1" */ 'questions/webpack/TypeScript1'
           ),
         ),
       },
