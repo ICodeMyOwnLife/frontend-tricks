@@ -1,6 +1,6 @@
 import { QuestionInfo } from 'types/app-common';
 import React from 'react';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
@@ -59,12 +59,12 @@ const questions: QuestionInfo[] = [
         <p>
           Use <code>object-fit</code> and <code>object-position</code>
         </p>
-        <Code language="css">
+        <CodeViewer language="css">
           {`.element {
   object-fit: contain;
   object-position: center center;
 }`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [

@@ -1,6 +1,6 @@
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
@@ -18,7 +18,7 @@ const questions: QuestionInfo[] = [
           <code>method</code> attribute set to <code>POST</code>
         </p>
 
-        <Code language="markup">
+        <CodeViewer language="markup">
           {`<form
   action="http://127.0.0.1:1333/upload-single"
   method="POST"
@@ -40,7 +40,7 @@ const questions: QuestionInfo[] = [
   />
   <button type="submit">Upload</button>
 </form>`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [
@@ -61,7 +61,7 @@ const questions: QuestionInfo[] = [
         <p>
           Create a <code>FormData</code> object and send it as body of a request
         </p>
-        <Code language="typescript">
+        <CodeViewer language="typescript">
           {`const upload = ({
   formData,
   url,
@@ -145,7 +145,7 @@ export const uploadFilesOnly = ({
 
   upload({ formData, url, setStatus });
 };`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [

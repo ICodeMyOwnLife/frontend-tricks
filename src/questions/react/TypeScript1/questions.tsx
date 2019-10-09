@@ -1,12 +1,12 @@
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
     question: `How to create an React app with TypeScript support?`,
     answer: (
-      <Code language="bash">npx create-react-app MyApp --typescript</Code>
+      <CodeViewer language="bash">npx create-react-app MyApp --typescript</CodeViewer>
     ),
   },
   {
@@ -17,16 +17,16 @@ const questions: QuestionInfo[] = [
           Install <code>typescript</code> and type definitions
         </p>
 
-        <Code language="bash">
+        <CodeViewer language="bash">
           yarn add typescript @types/node @types/react @types/react-dom
           @types/jest
-        </Code>
+        </CodeViewer>
 
         <p>
           Add <code>tsconfig.json</code> to the root project directory
         </p>
 
-        <Code language="json">
+        <CodeViewer language="json">
           {`{
   "compilerOptions": {
     "target": "es5",
@@ -48,7 +48,7 @@ const questions: QuestionInfo[] = [
   },
   "include": ["src"]
 }`}
-        </Code>
+        </CodeViewer>
 
         <p>
           Rename <code>js</code> files into <code>ts</code> and <code>jsx</code>{' '}
@@ -72,19 +72,19 @@ const questions: QuestionInfo[] = [
           and plugins for ESLint
         </p>
 
-        <Code language="bash">
+        <CodeViewer language="bash">
           yarn add prettier eslint @typescript-eslint/parser
           @typescript-eslint/eslint-plugin eslint-plugin-import
           eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react
           eslint-config-airbnb eslint-config-prettier eslint-config-react
           eslint-plugin-react-hooks
-        </Code>
+        </CodeViewer>
 
         <p>
           Add <code>.eslintrc</code> to the root project directory
         </p>
 
-        <Code language="json">
+        <CodeViewer language="json">
           {`{
   "parser": "@typescript-eslint/parser",
   "env": {
@@ -153,19 +153,19 @@ const questions: QuestionInfo[] = [
     }
   }
 }`}
-        </Code>
+        </CodeViewer>
 
         <p>
           Add <code>.prettierrc</code> to the root project directory
         </p>
 
-        <Code language="json">{`{ "singleQuote": true, "trailingComma": "all" }`}</Code>
+        <CodeViewer language="json">{`{ "singleQuote": true, "trailingComma": "all" }`}</CodeViewer>
 
         <p>
           Add or update <code>.vscode/settings.json</code>
         </p>
 
-        <Code language="json">
+        <CodeViewer language="json">
           {`{
   "eslint.enable": true,
   "eslint.validate": [
@@ -188,7 +188,7 @@ const questions: QuestionInfo[] = [
     "editor.formatOnSave":  false,
   }
 }`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [

@@ -1,6 +1,6 @@
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
@@ -12,9 +12,9 @@ const questions: QuestionInfo[] = [
           supports
         </p>
 
-        <Code language="tsx">
+        <CodeViewer language="tsx">
           {`const { totalJSHeapSize, jsHeapSizeLimit, usedJSHeapSize } = performance.memory;`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [
@@ -36,7 +36,7 @@ const questions: QuestionInfo[] = [
           Use <code>process.memoryUsage()</code>
         </p>
 
-        <Code language="typescript">{`const { external, heapTotal, heapUsed, rss } = process.memoryUsage();`}</Code>
+        <CodeViewer language="typescript">{`const { external, heapTotal, heapUsed, rss } = process.memoryUsage();`}</CodeViewer>
       </div>
     ),
     references: [

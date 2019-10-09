@@ -1,6 +1,6 @@
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
@@ -63,11 +63,11 @@ const questions: QuestionInfo[] = [
           using <code>onClick</code>): Call <code>stopPropagation()</code> on{' '}
           <code>SyntheticEvent</code> object
         </p>
-        <Code language="tsx">
+        <CodeViewer language="tsx">
           {`const handleClick = (e: BaseSyntheticEvent<Event>) => {
   e.stopPropagation();
 };`}
-        </Code>
+        </CodeViewer>
 
         <p>
           If parent event is a native <code>Event</code> one (e.g. registered
@@ -75,11 +75,11 @@ const questions: QuestionInfo[] = [
           <code>document</code>: Call <code>stopImmediatePropagation</code> on
           native <code>Event</code> object
         </p>
-        <Code language="tsx">
+        <CodeViewer language="tsx">
           {`const handleClick = (e: BaseSyntheticEvent<Event>) => {
   e.nativeEvent.stopImmediatePropagation();
 };`}
-        </Code>
+        </CodeViewer>
 
         <p>
           If parent event is a native <code>Event</code> one (e.g. registered
@@ -89,13 +89,13 @@ const questions: QuestionInfo[] = [
           <code>addEventListener</code> then call <code>stopPropagation</code>{' '}
           on native <code>Event</code> object
         </p>
-        <Code language="tsx">
+        <CodeViewer language="tsx">
           {`const handleClick = (e: Event) => {
   e.stopPropagation();
 };
 
 element.addEventListener('click', handleClick);`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [

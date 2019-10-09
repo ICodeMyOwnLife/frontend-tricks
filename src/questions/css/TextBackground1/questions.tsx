@@ -1,12 +1,12 @@
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
     question: `How to set gradient or image background for text?`,
     answer: (
-      <Code language="scss">
+      <CodeViewer language="scss">
         {`.Text {
   width: fit-content;
   margin-bottom: 20px;
@@ -40,7 +40,7 @@ const questions: QuestionInfo[] = [
   background-repeat: no-repeat;
   background-size: cover;
 }`}
-      </Code>
+      </CodeViewer>
     ),
     references: [
       {

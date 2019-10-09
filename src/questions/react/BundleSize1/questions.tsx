@@ -1,6 +1,6 @@
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
@@ -11,13 +11,13 @@ const questions: QuestionInfo[] = [
           Install <code>source-map-explorer</code>
         </p>
 
-        <Code language="bash">yarn add source-map-explorer</Code>
+        <CodeViewer language="bash">yarn add source-map-explorer</CodeViewer>
 
         <p>
           Add <code>analyze</code> script to <code>package.json</code>
         </p>
 
-        <Code language="json">
+        <CodeViewer language="json">
           {`{
   "scripts": {
     "start": "react-scripts start",
@@ -27,14 +27,14 @@ const questions: QuestionInfo[] = [
     "analyze": "source-map-explorer 'build/static/js/*.js'"
   }
 }`}
-        </Code>
+        </CodeViewer>
 
         <p>Build and analyze the bundle</p>
 
-        <Code language="bash">
+        <CodeViewer language="bash">
           {`yarn build
 yarn analyze`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [

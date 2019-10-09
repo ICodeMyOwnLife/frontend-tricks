@@ -1,12 +1,12 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useCallback } from 'react';
+import { useMemo } from 'react';
 
 const useBind: UseBind = (
   func: (...args: any[]) => any,
   thisArg: any,
   ...firstArgs: any[]
 ) =>
-  useCallback(() => func.bind(thisArg, ...firstArgs), [
+  useMemo(() => func.bind(thisArg, ...firstArgs), [
     func,
     thisArg,
     ...firstArgs,

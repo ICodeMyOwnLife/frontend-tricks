@@ -2,33 +2,37 @@ import React, { FC, memo } from 'react';
 import classnames from 'classnames';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import classes from './styles.module.scss';
+import useStyles from './styles';
 
-export const CodeImpl: FC<CodeProps> = ({
+export const CodeViewerImpl: FC<CodeViewerProps> = ({
   className,
   children,
   style = okaidia,
   language,
-}) => (
-  <div className={classnames(classes.Code, className)}>
-    <SyntaxHighlighter language={language} style={style}>
-      {children}
-    </SyntaxHighlighter>
-  </div>
-);
+}) => {
+  const classes = useStyles();
 
-const Code = memo(CodeImpl);
-Code.displayName = 'Code';
-export default Code;
+  return (
+    <div className={classnames(classes.CodeViewer, className)}>
+      <SyntaxHighlighter language={language} style={style}>
+        {children}
+      </SyntaxHighlighter>
+    </div>
+  );
+};
 
-export interface CodeProps {
+const CodeViewer = memo(CodeViewerImpl);
+CodeViewer.displayName = 'CodeViewer';
+export default CodeViewer;
+
+export interface CodeViewerProps {
   className?: string;
   style?: object;
   children: string;
-  language: Language;
+  language: CodeViewerLanguage;
 }
 
-export type Language =
+export type CodeViewerLanguage =
   | 'abap'
   | 'actionscript'
   | 'ada'

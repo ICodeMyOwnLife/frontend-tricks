@@ -1,6 +1,6 @@
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
@@ -14,13 +14,13 @@ const questions: QuestionInfo[] = [
         <p>
           Call <code>XMLHttpRequest.abort()</code>
         </p>
-        <Code language="tsx">
+        <CodeViewer language="tsx">
           {`const request = new XMLHttpRequest();
 request.open('GET', url);
 request.send(params);
 
 if (SHOULD_CANCEL_REQUEST) request.abort();`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [
@@ -54,7 +54,7 @@ if (SHOULD_CANCEL_REQUEST) request.abort();`}
           Specify an <code>AbortSignal</code> when calling <code>fetch()</code>{' '}
           and call <code>AbortController.abort()</code> when needed
         </p>
-        <Code language="tsx">
+        <CodeViewer language="tsx">
           {`const request = new Request(url);
 const abortController = new AbortController();
 const response = await fetch(request, {
@@ -64,7 +64,7 @@ const response = await fetch(request, {
 });
 
 if (SHOULD_CANCEL_REQUEST) abortController.abort();`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [
@@ -99,7 +99,7 @@ if (SHOULD_CANCEL_REQUEST) abortController.abort();`}
           <code>Axios.request()</code> and call{' '}
           <code>CancelTokenSource.cancel()</code> when needed
         </p>
-        <Code language="tsx">
+        <CodeViewer language="tsx">
           {`  const cancelTokenSource = Axios.CancelToken.source();
 const response = await Axios.request({
   url,
@@ -109,7 +109,7 @@ const response = await Axios.request({
 });
 
 if (SHOULD_CANCEL_REQUEST) cancelTokenSource.cancel();`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
   },

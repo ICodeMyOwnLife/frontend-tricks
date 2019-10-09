@@ -1,6 +1,6 @@
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
@@ -13,11 +13,11 @@ const questions: QuestionInfo[] = [
           width of the item:
         </p>
 
-        <Code language="scss">
+        <CodeViewer language="scss">
           {`.LeftColumn {
   flex: 0 0 64px;
 }`}
-        </Code>
+        </CodeViewer>
 
         <p>
           For overflow-hidden item: Set <code>flex-grow</code> and{' '}
@@ -26,13 +26,13 @@ const questions: QuestionInfo[] = [
           <code>overflow</code> to a value other than <code>visible</code>:
         </p>
 
-        <Code language="scss">
+        <CodeViewer language="scss">
           {`.RightColumn {
   flex: 1;
   min-width: 0;
   overflow-x: auto;
 }`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
   },

@@ -1,12 +1,12 @@
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
     question: `How to detect the device?`,
     answer: (
-      <Code language="tsx">
+      <CodeViewer language="tsx">
         {`import MobileDetect from 'mobile-detect';
 
 const mobileDetect = new MobileDetect(navigator.userAgent);
@@ -19,7 +19,7 @@ const status = {
   os: mobileDetect.os(),
   mobileGrade: mobileDetect.mobileGrade(),
 };`}
-      </Code>
+      </CodeViewer>
     ),
     references: [
       {

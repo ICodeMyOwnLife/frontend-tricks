@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
@@ -21,7 +21,7 @@ const questions: QuestionInfo[] = [
 
         <p>Links and images are draggable by default.</p>
 
-        <Code language="tsx">
+        <CodeViewer language="tsx">
           {`const handleDragStart = (e: DragEvent<HTMLElement>) => {
   e.dataTransfer.setData('text/plain', e.currentTarget.outerHTML);
 };
@@ -31,7 +31,7 @@ const questions: QuestionInfo[] = [
 <p draggable onDragStart={handleDragStart}>
   This is text
 </p>`}
-        </Code>
+        </CodeViewer>
 
         <p>
           A listener for the <code>dragenter</code> and <code>dragover</code>{' '}
@@ -45,7 +45,7 @@ const questions: QuestionInfo[] = [
           that a drop is allowed at that location.
         </p>
 
-        <Code language="tsx">
+        <CodeViewer language="tsx">
           {`const getItemData = (item: DataTransferItem) =>
   new Promise<ItemData>(resolve => {
     const { kind, type } = item;
@@ -104,7 +104,7 @@ export const DropTargetImpl: FC<DropTargetProps> = ({ onDrop }) => {
     </div>
   );
 };`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [

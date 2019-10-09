@@ -1,0 +1,74 @@
+.FormGroup {
+  &.required {
+    .FormLabel::after {
+      content: ' *';
+    }
+  }
+}
+
+.FormLabel {
+  display: block;
+}
+
+.FormControl {
+  display: block;
+}
+
+.ButtonTime {
+  display: inline-block;
+  &::after {
+    content: url(./time.png);
+  }
+}
+
+.ButtonDate {
+  display: inline-block;
+  &::after {
+    content: url(./date.png);
+  }
+}
+
+.Task {
+  display: block;
+  &::before {
+    content: attr(data-status);
+    margin-right: 6px;
+  }
+}
+
+.Quote {
+  &::before {
+    content: open-quote;
+  }
+  &::after {
+    content: close-quote;
+  }
+}
+
+.DecimalCounterItem {
+  counter-increment: decimalCounter;
+  &::before {
+    content: counter(decimalCounter) ' .';
+  }
+}
+
+.LowerRomanCounterItem {
+  counter-increment: lowerRomanCounter;
+  &::before {
+    content: counter(lowerRomanCounter, lower-roman) ' .';
+  }
+}
+
+.UpperAlphaCounterItem {
+  counter-increment: upperAlphaCounter;
+  &::before {
+    content: counter(upperAlphaCounter, upper-alpha) ' .';
+  }
+}
+
+.LowerGreekCounterItem {
+  counter-increment: lowerGreekCounter;
+  &::before {
+    content: counter(lowerGreekCounter, lower-greek) ' .';
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
@@ -11,9 +11,9 @@ const questions: QuestionInfo[] = [
       </span>
     ),
     answer: (
-      <Code language="tsx">
+      <CodeViewer language="tsx">
         {`<div dangerouslySetInnerHTML={{ __html: rawHtml }} />`}
-      </Code>
+      </CodeViewer>
     ),
     references: [
       {

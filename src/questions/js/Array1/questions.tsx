@@ -1,11 +1,11 @@
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 import React from 'react';
 
 const questions: QuestionInfo[] = [
   {
     question: `How to convert a string to an array of character?`,
-    answer: <Code language="tsx">Array.from(text)</Code>,
+    answer: <CodeViewer language="tsx">Array.from(text)</CodeViewer>,
   },
   {
     question: `How to fill an array with values?`,
@@ -14,25 +14,25 @@ const questions: QuestionInfo[] = [
         <p>
           Use <code>Array.fill()</code> instance method
         </p>
-        <Code language="tsx">Array(length).fill(fillValue)</Code>
+        <CodeViewer language="tsx">Array(length).fill(fillValue)</CodeViewer>
 
         <p>
           Use <code>Array.from()</code>
         </p>
-        <Code language="tsx">{`Array.from({ length }, () => fillValue)`}</Code>
+        <CodeViewer language="tsx">{`Array.from({ length }, () => fillValue)`}</CodeViewer>
       </div>
     ),
   },
   {
     question: `How to generate range of numbers?`,
     answer: (
-      <Code language="tsx">{`Array.from({ length: rangeEnd }, (_, idx) => idx)`}</Code>
+      <CodeViewer language="tsx">{`Array.from({ length: rangeEnd }, (_, idx) => idx)`}</CodeViewer>
     ),
   },
   {
     question: `How to create an array of unique values?`,
     answer: (
-      <Code language="tsx">{`Array.from({ length: rangeEnd }, (_, idx) => idx)`}</Code>
+      <CodeViewer language="tsx">{`Array.from({ length: rangeEnd }, (_, idx) => idx)`}</CodeViewer>
     ),
   },
 ];

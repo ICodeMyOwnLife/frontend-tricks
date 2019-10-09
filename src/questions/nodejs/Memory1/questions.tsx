@@ -1,6 +1,6 @@
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
@@ -12,9 +12,9 @@ const questions: QuestionInfo[] = [
           variable
         </p>
 
-        <Code language="bash">
+        <CodeViewer language="bash">
           NODE_OPTIONS=--max_old_space_size=4096 node app.js
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [

@@ -1,6 +1,6 @@
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
@@ -11,16 +11,16 @@ const questions: QuestionInfo[] = [
           Set the <code>contenteditable</code> attribute on nearly any HTML
           element to make it editable
         </p>
-        <Code language="markup">
+        <CodeViewer language="markup">
           {`<div class="EditableText" contenteditable="true">
   <p>Lorem ipsum dolor sit amet ...</p>
 </div>`}
-        </Code>
+        </CodeViewer>
         <p>
           For <code>style</code> tag, we have to make it appear using{' '}
           <code>display: block</code>
         </p>
-        <Code language="scss">
+        <CodeViewer language="scss">
           {`.StyleEditor {
   display: block;
   padding: 20px;
@@ -32,7 +32,7 @@ const questions: QuestionInfo[] = [
   white-space: pre;
   caret-color: aquamarine;
 }`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [

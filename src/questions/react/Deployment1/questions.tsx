@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { QuestionInfo } from 'types/app-common';
 import React from 'react';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 import ghPagesSrc from './gh-pages.png';
 
 const questions: QuestionInfo[] = [
@@ -13,10 +13,10 @@ const questions: QuestionInfo[] = [
           In <code>NodeJS</code> environment, use <code>serve</code>:
         </p>
 
-        <Code language="bash">
+        <CodeViewer language="bash">
           {`npm install -g serve
 serve -s build -l 4000`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [
@@ -37,7 +37,7 @@ serve -s build -l 4000`}
   {
     question: `How to setup an Express server for React app?`,
     answer: (
-      <Code language="typescript">
+      <CodeViewer language="typescript">
         {`import { join, resolve } from 'path';
 import express from 'express';
 import morgan from 'morgan';
@@ -54,7 +54,7 @@ app.get('/*', (_req, res) => {
 });
 
 app.listen(Number(process.env.PORT) || 4000);`}
-      </Code>
+      </CodeViewer>
     ),
     references: [
       {
@@ -75,7 +75,7 @@ app.listen(Number(process.env.PORT) || 4000);`}
           Install <code>gh-pages</code>
         </p>
 
-        <Code language="bash">yarn add gh-pages</Code>
+        <CodeViewer language="bash">yarn add gh-pages</CodeViewer>
 
         <p>
           Add <code>homepage</code> entry and scripts to{' '}
@@ -92,7 +92,7 @@ app.listen(Number(process.env.PORT) || 4000);`}
           ), which may cause problems with other deployment methods.
         </p>
 
-        <Code language="json">
+        <CodeViewer language="json">
           {`{
   "homepage": "https://icodemyownlife.github.io/frontend-tricks/",
   "scripts": {
@@ -100,13 +100,13 @@ app.listen(Number(process.env.PORT) || 4000);`}
     "deploy": "gh-pages -d build",
   }
 }`}
-        </Code>
+        </CodeViewer>
 
         <p>
           Run <code>deploy</code> script
         </p>
 
-        <Code language="bash">yarn deploy</Code>
+        <CodeViewer language="bash">yarn deploy</CodeViewer>
 
         <p>
           Make sure GitHub Pages option in your GitHub project settings is set
@@ -168,18 +168,18 @@ app.listen(Number(process.env.PORT) || 4000);`}
           Create an Heroku app using <code>create-react-app-buildpack</code>
         </p>
 
-        <Code language="bash">
+        <CodeViewer language="bash">
           heroku create frontend-tricks-web -b
           https://github.com/mars/create-react-app-buildpack.git
-        </Code>
+        </CodeViewer>
 
         <p>Deploy</p>
 
-        <Code language="bash">git push heroku master</Code>
+        <CodeViewer language="bash">git push heroku master</CodeViewer>
 
         <p>Open website</p>
 
-        <Code language="bash">heroku open</Code>
+        <CodeViewer language="bash">heroku open</CodeViewer>
       </div>
     ),
     references: [
@@ -206,22 +206,22 @@ app.listen(Number(process.env.PORT) || 4000);`}
           directory
         </p>
 
-        <Code language="yaml">
+        <CodeViewer language="yaml">
           {`NODE_ENV = "staging"
 REACT_APP_BASE_URL=http://127.0.0.1:1333`}
-        </Code>
+        </CodeViewer>
 
         <p>
           Install <code>env-cmd</code>
         </p>
 
-        <Code language="bash">yarn add -D env-cmd</Code>
+        <CodeViewer language="bash">yarn add -D env-cmd</CodeViewer>
 
         <p>
           Add <code>build:staging</code> script to <code>package.json</code>
         </p>
 
-        <Code language="json">
+        <CodeViewer language="json">
           {`{
   "scripts": {
     "start": "react-scripts start",
@@ -229,11 +229,11 @@ REACT_APP_BASE_URL=http://127.0.0.1:1333`}
     "build:staging": "env-cmd -f .env.staging yarn build"
   }
 }`}
-        </Code>
+        </CodeViewer>
 
         <p>Create a build for staging</p>
 
-        <Code language="bash">yarn build:staging</Code>
+        <CodeViewer language="bash">yarn build:staging</CodeViewer>
       </div>
     ),
     references: [

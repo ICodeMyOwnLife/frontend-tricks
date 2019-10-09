@@ -1,6 +1,6 @@
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
@@ -12,15 +12,15 @@ const questions: QuestionInfo[] = [
           installed then
         </p>
 
-        <Code language="bash">
+        <CodeViewer language="bash">
           curl https://pre-commit.com/install-local.py | python -
-        </Code>
+        </CodeViewer>
 
         <p>
           Add <code>.pre-commit-config.yaml</code> to root project directory
         </p>
 
-        <Code language="yaml">
+        <CodeViewer language="yaml">
           {`# See https://pre-commit.com for more information
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
@@ -57,11 +57,11 @@ repos:
           - --quiet
         files: src.+(\\.ts|\\.tsx|\\.js|\\.jsx)$
         exclude: \\.test\\.(ts|tsx|js|jsx)$`}
-        </Code>
+        </CodeViewer>
 
         <p>Install hooks</p>
 
-        <Code language="bash">pre-commit install</Code>
+        <CodeViewer language="bash">pre-commit install</CodeViewer>
       </div>
     ),
     references: [

@@ -1,6 +1,6 @@
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
@@ -11,7 +11,7 @@ const questions: QuestionInfo[] = [
           Using a <code>button</code> to trigger the <code>click()</code> method
           of a hidden file input
         </p>
-        <Code language="tsx">
+        <CodeViewer language="tsx">
           {`<div
   className={classnames(classes.FileInput, className)}
   ref={containerRef}
@@ -44,12 +44,12 @@ const questions: QuestionInfo[] = [
     </Typography>
   )}
 </div>`}
-        </Code>
+        </CodeViewer>
 
         <p>
           Using a <code>label</code> to trigger a hidden file input
         </p>
-        <Code language="tsx">
+        <CodeViewer language="tsx">
           {`<div
   className={classnames(classes.FileInput, className)}
   ref={containerRef}
@@ -82,7 +82,7 @@ const questions: QuestionInfo[] = [
     </Typography>
   )}
 </div>`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [
@@ -103,7 +103,7 @@ const questions: QuestionInfo[] = [
         <p>
           Using the <b>Drag and Drop API</b>
         </p>
-        <Code language="tsx">
+        <CodeViewer language="tsx">
           {`export const useDragDrop = ({
   onChange,
   draggable,
@@ -160,7 +160,7 @@ const questions: QuestionInfo[] = [
 
   return containerRef;
 };`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [
@@ -191,7 +191,7 @@ const questions: QuestionInfo[] = [
     answer: (
       <div>
         <p>Using data URL</p>
-        <Code language="tsx">
+        <CodeViewer language="tsx">
           {`export const useDataUrl = ({
   files,
   supportedFileTypes,
@@ -226,10 +226,10 @@ const questions: QuestionInfo[] = [
 
   return { src, error };
 };`}
-        </Code>
+        </CodeViewer>
 
         <p>Using object URL</p>
-        <Code language="tsx">
+        <CodeViewer language="tsx">
           {`export const useObjectUrl = ({
   files,
   supportedFileTypes,
@@ -278,7 +278,7 @@ const questions: QuestionInfo[] = [
 
   return { src, error, cleanupCallback };
 };`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [

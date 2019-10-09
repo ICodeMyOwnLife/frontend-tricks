@@ -1,6 +1,6 @@
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
@@ -13,19 +13,19 @@ const questions: QuestionInfo[] = [
           <code>@babel/preset-env</code> instead of the old version{' '}
           <code>babel-core</code> and <code>babel-preset-env</code> packages
         </p>
-        <Code language="bash">
+        <CodeViewer language="bash">
           yarn add typescript ts-loader babel-loader @babel/core
           @babel/preset-env ts-node cross-env tsconfig-paths
           tsconfig-paths-webpack-plugin @types/webpack @types/webpack-dev-server
           @types/webpack-merge @types/html-webpack-plugin
-        </Code>
+        </CodeViewer>
         <p>
           <b>Write webpack configs in TypeScript:</b>
         </p>
         <p>
           Create file <code>config/tsconfig.json</code> used for webpack configs
         </p>
-        <Code language="json">
+        <CodeViewer language="json">
           {`{
   "compilerOptions": {
     "module": "commonjs",
@@ -33,12 +33,12 @@ const questions: QuestionInfo[] = [
     "esModuleInterop": true
   }
 }`}
-        </Code>
+        </CodeViewer>
         <p>
           Create common webpack config file:{' '}
           <code>config/webpack.config.common.ts</code>
         </p>
-        <Code language="typescript">
+        <CodeViewer language="typescript">
           {`import { resolve } from 'path';
 import { realpathSync } from 'fs';
 import { Configuration } from 'webpack';
@@ -86,12 +86,12 @@ const config: Configuration = {
 };
 
 export default config;`}
-        </Code>
+        </CodeViewer>
         <p>
           Create webpack config file for development environment:{' '}
           <code>config/webpack.config.dev.ts</code>
         </p>
-        <Code language="typescript">
+        <CodeViewer language="typescript">
           {`import merge from 'webpack-merge';
 import common from './webpack.config.common';
 
@@ -106,12 +106,12 @@ const config = merge(common, {
 });
 
 export default config;`}
-        </Code>
+        </CodeViewer>
         <p>
           Create webpack config file for production environment:{' '}
           <code>config/webpack.config.prod.ts</code>
         </p>
-        <Code language="typescript">
+        <CodeViewer language="typescript">
           {`import merge from 'webpack-merge';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import common from './webpack.config.common';
@@ -124,7 +124,7 @@ const config = merge(common, {
 });
 
 export default config;`}
-        </Code>
+        </CodeViewer>
         <p>
           Create <code>.babelrc</code> in root project directory.
         </p>
@@ -132,7 +132,7 @@ export default config;`}
           <b>Notice:</b> Use <code>@babel/preset-env</code> instead of{' '}
           <code>env</code>
         </p>
-        <Code language="json">
+        <CodeViewer language="json">
           {`{
   "presets": [
     [
@@ -143,7 +143,7 @@ export default config;`}
     ]
   ]
 }`}
-        </Code>
+        </CodeViewer>
         <p>
           Add <code>start</code> and <code>build</code> scripts to{' '}
           <code>package.json</code>. These scripts make use of{' '}
@@ -152,7 +152,7 @@ export default config;`}
           <code>config/tsconfig.json</code> file, and <code>cross-env</code> to
           set the environment variable.
         </p>
-        <Code language="json">
+        <CodeViewer language="json">
           {`{
   "scripts": {
     "start": "cross-env TS_NODE_PROJECT=\\"config/tsconfig.json\\" webpack-dev-server --config config/webpack.config.dev.ts",
@@ -160,7 +160,7 @@ export default config;`}
     "build:staging": "cross-env TS_NODE_PROJECT=\\"config/tsconfig.json\\" webpack --config config/webpack.config.staging.ts"
   }
 }`}
-        </Code>
+        </CodeViewer>
         <p>
           <b>Write project code in TypeScript:</b>
         </p>
@@ -171,7 +171,7 @@ export default config;`}
           <b>Notice:</b> In order to enable tree-shaking we have to set{' '}
           <code>target</code> and <code>module</code> to <code>es2015</code>
         </p>
-        <Code language="json">
+        <CodeViewer language="json">
           {`{
   "compilerOptions": {
     "target": "es2015",
@@ -190,14 +190,14 @@ export default config;`}
     "skipDefaultLibCheck": true
   }
 }`}
-        </Code>
+        </CodeViewer>
         <p>
           <b>Add some code to test:</b>
         </p>
         <p>
           <code>public/index.html</code>
         </p>
-        <Code language="markup">
+        <CodeViewer language="markup">
           {`<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -212,11 +212,11 @@ export default config;`}
     <div class="container"></div>
   </body>
 </html>`}
-        </Code>
+        </CodeViewer>
         <p>
           <code>styles/index.css</code>
         </p>
-        <Code language="css">
+        <CodeViewer language="css">
           {`.container {
   max-width: 400px;
   height: 240px;
@@ -225,11 +225,11 @@ export default config;`}
   border: 1px solid rgb(89, 173, 124);
   border-radius: 4px;
 }`}
-        </Code>
+        </CodeViewer>
         <p>
           <code>src/services/testServices.ts</code>
         </p>
-        <Code language="typescript">
+        <CodeViewer language="typescript">
           {`console.log('testServices side effect');
 
 export const test1 = () => console.log('Test1');
@@ -237,11 +237,11 @@ export const test1 = () => console.log('Test1');
 export const test2 = () => console.log('Test2');
 
 export const test3 = () => console.log('Test3');`}
-        </Code>
+        </CodeViewer>
         <p>
           <code>src/index.ts</code>
         </p>
-        <Code language="typescript">
+        <CodeViewer language="typescript">
           {`// test1, test2 will be included in the bundle but test3 will not
 import { test1, test2 } from 'services/testServices';
 
@@ -251,7 +251,7 @@ import 'styles/index.css';
 test1();
 
 test2();`}
-        </Code>
+        </CodeViewer>
         <p>
           Run <code>yarn start</code> or <code>yarn build</code> and inspect the
           bundle
@@ -274,6 +274,10 @@ test2();`}
       {
         name: `[GitHub] tsconfig-paths-webpack-plugin`,
         url: `https://github.com/dividab/tsconfig-paths-webpack-plugin`,
+      },
+      {
+        name: `[GitHub] tsconfig-paths`,
+        url: `https://github.com/dividab/tsconfig-paths`,
       },
       {
         name: `[webpack] TypeScript`,

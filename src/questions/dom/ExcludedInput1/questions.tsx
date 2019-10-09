@@ -1,6 +1,6 @@
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
@@ -10,14 +10,14 @@ const questions: QuestionInfo[] = [
         <p>
           Using inputs without <code>name</code> attribute
         </p>
-        <Code language="markup">
+        <CodeViewer language="markup">
           {`<!-- This input value will be included in form data because its name attribute is set -->
 <input type="text" id="text" name="text" />
 
 <!-- This input value will not be included in form data because its name attribute is not set -->
 <input type="number" id="number" />
 `}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [
@@ -38,19 +38,19 @@ const questions: QuestionInfo[] = [
         <p>
           Using <code>FormData</code>
         </p>
-        <Code language="typescript">
+        <CodeViewer language="typescript">
           {`const formData = new FormData(form);
 const searchParams = new URLSearchParams(formData);
 console.log(searchParams.toString());`}
-        </Code>
+        </CodeViewer>
         <p>
           Using <code>jQuery.serialize()</code> or{' '}
           <code>jQuery.serializeArray()</code>
         </p>
-        <Code language="typescript">
+        <CodeViewer language="typescript">
           {`console.log($form.serialize());
 console.log($form.serializeArray());`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [

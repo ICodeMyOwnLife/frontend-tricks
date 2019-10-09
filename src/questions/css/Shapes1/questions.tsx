@@ -1,6 +1,6 @@
 import { QuestionInfo } from 'types/app-common';
 import React from 'react';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
@@ -10,7 +10,7 @@ const questions: QuestionInfo[] = [
       </p>
     ),
     answer: (
-      <Code language="scss">
+      <CodeViewer language="scss">
         {`@mixin shape($color) {
   display: inline-block;
   background-color: $color;
@@ -732,7 +732,7 @@ const questions: QuestionInfo[] = [
     border-radius: 50%/36%;
   }
 }`}
-      </Code>
+      </CodeViewer>
     ),
     references: [
       {

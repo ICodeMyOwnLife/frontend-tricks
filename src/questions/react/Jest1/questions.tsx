@@ -1,6 +1,6 @@
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
@@ -12,7 +12,7 @@ const questions: QuestionInfo[] = [
           <code>package.json</code>
         </p>
 
-        <Code language="json">
+        <CodeViewer language="json">
           {`{
   "jest": {
     "coverageThreshold": {
@@ -38,7 +38,7 @@ const questions: QuestionInfo[] = [
     }
   }
 }`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [
@@ -57,7 +57,7 @@ const questions: QuestionInfo[] = [
           (optional)
         </p>
 
-        <Code language="bash">jest --logHeapUsage --runInBand</Code>
+        <CodeViewer language="bash">jest --logHeapUsage --runInBand</CodeViewer>
       </div>
     ),
     references: [

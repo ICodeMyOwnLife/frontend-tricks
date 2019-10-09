@@ -1,6 +1,6 @@
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
@@ -14,7 +14,7 @@ const questions: QuestionInfo[] = [
           If we want texts wrap around the clipped element, use{' '}
           <code>float</code> combined with <code>shape-outside</code>
         </p>
-        <Code language="scss">
+        <CodeViewer language="scss">
           {`.left {
   float: left;
   margin-right: 20px;
@@ -93,7 +93,7 @@ const questions: QuestionInfo[] = [
     clip-path: $polygon-hover;
   }
 }`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [

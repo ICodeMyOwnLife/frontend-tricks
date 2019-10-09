@@ -1,6 +1,6 @@
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
@@ -14,11 +14,11 @@ const questions: QuestionInfo[] = [
         <p>
           Setting <code>href</code> and <code>download</code> attribute
         </p>
-        <Code language="markup">
+        <CodeViewer language="markup">
           {
             '<a href="http://localhost:1333/static/1.png" download="1.png">Download<a/>'
           }
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [
@@ -48,7 +48,7 @@ const questions: QuestionInfo[] = [
           <code>URL.revokeObjectURL(objectURL)</code>
         </p>
 
-        <Code language="tsx">
+        <CodeViewer language="tsx">
           {`const saveFileManually: SaveFileFunction = ({
   blob,
   contentType,
@@ -65,17 +65,17 @@ const questions: QuestionInfo[] = [
   URL.revokeObjectURL(objectUrl);
   document.body.removeChild(link);
 };`}
-        </Code>
+        </CodeViewer>
 
         <p>
           Using library <code>FileSaver.js</code>
         </p>
 
-        <Code language="tsx">
+        <CodeViewer language="tsx">
           {`import { saveAs } from 'file-saver';
 
 saveAs(blob, filename);`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [

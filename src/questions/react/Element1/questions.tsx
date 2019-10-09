@@ -1,6 +1,6 @@
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
@@ -14,14 +14,14 @@ const questions: QuestionInfo[] = [
         <p>
           Using <code>cloneElement()</code>
         </p>
-        <Code language="tsx">
+        <CodeViewer language="tsx">
           {`cloneElement<FieldProps>(element, {
   ...props,
   name,
   id: name,
   onChange,
 });`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [

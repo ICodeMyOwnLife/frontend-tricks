@@ -1,6 +1,6 @@
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
-import Code from 'components/Code';
+import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
@@ -8,7 +8,7 @@ const questions: QuestionInfo[] = [
     answer: (
       <div>
         <p>Case 1: Other columns are fixed-width</p>
-        <Code language="scss">
+        <CodeViewer language="scss">
           {`td {
     white-space: nowrap;
 
@@ -24,10 +24,10 @@ const questions: QuestionInfo[] = [
     text-overflow: ellipsis;
   }
 }`}
-        </Code>
+        </CodeViewer>
 
         <p>Case 2: Other columns are flexible-width</p>
-        <Code language="scss">
+        <CodeViewer language="scss">
           {`td {
     white-space: nowrap;
 
@@ -38,7 +38,7 @@ const questions: QuestionInfo[] = [
     text-overflow: ellipsis;
   }
 }`}
-        </Code>
+        </CodeViewer>
       </div>
     ),
     references: [

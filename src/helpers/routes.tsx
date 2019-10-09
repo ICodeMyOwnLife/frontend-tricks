@@ -187,6 +187,13 @@ const ROUTES: RouteInfo[] = [
         ),
       },
       {
+        name: 'Query',
+        path: '/dom/query',
+        component: lazy(() =>
+          import(/* webpackChunkName: "dom__Query1" */ 'questions/dom/Query1'),
+        ),
+      },
+      {
         name: 'Upload',
         path: '/dom/upload',
         component: lazy(() =>
