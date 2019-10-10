@@ -108,6 +108,12 @@ const questions: QuestionInfo[] = [
         </p>
       </div>
     ),
+    references: [
+      {
+        name: `[MDN] Document.getElementsByName()`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByName`,
+      },
+    ],
   },
 ];
 
