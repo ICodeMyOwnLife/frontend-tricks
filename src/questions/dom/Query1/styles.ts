@@ -2,22 +2,6 @@ import { makeStyles, Theme } from '@material-ui/core';
 import { grey, red } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme: Theme) => ({
-  Commands: {
-    '& button,button *': {
-      textTransform: 'none',
-    },
-  },
-  Modal: {
-    display: 'flex',
-    justifyContent: 'stretch',
-    alignItems: 'center',
-    margin: theme.spacing(3),
-  },
-  Card: {
-    flex: 1,
-    maxHeight: '100vh',
-    overflowY: 'auto',
-  },
   Display: {
     '& div,section,nav': {
       marginBottom: theme.spacing(1),
@@ -32,8 +16,10 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   Button: {
-    display: 'block',
-    margin: `${theme.spacing(2)}px auto 0`,
+    margin: `${theme.spacing(2)}px auto 0 0`,
+    '&, & *': {
+      textTransform: 'none',
+    },
   },
   CodeEditor: {
     marginTop: theme.spacing(2),

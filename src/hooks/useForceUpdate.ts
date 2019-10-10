@@ -2,8 +2,11 @@ import { createUniqueObject } from 'helpers/utils';
 import { useReducer } from 'react';
 
 const useForceUpdate = () => {
-  const [, dispatch] = useReducer(createUniqueObject, createUniqueObject());
-  return dispatch as VoidFunction;
+  const [updateToken, dispatch] = useReducer(
+    createUniqueObject,
+    createUniqueObject(),
+  );
+  return [updateToken, dispatch as VoidFunction] as const;
 };
 
 export default useForceUpdate;
