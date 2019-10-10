@@ -1,7 +1,12 @@
 import { makeStyles, Theme } from '@material-ui/core';
-import { grey } from '@material-ui/core/colors';
+import { grey, red } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme: Theme) => ({
+  Commands: {
+    '& button,button *': {
+      textTransform: 'none',
+    },
+  },
   Modal: {
     display: 'flex',
     justifyContent: 'stretch',
@@ -10,12 +15,20 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   Card: {
     flex: 1,
+    maxHeight: '100vh',
+    overflowY: 'auto',
   },
   Display: {
-    '& div': {
+    '& div,section,nav': {
       marginBottom: theme.spacing(1),
       padding: theme.spacing(1, 1, 0),
+      backgroundColor: grey[50],
       border: `1px solid ${grey[400]}`,
+
+      '&.selected': {
+        backgroundColor: red[50],
+        borderColor: red[400],
+      },
     },
   },
   Button: {
@@ -23,6 +36,12 @@ const useStyles = makeStyles((theme: Theme) => ({
     margin: `${theme.spacing(2)}px auto 0`,
   },
   CodeEditor: {
+    marginTop: theme.spacing(2),
+  },
+  Form: {
+    marginTop: theme.spacing(2),
+  },
+  Result: {
     marginTop: theme.spacing(2),
   },
 }));

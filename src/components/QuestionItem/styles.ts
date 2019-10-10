@@ -5,6 +5,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   Question: {
     fontWeight: 500,
   },
+  HiddenContent: {
+    marginBottom: theme.spacing(2),
+  },
   Answer: {
     marginTop: theme.spacing(1.5),
     padding: 0,
@@ -27,6 +30,8 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   References: {
     margin: theme.spacing(3, 0, 0),
+    paddingBottom: theme.spacing(2),
+    borderBottom: `1px solid ${grey[400]}`,
 
     '& ol': {
       marginTop: theme.spacing(1),

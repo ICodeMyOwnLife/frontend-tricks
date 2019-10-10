@@ -1,5 +1,5 @@
 /* eslint-disable react/no-danger */
-import React, { FC, memo, useState, useRef } from 'react';
+import React, { FC, memo, useState } from 'react';
 import {
   Modal,
   Fade,
@@ -10,23 +10,19 @@ import {
   CardContent,
   TextField,
   Box,
+  Typography,
+  Grid,
 } from '@material-ui/core';
 import CodeEditor from 'components/CodeEditor';
 import useToggle from 'hooks/useToggle';
-import useBind from 'hooks/useBind';
 import useTextField from 'hooks/useTextField';
 import useStyles from './styles';
-
-const sampleHtml = `
-<div id="div1">
-  <div id="div2">
-    <div id="div3" />
-  </div>
-  <div id="div4" />
-  <div id="div5">
-    <div id="div6" />
-  </div>
-</div>`;
+import {
+  useInnerHtml,
+  useSubmitHandler,
+  QueryFunction,
+  useRefresh,
+} from './hooks';
 
 export const PlaygroundComponent: FC<PlaygroundProps> = ({
   open,
@@ -34,13 +30,17 @@ export const PlaygroundComponent: FC<PlaygroundProps> = ({
   onQuery,
 }) => {
   const classes = useStyles();
-  const [html, setHtml] = useState(sampleHtml);
-  const [editingHtml, setEditingHtml] = useState(html);
   const [queryText, handleChangeQueryText] = useTextField('');
   const [openEditor, toggleOpenEditor] = useToggle(false);
-  const handleSetHtml = useBind(setHtml, null, editingHtml);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const handleQuery = useBind(onQuery, null, containerRef.current!, queryText);
+  const [queryResult, setQueryResult] = useState<any>();
+  const { containerRef, html, setHtml, updateInnerHtml } = useInnerHtml();
+  const handleSubmit = useSubmitHandler({
+    containerRef,
+    onQuery,
+    queryText,
+    setQueryResult,
+  });
+  const refresh = useRefresh({ queryResult });
 
   return (
     <Modal
@@ -50,17 +50,14 @@ export const PlaygroundComponent: FC<PlaygroundProps> = ({
       BackdropComponent={Backdrop}
       closeAfterTransition
     >
-      <Fade in={open}>
+      <Fade in={open} onEntered={updateInnerHtml}>
         <Card className={classes.Card}>
           <CardContent>
-            <div
-              className={classes.Display}
-              ref={containerRef}
-              dangerouslySetInnerHTML={{ __html: html }}
-            />
+            <div className={classes.Display} ref={containerRef} />
             <Button
               className={classes.Button}
               variant="outlined"
+              color="primary"
               onClick={toggleOpenEditor}
             >
               Toggle Edit
@@ -69,33 +66,56 @@ export const PlaygroundComponent: FC<PlaygroundProps> = ({
               <CodeEditor
                 className={classes.CodeEditor}
                 language="html"
-                value={editingHtml}
-                onChange={setEditingHtml}
+                value={html}
+                onChange={setHtml}
               />
               <Button
                 className={classes.Button}
                 variant="outlined"
-                onClick={handleSetHtml}
+                color="primary"
+                onClick={updateInnerHtml}
               >
                 Update HTML
               </Button>
             </Collapse>
 
-            <Box>
+            <form className={classes.Form} onSubmit={handleSubmit}>
               <TextField
                 fullWidth
                 label="Query"
                 value={queryText}
                 onChange={handleChangeQueryText}
               />
-              <Button
-                className={classes.Button}
-                variant="outlined"
-                color="primary"
-                onClick={handleQuery}
-              >
-                Query
-              </Button>
+              <Grid container spacing={2} justify="center">
+                <Grid item>
+                  <Button variant="outlined" color="primary" type="submit">
+                    Query
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button
+                    variant="outlined"
+                    color="secondary"
+                    onClick={refresh}
+                  >
+                    Refresh
+                  </Button>
+                </Grid>
+              </Grid>
+            </form>
+
+            <Box className={classes.Result}>
+              <Typography variant="body1">
+                Type:{' '}
+                {JSON.stringify(
+                  queryResult &&
+                    queryResult.constructor &&
+                    queryResult.constructor.name,
+                )}
+              </Typography>
+              <Typography variant="body1">
+                Length: {JSON.stringify(queryResult && queryResult.length)}
+              </Typography>
             </Box>
           </CardContent>
         </Card>
@@ -111,5 +131,5 @@ export default Playground;
 export interface PlaygroundProps {
   open: boolean;
   onClose: VoidFunction;
-  onQuery: TypedFunction<[HTMLDivElement, string]>;
+  onQuery: QueryFunction;
 }

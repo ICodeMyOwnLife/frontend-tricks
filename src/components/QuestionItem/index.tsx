@@ -27,21 +27,23 @@ export const QuestionItemComponent: FC<QuestionItemProps> = ({
         </ListItemText>
       </ListItem>
       <Collapse in={open} timeout="auto">
-        <Box className={classes.Answer}>{answer}</Box>
-        {!!references && references.length && (
-          <Box className={classes.References}>
-            <Typography variant="h4">References</Typography>
-            <ol>
-              {references.map(({ name, url }) => (
-                <li key={url}>
-                  <a href={url} target="_blank" rel="noopener noreferrer">
-                    {name}
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </Box>
-        )}
+        <Box className={classes.HiddenContent}>
+          <Box className={classes.Answer}>{answer}</Box>
+          {!!references && references.length && (
+            <Box className={classes.References}>
+              <Typography variant="h5">References</Typography>
+              <ol>
+                {references.map(({ name, url }) => (
+                  <li key={url}>
+                    <a href={url} target="_blank" rel="noopener noreferrer">
+                      {name}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </Box>
+          )}
+        </Box>
       </Collapse>
     </>
   );

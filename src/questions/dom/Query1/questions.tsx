@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
 import CodeViewer from 'components/CodeViewer';
@@ -20,12 +21,17 @@ const questions: QuestionInfo[] = [
 
         <CodeViewer language="typescript">
           {`interface Document extends Node, NonElementParentNode, DocumentOrShadowRoot, ParentNode, XPathEvaluatorBase, GlobalEventHandlers, DocumentAndElementEventHandlers {
-    /**
-     * Returns a reference to the first object with the specified value of the ID attribute.
-     * @param elementId String that specifies the ID value. Case-sensitive.
-     */
-    getElementById(elementId: string): HTMLElement | null;
+  /**
+   * Returns an Element object representing the element whose id property matches the specified string.
+   * @param ID The ID of the element to locate. The ID is case-sensitive string which is unique within the document; only one element may have any given ID.
+   * @returns An Element object describing the DOM element object matching the specified ID, or null if no matching element was found in the document.
+   */
+  getElementById(ID: string): HTMLElement | null;
 }`}
+        </CodeViewer>
+
+        <CodeViewer language="typescript">
+          const element = document.getElementById('btnSubmit');
         </CodeViewer>
 
         <p>
@@ -59,6 +65,49 @@ const questions: QuestionInfo[] = [
         url: `https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementById`,
       },
     ],
+  },
+  {
+    question: (
+      <span>
+        What is <code>Document.getElementsByName()</code> for?
+      </span>
+    ),
+    answer: (
+      <div>
+        <p>
+          The <code>getElementsByName()</code> method of the{' '}
+          <code>Document</code> object returns a <code>NodeList</code>{' '}
+          Collection of elements with a given <code>name</code> in the document.
+        </p>
+
+        <CodeViewer language="typescript">
+          {`interface Document extends Node, NonElementParentNode, DocumentOrShadowRoot, ParentNode, XPathEvaluatorBase, GlobalEventHandlers, DocumentAndElementEventHandlers {
+  /**
+   * Returns a NodeList Collection of elements with a given name in the document.
+   * @param name The value of the name attribute of the element(s).
+   * @returns A live NodeList Collection, meaning it automatically updates as new elements with the same name are added to/removed from the document.
+   */
+  getElementsByName(name: string): NodeListOf<HTMLElement>;
+}`}
+        </CodeViewer>
+
+        <CodeViewer language="typescript">
+          const elements = document.getElementsByName('username');
+        </CodeViewer>
+
+        <p>
+          The <code>name</code> attribute can only be applied in (X)HTML
+          documents.
+        </p>
+
+        <p>
+          The returned <code>NodeList</code> Collection contains all elements
+          with the given name, such as <code>{`<meta>`}</code>,{' '}
+          <code>{`<object>`}</code>, and even elements which do not support the
+          name attribute at all.
+        </p>
+      </div>
+    ),
   },
 ];
 

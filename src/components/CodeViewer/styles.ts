@@ -1,10 +1,14 @@
-import { makeStyles } from '@material-ui/core';
+import { makeStyles, Theme } from '@material-ui/core';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme: Theme) => ({
   CodeViewer: {
     '& pre': {
       margin: '0 !important',
       borderRadius: 6,
+    },
+
+    '&~$CodeViewer': {
+      marginTop: theme.spacing(2),
     },
   },
 }));

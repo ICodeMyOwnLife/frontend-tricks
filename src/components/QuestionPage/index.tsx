@@ -15,10 +15,10 @@ export const QuestionPageImpl: FC<QuestionPageProps> = ({
 
   return (
     <Box className={classes.Container}>
-      <Typography variant="h2">{title}</Typography>
+      <Typography variant="h3">{title}</Typography>
       <Box className={classes.Content}>{children}</Box>
       <Box className={classes.Questions}>
-        <Typography variant="h3">Questions</Typography>
+        <Typography variant="h4">Questions</Typography>
         <Box>
           <List>
             {questions.map((questionInfo, index) => (

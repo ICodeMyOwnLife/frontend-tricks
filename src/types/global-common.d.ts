@@ -10,3 +10,5 @@ type TypedFunction<TParams, TReturn = void> = (...args: TParams) => TReturn;
 type ReturnedFunction<TReturn> = TypedFunction<[], TReturn>;
 
 type OmitFrom<TObject, TKey extends keyof TObject> = Omit<TObject, TKey>;
+
+type Defined<T> = T extends undefined ? never : T;
