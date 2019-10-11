@@ -24,7 +24,7 @@ const questions: QuestionInfo[] = [
   /**
    * Returns an Element object representing the element whose id property matches the specified string.
    * @param ID The ID of the element to locate. The ID is case-sensitive string which is unique within the document; only one element may have any given ID.
-   * @returns An Element object describing the DOM element object matching the specified ID, or null if no matching element was found in the document.
+   * @returns An Element object or null.
    */
   getElementById(ID: string): HTMLElement | null;
 }`}
@@ -35,25 +35,32 @@ const questions: QuestionInfo[] = [
         </CodeViewer>
 
         <p>
-          <code>getElementById()</code> is only available as a method of the
-          global <code>document</code> object, and not available as a method on
-          all element objects in the DOM. Because ID values must be unique
-          throughout the entire document, there is no need for "local" versions
-          of the function.
+          <b>
+            <code>getElementById()</code> is only available as a method of the
+            global <code>document</code> object
+          </b>
+          , and not available as a method on all element objects in the DOM.
+          Because ID values must be unique throughout the entire document, there
+          is no need for "local" versions of the function.
         </p>
 
         <p>
-          The <code>id</code> parameter is case-sensitive, so{' '}
-          <code>document.getElementById("Main")</code> will return{' '}
+          <b>
+            The <code>id</code> parameter is case-sensitive
+          </b>
+          , so <code>document.getElementById("Main")</code> will return{' '}
           <code>null</code> instead of the element{' '}
           <code>{`<div id="main">`}</code> because "M" and "m" are different for
           the purposes of this method.
         </p>
 
         <p>
-          Elements not in the document are not searched by{' '}
-          <code>getElementById()</code>. When creating an element and assigning
-          it an ID, you have to insert the element into the document tree with{' '}
+          <b>
+            Elements not in the document are not searched by{' '}
+            <code>getElementById()</code>
+          </b>
+          . When creating an element and assigning it an ID, you have to insert
+          the element into the document tree with{' '}
           <code>Node.insertBefore()</code> or a similar method before you can
           access it with <code>getElementById()</code>
         </p>
@@ -85,11 +92,19 @@ const questions: QuestionInfo[] = [
   /**
    * Returns a NodeList Collection of elements with a given name in the document.
    * @param name The value of the name attribute of the element(s).
-   * @returns A live NodeList Collection, meaning it automatically updates as new elements with the same name are added to/removed from the document.
+   * @returns A NodeList collection.
    */
   getElementsByName(name: string): NodeListOf<HTMLElement>;
 }`}
         </CodeViewer>
+
+        <p>
+          <b>
+            The returned <code>NodeList</code> is live
+          </b>
+          , meaning it automatically updates as new elements with the same name
+          are added to/removed from the document.
+        </p>
 
         <CodeViewer language="typescript">
           const elements = document.getElementsByName('username');
@@ -114,6 +129,52 @@ const questions: QuestionInfo[] = [
         url: `https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByName`,
       },
     ],
+  },
+  {
+    question: (
+      <span>
+        What is <code>Document.getElementsByTagName</code> and{' '}
+        <code>Element.getElementsByTagName</code> for?
+      </span>
+    ),
+    answer: (
+      <div>
+        <p>
+          The <code>getElementsByTagName</code> method of <code>Document</code>{' '}
+          interface returns an <code>HTMLCollection</code> of elements with the
+          given tag name. The complete document is searched, including the root
+          node.
+        </p>
+
+        <p>
+          The <code>Element.getElementsByTagName()</code> method returns an
+          <code>HTMLCollection</code> of elements with the given tag name. All
+          descendants of the specified element are searched, but not the element
+          itself.
+        </p>
+
+        <CodeViewer language="typescript">
+          {`interface Document extends Node, NonElementParentNode, DocumentOrShadowRoot, ParentNode, XPathEvaluatorBase, GlobalEventHandlers, DocumentAndElementEventHandlers {
+  /**
+   * Retrieves a collection of objects based on the specified element name.
+   * @param name Specifies the name of an element.
+   * @returns An HTMLCollection.
+   */
+  getElementsByTagName<K extends keyof HTMLElementTagNameMap>(qualifiedName: K): HTMLCollectionOf<HTMLElementTagNameMap[K]>;
+}
+
+interface Element extends Node, ParentNode, NonDocumentTypeChildNode, ChildNode, Slotable, InnerHTML, Animatable {
+  getElementsByTagName(qualifiedName: string): HTMLCollectionOf<Element>;
+}`}
+        </CodeViewer>
+
+        <p>
+          The returned <code>HTMLCollection</code> is live, meaning that it
+          updates itself automatically to stay in sync with the DOM tree without
+          having to call <code>getElementsByTagName()</code> again.
+        </p>
+      </div>
+    ),
   },
 ];
 

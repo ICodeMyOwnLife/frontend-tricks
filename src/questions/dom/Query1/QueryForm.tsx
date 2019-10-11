@@ -62,6 +62,7 @@ export const QueryFormComponent: FC<QueryFormProps> = ({ onQuery }) => {
         </Button>
       </ButtonGroup>
       <Popper
+        className={classes.DropDown}
         open={dropDownVisible}
         anchorEl={anchorRef.current}
         transition

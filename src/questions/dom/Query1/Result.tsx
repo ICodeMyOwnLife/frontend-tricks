@@ -2,10 +2,9 @@ import React, { FC, memo } from 'react';
 import { Box, Typography } from '@material-ui/core';
 import useStyles from './styles';
 
-const getType = (o: any) =>
-  JSON.stringify(o && o.constructor && o.constructor.name);
+const getType = (o: any) => o && o.constructor && o.constructor.name;
 
-const getLength = (o: any) => JSON.stringify(o && o.length);
+const getLength = (o: any) => o && o.length;
 
 export const ResultComponent: FC<ResultProps> = ({ result }) => {
   const classes = useStyles();

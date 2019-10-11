@@ -27,6 +27,9 @@ const useStyles = makeStyles((theme: Theme) => ({
   Form: {
     marginTop: theme.spacing(2),
   },
+  DropDown: {
+    zIndex: 10,
+  },
   Result: {
     marginTop: theme.spacing(2),
   },
