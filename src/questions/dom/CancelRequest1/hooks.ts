@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { useCallback, useRef, useState } from 'react';
 import Axios, { CancelTokenSource, AxiosResponse, AxiosInstance } from 'axios';
 

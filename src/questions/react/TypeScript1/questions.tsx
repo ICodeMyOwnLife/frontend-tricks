@@ -6,7 +6,9 @@ const questions: QuestionInfo[] = [
   {
     question: `How to create an React app with TypeScript support?`,
     answer: (
-      <CodeViewer language="bash">npx create-react-app MyApp --typescript</CodeViewer>
+      <CodeViewer language="bash">
+        npx create-react-app MyApp --typescript
+      </CodeViewer>
     ),
   },
   {

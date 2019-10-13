@@ -26,5 +26,8 @@
     "repos",
     "scrollable",
     "unhighlight"
-  ]
+  ],
+  "files.exclude": {
+    "**/.git": false
+  }
 }

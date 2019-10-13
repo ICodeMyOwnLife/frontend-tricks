@@ -11,7 +11,6 @@ import {
   Slider,
   Typography,
   Box,
-  Theme,
   MenuItem,
   Card,
   Paper,
@@ -19,7 +18,7 @@ import {
   CardContent,
   Grid,
 } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
+import useStyles from './styles';
 
 const objectFitOptions: CSSProperties['objectFit'][] = [
   'contain',
@@ -44,25 +43,6 @@ const objectPositionOptions: CSSProperties['objectPosition'][] = [
   'right top',
   'right bottom',
 ];
-
-const useStyles = makeStyles((theme: Theme) => ({
-  FrameContainer: {
-    marginBottom: theme.spacing(4),
-    padding: theme.spacing(2),
-    borderColor: theme.palette.grey[400],
-    borderWidth: 1,
-    borderStyle: 'solid',
-  },
-  Select: {
-    width: '100%',
-  },
-  CardContainer: {
-    marginTop: theme.spacing(4),
-  },
-  Card: {
-    overflowX: 'auto',
-  },
-}));
 
 export const FrameComponent: FC<FrameProps> = ({ name, element }) => {
   const [width, setWidth] = useState(400);

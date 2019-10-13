@@ -312,6 +312,15 @@ const ROUTES: RouteInfo[] = [
         ),
       },
       {
+        name: 'Linter',
+        path: '/react/linter',
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "react__Linter1" */ 'questions/react/Linter1'
+          ),
+        ),
+      },
+      {
         name: 'Raw HTML',
         path: '/react/raw-html',
         component: lazy(() =>
