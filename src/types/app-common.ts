@@ -14,6 +14,7 @@ export interface QuestionInfo {
   question: ReactNode;
   answer: ReactNode;
   references?: ReferenceInfo[];
+  todos?: string[];
 }
 
 export interface ReferenceInfo {

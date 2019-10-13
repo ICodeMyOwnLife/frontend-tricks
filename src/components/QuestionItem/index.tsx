@@ -15,9 +15,13 @@ export const QuestionItemComponent: FC<QuestionItemProps> = ({
   question,
   answer,
   references,
+  todos,
 }) => {
   const classes = useStyles();
   const [open, toggleOpen] = useToggle(false);
+  const hasReferences = !!(references && references.length);
+  const hasTodos = !!(todos && todos.length);
+  const showBottomBox = hasReferences || hasTodos;
 
   return (
     <>
@@ -29,18 +33,38 @@ export const QuestionItemComponent: FC<QuestionItemProps> = ({
       <Collapse in={open} timeout="auto">
         <Box className={classes.HiddenContent}>
           <Box className={classes.Answer}>{answer}</Box>
-          {!!references && references.length && (
-            <Box className={classes.References}>
-              <Typography variant="h5">References</Typography>
-              <ol>
-                {references.map(({ name, url }) => (
-                  <li key={url}>
-                    <a href={url} target="_blank" rel="noopener noreferrer">
-                      {name}
-                    </a>
-                  </li>
-                ))}
-              </ol>
+
+          {showBottomBox && (
+            <Box className={classes.BottomBox}>
+              {hasReferences && (
+                <Box>
+                  <Typography className={classes.BottomBoxTitle} variant="h5">
+                    References
+                  </Typography>
+                  <ol>
+                    {references!.map(({ name, url }) => (
+                      <li key={url}>
+                        <a href={url} target="_blank" rel="noopener noreferrer">
+                          {name}
+                        </a>
+                      </li>
+                    ))}
+                  </ol>
+                </Box>
+              )}
+
+              {hasTodos && (
+                <Box>
+                  <Typography className={classes.BottomBoxTitle} variant="h5">
+                    Todos
+                  </Typography>
+                  <ol>
+                    {todos!.map(todo => (
+                      <li key={todo}>{todo}</li>
+                    ))}
+                  </ol>
+                </Box>
+              )}
             </Box>
           )}
         </Box>

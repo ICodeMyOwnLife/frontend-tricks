@@ -28,12 +28,11 @@ const useStyles = makeStyles((theme: Theme) => ({
       maxWidth: '100%',
     },
   },
-  References: {
-    margin: theme.spacing(3, 0, 0),
+  BottomBox: {
     paddingBottom: theme.spacing(2),
     borderBottom: `1px solid ${grey[400]}`,
 
-    '& ol': {
+    '& ol,ul': {
       marginTop: theme.spacing(1),
     },
 
@@ -42,6 +41,9 @@ const useStyles = makeStyles((theme: Theme) => ({
       fontWeight: 500,
       marginBottom: theme.spacing(1),
     },
+  },
+  BottomBoxTitle: {
+    margin: theme.spacing(3, 0, 0),
   },
 }));
 

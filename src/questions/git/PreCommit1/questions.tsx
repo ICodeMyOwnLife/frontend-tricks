@@ -4,7 +4,57 @@ import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
-    question: `How to add pre-commit hooks for Git?`,
+    question: `How to add pre-commit hooks for linting TypeScript?`,
+    answer: (
+      <div>
+        <p>
+          Install <code>husky</code> and <code>lint-staged</code> packages:
+        </p>
+
+        <CodeViewer language="bash">yarn add husky lint-staged</CodeViewer>
+
+        <p>
+          Update <code>package.json</code>
+        </p>
+
+        <CodeViewer language="json">
+          {`{
+  "script": {
+    "lint": "eslint 'src/**/*.{ts,tsx}' --max-warnings 0",
+    "lint:fix": "yarn lint --fix",
+    "type-check": "tsc"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn type-check && lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": ["yarn lint:fix", "git add"],
+    "{*.{json,md}}": ["prettier --write", "git add"]
+  }
+}`}
+        </CodeViewer>
+      </div>
+    ),
+    references: [
+      {
+        name: `Configuring Pre-commit Hooks for Prettier and Linting on a TypeScript Project`,
+        url: `https://justinnoel.dev/2019/07/13/configuring-precommit-hooks-for-eslint-and-prettier/`,
+      },
+      {
+        name: `Using lint-staged, husky, and pre-commit hooks to fail fast and early`,
+        url: `https://codeburst.io/continuous-integration-lint-staged-husky-pre-commit-hook-test-setup-47f8172924fc`,
+      },
+      {
+        name: `Setting up a GatsbyJS starter with TypeScript, ESLint, Prettier and pre-commit hooks`,
+        url: `https://www.arden.nl/setting-up-a-gatsby-js-starter-with-type-script-es-lint-prettier-and-pre-commit-hooks`,
+      },
+    ],
+    todos: ['Add pre-commit hooks for linting CSS/SCSS'],
+  },
+  {
+    question: `How to add pre-commit hooks for checking and fixing?`,
     answer: (
       <div>
         <p>
