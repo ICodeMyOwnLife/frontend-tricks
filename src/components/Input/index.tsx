@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { FC, memo, InputHTMLAttributes, ReactNode } from 'react';
-import classnames from 'classnames';
+import clsx from 'clsx';
 import classes from './styles.module.scss';
 
 export const InputImpl: FC<InputProps> = ({
@@ -11,15 +11,11 @@ export const InputImpl: FC<InputProps> = ({
   label,
   ...props
 }) => (
-  <div className={classnames(classes.InputGroup, className)}>
-    <label className={classnames(classes.Label, labelClassName)} htmlFor={id}>
+  <div className={clsx(classes.InputGroup, className)}>
+    <label className={clsx(classes.Label, labelClassName)} htmlFor={id}>
       {label}
     </label>
-    <input
-      className={classnames(classes.Input, inputClassName)}
-      id={id}
-      {...props}
-    />
+    <input className={clsx(classes.Input, inputClassName)} id={id} {...props} />
   </div>
 );
 

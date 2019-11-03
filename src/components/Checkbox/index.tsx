@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { FC, memo, ChangeEvent, useCallback } from 'react';
-import classnames from 'classnames';
+import clsx from 'clsx';
 import { InputProps } from 'components/Input';
 import classes from './styles.module.scss';
 
@@ -20,10 +20,10 @@ export const CheckboxImpl: FC<CheckboxProps> = ({
   );
 
   return (
-    <div className={classnames(classes.InputGroup, className)}>
-      <label className={classnames(classes.Label, labelClassName)} htmlFor={id}>
+    <div className={clsx(classes.InputGroup, className)}>
+      <label className={clsx(classes.Label, labelClassName)} htmlFor={id}>
         <input
-          className={classnames(classes.Input, inputClassName)}
+          className={clsx(classes.Input, inputClassName)}
           type="checkbox"
           id={id}
           onChange={handleChange}

@@ -1,5 +1,5 @@
 import React, { FC, memo, useCallback, DragEvent, useState } from 'react';
-import classnames from 'classnames';
+import clsx from 'clsx';
 import classes from './styles.module.scss';
 
 const getItemData = (item: DataTransferItem) =>
@@ -48,7 +48,7 @@ export const DropTargetImpl: FC<DropTargetProps> = ({ onDrop }) => {
 
   return (
     <div
-      className={classnames(classes.DropTarget, {
+      className={clsx(classes.DropTarget, {
         [classes.dragging]: dragging,
       })}
       onDragOver={handleDragOver}

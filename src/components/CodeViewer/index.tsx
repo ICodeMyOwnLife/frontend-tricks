@@ -1,5 +1,5 @@
 import React, { FC, memo } from 'react';
-import classnames from 'classnames';
+import clsx from 'clsx';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import useStyles from './styles';
@@ -13,7 +13,7 @@ export const CodeViewerImpl: FC<CodeViewerProps> = ({
   const classes = useStyles();
 
   return (
-    <div className={classnames(classes.CodeViewer, className)}>
+    <div className={clsx(classes.CodeViewer, className)}>
       <SyntaxHighlighter language={language} style={style}>
         {children}
       </SyntaxHighlighter>

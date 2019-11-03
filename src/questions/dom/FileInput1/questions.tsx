@@ -13,7 +13,7 @@ const questions: QuestionInfo[] = [
         </p>
         <CodeViewer language="tsx">
           {`<div
-  className={classnames(classes.FileInput, className)}
+  className={clsx(classes.FileInput, className)}
   ref={containerRef}
 >
   <Button
@@ -51,7 +51,7 @@ const questions: QuestionInfo[] = [
         </p>
         <CodeViewer language="tsx">
           {`<div
-  className={classnames(classes.FileInput, className)}
+  className={clsx(classes.FileInput, className)}
   ref={containerRef}
 >
   <Button
@@ -65,7 +65,7 @@ const questions: QuestionInfo[] = [
   </Button>
 
   <input
-    className={classnames(classes.HiddenInput)}
+    className={clsx(classes.HiddenInput)}
     id={id}
     type="file"
     onChange={handleInputChange}
