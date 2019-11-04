@@ -92,7 +92,7 @@ export const DropTargetImpl: FC<DropTargetProps> = ({ onDrop }) => {
 
   return (
     <div
-      className={classnames(classes.DropTarget, {
+      className={clsx(classes.DropTarget, {
         [classes.dragging]: dragging,
       })}
       onDragOver={handleDragOver}

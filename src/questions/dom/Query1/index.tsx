@@ -63,10 +63,6 @@ export const Query1Component: FC = () => {
   );
 };
 
-document.getElementsByTagName('a');
-document.getElementsByClassName('.a');
-document.getElementsByName('a');
-
 const Query1 = memo(Query1Component);
 Query1.displayName = 'Query1';
 export default Query1;

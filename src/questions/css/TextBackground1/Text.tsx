@@ -1,9 +1,9 @@
 import React, { FC, memo } from 'react';
-import classnames from 'classnames';
+import clsx from 'clsx';
 import classes from './styles.module.scss';
 
 export const TextImpl: FC<TextProps> = ({ className }) => (
-  <div className={classnames(classes.Text, className)}>THIS IS TEXT</div>
+  <div className={clsx(classes.Text, className)}>THIS IS TEXT</div>
 );
 
 const Text = memo(TextImpl);

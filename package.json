@@ -5,7 +5,6 @@
   "dependencies": {
     "@material-ui/core": "^4.4.2",
     "@material-ui/icons": "^4.4.3",
-    "@types/classnames": "^2.2.9",
     "@types/enzyme": "^3.10.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/enzyme-to-json": "^1.5.3",
@@ -22,7 +21,6 @@
     "@typescript-eslint/parser": "^2.3.0",
     "axios": "^0.19.0",
     "brace": "^0.11.1",
-    "classnames": "^2.2.6",
     "clsx": "^1.0.4",
     "env-cmd": "^10.0.1",
     "enzyme": "^3.10.0",
@@ -44,6 +42,7 @@
     "lodash": "^4.17.15",
     "material-design-icons": "^3.0.1",
     "mobile-detect": "^1.4.3",
+    "mq2json": "^0.1.0",
     "node-sass": "^4.12.0",
     "prettier": "^1.18.2",
     "react": "^16.9.0",
@@ -65,7 +64,7 @@
     "eject": "react-scripts eject",
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "deploy:heroku": "git push heroku master",
-    "lint": "eslint 'src/**/*.{ts,tsx}' --max-warnings 0",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
     "lint:fix": "yarn lint --fix"
   },
   "eslintConfig": {

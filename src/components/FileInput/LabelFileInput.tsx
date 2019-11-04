@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { FC, memo } from 'react';
-import classnames from 'classnames';
+import clsx from 'clsx';
 import { Button, Typography } from '@material-ui/core';
 import { useInputChangeHandler, useDragDrop, getFileName } from './hooks';
 import { FileInputProps } from './types';
@@ -21,10 +21,7 @@ export const LabelFileInputImpl: FC<FileInputProps> = ({
   const filename = getFileName(files);
 
   return (
-    <div
-      className={classnames(classes.FileInput, className)}
-      ref={containerRef}
-    >
+    <div className={clsx(classes.FileInput, className)} ref={containerRef}>
       <Button
         variant="contained"
         color="primary"
@@ -36,7 +33,7 @@ export const LabelFileInputImpl: FC<FileInputProps> = ({
       </Button>
 
       <input
-        className={classnames(classes.HiddenInput)}
+        className={clsx(classes.HiddenInput)}
         id={id}
         type="file"
         onChange={handleInputChange}

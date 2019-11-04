@@ -5,7 +5,7 @@ import React, {
   ButtonHTMLAttributes,
   SyntheticEvent,
 } from 'react';
-import classnames from 'classnames';
+import clsx from 'clsx';
 import classes from './styles.module.scss';
 
 export const ButtonImpl: FC<ButtonProps> = ({
@@ -21,7 +21,7 @@ export const ButtonImpl: FC<ButtonProps> = ({
 }) =>
   href ? (
     <a
-      className={classnames(classes.Button, className)}
+      className={clsx(classes.Button, className)}
       id={id}
       href={href}
       target={target}
@@ -34,7 +34,7 @@ export const ButtonImpl: FC<ButtonProps> = ({
   ) : (
     // eslint-disable-next-line react/button-has-type
     <button
-      className={classnames(classes.Button, className)}
+      className={clsx(classes.Button, className)}
       id={id}
       type={type}
       onClick={onClick}

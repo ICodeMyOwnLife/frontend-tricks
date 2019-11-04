@@ -1,5 +1,5 @@
 import React, { FC, memo } from 'react';
-import classnames from 'classnames';
+import clsx from 'clsx';
 import imgSrc from './1.jpg';
 import classes from './styles.module.scss';
 
@@ -9,11 +9,7 @@ export const SectionImpl: FC<SectionProps> = ({
 }) => (
   <div className={classes.Section}>
     <img
-      className={classnames(
-        classes.SectionImage,
-        classes[float],
-        imageClassName,
-      )}
+      className={clsx(classes.SectionImage, classes[float], imageClassName)}
       src={imgSrc}
       alt="wild"
     />

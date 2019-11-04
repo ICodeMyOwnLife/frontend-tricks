@@ -1,12 +1,12 @@
 import React, { FC, memo } from 'react';
-import classnames from 'classnames';
+import clsx from 'clsx';
 import QuestionPage from 'components/QuestionPage';
 import questions from './questions';
 import classes from './styles.module.scss';
 
 export const TextEllipsis1Impl: FC = () => (
   <QuestionPage title="Text Ellipsis 1" questions={questions}>
-    <table className={classnames(classes.Table, classes.Table1)}>
+    <table className={clsx(classes.Table, classes.Table1)}>
       <colgroup>
         <col className={classes.Col1} />
         <col className={classes.Col2} />
@@ -37,7 +37,7 @@ export const TextEllipsis1Impl: FC = () => (
       </tbody>
     </table>
 
-    <table className={classnames(classes.Table, classes.Table2)}>
+    <table className={clsx(classes.Table, classes.Table2)}>
       <thead>
         <tr>
           <th>Column 1</th>

@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { FC, memo } from 'react';
-import classnames from 'classnames';
+import clsx from 'clsx';
 import { Button, Typography } from '@material-ui/core';
 import {
   useTriggerInputClick,
@@ -26,10 +26,7 @@ export const ButtonFileInputImpl: FC<FileInputProps> = ({
   const filename = getFileName(files);
 
   return (
-    <div
-      className={classnames(classes.FileInput, className)}
-      ref={containerRef}
-    >
+    <div className={clsx(classes.FileInput, className)} ref={containerRef}>
       <Button
         type="button"
         variant="contained"
