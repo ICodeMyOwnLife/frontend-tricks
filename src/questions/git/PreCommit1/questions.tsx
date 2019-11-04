@@ -20,7 +20,7 @@ const questions: QuestionInfo[] = [
         <CodeViewer language="json">
           {`{
   "script": {
-    "lint": "eslint 'src/**/*.{ts,tsx}' --max-warnings 0",
+    "lint": "eslint 'src/**/*.{ts,tsx}'",
     "lint:fix": "yarn lint --fix"
   },
   "husky": {
