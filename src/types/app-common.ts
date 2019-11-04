@@ -21,3 +21,7 @@ export interface ReferenceInfo {
   name: string;
   url?: string;
 }
+
+export interface ValueTargetEvent<TValue = string> {
+  target: { value: TValue };
+}

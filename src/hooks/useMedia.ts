@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import mq2json, { QueryObject } from 'mq2json';
+import json2mq, { QueryObject } from 'json2mq';
 import { isBrowser } from 'utils/common';
 
-const useMediaQuery = (
+const useMedia = (
   query: string | QueryObject,
   initialState: UseStateInitialValue<boolean> = false,
 ) => {
-  const queryString = typeof query === 'string' ? query : mq2json(query);
+  const queryString = typeof query === 'string' ? query : json2mq(query);
   const [matches, setMatches] = useState(
     isBrowser() ? window.matchMedia(queryString).matches : initialState,
   );
@@ -30,7 +30,7 @@ const useMediaQuery = (
   return matches;
 };
 
-export default useMediaQuery;
+export default useMedia;
 
 /**
  * References
