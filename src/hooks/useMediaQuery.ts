@@ -33,7 +33,7 @@ const useMediaQuery = (
 export default useMediaQuery;
 
 /**
- * References
+ * # References
  * https://github.com/streamich/react-use/blob/master/src/useMedia.ts
  * https://github.com/jaredpalmer/the-platform/blob/master/src/useMedia.tsx
  * https://usehooks.com/useMedia/
