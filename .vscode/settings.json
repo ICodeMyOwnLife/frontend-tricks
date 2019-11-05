@@ -26,6 +26,7 @@
     "prismjs",
     "repos",
     "scrollable",
+    "srgb",
     "unhighlight"
   ],
   "files.exclude": {

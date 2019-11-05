@@ -5,10 +5,16 @@ declare module '*.mp4' {
 
 type UseStateInitialValue<TValue> = TValue | ReturnedFunction<TValue>;
 
-type TypedFunction<TParams, TReturn = void> = (...args: TParams) => TReturn;
+type TypedFunction<TParams extends any[], TReturn = void> = (
+  ...args: TParams
+) => TReturn;
 
 type ReturnedFunction<TReturn> = TypedFunction<[], TReturn>;
+
+type GeneralFunction = TypedFunction<any[], any>;
 
 type OmitFrom<TObject, TKey extends keyof TObject> = Omit<TObject, TKey>;
 
 type Defined<T> = T extends undefined ? never : T;
+
+type ValueOf<T> = T[keyof T];
