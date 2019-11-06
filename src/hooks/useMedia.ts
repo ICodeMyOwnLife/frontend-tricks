@@ -1,36 +1,52 @@
 import { useState, useEffect } from 'react';
-import mq2json, { QueryObject } from 'mq2json';
+import json2mq, { QueryObject } from 'json2mq';
 import { isBrowser } from 'utils/common';
 
-const useMediaQuery = (
+const getMediaResult = ({ media, matches }: MediaQueryList): MediaResult => ({
+  media,
+  matches,
+});
+
+const useMedia = (
   query: string | QueryObject,
-  initialState: UseStateInitialValue<boolean> = false,
+  initialState: UseStateInitialValue<MediaResult> = {
+    media: '',
+    matches: false,
+  },
 ) => {
-  const queryString = typeof query === 'string' ? query : mq2json(query);
-  const [matches, setMatches] = useState(
-    isBrowser() ? window.matchMedia(queryString).matches : initialState,
+  const queryString = typeof query === 'string' ? query : json2mq(query);
+  const [result, setResult] = useState<MediaResult>(
+    isBrowser()
+      ? () => getMediaResult(window.matchMedia(queryString))
+      : initialState,
   );
 
   useEffect(() => {
     let mounted = true;
-    const mediaQueryList = window.matchMedia(queryString);
+    const mql = window.matchMedia(queryString);
     const onChange = (ev: MediaQueryListEvent) => {
       if (mounted) {
-        setMatches(ev.matches);
+        setResult(ev);
       }
     };
-    mediaQueryList.addListener(onChange);
+    mql.addListener(onChange);
+    setResult(mql);
 
     return () => {
       mounted = false;
-      mediaQueryList.removeListener(onChange);
+      mql.removeListener(onChange);
     };
   }, [queryString]);
 
-  return matches;
+  return result;
 };
 
-export default useMediaQuery;
+export default useMedia;
+
+export interface MediaResult {
+  media: string;
+  matches: boolean;
+}
 
 /**
  * # References

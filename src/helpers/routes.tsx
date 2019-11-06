@@ -187,6 +187,15 @@ const ROUTES: RouteInfo[] = [
         ),
       },
       {
+        name: 'Media Query',
+        path: '/dom/media-query',
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "dom__MediaQuery1" */ 'questions/dom/MediaQuery1'
+          ),
+        ),
+      },
+      {
         name: 'Query',
         path: '/dom/query',
         component: lazy(() =>

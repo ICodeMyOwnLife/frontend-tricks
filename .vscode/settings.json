@@ -14,6 +14,7 @@
     "clsx",
     "codrops",
     "contenteditable",
+    "ddpx",
     "devtool",
     "downlevel",
     "dragexit",
@@ -25,6 +26,7 @@
     "prismjs",
     "repos",
     "scrollable",
+    "srgb",
     "unhighlight"
   ],
   "files.exclude": {

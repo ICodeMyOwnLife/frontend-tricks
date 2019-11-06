@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { createMuiTheme, CssBaseline, Box, Container } from '@material-ui/core';
-import ThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import { ThemeProvider } from '@material-ui/core/styles';
 import MenuBar from 'components/MenuBar';
 import SideBar from 'components/SideBar';
 import AppRouter from 'components/AppRouter';
