@@ -30,7 +30,7 @@ const useMedia = (
       }
     };
     mql.addListener(onChange);
-    setResult(mql);
+    setResult(getMediaResult(mql));
 
     return () => {
       mounted = false;
@@ -50,11 +50,11 @@ export interface MediaResult {
 
 /**
  * # References
- * https://github.com/ReactTraining/react-media
  * https://material-ui.com/components/use-media-query/
  * https://github.com/streamich/react-use/blob/master/src/useMedia.ts
  * https://github.com/jaredpalmer/the-platform/blob/master/src/useMedia.tsx
  * https://usehooks.com/useMedia/
+ * https://github.com/ReactTraining/react-media
  * https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia
  * https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList
  * https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Testing_media_queries

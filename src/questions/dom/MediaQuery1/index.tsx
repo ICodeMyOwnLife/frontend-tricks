@@ -1,6 +1,13 @@
 import React, { FC, memo } from 'react';
-import { useTheme, Table, TableBody, TextField } from '@material-ui/core';
+import {
+  useTheme,
+  Table,
+  TableBody,
+  TextField,
+  Typography,
+} from '@material-ui/core';
 import json2mq, { QueryObject } from 'json2mq';
+import Media from 'react-media';
 import QuestionPage from 'components/QuestionPage';
 import Section from 'components/Section';
 import useTextField from 'hooks/useTextField';
@@ -93,11 +100,34 @@ export const MediaQuery1Component: FC = () => {
 
       <Section title="Dynamic Query">
         <TextField label="Query" value={query} onChange={handleChangeQuery} />
-        <Table>
-          <TableBody>
-            <UseMedia query={query} />
-          </TableBody>
-        </Table>
+        <UseMedia query={query} view="text" />
+      </Section>
+
+      <Section title="React Media">
+        <Media
+          queries={{
+            small: { maxWidth: 599.95 },
+            medium: { minWidth: 600, maxWidth: 1199.95 },
+            large: { minWidth: 1200 },
+          }}
+        >
+          {matches => (
+            <Typography>
+              {matches.small && 'small'}
+              {matches.medium && 'medium'}
+              {matches.large && 'large'}
+            </Typography>
+          )}
+        </Media>
+        <Media query={{ maxWidth: 599.95 }}>
+          {matches => matches && <Typography>small</Typography>}
+        </Media>
+        <Media query={{ minWidth: 600, maxWidth: 1199.95 }}>
+          {matches => matches && <Typography>medium</Typography>}
+        </Media>
+        <Media query={{ minWidth: 1200 }}>
+          {matches => matches && <Typography>large</Typography>}
+        </Media>
       </Section>
     </QuestionPage>
   );
