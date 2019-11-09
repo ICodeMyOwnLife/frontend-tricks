@@ -67,7 +67,8 @@
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "deploy:heroku": "git push heroku master",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
-    "lint:fix": "yarn lint --fix"
+    "lint:fix": "yarn lint --fix",
+    "type-check": "tsc"
   },
   "eslintConfig": {
     "extends": "react-app"
