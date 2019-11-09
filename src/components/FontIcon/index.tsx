@@ -2,8 +2,8 @@ import React, { FC, memo } from 'react';
 import { Icon } from '@material-ui/core';
 import { IconProps } from '@material-ui/core/Icon';
 
-export const FontIconComponent: FC<FontIconProps> = ({ type }) => (
-  <Icon>{type}</Icon>
+export const FontIconComponent: FC<FontIconProps> = ({ type, ...props }) => (
+  <Icon {...props}>{type}</Icon>
 );
 
 const FontIcon = memo(FontIconComponent);

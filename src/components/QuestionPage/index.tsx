@@ -2,11 +2,13 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { FC, memo, ReactNode } from 'react';
 import { Box, Typography, List } from '@material-ui/core';
+import clsx from 'clsx';
 import QuestionItem from 'components/QuestionItem';
 import { QuestionInfo } from 'types/app-common';
 import useStyles from './styles';
 
 export const QuestionPageImpl: FC<QuestionPageProps> = ({
+  className,
   title,
   questions,
   children,
@@ -14,7 +16,7 @@ export const QuestionPageImpl: FC<QuestionPageProps> = ({
   const classes = useStyles();
 
   return (
-    <Box className={classes.Container}>
+    <Box className={clsx(classes.Container, className)}>
       <Typography variant="h3">{title}</Typography>
       <Box className={classes.Content}>{children}</Box>
       <Box className={classes.Questions}>
@@ -36,6 +38,7 @@ QuestionPage.displayName = 'QuestionPage';
 export default QuestionPage;
 
 export interface QuestionPageProps {
+  className?: string;
   title: string;
   questions: QuestionInfo[];
   children?: ReactNode;

@@ -1,11 +1,9 @@
 import { useState, useEffect } from 'react';
 import json2mq, { QueryObject } from 'json2mq';
-import { isBrowser } from 'utils/common';
+import { isBrowser, pickFrom } from 'utils/common';
 
-const getMediaResult = ({ media, matches }: MediaQueryList): MediaResult => ({
-  media,
-  matches,
-});
+const getMediaResult = (mql: MediaQueryList): MediaResult =>
+  pickFrom(mql, ['media', 'matches']);
 
 const useMedia = (
   query: string | QueryObject,

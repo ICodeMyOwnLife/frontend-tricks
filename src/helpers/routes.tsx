@@ -68,7 +68,25 @@ const ROUTES: RouteInfo[] = [
         path: '/css/full-page',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "css__FullPage" */ 'questions/css/FullPage'
+            /* webpackChunkName: "css__FullPage1" */ 'questions/css/FullPage1'
+          ),
+        ),
+      },
+      {
+        name: 'Input Hacks',
+        path: '/css/input-hacks',
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "css__InputHacks1" */ 'questions/css/InputHacks1'
+          ),
+        ),
+      },
+      {
+        name: 'Media Query',
+        path: '/css/media-query',
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "css__MediaQuery1" */ 'questions/css/MediaQuery1'
           ),
         ),
       },
