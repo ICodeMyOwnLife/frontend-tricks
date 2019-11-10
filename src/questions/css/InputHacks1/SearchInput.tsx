@@ -6,7 +6,7 @@ export const SearchInputComponent: FC<SearchInputProps> = ({
   label = 'Search',
   id,
   className,
-  placeholder = 'Type for search...',
+  placeholder = 'Type something to search',
   ...props
 }) => {
   const classes = useStyles();

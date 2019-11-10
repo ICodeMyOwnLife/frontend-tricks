@@ -9,12 +9,12 @@ export const queries = mediaQueries.map(query =>
   typeof query === 'string' ? query : json2mq(query),
 );
 
-const queryStyles = {} as Record<string, CSSProperties>;
-
-queries.forEach((query, index) => {
-  const classKey = getMediaItemClassKey(index);
-  queryStyles[`@media ${query}`] = { [classKey]: { visibility: 'visible' } };
-});
+const queryStyles = Object.fromEntries(
+  queries.map<[string, CSSProperties]>((query, index) => [
+    `@media ${query}`,
+    { [getMediaItemClassKey(index)]: { visibility: 'visible' } },
+  ]),
+);
 
 const styles = () =>
   createStyles<string, {}>({

@@ -53,6 +53,7 @@ const styles = ({ spacing }: Theme) =>
     },
     searchButton: {
       position: 'absolute',
+      display: 'none',
       width: 30,
       height: 30,
       right: 4,
@@ -65,7 +66,6 @@ const styles = ({ spacing }: Theme) =>
       backgroundColor: 'transparent',
       borderColor: 'transparent',
       borderRadius: '50%',
-      opacity: 0,
       cursor: 'pointer',
 
       '&:hover, &:focus': {
@@ -92,7 +92,7 @@ const styles = ({ spacing }: Theme) =>
       },
 
       '&:not(:placeholder-shown) + $searchButton': {
-        opacity: 1,
+        display: 'block',
       },
 
       '&:focus': {
