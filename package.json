@@ -18,6 +18,7 @@
     "@types/react-router": "^5.1.2",
     "@types/react-router-dom": "^5.1.2",
     "@types/react-syntax-highlighter": "^10.2.1",
+    "@types/ua-parser-js": "^0.7.33",
     "@typescript-eslint/eslint-plugin": "^2.3.0",
     "@typescript-eslint/parser": "^2.3.0",
     "axios": "^0.19.0",
@@ -56,7 +57,8 @@
     "react-syntax-highlighter": "^11.0.2",
     "source-map-explorer": "^2.0.1",
     "typeface-roboto": "^0.0.75",
-    "typescript": "3.7.2"
+    "typescript": "3.7.2",
+    "ua-parser-js": "^0.7.20"
   },
   "scripts": {
     "start": "react-scripts start",

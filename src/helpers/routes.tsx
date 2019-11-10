@@ -229,6 +229,15 @@ const ROUTES: RouteInfo[] = [
           ),
         ),
       },
+      {
+        name: 'User Agent',
+        path: '/dom/user-agent',
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "dom__UserAgent1" */ 'questions/dom/UserAgent1'
+          ),
+        ),
+      },
     ],
   },
   {
