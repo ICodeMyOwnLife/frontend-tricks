@@ -37,6 +37,15 @@ const ROUTES: RouteInfo[] = [
     path: 'css',
     childRoutes: [
       {
+        name: 'Background',
+        path: '/css/background',
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "css__Background1" */ 'questions/css/Background1'
+          ),
+        ),
+      },
+      {
         name: 'Clipping',
         path: '/css/clipping',
         component: lazy(() =>
@@ -264,6 +273,13 @@ const ROUTES: RouteInfo[] = [
         path: '/js/array',
         component: lazy(() =>
           import(/* webpackChunkName: "js__Array1" */ 'questions/js/Array1'),
+        ),
+      },
+      {
+        name: 'Object',
+        path: '/js/object',
+        component: lazy(() =>
+          import(/* webpackChunkName: "js__Object1" */ 'questions/js/Object1'),
         ),
       },
     ],
