@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { FC, memo } from 'react';
 import clsx from 'clsx';
 import { Button, Typography } from '@material-ui/core';

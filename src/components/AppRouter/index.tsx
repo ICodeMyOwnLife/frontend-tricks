@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { FC, memo, Suspense, Fragment, ReactNode } from 'react';
 import { Route, RouteProps } from 'react-router-dom';
 import { RouteInfo } from 'types/app-common';

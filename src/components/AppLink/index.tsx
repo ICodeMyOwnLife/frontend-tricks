@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { forwardRef, FC, memo } from 'react';
 import {
   Link as RouterLink,

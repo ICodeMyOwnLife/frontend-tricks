@@ -1,12 +1,11 @@
 /* eslint-disable import/first */
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable global-require */
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { FC, memo } from 'react';
 import ReactAce, { IAceEditorProps } from 'react-ace';
 import 'brace/mode/jsx';
 
-const languages = ['typescript', 'html', 'scss', 'json'] as const;
+const languages = ['typescript', 'javascript', 'html', 'scss', 'json'] as const;
 languages.forEach(lang => {
   require(`brace/mode/${lang}`);
   require(`brace/snippets/${lang}`);
@@ -82,5 +81,3 @@ export interface CodeEditorProps
   language: (typeof languages)[number];
   theme?: (typeof themes)[number];
 }
-
-export type CodeEditorMode = 'typescript' | 'html' | 'scss';

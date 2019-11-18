@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { FC, memo, ReactNode } from 'react';
 import { Box } from '@material-ui/core';
 import ButtonFileInput from './ButtonFileInput';

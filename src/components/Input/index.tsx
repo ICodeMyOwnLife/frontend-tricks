@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { FC, memo, InputHTMLAttributes, ReactNode } from 'react';
 import clsx from 'clsx';
 import classes from './styles.module.scss';

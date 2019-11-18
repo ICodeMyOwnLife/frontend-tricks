@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { FC, memo } from 'react';
 import QuestionPage from 'components/QuestionPage';
 import Request from './Request';

@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { FC, memo } from 'react';
 import { useObjectUrl } from './hooks';
 import ImagePreview from './ImagePreview';

@@ -1,5 +1,4 @@
 /* eslint-disable react/no-array-index-key */
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { FC, memo, ReactNode } from 'react';
 import { Box, Typography, List } from '@material-ui/core';
 import clsx from 'clsx';

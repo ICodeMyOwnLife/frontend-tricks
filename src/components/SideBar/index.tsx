@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { FC, memo } from 'react';
 import { Drawer, useTheme, Toolbar, Divider, List } from '@material-ui/core';
 import AppLink from 'components/AppLink';

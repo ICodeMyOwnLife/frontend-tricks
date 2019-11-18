@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React, { FC, memo, ChangeEvent, useCallback } from 'react';
 import clsx from 'clsx';
 import { InputProps } from 'components/Input';
