@@ -127,6 +127,13 @@ const ROUTES: RouteInfo[] = [
         ),
       },
       {
+        name: 'Table',
+        path: '/css/table',
+        component: lazy(() =>
+          import(/* webpackChunkName: "css__Table1" */ 'questions/css/Table1'),
+        ),
+      },
+      {
         name: 'Text Background',
         path: '/css/text-background',
         component: lazy(() =>
