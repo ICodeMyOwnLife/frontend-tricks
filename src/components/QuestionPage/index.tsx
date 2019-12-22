@@ -1,24 +1,22 @@
 /* eslint-disable react/no-array-index-key */
 import React, { FC, memo, ReactNode } from 'react';
 import { Box, Typography, List } from '@material-ui/core';
-import clsx from 'clsx';
 import QuestionItem from 'components/QuestionItem';
 import { QuestionInfo } from 'types/app-common';
+import PageLayout from 'components/PageLayout';
 import useStyles from './styles';
 
 export const QuestionPageImpl: FC<QuestionPageProps> = ({
-  className,
-  title,
   questions,
   children,
+  ...props
 }) => {
   const classes = useStyles();
 
   return (
-    <Box className={clsx(classes.Container, className)}>
-      <Typography variant="h3">{title}</Typography>
-      <Box className={classes.Content}>{children}</Box>
-      <Box className={classes.Questions}>
+    <PageLayout {...props}>
+      {children}
+      <Box className={classes.questions}>
         <Typography variant="h4">Questions</Typography>
         <Box>
           <List>
@@ -28,7 +26,7 @@ export const QuestionPageImpl: FC<QuestionPageProps> = ({
           </List>
         </Box>
       </Box>
-    </Box>
+    </PageLayout>
   );
 };
 

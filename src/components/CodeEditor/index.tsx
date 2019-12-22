@@ -78,6 +78,6 @@ export interface CodeEditorProps
     IAceEditorProps,
     'mode' | 'theme' | 'editorProps' | 'setOptions'
   > {
-  language: (typeof languages)[number];
-  theme?: (typeof themes)[number];
+  language: typeof languages[number];
+  theme?: typeof themes[number];
 }

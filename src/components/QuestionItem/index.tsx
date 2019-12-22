@@ -1,13 +1,9 @@
 import React, { FC, memo } from 'react';
 import { QuestionInfo } from 'types/app-common';
-import {
-  ListItem,
-  ListItemText,
-  Collapse,
-  Box,
-  Typography,
-} from '@material-ui/core';
+import { ListItem, ListItemText, Collapse, Box } from '@material-ui/core';
 import useToggle from 'hooks/useToggle';
+import References from 'components/References';
+import Todos from 'components/Todos';
 import useStyles from './styles';
 
 export const QuestionItemComponent: FC<QuestionItemProps> = ({
@@ -37,33 +33,14 @@ export const QuestionItemComponent: FC<QuestionItemProps> = ({
           {showBottomBox && (
             <Box className={classes.BottomBox}>
               {hasReferences && (
-                <Box>
-                  <Typography className={classes.BottomBoxTitle} variant="h5">
-                    References
-                  </Typography>
-                  <ol>
-                    {references!.map(({ name, url }) => (
-                      <li key={url}>
-                        <a href={url} target="_blank" rel="noopener noreferrer">
-                          {name}
-                        </a>
-                      </li>
-                    ))}
-                  </ol>
-                </Box>
+                <References
+                  className={classes.BottomBoxTitle}
+                  references={references!}
+                />
               )}
 
               {hasTodos && (
-                <Box>
-                  <Typography className={classes.BottomBoxTitle} variant="h5">
-                    Todos
-                  </Typography>
-                  <ol>
-                    {todos!.map(todo => (
-                      <li key={todo}>{todo}</li>
-                    ))}
-                  </ol>
-                </Box>
+                <Todos className={classes.BottomBoxTitle} todos={todos!} />
               )}
             </Box>
           )}

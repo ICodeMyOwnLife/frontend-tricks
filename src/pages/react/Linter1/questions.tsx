@@ -132,13 +132,9 @@ coverage`}
         <CodeViewer language="json">
           {`{
   "eslint.enable": true,
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    { "language": "typescript", "autoFix": true },
-    { "language": "typescriptreact", "autoFix": true }
-  ],
-  "eslint.autoFixOnSave": true
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }`}
         </CodeViewer>
       </div>

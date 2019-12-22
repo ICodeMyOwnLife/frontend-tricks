@@ -7,7 +7,7 @@ const questions: QuestionInfo[] = [
     question: `How to create an React app with TypeScript support?`,
     answer: (
       <CodeViewer language="bash">
-        npx create-react-app MyApp --typescript
+        npx create-react-app my-app --template typescript
       </CodeViewer>
     ),
   },
@@ -170,13 +170,9 @@ const questions: QuestionInfo[] = [
         <CodeViewer language="json">
           {`{
   "eslint.enable": true,
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    { "language": "typescript", "autoFix": true },
-    { "language": "typescriptreact", "autoFix": true }
-  ],
-  "eslint.autoFixOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   "[javascript]":  {
     "editor.formatOnSave":  false,
   },

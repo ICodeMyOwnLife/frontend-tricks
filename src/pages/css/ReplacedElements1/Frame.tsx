@@ -108,8 +108,9 @@ export const FrameComponent: FC<FrameProps> = ({ name, element }) => {
               className={classes.Select}
               value={objectPosition}
               onChange={e =>
-                setObjectPosition(e.target
-                  .value as CSSProperties['objectPosition'])
+                setObjectPosition(
+                  e.target.value as CSSProperties['objectPosition'],
+                )
               }
             >
               {objectPositionOptions.map(v => (
