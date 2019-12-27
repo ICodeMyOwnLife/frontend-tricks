@@ -11,10 +11,18 @@ export function callableObject() {
 }
 
 export function fromEntries() {
-  const map = new Map([['a', 1], ['b', 2], ['c', 3]]);
+  const map = new Map([
+    ['a', 1],
+    ['b', 2],
+    ['c', 3],
+  ]);
   const o1 = Object.fromEntries(map);
 
-  const array = [['x', 'X'], ['y', 'Y'], ['z', 'Z']];
+  const array = [
+    ['x', 'X'],
+    ['y', 'Y'],
+    ['z', 'Z'],
+  ];
   const o2 = Object.fromEntries(array);
 
   function* createGenerator() {

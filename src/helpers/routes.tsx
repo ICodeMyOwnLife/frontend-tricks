@@ -11,7 +11,7 @@ const ROUTES: RouteInfo[] = [
         path: '/architecture/single-page-app',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "architecture__SinglePageApp1" */ 'questions/architecture/SinglePageApp1'
+            /* webpackChunkName: "architecture__SinglePageApp1" */ 'pages/architecture/SinglePageApp1'
           ),
         ),
       },
@@ -26,7 +26,7 @@ const ROUTES: RouteInfo[] = [
         path: '/ci-cd/gitlab',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "ci_cd__GitLab1" */ 'questions/ci_cd/GitLab1'
+            /* webpackChunkName: "ci_cd__GitLab1" */ 'pages/ci_cd/GitLab1'
           ),
         ),
       },
@@ -41,7 +41,7 @@ const ROUTES: RouteInfo[] = [
         path: '/css/background',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "css__Background1" */ 'questions/css/Background1'
+            /* webpackChunkName: "css__Background1" */ 'pages/css/Background1'
           ),
         ),
       },
@@ -50,7 +50,7 @@ const ROUTES: RouteInfo[] = [
         path: '/css/clipping',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "css__Clipping1" */ 'questions/css/Clipping1'
+            /* webpackChunkName: "css__Clipping1" */ 'pages/css/Clipping1'
           ),
         ),
       },
@@ -58,9 +58,7 @@ const ROUTES: RouteInfo[] = [
         name: 'Content',
         path: '/css/content',
         component: lazy(() =>
-          import(
-            /* webpackChunkName: "css__Content1" */ 'questions/css/Content1'
-          ),
+          import(/* webpackChunkName: "css__Content1" */ 'pages/css/Content1'),
         ),
       },
       {
@@ -68,7 +66,7 @@ const ROUTES: RouteInfo[] = [
         path: '/css/flex-overflow',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "css__FlexOverflow1" */ 'questions/css/FlexOverflow1'
+            /* webpackChunkName: "css__FlexOverflow1" */ 'pages/css/FlexOverflow1'
           ),
         ),
       },
@@ -77,7 +75,7 @@ const ROUTES: RouteInfo[] = [
         path: '/css/full-page',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "css__FullPage1" */ 'questions/css/FullPage1'
+            /* webpackChunkName: "css__FullPage1" */ 'pages/css/FullPage1'
           ),
         ),
       },
@@ -86,7 +84,7 @@ const ROUTES: RouteInfo[] = [
         path: '/css/input-hacks',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "css__InputHacks1" */ 'questions/css/InputHacks1'
+            /* webpackChunkName: "css__InputHacks1" */ 'pages/css/InputHacks1'
           ),
         ),
       },
@@ -95,7 +93,7 @@ const ROUTES: RouteInfo[] = [
         path: '/css/media-query',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "css__MediaQuery1" */ 'questions/css/MediaQuery1'
+            /* webpackChunkName: "css__MediaQuery1" */ 'pages/css/MediaQuery1'
           ),
         ),
       },
@@ -103,9 +101,7 @@ const ROUTES: RouteInfo[] = [
         name: 'Newline',
         path: '/css/newline',
         component: lazy(() =>
-          import(
-            /* webpackChunkName: "css__Newline1" */ 'questions/css/Newline1'
-          ),
+          import(/* webpackChunkName: "css__Newline1" */ 'pages/css/Newline1'),
         ),
       },
       {
@@ -113,7 +109,7 @@ const ROUTES: RouteInfo[] = [
         path: '/css/replaced-elements',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "css__ReplacedElements1" */ 'questions/css/ReplacedElements1'
+            /* webpackChunkName: "css__ReplacedElements1" */ 'pages/css/ReplacedElements1'
           ),
         ),
       },
@@ -121,16 +117,14 @@ const ROUTES: RouteInfo[] = [
         name: 'Shapes',
         path: '/css/shapes',
         component: lazy(() =>
-          import(
-            /* webpackChunkName: "css__Shapes1" */ 'questions/css/Shapes1'
-          ),
+          import(/* webpackChunkName: "css__Shapes1" */ 'pages/css/Shapes1'),
         ),
       },
       {
         name: 'Table',
         path: '/css/table',
         component: lazy(() =>
-          import(/* webpackChunkName: "css__Table1" */ 'questions/css/Table1'),
+          import(/* webpackChunkName: "css__Table1" */ 'pages/css/Table1'),
         ),
       },
       {
@@ -138,7 +132,7 @@ const ROUTES: RouteInfo[] = [
         path: '/css/text-background',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "css__TextBackground1" */ 'questions/css/TextBackground1'
+            /* webpackChunkName: "css__TextBackground1" */ 'pages/css/TextBackground1'
           ),
         ),
       },
@@ -147,7 +141,7 @@ const ROUTES: RouteInfo[] = [
         path: '/css/text-ellipsis',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "css__TextEllipsis1" */ 'questions/css/TextEllipsis1'
+            /* webpackChunkName: "css__TextEllipsis1" */ 'pages/css/TextEllipsis1'
           ),
         ),
       },
@@ -162,7 +156,7 @@ const ROUTES: RouteInfo[] = [
         path: '/dom/cancel-request',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "dom__CancelRequest1" */ 'questions/dom/CancelRequest1'
+            /* webpackChunkName: "dom__CancelRequest1" */ 'pages/dom/CancelRequest1'
           ),
         ),
       },
@@ -171,7 +165,7 @@ const ROUTES: RouteInfo[] = [
         path: '/dom/device-detection',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "dom__DeviceDetection1" */ 'questions/dom/DeviceDetection1'
+            /* webpackChunkName: "dom__DeviceDetection1" */ 'pages/dom/DeviceDetection1'
           ),
         ),
       },
@@ -180,7 +174,7 @@ const ROUTES: RouteInfo[] = [
         path: '/dom/download',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "dom__Download1" */ 'questions/dom/Download1'
+            /* webpackChunkName: "dom__Download1" */ 'pages/dom/Download1'
           ),
         ),
       },
@@ -189,7 +183,7 @@ const ROUTES: RouteInfo[] = [
         path: '/dom/drag-drop',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "dom__DragDrop1" */ 'questions/dom/DragDrop1'
+            /* webpackChunkName: "dom__DragDrop1" */ 'pages/dom/DragDrop1'
           ),
         ),
       },
@@ -198,7 +192,7 @@ const ROUTES: RouteInfo[] = [
         path: '/dom/excluded-input',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "dom__ExcludedInput1" */ 'questions/dom/ExcludedInput1'
+            /* webpackChunkName: "dom__ExcludedInput1" */ 'pages/dom/ExcludedInput1'
           ),
         ),
       },
@@ -207,7 +201,7 @@ const ROUTES: RouteInfo[] = [
         path: '/dom/file-input',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "dom__FileInput1" */ 'questions/dom/FileInput1'
+            /* webpackChunkName: "dom__FileInput1" */ 'pages/dom/FileInput1'
           ),
         ),
       },
@@ -216,7 +210,7 @@ const ROUTES: RouteInfo[] = [
         path: '/dom/live-edit',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "dom__LiveEdit1" */ 'questions/dom/LiveEdit1'
+            /* webpackChunkName: "dom__LiveEdit1" */ 'pages/dom/LiveEdit1'
           ),
         ),
       },
@@ -225,7 +219,7 @@ const ROUTES: RouteInfo[] = [
         path: '/dom/media-query',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "dom__MediaQuery1" */ 'questions/dom/MediaQuery1'
+            /* webpackChunkName: "dom__MediaQuery1" */ 'pages/dom/MediaQuery1'
           ),
         ),
       },
@@ -233,16 +227,14 @@ const ROUTES: RouteInfo[] = [
         name: 'Query',
         path: '/dom/query',
         component: lazy(() =>
-          import(/* webpackChunkName: "dom__Query1" */ 'questions/dom/Query1'),
+          import(/* webpackChunkName: "dom__Query1" */ 'pages/dom/Query1'),
         ),
       },
       {
         name: 'Upload',
         path: '/dom/upload',
         component: lazy(() =>
-          import(
-            /* webpackChunkName: "dom__Upload1" */ 'questions/dom/Upload1'
-          ),
+          import(/* webpackChunkName: "dom__Upload1" */ 'pages/dom/Upload1'),
         ),
       },
       {
@@ -250,7 +242,7 @@ const ROUTES: RouteInfo[] = [
         path: '/dom/user-agent',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "dom__UserAgent1" */ 'questions/dom/UserAgent1'
+            /* webpackChunkName: "dom__UserAgent1" */ 'pages/dom/UserAgent1'
           ),
         ),
       },
@@ -265,7 +257,7 @@ const ROUTES: RouteInfo[] = [
         path: '/git/pre-commit',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "git__PreCommit1" */ 'questions/git/PreCommit1'
+            /* webpackChunkName: "git__PreCommit1" */ 'pages/git/PreCommit1'
           ),
         ),
       },
@@ -279,14 +271,14 @@ const ROUTES: RouteInfo[] = [
         name: 'Array',
         path: '/js/array',
         component: lazy(() =>
-          import(/* webpackChunkName: "js__Array1" */ 'questions/js/Array1'),
+          import(/* webpackChunkName: "js__Array1" */ 'pages/js/Array1'),
         ),
       },
       {
         name: 'Object',
         path: '/js/object',
         component: lazy(() =>
-          import(/* webpackChunkName: "js__Object1" */ 'questions/js/Object1'),
+          import(/* webpackChunkName: "js__Object1" */ 'pages/js/Object1'),
         ),
       },
     ],
@@ -300,7 +292,7 @@ const ROUTES: RouteInfo[] = [
         path: '/nodejs/memory',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "nodejs__Memory1" */ 'questions/nodejs/Memory1'
+            /* webpackChunkName: "nodejs__Memory1" */ 'pages/nodejs/Memory1'
           ),
         ),
       },
@@ -315,7 +307,7 @@ const ROUTES: RouteInfo[] = [
         path: '/performance/memory',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "performance__Memory1" */ 'questions/performance/Memory1'
+            /* webpackChunkName: "performance__Memory1" */ 'pages/performance/Memory1'
           ),
         ),
       },
@@ -330,7 +322,7 @@ const ROUTES: RouteInfo[] = [
         path: '/react/bundle-size',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "react__BundleSize1" */ 'questions/react/BundleSize1'
+            /* webpackChunkName: "react__BundleSize1" */ 'pages/react/BundleSize1'
           ),
         ),
       },
@@ -339,7 +331,7 @@ const ROUTES: RouteInfo[] = [
         path: '/react/deployment',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "react__Deployment1" */ 'questions/react/Deployment1'
+            /* webpackChunkName: "react__Deployment1" */ 'pages/react/Deployment1'
           ),
         ),
       },
@@ -348,7 +340,7 @@ const ROUTES: RouteInfo[] = [
         path: '/react/element',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "react__Element1" */ 'questions/react/Element1'
+            /* webpackChunkName: "react__Element1" */ 'pages/react/Element1'
           ),
         ),
       },
@@ -356,18 +348,14 @@ const ROUTES: RouteInfo[] = [
         name: 'Event',
         path: '/react/event',
         component: lazy(() =>
-          import(
-            /* webpackChunkName: "react__Event1" */ 'questions/react/Event1'
-          ),
+          import(/* webpackChunkName: "react__Event1" */ 'pages/react/Event1'),
         ),
       },
       {
         name: 'Jest',
         path: '/react/jest',
         component: lazy(() =>
-          import(
-            /* webpackChunkName: "react__Jest1" */ 'questions/react/Jest1'
-          ),
+          import(/* webpackChunkName: "react__Jest1" */ 'pages/react/Jest1'),
         ),
       },
       {
@@ -375,7 +363,7 @@ const ROUTES: RouteInfo[] = [
         path: '/react/linter',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "react__Linter1" */ 'questions/react/Linter1'
+            /* webpackChunkName: "react__Linter1" */ 'pages/react/Linter1'
           ),
         ),
       },
@@ -384,7 +372,7 @@ const ROUTES: RouteInfo[] = [
         path: '/react/raw-html',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "react__RawHtml1" */ 'questions/react/RawHtml1'
+            /* webpackChunkName: "react__RawHtml1" */ 'pages/react/RawHtml1'
           ),
         ),
       },
@@ -393,7 +381,22 @@ const ROUTES: RouteInfo[] = [
         path: '/react/typescript',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "react__TypeScript1" */ 'questions/react/TypeScript1'
+            /* webpackChunkName: "react__TypeScript1" */ 'pages/react/TypeScript1'
+          ),
+        ),
+      },
+    ],
+  },
+  {
+    name: 'VS Code',
+    path: 'vs-code',
+    childRoutes: [
+      {
+        name: 'Extensions',
+        path: '/vs-code/extensions',
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "vs-code__Extensions1" */ 'pages/vs_code/Extensions1'
           ),
         ),
       },
@@ -408,7 +411,7 @@ const ROUTES: RouteInfo[] = [
         path: '/webpack/typescript',
         component: lazy(() =>
           import(
-            /* webpackChunkName: "webpack__TypeScript1" */ 'questions/webpack/TypeScript1'
+            /* webpackChunkName: "webpack__TypeScript1" */ 'pages/webpack/TypeScript1'
           ),
         ),
       },

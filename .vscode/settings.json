@@ -1,5 +1,8 @@
 {
   "eslint.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   "cSpell.words": [
     "abortable",
     "airbnb",
@@ -22,12 +25,10 @@
     "repos",
     "scrollable",
     "srgb",
+    "todos",
     "unhighlight"
   ],
   "files.exclude": {
     "**/.git": false
-  },
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
   }
 }

@@ -1,16 +1,10 @@
-import { Theme, makeStyles } from '@material-ui/core';
+import { Theme, makeStyles, createStyles } from '@material-ui/core';
 
-const useStyles = makeStyles(
-  ({ spacing }: Theme) => ({
-    Container: {
+const styles = ({ spacing }: Theme) =>
+  createStyles({
+    root: {},
+    questions: {
       marginTop: spacing(4),
-    },
-    Content: {
-      marginTop: spacing(2.5),
-    },
-    Questions: {
-      marginTop: spacing(4),
-
       '& code': {
         fontFamily: `'Courier New', Courier, monospace`,
         fontSize: 14,
@@ -18,8 +12,8 @@ const useStyles = makeStyles(
         color: `rgb(219, 104, 27)`,
       },
     },
-  }),
-  { classNamePrefix: 'QuestionPage' },
-);
+  });
+
+const useStyles = makeStyles(styles, { classNamePrefix: 'QuestionPage' });
 
 export default useStyles;

@@ -21,11 +21,12 @@ const questions: QuestionInfo[] = [
           {`{
   "script": {
     "lint": "eslint 'src/**/*.{ts,tsx}'",
-    "lint:fix": "yarn lint --fix"
+    "lint:fix": "yarn lint --fix",
+    "type-check": "tsc --noEmit"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint-staged"
+      "pre-commit": "yarn type-check && yarn lint-staged"
     }
   },
   "lint-staged": {

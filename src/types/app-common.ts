@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { RouteProps } from 'react-router-dom';
+import { ReferenceInfo } from 'components/References';
 
 export interface RouteInfo extends LinkInfo, OmitFrom<RouteProps, 'path'> {
   childRoutes?: RouteInfo[];
@@ -15,11 +16,6 @@ export interface QuestionInfo {
   answer: ReactNode;
   references?: ReferenceInfo[];
   todos?: string[];
-}
-
-export interface ReferenceInfo {
-  name: string;
-  url?: string;
 }
 
 export interface ValueTargetEvent<TValue = string> {
