@@ -4,7 +4,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import useStyles from './styles';
 
-export const CodeViewerImpl: FC<CodeViewerProps> = ({
+export const CodeViewerComponent: FC<CodeViewerProps> = ({
   className,
   children,
   style = okaidia,
@@ -21,7 +21,7 @@ export const CodeViewerImpl: FC<CodeViewerProps> = ({
   );
 };
 
-const CodeViewer = memo(CodeViewerImpl);
+const CodeViewer = memo(CodeViewerComponent);
 CodeViewer.displayName = 'CodeViewer';
 export default CodeViewer;
 

@@ -3,7 +3,7 @@ import QuestionPage from 'components/QuestionPage';
 import ShapeContainer from './ShapeContainer';
 import questions from './questions';
 
-export const Shapes1Impl: FC = () => (
+export const Shapes1Component: FC = () => (
   <QuestionPage title="Shapes 1" questions={questions}>
     <ShapeContainer name="Rectangle" type="rectangle" />
     <ShapeContainer name="Square" type="square" />
@@ -52,7 +52,7 @@ export const Shapes1Impl: FC = () => (
   </QuestionPage>
 );
 
-const Shapes1 = memo(Shapes1Impl);
+const Shapes1 = memo(Shapes1Component);
 Shapes1.displayName = 'Shapes1';
 export default Shapes1;
 

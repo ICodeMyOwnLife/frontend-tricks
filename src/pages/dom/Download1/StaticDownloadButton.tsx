@@ -6,7 +6,7 @@ import {
   useHandleStaticDownload,
 } from './hooks';
 
-export const StaticDownloadButtonImpl: FC<StaticDownloadButtonProps> = ({
+export const StaticDownloadButtonComponent: FC<StaticDownloadButtonProps> = ({
   className,
   url,
   downloadFile,
@@ -26,7 +26,7 @@ export const StaticDownloadButtonImpl: FC<StaticDownloadButtonProps> = ({
   );
 };
 
-const StaticDownloadButton = memo(StaticDownloadButtonImpl);
+const StaticDownloadButton = memo(StaticDownloadButtonComponent);
 StaticDownloadButton.displayName = 'StaticDownloadButton';
 export default StaticDownloadButton;
 

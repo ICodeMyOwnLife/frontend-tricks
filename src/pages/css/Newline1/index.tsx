@@ -15,7 +15,7 @@ const whiteSpaceStyleValues: WhiteSpaceStyleValue[] = [
   'revert',
 ];
 
-export const NewlineImpl: FC = () => {
+export const NewlineComponent: FC = () => {
   const [whitespaceStyleValue, setWhitespaceStyleValue] = useState(
     whiteSpaceStyleValues[0],
   );
@@ -44,7 +44,7 @@ export const NewlineImpl: FC = () => {
   );
 };
 
-const Newline = memo(NewlineImpl);
+const Newline = memo(NewlineComponent);
 Newline.displayName = 'Newline';
 export default Newline;
 

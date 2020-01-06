@@ -4,7 +4,7 @@ import ImagePreview from './ImagePreview';
 import InputContainer from './InputContainer';
 import { WrappedInputProps } from './types';
 
-export const DataUrlImageInputImpl: FC<WrappedInputProps> = ({
+export const DataUrlImageInputComponent: FC<WrappedInputProps> = ({
   title,
   triggerComponent = 'button',
   files,
@@ -24,6 +24,6 @@ export const DataUrlImageInputImpl: FC<WrappedInputProps> = ({
   );
 };
 
-const DataUrlImageInput = memo(DataUrlImageInputImpl);
+const DataUrlImageInput = memo(DataUrlImageInputComponent);
 DataUrlImageInput.displayName = 'DataUrlImageInput';
 export default DataUrlImageInput;

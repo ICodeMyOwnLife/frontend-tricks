@@ -206,6 +206,13 @@ const ROUTES: RouteInfo[] = [
         ),
       },
       {
+        name: 'Intl',
+        path: '/dom/intl',
+        component: lazy(() =>
+          import(/* webpackChunkName: "dom__Intl1" */ 'pages/dom/Intl1'),
+        ),
+      },
+      {
         name: 'Live Edit',
         path: '/dom/live-edit',
         component: lazy(() =>

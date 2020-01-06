@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { InputProps } from 'components/Input';
 import classes from './styles.module.scss';
 
-export const CheckboxImpl: FC<CheckboxProps> = ({
+export const CheckboxComponent: FC<CheckboxProps> = ({
   className,
   labelClassName,
   inputClassName,
@@ -34,7 +34,7 @@ export const CheckboxImpl: FC<CheckboxProps> = ({
   );
 };
 
-const Checkbox = memo(CheckboxImpl);
+const Checkbox = memo(CheckboxComponent);
 Checkbox.displayName = 'Checkbox';
 export default Checkbox;
 

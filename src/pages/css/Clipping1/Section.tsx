@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import imgSrc from './1.jpg';
 import classes from './styles.module.scss';
 
-export const SectionImpl: FC<SectionProps> = ({
+export const SectionComponent: FC<SectionProps> = ({
   float = 'left',
   imageClassName,
 }) => (
@@ -30,7 +30,7 @@ export const SectionImpl: FC<SectionProps> = ({
   </div>
 );
 
-const Section = memo(SectionImpl);
+const Section = memo(SectionComponent);
 Section.displayName = 'Section';
 export default Section;
 

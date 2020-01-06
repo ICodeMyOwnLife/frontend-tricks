@@ -2,7 +2,7 @@ import React, { FC, memo } from 'react';
 import { ItemData } from './DropTarget';
 import classes from './styles.module.scss';
 
-export const ItemDataViewerImpl: FC<ItemDataViewerProps> = ({
+export const ItemDataViewerComponent: FC<ItemDataViewerProps> = ({
   name,
   itemData: { kind, type, dataFile, dataString },
 }) => (
@@ -26,7 +26,7 @@ export const ItemDataViewerImpl: FC<ItemDataViewerProps> = ({
   </div>
 );
 
-const ItemDataViewer = memo(ItemDataViewerImpl);
+const ItemDataViewer = memo(ItemDataViewerComponent);
 ItemDataViewer.displayName = 'ItemDataViewer';
 export default ItemDataViewer;
 

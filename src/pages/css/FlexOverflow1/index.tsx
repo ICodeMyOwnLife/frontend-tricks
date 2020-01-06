@@ -3,7 +3,7 @@ import QuestionPage from 'components/QuestionPage';
 import questions from './questions';
 import classes from './styles.module.scss';
 
-export const FlexOverflow1Impl: FC = () => (
+export const FlexOverflow1Component: FC = () => (
   <QuestionPage title="Flew Overflow 1" questions={questions}>
     <div className={classes.Container}>
       <div className={classes.LeftBar} />
@@ -17,6 +17,6 @@ export const FlexOverflow1Impl: FC = () => (
   </QuestionPage>
 );
 
-const FlexOverflow1 = memo(FlexOverflow1Impl);
+const FlexOverflow1 = memo(FlexOverflow1Component);
 FlexOverflow1.displayName = 'FlexOverflow1';
 export default FlexOverflow1;

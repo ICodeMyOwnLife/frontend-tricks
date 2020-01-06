@@ -4,7 +4,7 @@ import questions from './questions';
 import Text from './Text';
 import classes from './styles.module.scss';
 
-export const TextBackground1Impl: FC = () => (
+export const TextBackground1Component: FC = () => (
   <QuestionPage title="Text Background 1" questions={questions}>
     <Text className={classes.linear} />
     <Text className={classes.radial} />
@@ -12,6 +12,6 @@ export const TextBackground1Impl: FC = () => (
   </QuestionPage>
 );
 
-const TextBackground1 = memo(TextBackground1Impl);
+const TextBackground1 = memo(TextBackground1Component);
 TextBackground1.displayName = 'TextBackground1';
 export default TextBackground1;

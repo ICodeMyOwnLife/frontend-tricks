@@ -1,11 +1,11 @@
 import React, { FC, memo } from 'react';
 import classes from './styles.module.scss';
 
-export const ShapeImpl: FC<ShapeProps> = ({ type }) => (
+export const ShapeComponent: FC<ShapeProps> = ({ type }) => (
   <div className={classes[type]} />
 );
 
-const Shape = memo(ShapeImpl);
+const Shape = memo(ShapeComponent);
 Shape.displayName = 'Shape';
 export default Shape;
 

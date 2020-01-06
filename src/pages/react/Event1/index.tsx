@@ -19,7 +19,7 @@ import {
 import questions from './questions';
 import classes from './styles.module.scss';
 
-export const Event1Impl: FC = () => {
+export const Event1Component: FC = () => {
   const [text, setText] = useState('');
   const [eventInfo, setEventInfo] = useState<any>();
   const handleClickSync = useClickSyncHandler(setEventInfo);
@@ -106,6 +106,6 @@ export const Event1Impl: FC = () => {
   );
 };
 
-const Event1 = memo(Event1Impl);
+const Event1 = memo(Event1Component);
 Event1.displayName = 'Event1';
 export default Event1;

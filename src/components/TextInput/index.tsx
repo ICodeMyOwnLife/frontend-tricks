@@ -1,7 +1,10 @@
 import React, { FC, memo, ChangeEvent, useCallback } from 'react';
 import Input, { InputProps } from 'components/Input';
 
-export const TextInputImpl: FC<TextInputProps> = ({ onChange, ...props }) => {
+export const TextInputComponent: FC<TextInputProps> = ({
+  onChange,
+  ...props
+}) => {
   const handleChange = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => onChange && onChange(e.target.value),
     [onChange],
@@ -11,7 +14,7 @@ export const TextInputImpl: FC<TextInputProps> = ({ onChange, ...props }) => {
   return <Input onChange={handleChange} {...props} />;
 };
 
-const TextInput = memo(TextInputImpl);
+const TextInput = memo(TextInputComponent);
 TextInput.displayName = 'TextInput';
 export default TextInput;
 

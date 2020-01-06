@@ -99,7 +99,7 @@ const questions: QuestionInfo[] = [
         url: `https://developer.mozilla.org/en-US/docs/Web/CSS/content`,
       },
       {
-        name: `[W3C] Simple Predefined Counter Styles`,
+        name: `[W3C] SComponente Predefined Counter Styles`,
         url: `https://www.w3.org/TR/css-counter-styles-3/#predefined-counters`,
       },
       {

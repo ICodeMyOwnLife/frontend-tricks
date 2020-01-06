@@ -14,7 +14,7 @@ export const SectionComponent: FC<SectionProps> = ({
   const classes = useStyles();
 
   return (
-    <Paper className={clsx(classes.Section, className)}>
+    <Paper className={clsx(classes.Section, className)} elevation={0}>
       <Typography
         className={clsx(classes.Title, titleClassName)}
         variant={titleVariant}

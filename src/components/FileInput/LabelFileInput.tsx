@@ -5,7 +5,7 @@ import { useInputChangeHandler, useDragDrop, getFileName } from './hooks';
 import { FileInputProps } from './types';
 import useStyles from './styles';
 
-export const LabelFileInputImpl: FC<FileInputProps> = ({
+export const LabelFileInputComponent: FC<FileInputProps> = ({
   className,
   files,
   id,
@@ -52,6 +52,6 @@ export const LabelFileInputImpl: FC<FileInputProps> = ({
   );
 };
 
-const LabelFileInput = memo(LabelFileInputImpl);
+const LabelFileInput = memo(LabelFileInputComponent);
 LabelFileInput.displayName = 'LabelFileInput';
 export default LabelFileInput;

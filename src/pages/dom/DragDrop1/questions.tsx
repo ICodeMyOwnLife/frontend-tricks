@@ -67,7 +67,7 @@ const getDragData = async (dataTransfer: DataTransfer) => {
   return dragData;
 };
 
-export const DropTargetImpl: FC<DropTargetProps> = ({ onDrop }) => {
+export const DropTargetComponent: FC<DropTargetProps> = ({ onDrop }) => {
   const [dragging, setDragging] = useState(false);
 
   const handleDragOver = useCallback((e: DragEvent<Node>) => {

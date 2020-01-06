@@ -8,7 +8,7 @@ import React, {
 import clsx from 'clsx';
 import classes from './styles.module.scss';
 
-export const ButtonImpl: FC<ButtonProps> = ({
+export const ButtonComponent: FC<ButtonProps> = ({
   className,
   id,
   href,
@@ -43,7 +43,7 @@ export const ButtonImpl: FC<ButtonProps> = ({
     </button>
   );
 
-const Button = memo(ButtonImpl);
+const Button = memo(ButtonComponent);
 Button.displayName = 'Button';
 export default Button;
 

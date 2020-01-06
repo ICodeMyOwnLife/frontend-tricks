@@ -11,7 +11,7 @@ import {
 import Section from 'components/Section';
 import questions from './questions';
 
-export const FileInput1Impl: FC = () => {
+export const FileInput1Component: FC = () => {
   const [buttonFiles, setButtonFiles] = useState<FileList | null>();
   const [buttonDraggable, setButtonDraggable] = useState(false);
   const [labelFiles, setLabelFiles] = useState<FileList | null>();
@@ -109,6 +109,6 @@ export const FileInput1Impl: FC = () => {
   );
 };
 
-const FileInput1 = memo(FileInput1Impl);
+const FileInput1 = memo(FileInput1Component);
 FileInput1.displayName = 'FileInput1';
 export default FileInput1;

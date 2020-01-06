@@ -6,7 +6,7 @@ import {
   useHandleDynamicDownload,
 } from './hooks';
 
-export const DynamicDownloadButtonImpl: FC<DynamicDownloadButtonProps> = ({
+export const DynamicDownloadButtonComponent: FC<DynamicDownloadButtonProps> = ({
   className,
   count,
   downloadFile,
@@ -26,7 +26,7 @@ export const DynamicDownloadButtonImpl: FC<DynamicDownloadButtonProps> = ({
   );
 };
 
-const DynamicDownloadButton = memo(DynamicDownloadButtonImpl);
+const DynamicDownloadButton = memo(DynamicDownloadButtonComponent);
 DynamicDownloadButton.displayName = 'DynamicDownloadButton';
 export default DynamicDownloadButton;
 

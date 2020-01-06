@@ -4,7 +4,7 @@ import QuestionPage from 'components/QuestionPage';
 import questions from './questions';
 import classes from './styles.module.scss';
 
-export const TextEllipsis1Impl: FC = () => (
+export const TextEllipsis1Component: FC = () => (
   <QuestionPage title="Text Ellipsis 1" questions={questions}>
     <table className={clsx(classes.Table, classes.Table1)}>
       <colgroup>
@@ -70,6 +70,6 @@ export const TextEllipsis1Impl: FC = () => (
   </QuestionPage>
 );
 
-const TextEllipsis1 = memo(TextEllipsis1Impl);
+const TextEllipsis1 = memo(TextEllipsis1Component);
 TextEllipsis1.displayName = 'TextEllipsis1';
 export default TextEllipsis1;

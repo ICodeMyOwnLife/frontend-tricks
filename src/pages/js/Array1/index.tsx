@@ -5,7 +5,7 @@ import NumberInput from 'components/NumberInput';
 import questions from './questions';
 import classes from './styles.module.scss';
 
-export const Array1Impl: FC = () => {
+export const Array1Component: FC = () => {
   const [text, setText] = useState('abc');
   const characters = useMemo(() => Array.from(text), [text]);
 
@@ -73,6 +73,6 @@ export const Array1Impl: FC = () => {
   );
 };
 
-const Array1 = memo(Array1Impl);
+const Array1 = memo(Array1Component);
 Array1.displayName = 'Array1';
 export default Array1;

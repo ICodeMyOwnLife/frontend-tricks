@@ -4,7 +4,7 @@ import PreviewContainer from './PreviewContainer';
 import { PreviewProps } from './types';
 import useStyles from './styles';
 
-export const ImagePreviewImpl: FC<PreviewProps> = ({
+export const ImagePreviewComponent: FC<PreviewProps> = ({
   className,
   previewClassName,
   src,
@@ -32,6 +32,6 @@ export const ImagePreviewImpl: FC<PreviewProps> = ({
   );
 };
 
-const ImagePreview = memo(ImagePreviewImpl);
+const ImagePreview = memo(ImagePreviewComponent);
 ImagePreview.displayName = 'ImagePreview';
 export default ImagePreview;

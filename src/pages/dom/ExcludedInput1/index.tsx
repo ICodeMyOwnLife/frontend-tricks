@@ -3,7 +3,7 @@ import QuestionPage from 'components/QuestionPage';
 import questions from './questions';
 import classes from './styles.module.scss';
 
-export const ExcludedInput1Impl: FC = () => {
+export const ExcludedInput1Component: FC = () => {
   const [name1, setName1] = useState('');
   const [name2, setName2] = useState('');
   const [name3, setName3] = useState('');
@@ -79,6 +79,6 @@ export const ExcludedInput1Impl: FC = () => {
   );
 };
 
-const ExcludedInput1 = memo(ExcludedInput1Impl);
+const ExcludedInput1 = memo(ExcludedInput1Component);
 ExcludedInput1.displayName = 'ExcludedInput1';
 export default ExcludedInput1;

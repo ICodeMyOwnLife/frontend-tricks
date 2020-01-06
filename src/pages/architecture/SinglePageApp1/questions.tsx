@@ -41,10 +41,10 @@ const questions: QuestionInfo[] = [
             once, only data is transmitted back and forth.
           </li>
           <li>
-            <b>The development is simplified and streamlined</b>: The client and
-            server are totally independent of one another. The same backend code
-            can be reused for web application or mobile application or any of
-            other client applications.
+            <b>The development is sComponentified and streamlined</b>: The
+            client and server are totally independent of one another. The same
+            backend code can be reused for web application or mobile application
+            or any of other client applications.
           </li>
           <li>SPAs are easy to debug with Chrome</li>
           <li>

@@ -10,7 +10,7 @@ import {
 import { FileInputProps } from './types';
 import useStyles from './styles';
 
-export const ButtonFileInputImpl: FC<FileInputProps> = ({
+export const ButtonFileInputComponent: FC<FileInputProps> = ({
   className,
   files,
   onChange,
@@ -57,6 +57,6 @@ export const ButtonFileInputImpl: FC<FileInputProps> = ({
   );
 };
 
-const ButtonFileInput = memo(ButtonFileInputImpl);
+const ButtonFileInput = memo(ButtonFileInputComponent);
 ButtonFileInput.displayName = 'ButtonFileInput';
 export default ButtonFileInput;

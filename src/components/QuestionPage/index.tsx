@@ -6,7 +6,7 @@ import { QuestionInfo } from 'types/app-common';
 import PageLayout from 'components/PageLayout';
 import useStyles from './styles';
 
-export const QuestionPageImpl: FC<QuestionPageProps> = ({
+export const QuestionPageComponent: FC<QuestionPageProps> = ({
   questions,
   children,
   ...props
@@ -30,7 +30,7 @@ export const QuestionPageImpl: FC<QuestionPageProps> = ({
   );
 };
 
-const QuestionPage = memo(QuestionPageImpl);
+const QuestionPage = memo(QuestionPageComponent);
 QuestionPage.displayName = 'QuestionPage';
 export default QuestionPage;
 

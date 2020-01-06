@@ -16,7 +16,7 @@ import {
 import questions from './questions';
 import StaticDownloadButton from './StaticDownloadButton';
 
-export const Download1Impl: FC = () => {
+export const Download1Component: FC = () => {
   const [count, setCount] = useState(0);
 
   return (
@@ -178,6 +178,6 @@ export const Download1Impl: FC = () => {
   );
 };
 
-const Download1 = memo(Download1Impl);
+const Download1 = memo(Download1Component);
 Download1.displayName = 'Download1';
 export default Download1;

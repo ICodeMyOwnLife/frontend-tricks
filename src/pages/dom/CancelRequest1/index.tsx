@@ -4,7 +4,7 @@ import Request from './Request';
 import questions from './questions';
 import { useXMLHttpRequest, useFetch, useAxios } from './hooks';
 
-export const CancelRequest1Impl: FC = () => {
+export const CancelRequest1Component: FC = () => {
   const xmlHttpRequest = useXMLHttpRequest();
   const fetchRequest = useFetch();
   const axiosRequest = useAxios();
@@ -18,6 +18,6 @@ export const CancelRequest1Impl: FC = () => {
   );
 };
 
-const CancelRequest1 = memo(CancelRequest1Impl);
+const CancelRequest1 = memo(CancelRequest1Component);
 CancelRequest1.displayName = 'CancelRequest1';
 export default CancelRequest1;

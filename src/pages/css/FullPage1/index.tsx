@@ -3,9 +3,9 @@ import QuestionPage from 'components/QuestionPage';
 import questions from './questions';
 import classes from './styles.module.scss';
 
-export const FullPage1Impl: FC = () => (
+export const FullPage1Component: FC = () => (
   <QuestionPage title="" questions={questions}>
-    Unimplemented
+    UnComponentemented
     <div className={classes.Container}>
       <p>
         debounceTime delays values emitted by the source Observable, but drops
@@ -110,6 +110,6 @@ export const FullPage1Impl: FC = () => (
   </QuestionPage>
 );
 
-const FullPage1 = memo(FullPage1Impl);
+const FullPage1 = memo(FullPage1Component);
 FullPage1.displayName = 'FullPage1';
 export default FullPage1;

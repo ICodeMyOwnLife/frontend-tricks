@@ -3,7 +3,7 @@ import QuestionPage from 'components/QuestionPage';
 import questions from './questions';
 import classes from './styles.module.scss';
 
-export const LiveEdit1Impl: FC = () => (
+export const LiveEdit1Component: FC = () => (
   <QuestionPage title="Live Edit 1" questions={questions}>
     <div
       className="EditableText"
@@ -57,6 +57,6 @@ export const LiveEdit1Impl: FC = () => (
   </QuestionPage>
 );
 
-const LiveEdit1 = memo(LiveEdit1Impl);
+const LiveEdit1 = memo(LiveEdit1Component);
 LiveEdit1.displayName = 'LiveEdit1';
 export default LiveEdit1;

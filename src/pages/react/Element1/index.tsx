@@ -4,7 +4,7 @@ import useForm from './hooks';
 import questions from './questions';
 import classes from './styles.module.scss';
 
-export const Element1Impl: FC = () => {
+export const Element1Component: FC = () => {
   const [data, getFieldDecorator] = useForm({
     name: '',
     value: 0,
@@ -46,6 +46,6 @@ export const Element1Impl: FC = () => {
   );
 };
 
-const Element1 = memo(Element1Impl);
+const Element1 = memo(Element1Component);
 Element1.displayName = 'Element1';
 export default Element1;

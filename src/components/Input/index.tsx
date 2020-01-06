@@ -2,7 +2,7 @@ import React, { FC, memo, InputHTMLAttributes, ReactNode } from 'react';
 import clsx from 'clsx';
 import classes from './styles.module.scss';
 
-export const InputImpl: FC<InputProps> = ({
+export const InputComponent: FC<InputProps> = ({
   className,
   labelClassName,
   inputClassName,
@@ -18,7 +18,7 @@ export const InputImpl: FC<InputProps> = ({
   </div>
 );
 
-const Input = memo(InputImpl);
+const Input = memo(InputComponent);
 Input.displayName = 'Input';
 export default Input;
 

@@ -11,7 +11,7 @@ const handleDragStart = (e: DragEvent<HTMLElement>) => {
   e.dataTransfer.setData('text/plain', e.currentTarget.outerHTML);
 };
 
-export const DragDrop1Impl: FC = () => {
+export const DragDrop1Component: FC = () => {
   const [dragData, setDragData] = useState<DragData>();
 
   const handleDrop = useCallback((data: DragData) => {
@@ -50,6 +50,6 @@ export const DragDrop1Impl: FC = () => {
   );
 };
 
-const DragDrop1 = memo(DragDrop1Impl);
+const DragDrop1 = memo(DragDrop1Component);
 DragDrop1.displayName = 'DragDrop1';
 export default DragDrop1;

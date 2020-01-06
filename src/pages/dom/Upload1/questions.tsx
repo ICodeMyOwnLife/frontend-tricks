@@ -150,8 +150,8 @@ export const uploadFilesOnly = ({
     ),
     references: [
       {
-        name: `Ridiculously simple Ajax uploads with FormData`,
-        url: `https://thoughtbot.com/blog/ridiculously-simple-ajax-uploads-with-formdata`,
+        name: `Ridiculously sComponente Ajax uploads with FormData`,
+        url: `https://thoughtbot.com/blog/ridiculously-sComponente-ajax-uploads-with-formdata`,
       },
       {
         name: `Uploading Files with AJAX`,

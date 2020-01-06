@@ -2,7 +2,7 @@ import React, { FC, memo } from 'react';
 import Button from 'components/Button';
 import classes from './styles.module.scss';
 
-export const RequestImpl: FC<RequestProps> = ({
+export const RequestComponent: FC<RequestProps> = ({
   name,
   initialize,
   send,
@@ -31,7 +31,7 @@ export const RequestImpl: FC<RequestProps> = ({
   </div>
 );
 
-const Request = memo(RequestImpl);
+const Request = memo(RequestComponent);
 Request.displayName = 'Request';
 export default Request;
 

@@ -1,7 +1,7 @@
 import React, { FC, memo, ChangeEvent, useCallback } from 'react';
 import Input, { InputProps } from 'components/Input';
 
-export const NumberInputImpl: FC<NumberInputProps> = ({
+export const NumberInputComponent: FC<NumberInputProps> = ({
   type = 'number',
   onChange,
   ...props
@@ -16,7 +16,7 @@ export const NumberInputImpl: FC<NumberInputProps> = ({
   return <Input type={type} onChange={handleChange} {...props} />;
 };
 
-const NumberInput = memo(NumberInputImpl);
+const NumberInput = memo(NumberInputComponent);
 NumberInput.displayName = 'NumberInput';
 export default NumberInput;
 

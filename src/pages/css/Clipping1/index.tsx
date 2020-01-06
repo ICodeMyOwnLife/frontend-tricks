@@ -4,7 +4,7 @@ import Section from './Section';
 import questions from './questions';
 import classes from './styles.module.scss';
 
-export const Clipping1Impl: FC = () => (
+export const Clipping1Component: FC = () => (
   <QuestionPage title="Clipping 1" questions={questions}>
     <div className={classes.Container}>
       <Section imageClassName={classes.none} float="right" />
@@ -31,6 +31,6 @@ export const Clipping1Impl: FC = () => (
   </QuestionPage>
 );
 
-const Clipping1 = memo(Clipping1Impl);
+const Clipping1 = memo(Clipping1Component);
 Clipping1.displayName = 'Clipping1';
 export default Clipping1;

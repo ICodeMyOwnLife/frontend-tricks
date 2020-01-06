@@ -9,13 +9,13 @@ const rawHtml = `<ul>
   <li><a href="https://twitter.com">Go to Twitter<a/></li>
 </ul>`;
 
-export const RawHtml1Impl: FC = () => (
+export const RawHtml1Component: FC = () => (
   <QuestionPage title="Raw HTML 1" questions={questions}>
     <div>{rawHtml}</div>
     <div dangerouslySetInnerHTML={{ __html: rawHtml }} />
   </QuestionPage>
 );
 
-const RawHtml1 = memo(RawHtml1Impl);
+const RawHtml1 = memo(RawHtml1Component);
 RawHtml1.displayName = 'RawHtml1';
 export default RawHtml1;

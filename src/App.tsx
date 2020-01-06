@@ -1,14 +1,13 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { createMuiTheme, CssBaseline, Box, Container } from '@material-ui/core';
+import { CssBaseline, Box, Container } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
+import theme from 'theme';
 import MenuBar from 'components/MenuBar';
 import SideBar from 'components/SideBar';
 import AppRouter from 'components/AppRouter';
 import useToggle from 'hooks/useToggle';
 import ROUTES from 'helpers/routes';
-
-const theme = createMuiTheme({});
 
 const App: React.FC = () => {
   const [drawerVisible, toggleDrawerVisible] = useToggle(false);
