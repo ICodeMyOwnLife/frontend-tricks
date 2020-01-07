@@ -3,13 +3,25 @@ import { useForm } from 'react-hook-form';
 import InputControl from 'components/InputControl';
 import Select from 'components/Select';
 import { renderOptions } from 'utils/render';
+import CheckboxControl from 'components/CheckboxControl';
 import IntlLayout from '../IntlLayout';
 import { DateTimeFormatFormData, handleSubmit } from './utils';
-import { localeOptions, localeValues } from '../common';
+import {
+  localeOptions,
+  localeMatcherOptions,
+  formatMatcherOptions,
+  textStyleOptions,
+  numberStyleOptions,
+} from '../common';
 
+const timeZoneValues = [
+  'America/New_York',
+  'Asia/Kuala_Lumpur',
+  'Asia/Saigon',
+  'Asia/Tokyo',
+  'Canada/Pacific',
+] as const;
 const formatTimeZoneValues = ['long', 'short'] as const;
-const formatTextValues = ['long', 'short', 'narrow'] as const;
-const formatNumericValues = ['numeric', '2-digit'] as const;
 const formatTextNumericValues = [
   'long',
   'short',
@@ -18,9 +30,8 @@ const formatTextNumericValues = [
   '2-digit',
 ];
 
+const timeZoneOptions = renderOptions(timeZoneValues);
 const formatTimeZoneOptions = renderOptions(formatTimeZoneValues);
-const formatTextOptions = renderOptions(formatTextValues);
-const formatNumericOptions = renderOptions(formatNumericValues);
 const formatTextNumericOptions = renderOptions(formatTextNumericValues);
 
 export const DateTimeFormatComponent: FC = () => {
@@ -32,82 +43,99 @@ export const DateTimeFormatComponent: FC = () => {
       <InputControl
         component={Select}
         componentChildren={localeOptions}
-        defaultValue={Object.keys(localeValues)[0]}
         form={form}
-        inputRef={register}
+        label="Locale"
         name="locale"
       />
       <InputControl
         component={Select}
-        componentChildren={formatTextOptions}
-        defaultValue={formatTextValues[0]}
+        componentChildren={localeMatcherOptions}
         form={form}
-        inputRef={register}
+        label="Locale Matcher"
+        name="localeMatcher"
+      />
+      <InputControl
+        component={Select}
+        componentChildren={timeZoneOptions}
+        form={form}
+        label="Time Zone"
+        name="timeZone"
+      />
+      <InputControl
+        component={Select}
+        componentChildren={formatMatcherOptions}
+        form={form}
+        label="Format Matcher"
+        name="formatMatcher"
+      />
+      <InputControl
+        component={Select}
+        componentChildren={textStyleOptions}
+        form={form}
+        label="Weekday"
         name="weekday"
       />
       <InputControl
         component={Select}
-        componentChildren={formatTextOptions}
-        defaultValue={formatTextValues[0]}
+        componentChildren={textStyleOptions}
         form={form}
-        inputRef={register}
+        label="Era"
         name="era"
       />
       <InputControl
         component={Select}
-        componentChildren={formatNumericOptions}
-        defaultValue={formatNumericValues[0]}
+        componentChildren={numberStyleOptions}
         form={form}
-        inputRef={register}
+        label="Year"
         name="year"
       />
       <InputControl
         component={Select}
         componentChildren={formatTextNumericOptions}
-        defaultValue={formatNumericValues[0]}
         form={form}
-        inputRef={register}
+        label="Month"
         name="month"
       />
       <InputControl
         component={Select}
-        componentChildren={formatNumericOptions}
-        defaultValue={formatNumericValues[0]}
+        componentChildren={numberStyleOptions}
         form={form}
-        inputRef={register}
+        label="Day"
         name="day"
       />
       <InputControl
         component={Select}
-        componentChildren={formatNumericOptions}
-        defaultValue={formatNumericValues[0]}
+        componentChildren={numberStyleOptions}
         form={form}
-        inputRef={register}
+        label="Hour"
         name="hour"
       />
       <InputControl
         component={Select}
-        componentChildren={formatNumericOptions}
-        defaultValue={formatNumericValues[0]}
+        componentChildren={numberStyleOptions}
         form={form}
-        inputRef={register}
+        label="Minute"
         name="minute"
       />
       <InputControl
         component={Select}
-        componentChildren={formatNumericOptions}
-        defaultValue={formatNumericValues[0]}
+        componentChildren={numberStyleOptions}
         form={form}
-        inputRef={register}
+        label="Second"
         name="second"
       />
       <InputControl
         component={Select}
         componentChildren={formatTimeZoneOptions}
-        defaultValue={formatTimeZoneValues[0]}
+        form={form}
+        label="Time Zone Name"
+        name="timeZoneName"
+      />
+      <CheckboxControl
         form={form}
         inputRef={register}
-        name="timeZoneName"
+        label="Hour 12"
+        name="hour12"
       />
     </IntlLayout>
   );

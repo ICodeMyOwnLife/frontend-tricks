@@ -16,7 +16,7 @@ export const handleSubmit: OnSubmit<DateTimeFormatFormData> = ({
   weekday,
   year,
 }) => {
-  const format = new Intl.DateTimeFormat(locale, {
+  const dateTimeFormat = new Intl.DateTimeFormat(locale, {
     day,
     era,
     formatMatcher,
@@ -31,7 +31,7 @@ export const handleSubmit: OnSubmit<DateTimeFormatFormData> = ({
     weekday,
     year,
   });
-  return format.format(new Date());
+  return dateTimeFormat.format(new Date());
 };
 
 export interface DateTimeFormatFormData {
@@ -40,7 +40,7 @@ export interface DateTimeFormatFormData {
   formatMatcher?: string;
   hour?: string;
   hour12?: boolean;
-  locale: string;
+  locale?: string;
   localeMatcher?: string;
   minute?: string;
   month?: string;

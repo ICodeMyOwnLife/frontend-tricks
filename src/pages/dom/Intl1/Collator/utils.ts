@@ -18,7 +18,7 @@ export const handleSubmit: OnSubmit<CollatorFormData> = ({
     sensitivity,
     usage,
   });
-  const list = listText.split(/,\s*/);
+  const list = listText.split(/\s*,\s*/);
   return list.sort(collator.compare).join(', ');
 };
 
@@ -26,7 +26,7 @@ export interface CollatorFormData {
   caseFirst?: string;
   ignorePunctuation?: boolean;
   listText: string;
-  locale: string;
+  locale?: string;
   localeMatcher?: string;
   numeric?: boolean;
   sensitivity?: string;

@@ -11,7 +11,6 @@ export const useHandleSubmit = <TFormData>({
   const [result, setResult] = useState('');
   const handleSubmitForm = handleSubmit(data => {
     const newResult = onSubmit(data);
-    console.log(data, newResult);
     return setResult(newResult);
   });
   return { result, handleSubmitForm };

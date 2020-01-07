@@ -4,8 +4,12 @@ import { MenuItem } from '@material-ui/core';
 
 export const renderOptions = (
   values: readonly string[] | Readonly<Record<string, string>>,
-) =>
-  Array.isArray(values)
+  {
+    noValueLabel = '(no value)',
+    renderNoValue = true,
+  }: RenderOptionsSettings = {},
+) => {
+  const valueOptions = Array.isArray(values)
     ? values.map(item => (
         <MenuItem key={item} value={item}>
           {item}
@@ -16,3 +20,17 @@ export const renderOptions = (
           {name}
         </MenuItem>
       ));
+  return renderNoValue
+    ? [
+        <MenuItem key="no-value" value="">
+          {noValueLabel}
+        </MenuItem>,
+        ...valueOptions,
+      ]
+    : valueOptions;
+};
+
+export interface RenderOptionsSettings {
+  renderNoValue?: boolean;
+  noValueLabel?: string;
+}
