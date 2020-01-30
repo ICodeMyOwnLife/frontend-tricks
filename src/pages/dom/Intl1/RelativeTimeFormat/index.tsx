@@ -3,8 +3,8 @@ import { useForm } from 'react-hook-form';
 import { Input } from '@material-ui/core';
 import InputControl from 'components/InputControl';
 import Select from 'components/Select';
+import Experiment from 'components/Experiment';
 import { renderOptions } from 'utils/render';
-import IntlLayout from '../IntlLayout';
 import { RelativeTimeFormatFormData, handleSubmit } from './utils';
 import {
   localeOptions,
@@ -30,7 +30,7 @@ export const RelativeTimeFormatComponent: FC = () => {
   const { register } = form;
 
   return (
-    <IntlLayout form={form} onSubmit={handleSubmit}>
+    <Experiment form={form} onSubmit={handleSubmit}>
       <InputControl
         component={Input}
         form={form}
@@ -75,7 +75,7 @@ export const RelativeTimeFormatComponent: FC = () => {
         label="Style"
         name="style"
       />
-    </IntlLayout>
+    </Experiment>
   );
 };
 

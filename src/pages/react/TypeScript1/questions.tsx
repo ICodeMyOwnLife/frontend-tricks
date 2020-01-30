@@ -202,6 +202,10 @@ const questions: QuestionInfo[] = [
         name: `Linting Your React+Typescript Project With ESlint and Prettier`,
         url: `https://dorshinar.me/linting-your-react+typescript-project-with-eslint-and-prettier`,
       },
+      {
+        name: `React with TypeScript: Best Practices`,
+        url: `https://www.sitepoint.com/react-with-typescript-best-practices/`,
+      },
     ],
   },
 ];

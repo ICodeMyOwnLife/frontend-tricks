@@ -8,7 +8,7 @@ export const useHandleSubmit = <TFormData>({
   form: FormContextValues<TFormData>;
   onSubmit: OnSubmit<TFormData>;
 }) => {
-  const [result, setResult] = useState('');
+  const [result, setResult] = useState<unknown>();
   const handleSubmitForm = handleSubmit(data => {
     const newResult = onSubmit(data);
     return setResult(newResult);
@@ -16,4 +16,4 @@ export const useHandleSubmit = <TFormData>({
   return { result, handleSubmitForm };
 };
 
-export type OnSubmit<TFormData> = (data: TFormData) => string;
+export type OnSubmit<TFormData> = (data: TFormData) => unknown;

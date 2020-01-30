@@ -1,11 +1,11 @@
 import React, { FC, memo } from 'react';
 import QuestionPage from 'components/QuestionPage';
 import Section from 'components/Section';
-import questions from './questions';
 import Collator from './Collator';
 import DateTimeFormat from './DateTimeFormat';
 import ListFormat from './ListFormat';
 import RelativeTimeFormat from './RelativeTimeFormat';
+import questions from './questions';
 
 export const Intl1Component: FC = () => (
   <QuestionPage title="Intl 1" questions={questions}>

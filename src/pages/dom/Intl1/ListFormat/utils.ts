@@ -1,4 +1,4 @@
-import { OnSubmit } from '../IntlLayout/utils';
+import { OnSubmit } from '../../../../components/Experiment/utils';
 
 export const handleSubmit: OnSubmit<ListFormatFormData> = ({
   listText,

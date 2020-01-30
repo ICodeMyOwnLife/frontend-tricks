@@ -2,9 +2,9 @@ import React, { FC, memo } from 'react';
 import { useForm } from 'react-hook-form';
 import InputControl from 'components/InputControl';
 import Select from 'components/Select';
-import { renderOptions } from 'utils/render';
 import CheckboxControl from 'components/CheckboxControl';
-import IntlLayout from '../IntlLayout';
+import Experiment from 'components/Experiment';
+import { renderOptions } from 'utils/render';
 import { DateTimeFormatFormData, handleSubmit } from './utils';
 import {
   localeOptions,
@@ -39,7 +39,7 @@ export const DateTimeFormatComponent: FC = () => {
   const { register } = form;
 
   return (
-    <IntlLayout form={form} onSubmit={handleSubmit}>
+    <Experiment form={form} onSubmit={handleSubmit}>
       <InputControl
         component={Select}
         componentChildren={localeOptions}
@@ -137,7 +137,7 @@ export const DateTimeFormatComponent: FC = () => {
         label="Hour 12"
         name="hour12"
       />
-    </IntlLayout>
+    </Experiment>
   );
 };
 

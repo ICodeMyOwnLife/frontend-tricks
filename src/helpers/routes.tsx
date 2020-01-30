@@ -288,6 +288,20 @@ const ROUTES: RouteInfo[] = [
           import(/* webpackChunkName: "js__Object1" */ 'pages/js/Object1'),
         ),
       },
+      {
+        name: 'RegExp',
+        path: '/js/regexp',
+        component: lazy(() =>
+          import(/* webpackChunkName: "js__RegExp1" */ 'pages/js/RegExp1'),
+        ),
+      },
+      {
+        name: 'String',
+        path: '/js/string',
+        component: lazy(() =>
+          import(/* webpackChunkName: "js__String1" */ 'pages/js/String1'),
+        ),
+      },
     ],
   },
   {
