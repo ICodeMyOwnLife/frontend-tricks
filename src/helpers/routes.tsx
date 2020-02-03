@@ -152,11 +152,27 @@ const ROUTES: RouteInfo[] = [
     path: 'dom',
     childRoutes: [
       {
+        name: 'Blob',
+        path: '/dom/blob',
+        component: lazy(() =>
+          import(/* webpackChunkName: "dom__Blob1" */ 'pages/dom/Blob1'),
+        ),
+      },
+      {
         name: 'Cancel Request',
         path: '/dom/cancel-request',
         component: lazy(() =>
           import(
             /* webpackChunkName: "dom__CancelRequest1" */ 'pages/dom/CancelRequest1'
+          ),
+        ),
+      },
+      {
+        name: 'Clipboard',
+        path: '/dom/clipboard',
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "dom__Clipboard1" */ 'pages/dom/Clipboard1'
           ),
         ),
       },

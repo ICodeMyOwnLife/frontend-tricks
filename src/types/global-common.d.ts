@@ -46,6 +46,8 @@ type ReturnedFunction<TReturn> = TypedFunction<[], TReturn>;
 
 type GeneralFunction = TypedFunction<any[], any>;
 
+type PickFrom<TObject, TKey extends keyof TObject> = Pick<TObject, TKey>;
+
 type OmitFrom<TObject, TKey extends keyof TObject> = Omit<TObject, TKey>;
 
 type Defined<T> = T extends undefined ? never : T;
