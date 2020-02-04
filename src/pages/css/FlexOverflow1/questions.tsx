@@ -56,6 +56,14 @@ const questions: QuestionInfo[] = [
         name: `Setting Min Width/Height to Zero With Flexbox`,
         url: `https://ishadeed.com/article/min-max-css/#setting-min-width-to-zero-with-flexbox`,
       },
+      {
+        name: `CSS: Flex and "min-width"`,
+        url: `https://makandracards.com/makandra/66994-css-flex-and-min-width`,
+      },
+      {
+        name: `Minimum content sizing of flex items not honored`,
+        url: `https://github.com/philipwalton/flexbugs#1-minimum-content-sizing-of-flex-items-not-honored`,
+      },
     ],
   },
 ];

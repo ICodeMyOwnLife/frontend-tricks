@@ -22,11 +22,10 @@ const questions: QuestionInfo[] = [
         <CodeViewer language="typescript">
           {`interface Document extends Node, NonElementParentNode, DocumentOrShadowRoot, ParentNode, XPathEvaluatorBase, GlobalEventHandlers, DocumentAndElementEventHandlers {
   /**
-   * Returns an Element object representing the element whose id property matches the specified string.
-   * @param ID The ID of the element to locate. The ID is case-sensitive string which is unique within the document; only one element may have any given ID.
-   * @returns An Element object or null.
+   * Returns a reference to the first object with the specified value of the ID or NAME attribute.
+   * @param elementId String that specifies the ID value. Case-insensitive.
    */
-  getElementById(ID: string): HTMLElement | null;
+  getElementById(elementId: string): HTMLElement | null;
 }`}
         </CodeViewer>
 
@@ -90,11 +89,10 @@ const questions: QuestionInfo[] = [
         <CodeViewer language="typescript">
           {`interface Document extends Node, NonElementParentNode, DocumentOrShadowRoot, ParentNode, XPathEvaluatorBase, GlobalEventHandlers, DocumentAndElementEventHandlers {
   /**
-   * Returns a NodeList Collection of elements with a given name in the document.
-   * @param name The value of the name attribute of the element(s).
-   * @returns A NodeList collection.
+   * Gets a collection of objects based on the value of the NAME or ID attribute.
+   * @param elementName Gets a collection of objects based on the value of the NAME or ID attribute.
    */
-  getElementsByName(name: string): NodeListOf<HTMLElement>;
+  getElementsByName(elementName: string): NodeListOf<HTMLElement>;
 }`}
         </CodeViewer>
 
@@ -133,7 +131,7 @@ const questions: QuestionInfo[] = [
   {
     question: (
       <span>
-        What is <code>Document.getElementsByTagName</code> and{' '}
+        What are <code>Document.getElementsByTagName</code> and{' '}
         <code>Element.getElementsByTagName</code> for?
       </span>
     ),
@@ -158,7 +156,6 @@ const questions: QuestionInfo[] = [
   /**
    * Retrieves a collection of objects based on the specified element name.
    * @param name Specifies the name of an element.
-   * @returns An HTMLCollection.
    */
   getElementsByTagName<K extends keyof HTMLElementTagNameMap>(qualifiedName: K): HTMLCollectionOf<HTMLElementTagNameMap[K]>;
 }
@@ -175,6 +172,66 @@ interface Element extends Node, ParentNode, NonDocumentTypeChildNode, ChildNode,
         </p>
       </div>
     ),
+    references: [
+      {
+        name: `[MDN] Document.getElementsByTagName()`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByTagName`,
+      },
+      {
+        name: `[MDN] Element.getElementsByTagName()`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByTagName`,
+      },
+    ],
+  },
+  {
+    question: (
+      <span>
+        What are <code>Document.getElementsByClassName</code> and{' '}
+        <code>Element.getElementsByClassName</code> for?
+      </span>
+    ),
+    answer: (
+      <div>
+        <p>
+          The <code>getElementsByClassName</code> method of{' '}
+          <code>Document</code> interface returns a live{' '}
+          <code>HTMLCollection</code> of all child elements which have all of
+          the given class names, including the root node.
+        </p>
+
+        <p>
+          The <code>Element</code> method <code>getElementsByClassName</code>{' '}
+          returns a live <code>HTMLCollection</code> which contains every
+          descendant element which has the specified class name.
+        </p>
+
+        <CodeViewer language="typescript">
+          {`interface Document extends Node, NonElementParentNode, DocumentOrShadowRoot, ParentNode, XPathEvaluatorBase, GlobalEventHandlers, DocumentAndElementEventHandlers {
+  /**
+   * Returns a HTMLCollection of the elements in the object on which the method was invoked (a document or an element) that have all the classes given by classNames. The classNames argument is interpreted as a space-separated list of classes.
+   */
+  getElementsByClassName(classNames: string): HTMLCollectionOf<Element>;
+}
+
+interface Element extends Node, ParentNode, NonDocumentTypeChildNode, ChildNode, Slotable, InnerHTML, Animatable {
+  /**
+   * Returns a HTMLCollection of the elements in the object on which the method was invoked (a document or an element) that have all the classes given by classNames. The classNames argument is interpreted as a space-separated list of classes.
+   */
+  getElementsByClassName(classNames: string): HTMLCollectionOf<Element>;
+}`}
+        </CodeViewer>
+      </div>
+    ),
+    references: [
+      {
+        name: `[MDN] Document.getElementsByClassName()`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/API/Document/getElementsByClassName`,
+      },
+      {
+        name: `[MDN] Element.getElementsByClassName()`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/API/Element/getElementsByClassName`,
+      },
+    ],
   },
 ];
 

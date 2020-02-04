@@ -2,6 +2,7 @@ import React, { FC, memo, useRef, useState } from 'react';
 import QuestionPage from 'components/QuestionPage';
 import { Button } from '@material-ui/core';
 import useForceUpdate from 'hooks/useForceUpdate';
+import Section from 'components/Section';
 import questions from './questions';
 import Editor from './Editor';
 import useStyles from './styles';
@@ -47,18 +48,20 @@ export const Query1Component: FC = () => {
 
   return (
     <QuestionPage title="Query 1" questions={questions}>
-      <div className={classes.Display} ref={displayRef} />
-      <Editor html={html} setHtml={setHtml} updateDisplay={updateDisplay} />
-      <QueryForm onQuery={handleQuery} />
-      <Result result={queryResult} updateToken={updateToken} />
-      <Button
-        className={classes.Button}
-        variant="outlined"
-        color="default"
-        onClick={refresh}
-      >
-        Refresh
-      </Button>
+      <Section title="Query">
+        <div className={classes.Display} ref={displayRef} />
+        <Editor html={html} setHtml={setHtml} updateDisplay={updateDisplay} />
+        <QueryForm onQuery={handleQuery} />
+        <Result result={queryResult} updateToken={updateToken} />
+        <Button
+          className={classes.Button}
+          variant="outlined"
+          color="default"
+          onClick={refresh}
+        >
+          Refresh
+        </Button>
+      </Section>
     </QuestionPage>
   );
 };
