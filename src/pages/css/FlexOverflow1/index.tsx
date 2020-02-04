@@ -1,21 +1,36 @@
 import React, { FC, memo } from 'react';
 import QuestionPage from 'components/QuestionPage';
+import Section from 'components/Section';
 import questions from './questions';
-import classes from './styles.module.scss';
+import useStyles from './styles';
 
-export const FlexOverflow1Component: FC = () => (
-  <QuestionPage title="Flew Overflow 1" questions={questions}>
-    <div className={classes.Container}>
-      <div className={classes.LeftBar} />
-      <div className={classes.RightBar}>
-        <div className={classes.LeftColumn} />
-        <div className={classes.RightColumn}>
-          <div className={classes.LongBlock} />
+export const FlexOverflow1Component: FC = () => {
+  const classes = useStyles();
+
+  return (
+    <QuestionPage title="Flex Overflow 1" questions={questions}>
+      <Section title="Horizontal Overflow">
+        <div className={classes.horizontalContainer}>
+          <div className={classes.leftBar} />
+          <div className={classes.rightBar}>
+            <div className={classes.leftColumn} />
+            <div className={classes.rightColumn}>
+              <div className={classes.longBlock} />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </QuestionPage>
-);
+      </Section>
+      <Section title="Vertical Overflow">
+        <div className={classes.verticalContainer}>
+          <div className={classes.topBar} />
+          <div className={classes.bottomBar}>
+            <div className={classes.tallBlock} />
+          </div>
+        </div>
+      </Section>
+    </QuestionPage>
+  );
+};
 
 const FlexOverflow1 = memo(FlexOverflow1Component);
 FlexOverflow1.displayName = 'FlexOverflow1';

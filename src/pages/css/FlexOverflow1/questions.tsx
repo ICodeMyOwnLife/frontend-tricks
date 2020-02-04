@@ -8,33 +8,55 @@ const questions: QuestionInfo[] = [
     answer: (
       <div>
         <p>
-          For fixed-with item: Set <code>flex-grow</code> and{' '}
+          For fixed-size item: Set <code>flex-grow</code> and{' '}
           <code>flex-shrink</code> to 0 and set <code>flex-basis</code> to the
-          width of the item:
+          width/height of the item:
         </p>
 
         <CodeViewer language="scss">
-          {`.LeftColumn {
+          {`.leftColumn {
   flex: 0 0 64px;
+}
+
+.topBar {
+  flex: 0 0 160px;
 }`}
         </CodeViewer>
 
         <p>
-          For overflow-hidden item: Set <code>flex-grow</code> and{' '}
-          <code>flex-shrink</code> to a positive value, set{' '}
-          <code>min-width</code> to a finite value, and set{' '}
-          <code>overflow</code> to a value other than <code>visible</code>:
+          For overflow-hidden item: By default, flex items won’t shrink below
+          their minimum content size (the length of the longest word or
+          fixed-size element). To change this, set the min-width or min-height
+          property.
+        </p>
+        <p>
+          Set <code>flex-grow</code> and <code>flex-shrink</code> to a positive
+          value, set <code>min-width</code> or <code>min-height</code> to a
+          finite value, and set <code>overflow</code> to a value other than{' '}
+          <code>visible</code>:
         </p>
 
         <CodeViewer language="scss">
-          {`.RightColumn {
+          {`.rightColumn {
   flex: 1;
   min-width: 0;
   overflow-x: auto;
+}
+
+.bottomBar {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
 }`}
         </CodeViewer>
       </div>
     ),
+    references: [
+      {
+        name: `Setting Min Width/Height to Zero With Flexbox`,
+        url: `https://ishadeed.com/article/min-max-css/#setting-min-width-to-zero-with-flexbox`,
+      },
+    ],
   },
 ];
 
