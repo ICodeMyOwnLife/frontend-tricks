@@ -247,10 +247,12 @@ const ROUTES: RouteInfo[] = [
         ),
       },
       {
-        name: 'Query',
-        path: '/dom/query',
+        name: 'Select Elements',
+        path: '/dom/select-elements',
         component: lazy(() =>
-          import(/* webpackChunkName: "dom__Query1" */ 'pages/dom/Query1'),
+          import(
+            /* webpackChunkName: "dom__SelectElements1" */ 'pages/dom/SelectElements1'
+          ),
         ),
       },
       {

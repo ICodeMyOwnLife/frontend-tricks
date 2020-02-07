@@ -9,6 +9,8 @@ import {
   ClickAwayListener,
   MenuList,
   MenuItem,
+  FormHelperText,
+  FormControl,
 } from '@material-ui/core';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import useTextField from 'hooks/useTextField';
@@ -19,7 +21,7 @@ import {
   useClickAwayHandler,
   useSubmitHandler,
   QueryFunction,
-} from './hooks';
+} from './utils';
 
 export const QueryFormComponent: FC<QueryFormProps> = ({ onQuery }) => {
   const classes = useStyles();
@@ -42,15 +44,20 @@ export const QueryFormComponent: FC<QueryFormProps> = ({ onQuery }) => {
   });
 
   return (
-    <form className={classes.Form} onSubmit={handleSubmit}>
-      <TextField
-        fullWidth
-        label="Query"
-        value={queryText}
-        onChange={handleChangeQueryText}
-      />
+    <form className={classes.form} onSubmit={handleSubmit}>
+      <FormControl fullWidth>
+        <TextField
+          fullWidth
+          label="Query"
+          value={queryText}
+          onChange={handleChangeQueryText}
+        />
+        <FormHelperText>
+          Example: {queryInfos[queryIndex].example}
+        </FormHelperText>
+      </FormControl>
       <ButtonGroup
-        className={classes.Button}
+        className={classes.button}
         variant="contained"
         color="primary"
         ref={anchorRef}
@@ -61,7 +68,7 @@ export const QueryFormComponent: FC<QueryFormProps> = ({ onQuery }) => {
         </Button>
       </ButtonGroup>
       <Popper
-        className={classes.DropDown}
+        className={classes.dropDown}
         open={dropDownVisible}
         anchorEl={anchorRef.current}
         transition

@@ -1,16 +1,18 @@
-import React, { FC, memo } from 'react';
+import React, { FC, memo, RefObject } from 'react';
 import { Box, Typography } from '@material-ui/core';
 import useStyles from './styles';
+import { useUpdateResultOnMutated } from './utils';
 
-const getType = (o: any) => o && o.constructor && o.constructor.name;
+const getType = (o: any) => o?.constructor?.name;
 
-const getLength = (o: any) => o && o.length;
+const getLength = (o: any) => o?.length;
 
-export const ResultComponent: FC<ResultProps> = ({ result }) => {
+export const ResultComponent: FC<ResultProps> = ({ displayRef, result }) => {
   const classes = useStyles();
+  useUpdateResultOnMutated({ displayRef });
 
   return (
-    <Box className={classes.Result}>
+    <Box className={classes.result}>
       <Typography>Type: {getType(result)}</Typography>
       <Typography>Length: {getLength(result)}</Typography>
     </Box>
@@ -23,5 +25,5 @@ export default Result;
 
 export interface ResultProps {
   result: any;
-  updateToken: any;
+  displayRef: RefObject<Node>;
 }

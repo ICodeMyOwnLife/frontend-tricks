@@ -15,7 +15,7 @@ export const EditorComponent: FC<EditorProps> = ({
   return (
     <Box>
       <Button
-        className={classes.Button}
+        className={classes.button}
         variant="outlined"
         color="primary"
         onClick={toggleEditorVisible}
@@ -24,13 +24,13 @@ export const EditorComponent: FC<EditorProps> = ({
       </Button>
       <Collapse in={editorVisible}>
         <CodeEditor
-          className={classes.CodeEditor}
+          className={classes.codeEditor}
           language="html"
           value={html}
           onChange={setHtml}
         />
         <Button
-          className={classes.Button}
+          className={classes.button}
           variant="outlined"
           color="primary"
           onClick={updateDisplay}
