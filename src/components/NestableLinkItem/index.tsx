@@ -6,8 +6,8 @@ import {
   List,
   useTheme,
 } from '@material-ui/core';
+import { useToggle } from 'cb-hooks';
 import { ForwardRefRouterLink } from 'components/AppLink';
-import useToggle from 'hooks/useToggle';
 import { LinkInfo } from 'types/app-common';
 import useStyles from './styles';
 

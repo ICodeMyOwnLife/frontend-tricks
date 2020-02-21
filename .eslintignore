@@ -1,6 +1,0 @@
-**/*.test.ts
-**/*.test.tsx
-**/*.min.js
-**/*.min.jsx
-**/*.d.ts
-src/serviceWorker.ts

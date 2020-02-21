@@ -4,7 +4,7 @@ import QuestionPage from 'components/QuestionPage';
 import Section from 'components/Section';
 import questions from './questions';
 import UserAgent from './UserAgent';
-import { useBackendUaResult } from './hooks';
+import { useBackendUaResult } from './utils';
 
 const parser = new UAParser(window.navigator.userAgent);
 const frontendUaResult = parser.getResult();

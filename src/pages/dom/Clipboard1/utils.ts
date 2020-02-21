@@ -1,8 +1,8 @@
-import { useState, useCallback } from 'react';
-
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-alert */
+import { useState, useCallback } from 'react';
+
 export const useHandleCopy = ({ src }: { src: string }) =>
   useCallback(async () => {
     const res = await fetch(src);

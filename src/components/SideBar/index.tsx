@@ -1,8 +1,8 @@
 import React, { FC, memo } from 'react';
+import { useLocation } from 'react-router';
 import { Drawer, useTheme, Toolbar, Divider, List } from '@material-ui/core';
 import AppLink from 'components/AppLink';
 import NestableLinkItem from 'components/NestableLinkItem';
-import useRouter from 'hooks/useRouter';
 import { APP_NAME } from 'constants/common';
 import { LinkInfo } from 'types/app-common';
 import useStyles from './styles';
@@ -14,9 +14,7 @@ export const SideBarComponent: FC<SideBarProps> = ({
 }) => {
   const theme = useTheme();
   const classes = useStyles();
-  const {
-    location: { pathname },
-  } = useRouter();
+  const { pathname } = useLocation();
 
   return (
     <Drawer

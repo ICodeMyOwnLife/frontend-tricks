@@ -2,11 +2,11 @@ import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { CssBaseline, Box, Container } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
+import { useToggle } from 'cb-hooks';
 import theme from 'theme';
 import MenuBar from 'components/MenuBar';
 import SideBar from 'components/SideBar';
 import AppRouter from 'components/AppRouter';
-import useToggle from 'hooks/useToggle';
 import ROUTES from 'helpers/routes';
 
 const App: React.FC = () => {

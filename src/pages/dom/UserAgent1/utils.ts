@@ -1,4 +1,4 @@
-import usePromise from 'hooks/usePromise';
+import { usePromise } from 'cb-hooks';
 import backendService from 'services/backendService';
 
 export const useBackendUaResult = () =>

@@ -13,8 +13,7 @@ import {
   FormControl,
 } from '@material-ui/core';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import useTextField from 'hooks/useTextField';
-import useToggle from 'hooks/useToggle';
+import { useToggle, useTextInput } from 'cb-hooks';
 import useStyles from './styles';
 import {
   queryInfos,
@@ -27,10 +26,12 @@ export const QueryFormComponent: FC<QueryFormProps> = ({ onQuery }) => {
   const classes = useStyles();
   const anchorRef = useRef<HTMLDivElement>(null);
   const [queryIndex, setQueryIndex] = useState(0);
-  const [queryText, handleChangeQueryText] = useTextField('');
+  const [queryText, , handleChangeQueryText] = useTextInput('');
   const [
     dropDownVisible,
     toggleDropDownVisible,
+    ,
+    ,
     setDropDownVisible,
   ] = useToggle(false);
   const handleClickAway = useClickAwayHandler({

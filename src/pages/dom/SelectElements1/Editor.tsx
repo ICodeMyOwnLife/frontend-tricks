@@ -1,7 +1,7 @@
 import React, { FC, memo, Dispatch, SetStateAction } from 'react';
 import { Box, Button, Collapse } from '@material-ui/core';
+import { useToggle } from 'cb-hooks';
 import CodeEditor from 'components/CodeEditor';
-import useToggle from 'hooks/useToggle';
 import useStyles from './styles';
 
 export const EditorComponent: FC<EditorProps> = ({

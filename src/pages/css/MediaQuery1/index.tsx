@@ -8,6 +8,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import QuestionPage from 'components/QuestionPage';
+import Section from 'components/Section';
 import questions from './questions';
 import useStyles, { queries, getMediaItemClassKey } from './styles';
 
@@ -20,25 +21,27 @@ export const MediaQuery1Component: FC = () => {
       title="Media Query 1"
       questions={questions}
     >
-      <Table>
-        <TableBody>
-          {queries.map((query, index) => (
-            <TableRow hover key={query}>
-              <TableCell>{query}</TableCell>
-              <TableCell>
-                <Typography
-                  className={clsx(
-                    classes.mediaItem,
-                    classes[getMediaItemClassKey(index)],
-                  )}
-                >
-                  true
-                </Typography>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+      <Section title="Media Query">
+        <Table>
+          <TableBody>
+            {queries.map((query, index) => (
+              <TableRow hover key={query}>
+                <TableCell>{query}</TableCell>
+                <TableCell>
+                  <Typography
+                    className={clsx(
+                      classes.mediaItem,
+                      classes[getMediaItemClassKey(index)],
+                    )}
+                  >
+                    true
+                  </Typography>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Section>
     </QuestionPage>
   );
 };

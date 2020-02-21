@@ -9,8 +9,7 @@ import {
   MouseEvent,
   useEffect,
 } from 'react';
-import useForceUpdate from 'hooks/useForceUpdate';
-import useMutationObserver from 'hooks/useMutationObserver';
+import { useForceUpdate, useMutationObserver } from 'cb-hooks';
 
 const CLASS_SELECTED = 'selected';
 
@@ -197,7 +196,7 @@ export const useUpdateResultOnMutated = ({
 }: {
   displayRef: RefObject<Node>;
 }) => {
-  const [, forceUpdate] = useForceUpdate();
+  const forceUpdate = useForceUpdate();
   useMutationObserver(displayRef, forceUpdate, mutationObserverOptions);
 };
 

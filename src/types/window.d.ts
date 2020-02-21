@@ -1,3 +1,5 @@
+/* eslint-disable no-var */
+/* eslint-disable vars-on-top */
 interface Blob {
   arrayBuffer: () => Promise<ArrayBuffer>;
   stream: () => ReadableStream;

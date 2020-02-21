@@ -8,9 +8,9 @@ import {
 } from '@material-ui/core';
 import json2mq from 'json2mq';
 import Media from 'react-media';
+import { useTextInput } from 'cb-hooks';
 import QuestionPage from 'components/QuestionPage';
 import Section from 'components/Section';
-import useTextField from 'hooks/useTextField';
 import { mediaQueries } from 'constants/mediaQueries';
 import questions from './questions';
 import UseMediaQuery from './UseMediaQuery';
@@ -18,7 +18,7 @@ import UseMedia from './UseMedia';
 
 export const MediaQuery1Component: FC = () => {
   const theme = useTheme();
-  const [query, handleChangeQuery] = useTextField('');
+  const [query, , handleChangeQuery] = useTextInput('');
 
   return (
     <QuestionPage title="Media Query 1" questions={questions}>
