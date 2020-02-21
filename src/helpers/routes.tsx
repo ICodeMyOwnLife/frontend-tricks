@@ -80,6 +80,13 @@ const ROUTES: RouteInfo[] = [
         ),
       },
       {
+        name: 'Grid',
+        path: '/css/grid',
+        component: lazy(() =>
+          import(/* webpackChunkName: "css__Grid1" */ 'pages/css/Grid1'),
+        ),
+      },
+      {
         name: 'Input Hacks',
         path: '/css/input-hacks',
         component: lazy(() =>
