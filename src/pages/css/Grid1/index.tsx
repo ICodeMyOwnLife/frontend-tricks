@@ -10,18 +10,24 @@ export const Grid1Component: FC = () => {
 
   return (
     <QuestionPage className={classes.root} title="Grid 1" questions={questions}>
-      <Section title="auto-fill">
-        <div className={clsx(classes.grid, classes.autoFillGrid)}>
-          <div className={classes.column} />
-          <div className={classes.column} />
-          <div className={classes.column} />
-        </div>
-      </Section>
-      <Section title="auto-fit">
-        <div className={clsx(classes.grid, classes.autoFitGrid)}>
-          <div className={classes.column} />
-          <div className={classes.column} />
-          <div className={classes.column} />
+      <Section title="auto-fill vs auto-fit">
+        <div className={classes.gridWrapper}>
+          <div className={classes.gridContainer}>
+            <div className={classes.gridDescription}>auto-fill</div>
+            <div className={clsx(classes.grid, classes.autoFillGrid)}>
+              <div className={classes.column} />
+              <div className={classes.column} />
+              <div className={classes.column} />
+            </div>
+          </div>
+          <div className={classes.gridContainer}>
+            <div className={classes.gridDescription}>auto-fit</div>
+            <div className={clsx(classes.grid, classes.autoFitGrid)}>
+              <div className={classes.column} />
+              <div className={classes.column} />
+              <div className={classes.column} />
+            </div>
+          </div>
         </div>
       </Section>
     </QuestionPage>

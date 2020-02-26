@@ -62,6 +62,13 @@ const ROUTES: RouteInfo[] = [
         ),
       },
       {
+        name: 'Flex',
+        path: '/css/flex',
+        component: lazy(() =>
+          import(/* webpackChunkName: "css__Flex1" */ 'pages/css/Flex1'),
+        ),
+      },
+      {
         name: 'Flex Overflow',
         path: '/css/flex-overflow',
         component: lazy(() =>
@@ -101,6 +108,15 @@ const ROUTES: RouteInfo[] = [
         component: lazy(() =>
           import(
             /* webpackChunkName: "css__MediaQuery1" */ 'pages/css/MediaQuery1'
+          ),
+        ),
+      },
+      {
+        name: 'Multi-Column',
+        path: '/css/multi-column',
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "css__MultiColumn1" */ 'pages/css/MultiColumn1'
           ),
         ),
       },
