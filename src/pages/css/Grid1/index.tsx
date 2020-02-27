@@ -1,7 +1,8 @@
 import React, { FC, memo } from 'react';
-import clsx from 'clsx';
+import { Box } from '@material-ui/core';
 import QuestionPage from 'components/QuestionPage';
 import Section from 'components/Section';
+import ResponsiveGrid from './ResponsiveGrid';
 import questions from './questions';
 import useStyles from './styles';
 
@@ -10,25 +11,29 @@ export const Grid1Component: FC = () => {
 
   return (
     <QuestionPage className={classes.root} title="Grid 1" questions={questions}>
+      <Section title="justify-items vs justify-content vs justify-self vs align-items vs align-content vs align-self">
+        <Box className={classes.gridWrapper}>
+          <ResponsiveGrid
+            gridClassName={classes.autoFillGrid}
+            title="auto-fill"
+          />
+          <ResponsiveGrid
+            gridClassName={classes.autoFitGrid}
+            title="auto-fit"
+          />
+        </Box>
+      </Section>
       <Section title="auto-fill vs auto-fit">
-        <div className={classes.gridWrapper}>
-          <div className={classes.gridContainer}>
-            <div className={classes.gridDescription}>auto-fill</div>
-            <div className={clsx(classes.grid, classes.autoFillGrid)}>
-              <div className={classes.column} />
-              <div className={classes.column} />
-              <div className={classes.column} />
-            </div>
-          </div>
-          <div className={classes.gridContainer}>
-            <div className={classes.gridDescription}>auto-fit</div>
-            <div className={clsx(classes.grid, classes.autoFitGrid)}>
-              <div className={classes.column} />
-              <div className={classes.column} />
-              <div className={classes.column} />
-            </div>
-          </div>
-        </div>
+        <Box className={classes.gridWrapper}>
+          <ResponsiveGrid
+            gridClassName={classes.autoFillGrid}
+            title="auto-fill"
+          />
+          <ResponsiveGrid
+            gridClassName={classes.autoFitGrid}
+            title="auto-fit"
+          />
+        </Box>
       </Section>
     </QuestionPage>
   );

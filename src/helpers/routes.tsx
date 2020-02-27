@@ -33,6 +33,21 @@ const ROUTES: RouteInfo[] = [
     ],
   },
   {
+    name: 'Chrome Devtools',
+    path: 'chrome-devtools',
+    childRoutes: [
+      {
+        name: 'Console',
+        path: '/chrome-devtools/console',
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "chrome_devtools__Console1" */ 'pages/chrome_devtools/Console1'
+          ),
+        ),
+      },
+    ],
+  },
+  {
     name: 'CSS',
     path: 'css',
     childRoutes: [

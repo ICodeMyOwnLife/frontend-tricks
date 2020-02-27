@@ -10,10 +10,13 @@ const styles = ({ spacing }: Theme) =>
       gridGap: `${spacing(2)}px ${spacing(4)}px`,
       marginBottom: spacing(3),
     },
-    studyFlex: {
+    flexGroup: {
+      display: 'grid',
+      gridGap: `${spacing(3)}px 0`,
+    },
+    flex1: {
       display: 'flex',
       flexWrap: 'wrap',
-      minHeight: 420,
       padding: spacing(1.5),
       backgroundColor: red[100],
     },

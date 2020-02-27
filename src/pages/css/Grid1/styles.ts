@@ -8,10 +8,10 @@ const styles = ({ spacing }: Theme) =>
       display: 'grid',
       gridGap: `${spacing(3)}px 0`,
     },
-    gridContainer: {
+    responsiveGridContainer: {
       position: 'relative',
     },
-    gridDescription: {
+    responsiveGridTitle: {
       position: 'absolute',
       left: 0,
       right: 0,
@@ -24,20 +24,20 @@ const styles = ({ spacing }: Theme) =>
       color: green[500],
       backgroundColor: grey[300],
     },
-    grid: {
+    responsiveGrid: {
       display: 'grid',
       gridGap: `${spacing(3)}px ${spacing(4)}px`,
+    },
+    responsiveGridColumn: {
+      height: 64,
+      backgroundColor: red[500],
+      opacity: 0.5,
     },
     autoFillGrid: {
       gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
     },
     autoFitGrid: {
       gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-    },
-    column: {
-      height: 64,
-      backgroundColor: red[500],
-      opacity: 0.5,
     },
   });
 

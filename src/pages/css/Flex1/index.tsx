@@ -6,8 +6,7 @@ import {
   FormControl,
   InputLabel,
 } from '@material-ui/core';
-import { useTextInput } from 'cb-hooks';
-import { ValueTargetEventHandler } from 'cb-hooks/dist/src/types/common';
+import useMuiSelect from 'hooks/useMuiSelect';
 import QuestionPage from 'components/QuestionPage';
 import Section from 'components/Section';
 import Masonry from 'components/Masonry';
@@ -15,10 +14,10 @@ import questions from './questions';
 import useStyles from './styles';
 
 export const Flex1Component: FC = () => {
-  const [justifyContent, , handleChangeJustifyContent] = useTextInput();
-  const [alignItems, , handleChangeAlignItems] = useTextInput();
-  const [alignContent, , handleChangeAlignContent] = useTextInput();
-  const [alignSelf, , handleChangeAlignSelf] = useTextInput();
+  const [justifyContent, , handleChangeJustifyContent] = useMuiSelect();
+  const [alignItems, , handleChangeAlignItems] = useMuiSelect();
+  const [alignContent, , handleChangeAlignContent] = useMuiSelect();
+  const [alignSelf, , handleChangeAlignSelf] = useMuiSelect();
   const classes = useStyles();
 
   return (
@@ -29,10 +28,9 @@ export const Flex1Component: FC = () => {
             <InputLabel>justify-content</InputLabel>
             <Select
               value={justifyContent}
-              onChange={
-                handleChangeJustifyContent as ValueTargetEventHandler<unknown>
-              }
+              onChange={handleChangeJustifyContent}
             >
+              <MenuItem value="">(no value)</MenuItem>
               <MenuItem value="flex-start">flex-start</MenuItem>
               <MenuItem value="flex-end">flex-end</MenuItem>
               <MenuItem value="center">center</MenuItem>
@@ -45,12 +43,8 @@ export const Flex1Component: FC = () => {
 
           <FormControl>
             <InputLabel>align-items</InputLabel>
-            <Select
-              value={alignItems}
-              onChange={
-                handleChangeAlignItems as ValueTargetEventHandler<unknown>
-              }
-            >
+            <Select value={alignItems} onChange={handleChangeAlignItems}>
+              <MenuItem value="">(no value)</MenuItem>
               <MenuItem value="flex-start">flex-start</MenuItem>
               <MenuItem value="flex-end">flex-end</MenuItem>
               <MenuItem value="center">center</MenuItem>
@@ -60,12 +54,8 @@ export const Flex1Component: FC = () => {
 
           <FormControl>
             <InputLabel>align-content</InputLabel>
-            <Select
-              value={alignContent}
-              onChange={
-                handleChangeAlignContent as ValueTargetEventHandler<unknown>
-              }
-            >
+            <Select value={alignContent} onChange={handleChangeAlignContent}>
+              <MenuItem value="">(no value)</MenuItem>
               <MenuItem value="flex-start">flex-start</MenuItem>
               <MenuItem value="flex-end">flex-end</MenuItem>
               <MenuItem value="center">center</MenuItem>
@@ -81,10 +71,9 @@ export const Flex1Component: FC = () => {
             <Select
               color="secondary"
               value={alignSelf}
-              onChange={
-                handleChangeAlignSelf as ValueTargetEventHandler<unknown>
-              }
+              onChange={handleChangeAlignSelf}
             >
+              <MenuItem value="">(no value)</MenuItem>
               <MenuItem value="flex-start">flex-start</MenuItem>
               <MenuItem value="flex-end">flex-end</MenuItem>
               <MenuItem value="center">center</MenuItem>
@@ -93,20 +82,49 @@ export const Flex1Component: FC = () => {
           </FormControl>
         </Box>
 
-        <Box
-          className={classes.studyFlex}
-          style={{ justifyContent, alignItems, alignContent }}
-        >
-          <div className={classes.item} style={{ height: '64px' }} />
-          <div className={classes.item} style={{ height: '40px', alignSelf }} />
-          <div className={classes.item} style={{ height: '96px' }} />
-          <div className={classes.item} style={{ height: '48px' }} />
-          <div className={classes.item} style={{ height: '120px' }} />
-          <div className={classes.item} style={{ height: '56px' }} />
-          <div className={classes.item} style={{ height: '80px' }} />
-          <div className={classes.item} style={{ height: '60px' }} />
-          <div className={classes.item} style={{ height: '88px' }} />
-          <div className={classes.item} style={{ height: '100px' }} />
+        <Box className={classes.flexGroup}>
+          <Box
+            className={classes.flex1}
+            style={{
+              justifyContent,
+              alignItems,
+              alignContent,
+              minHeight: '200px',
+            }}
+          >
+            <div className={classes.item} style={{ height: '64px' }} />
+            <div
+              className={classes.item}
+              style={{ height: '40px', alignSelf }}
+            />
+            <div className={classes.item} style={{ height: '96px' }} />
+            <div className={classes.item} style={{ height: '48px' }} />
+            <div className={classes.item} style={{ height: '120px' }} />
+          </Box>
+
+          <Box
+            className={classes.flex1}
+            style={{
+              justifyContent,
+              alignItems,
+              alignContent,
+              minHeight: '420px',
+            }}
+          >
+            <div className={classes.item} style={{ height: '64px' }} />
+            <div
+              className={classes.item}
+              style={{ height: '40px', alignSelf }}
+            />
+            <div className={classes.item} style={{ height: '96px' }} />
+            <div className={classes.item} style={{ height: '48px' }} />
+            <div className={classes.item} style={{ height: '120px' }} />
+            <div className={classes.item} style={{ height: '56px' }} />
+            <div className={classes.item} style={{ height: '80px' }} />
+            <div className={classes.item} style={{ height: '60px' }} />
+            <div className={classes.item} style={{ height: '88px' }} />
+            <div className={classes.item} style={{ height: '100px' }} />
+          </Box>
         </Box>
       </Section>
 
