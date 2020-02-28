@@ -1,8 +1,88 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
 import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
+  {
+    question: (
+      <span>
+        What is the difference between <code>justify-content</code> vs{' '}
+        <code>align-content</code> vs <code>justify-items</code> vs{' '}
+        <code>align-items</code> vs <code>justify-self</code> vs{' '}
+        <code>align-self</code>?
+      </span>
+    ),
+    answer: (
+      <div>
+        <p>
+          <code>justify-content</code> The CSS <code>justify-content</code>{' '}
+          property defines how the browser distributes space between and around
+          content items along the main-axis of a flex container, and the inline
+          axis of a grid container.
+        </p>
+        <p>
+          <code>align-content</code>: The CSS <code>align-content</code>{' '}
+          property sets the distribution of space between and around content
+          items along a flexbox's cross-axis or a grid's block axis.
+        </p>
+        <p>
+          <code>justify-items</code>: The CSS <code>justify-items</code>{' '}
+          property defines the default <code>justify-self</code> for all items
+          of the box, giving them all a default way of justifying each box along
+          the appropriate axis.
+        </p>
+        <p>
+          <code>align-items</code>: The CSS <code>align-items</code> property
+          sets the <code>align-self</code> value on all direct children as a
+          group. In Flexbox, it controls the alignment of items on the Cross
+          Axis. In Grid Layout, it controls the alignment of items on the Block
+          Axis within their grid area.
+        </p>
+        <p>
+          <code>justify-self</code>: The CSS <code>justify-self</code> property
+          sets the way a box is justified inside its alignment container along
+          the appropriate axis.
+        </p>
+        <p>
+          <code>align-self</code>: The <code>align-self</code> CSS property
+          overrides a grid or flex item's <code>align-items</code> value. In
+          Grid, it aligns the item inside the grid area. In Flexbox, it aligns
+          the item on the cross axis.
+        </p>
+      </div>
+    ),
+    references: [
+      {
+        name: `[MDN] justify-content`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content`,
+      },
+      {
+        name: `[MDN] align-content`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/CSS/align-content`,
+      },
+      {
+        name: `[MDN] justify-items`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/CSS/justify-items`,
+      },
+      {
+        name: `[MDN] align-items`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/CSS/align-items`,
+      },
+      {
+        name: `[MDN] justify-self`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self`,
+      },
+      {
+        name: `[MDN] align-self`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/CSS/align-self`,
+      },
+      {
+        name: `[CSS-TRICKS] A Complete Guide to Grid`,
+        url: `https://css-tricks.com/snippets/css/complete-guide-grid/`,
+      },
+    ],
+  },
   {
     question: `How to auto-size columns in CSS Grid to make responsive layout?`,
     answer: (

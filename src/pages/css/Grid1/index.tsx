@@ -3,6 +3,8 @@ import { Box } from '@material-ui/core';
 import QuestionPage from 'components/QuestionPage';
 import Section from 'components/Section';
 import ResponsiveGrid from './ResponsiveGrid';
+import PropsGrid from './PropsGrid';
+import AreaGrid from './AreaGrid';
 import questions from './questions';
 import useStyles from './styles';
 
@@ -12,16 +14,7 @@ export const Grid1Component: FC = () => {
   return (
     <QuestionPage className={classes.root} title="Grid 1" questions={questions}>
       <Section title="justify-items vs justify-content vs justify-self vs align-items vs align-content vs align-self">
-        <Box className={classes.gridWrapper}>
-          <ResponsiveGrid
-            gridClassName={classes.autoFillGrid}
-            title="auto-fill"
-          />
-          <ResponsiveGrid
-            gridClassName={classes.autoFitGrid}
-            title="auto-fit"
-          />
-        </Box>
+        <PropsGrid />
       </Section>
       <Section title="auto-fill vs auto-fit">
         <Box className={classes.gridWrapper}>
@@ -34,6 +27,9 @@ export const Grid1Component: FC = () => {
             title="auto-fit"
           />
         </Box>
+      </Section>
+      <Section title="Areas and auto flow">
+        <AreaGrid />
       </Section>
     </QuestionPage>
   );

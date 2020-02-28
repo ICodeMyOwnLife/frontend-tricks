@@ -4,7 +4,7 @@ import { red } from '@material-ui/core/colors';
 const styles = ({ spacing }: Theme) =>
   createStyles({
     root: {},
-    selectGroup: {
+    inputGrid: {
       display: 'grid',
       gridTemplateColumns: 'repeat(2, 1fr)',
       gridGap: `${spacing(2)}px ${spacing(4)}px`,
@@ -14,7 +14,7 @@ const styles = ({ spacing }: Theme) =>
       display: 'grid',
       gridGap: `${spacing(3)}px 0`,
     },
-    flex1: {
+    propsFlex: {
       display: 'flex',
       flexWrap: 'wrap',
       padding: spacing(1.5),

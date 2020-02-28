@@ -14,9 +14,12 @@ export const ResponsiveGridComponent: FC<ResponsiveGridProps> = ({
     <Box className={clsx(className, classes.responsiveGridContainer)}>
       <div className={classes.responsiveGridTitle}>{title}</div>
       <div className={clsx(gridClassName, classes.responsiveGrid)}>
-        <div className={classes.responsiveGridColumn} />
-        <div className={classes.responsiveGridColumn} />
-        <div className={classes.responsiveGridColumn} />
+        {[0, 1, 2].map(value => (
+          <div
+            className={clsx(classes.gridCell, classes.responsiveGridCell)}
+            key={value}
+          />
+        ))}
       </div>
     </Box>
   );

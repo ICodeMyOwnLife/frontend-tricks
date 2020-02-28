@@ -68,6 +68,10 @@ const questions: QuestionInfo[] = [
         name: `[MDN] align-self`,
         url: `https://developer.mozilla.org/en-US/docs/Web/CSS/align-self`,
       },
+      {
+        name: `[CSS-TRICKS] A Complete Guide to Flexbox`,
+        url: `https://css-tricks.com/snippets/css/a-guide-to-flexbox/`,
+      },
     ],
   },
   {
