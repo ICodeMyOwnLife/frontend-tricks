@@ -10,7 +10,7 @@ const styles = ({ palette, spacing }: Theme) =>
       alignItems: 'flex-start',
     },
     submitButton: {
-      gridColumn: 3,
+      gridColumn: -2,
       alignSelf: 'flex-end',
     },
     result: {

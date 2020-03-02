@@ -10,6 +10,11 @@ import {
   indigo,
   lime,
   orange,
+  pink,
+  purple,
+  red,
+  teal,
+  yellow,
 } from '@material-ui/core/colors';
 import useMuiSelect from 'hooks/useMuiSelect';
 import SelectFormControl from 'components/SelectFormControl';
@@ -17,7 +22,7 @@ import useStyles from './styles';
 
 const areas = ['header', 'sidebar', 'main', 'footer'];
 
-const flows = ['row', 'column'];
+const flows = ['row', 'column', 'row dense', 'column dense'];
 
 const childStyles: CSSProperties[] = [
   {
@@ -37,12 +42,31 @@ const childStyles: CSSProperties[] = [
   },
   {
     backgroundColor: indigo[200],
+    gridRow: 'span 2',
+    gridColumn: 'span 2',
   },
   {
     backgroundColor: lime[200],
   },
   {
     backgroundColor: orange[200],
+  },
+  {
+    backgroundColor: pink[200],
+  },
+  {
+    backgroundColor: purple[200],
+    gridRow: 'span 2',
+    gridColumn: 'span 2',
+  },
+  {
+    backgroundColor: red[200],
+  },
+  {
+    backgroundColor: teal[200],
+  },
+  {
+    backgroundColor: yellow[200],
   },
 ];
 
@@ -127,15 +151,17 @@ export const AreaGridComponent: FC = () => {
         />
       </Box>
       <Box className={classes.areaGrid} style={{ gridAutoFlow: flow }}>
-        {childStyles.map((style, index) => (
-          <div
-            className={classes.areaGridCell}
-            key={index}
-            style={{ ...style, gridArea: blockAreas[index] }}
-          >
-            Block {index + 1}
-          </div>
-        ))}
+        {childStyles.map((childStyle, index) => {
+          let style = childStyle;
+          if (blockAreas[index]) {
+            style = { ...style, gridArea: blockAreas[index] };
+          }
+          return (
+            <div className={classes.areaGridCell} key={index} style={style}>
+              Block {index + 1}
+            </div>
+          );
+        })}
       </Box>
     </Box>
   );

@@ -69,15 +69,15 @@ const styles = ({ spacing }: Theme) =>
     },
     areaGrid: {
       display: 'grid',
-      gridTemplateColumns: '30% 1fr 1fr 1fr',
-      gridTemplateRows: '80px 60px 60px 40px',
+      gridTemplateColumns: '30% 1fr 1fr 1fr 1fr 1fr',
+      gridTemplateRows: '60px 40px 30px 40px 30px 60px',
       gridTemplateAreas: `
-      "header header header header"
-      "sidebar . . ."
-      "sidebar . main main"
-      "sidebar . main main"
-      "sidebar . . ."
-      "sidebar footer footer footer"`,
+      "header header header header header header"
+      "sidebar . . . . ."
+      "sidebar . main main . ."
+      "sidebar . main main . ."
+      "sidebar . . . . ."
+      "sidebar footer footer footer footer footer"`,
       backgroundColor: fade(red[100], 0.1),
     },
     areaGridCell: {
