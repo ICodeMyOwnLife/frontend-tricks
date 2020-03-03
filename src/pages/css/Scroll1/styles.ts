@@ -57,16 +57,16 @@ const styles = ({ spacing }: Theme) =>
     },
     scrollSnapGrid: {
       display: 'grid',
-      gridTemplateColumns: 'repeat(47, 120px)',
+      gridTemplateColumns: 'repeat(47, 240px)',
       gridGap: spacing(3),
-      height: 480,
+      height: 960,
       padding: spacing(2),
       backgroundColor: grey[900],
       overflow: 'auto',
       scrollPadding: `${spacing(2)}px`,
     },
     scrollSnapCell: {
-      height: 120,
+      height: 800,
       borderRadius: 8,
 
       '&:nth-of-type(7n+0)': {
