@@ -92,6 +92,12 @@ const questions: QuestionInfo[] = [
           <code>minmax</code> function in <code>repeat</code> function
         </p>
 
+        <p>
+          The good thing when creating responsive layout with CSS Grid is it
+          depends on the container width rather then the window width as in the
+          case of media query.
+        </p>
+
         <CodeViewer language="css">
           {`.Grid1-grid-178 {
   display: grid;
@@ -157,6 +163,122 @@ const questions: QuestionInfo[] = [
         name:
           '[CSS-TRICKS] Auto-Sizing Columns in CSS Grid: `auto-fill` vs `auto-fit`',
         url: `https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/`,
+      },
+    ],
+  },
+  {
+    question: 'How to define areas in grid layouts?',
+    answer: (
+      <div>
+        <p>
+          Use <code>grid-template-areas</code> with <code>grid-area</code> and
+          optionally <code>grid-auto-flow</code>
+        </p>
+        <p>
+          The <code>grid-template-areas</code> CSS property specifies named grid
+          areas.
+        </p>
+        <p>
+          The <code>grid-area</code> CSS property is a shorthand property for
+          <code>grid-row-start</code>, <code>grid-column-start</code>,
+          <code>grid-row-end</code> and <code>grid-column-end</code>, specifying
+          a grid item’s size and location within the grid by contributing a
+          line, a span, or nothing (automatic) to its grid placement, thereby
+          specifying the edges of its grid area.
+        </p>
+        <p>
+          The <code>grid-auto-flow</code> CSS property controls how the
+          auto-placement algorithm works, specifying exactly how auto-placed
+          items get flowed into the grid.
+        </p>
+        <CodeViewer language="css">
+          {`.Grid1-areaGrid-188 {
+  display: grid;
+  background-color: rgba(255, 205, 210, 0.1);
+  grid-template-rows: 60px 40px 30px 40px 30px 60px;
+  grid-template-areas: 
+      "header  header header header header header"
+      "sidebar ...... ...... ...... ...... ......"
+      "sidebar ...... main   main   ...... ......"
+      "sidebar ...... main   main   ...... ......"
+      "sidebar ...... ...... ...... ...... ......"
+      "sidebar footer footer footer footer footer";
+  grid-template-columns: 30% 1fr 1fr 1fr 1fr 1fr;
+}`}
+        </CodeViewer>
+      </div>
+    ),
+    references: [
+      {
+        name: `[MDN] grid-template-areas`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas`,
+      },
+      {
+        name: `[MDN] grid-area`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area`,
+      },
+      {
+        name: `[MDN] grid-auto-flow`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-flow`,
+      },
+      {
+        name: `Understanding CSS Grid: Grid Template Areas`,
+        url: `https://www.smashingmagazine.com/2020/02/understanding-css-grid-template-areas/`,
+      },
+      {
+        name: `[CSS-TRICKS] A Complete Guide to Grid`,
+        url: `https://css-tricks.com/snippets/css/complete-guide-grid/`,
+      },
+    ],
+  },
+  {
+    question: `How to create a responsive magazine grid layout?`,
+    answer: (
+      <div>
+        <CodeViewer language="css">
+          {`.Grid1-fluidGrid-190 {
+  display: grid;
+  grid-gap: 24px 32px;
+  grid-auto-flow: dense row;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.Grid1-fluidGridCell-191 {
+  color: white;
+  height: 100%;
+  display: flex;
+  font-size: 32px;
+  min-height: 64px;
+  align-items: center;
+  justify-content: center;
+}
+
+.Grid1-fluidGridCell-191:nth-of-type(17n + 5) {
+  grid-column: 2 / -1;
+}
+
+.Grid1-fluidGridCell-191:nth-of-type(31n + 11) {
+  height: 128px;
+  grid-column: 1 / -2;
+  background-color: #e65100;
+}
+
+@media (max-width: 540px) {
+  .Grid1-fluidGridCell-191 {
+    grid-column: 1 !important;
+  }
+}`}
+        </CodeViewer>
+      </div>
+    ),
+    references: [
+      {
+        name: `[CSS-TRICKS] Responsive Grid Magazine Layout in Just 20 Lines of CSS`,
+        url: `https://css-tricks.com/responsive-grid-magazine-layout-in-just-20-lines-of-css/`,
+      },
+      {
+        name: `[CSS-TRICKS] A Complete Guide to Grid`,
+        url: `https://css-tricks.com/snippets/css/complete-guide-grid/`,
       },
     ],
   },

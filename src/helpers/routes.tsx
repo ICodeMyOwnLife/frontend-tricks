@@ -152,6 +152,13 @@ const ROUTES: RouteInfo[] = [
         ),
       },
       {
+        name: 'Scroll',
+        path: '/css/scroll',
+        component: lazy(() =>
+          import(/* webpackChunkName: "css__Scroll1" */ 'pages/css/Scroll1'),
+        ),
+      },
+      {
         name: 'Shapes',
         path: '/css/shapes',
         component: lazy(() =>

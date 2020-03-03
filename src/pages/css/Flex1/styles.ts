@@ -7,7 +7,7 @@ const styles = ({ spacing }: Theme) =>
     inputGrid: {
       display: 'grid',
       gridTemplateColumns: 'repeat(2, 1fr)',
-      gridGap: `${spacing(2)}px ${spacing(4)}px`,
+      gridGap: spacing(2, 4),
       marginBottom: spacing(3),
     },
     flexGroup: {

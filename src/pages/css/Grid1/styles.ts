@@ -1,21 +1,20 @@
 import { makeStyles, createStyles, Theme, fade } from '@material-ui/core';
-import { red, grey } from '@material-ui/core/colors';
+import { red, grey, orange } from '@material-ui/core/colors';
 
 const styles = ({ spacing }: Theme) =>
   createStyles({
     root: {},
     gridWrapper: {
       display: 'grid',
-      gridGap: `${spacing(3)}px 0`,
+      gridGap: spacing(3, 0),
     },
     gridCell: {
-      backgroundColor: red[500],
-      opacity: 0.5,
+      backgroundColor: red[900],
     },
     inputGrid: {
       display: 'grid',
       gridTemplateColumns: 'repeat(3, 1fr)',
-      gridGap: `${spacing(2)}px ${spacing(4)}px`,
+      gridGap: spacing(2, 4),
       marginBottom: spacing(3),
     },
     propsGridWrapper: {
@@ -56,10 +55,11 @@ const styles = ({ spacing }: Theme) =>
     },
     responsiveGrid: {
       display: 'grid',
-      gridGap: `${spacing(3)}px ${spacing(4)}px`,
+      gridGap: spacing(3, 4),
     },
     responsiveGridCell: {
       height: 64,
+      opacity: 0.5,
     },
     autoFillGrid: {
       gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
@@ -72,11 +72,11 @@ const styles = ({ spacing }: Theme) =>
       gridTemplateColumns: '30% 1fr 1fr 1fr 1fr 1fr',
       gridTemplateRows: '60px 40px 30px 40px 30px 60px',
       gridTemplateAreas: `
-      "header header header header header header"
-      "sidebar . . . . ."
-      "sidebar . main main . ."
-      "sidebar . main main . ."
-      "sidebar . . . . ."
+      "header  header header header header header"
+      "sidebar ...... ...... ...... ...... ......"
+      "sidebar ...... main   main   ...... ......"
+      "sidebar ...... main   main   ...... ......"
+      "sidebar ...... ...... ...... ...... ......"
       "sidebar footer footer footer footer footer"`,
       backgroundColor: fade(red[100], 0.1),
     },
@@ -84,10 +84,41 @@ const styles = ({ spacing }: Theme) =>
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      fontSize: 32,
+      fontSize: 22,
       fontWeight: 'bold',
       color: grey[900],
       opacity: 0.5,
+    },
+    fluidGrid: {
+      display: 'grid',
+      gridTemplateColumns: `repeat(auto-fit, minmax(200px, 1fr))`,
+      gridGap: spacing(3, 4),
+      gridAutoFlow: 'dense row',
+    },
+    fluidGridCell: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100%',
+      minHeight: 64,
+      fontSize: 32,
+      color: 'white',
+
+      '&:nth-of-type(17n + 5)': {
+        gridColumn: '2 / -1',
+      },
+
+      '&:nth-of-type(31n + 11)': {
+        gridColumn: '1 / -2',
+        height: 128,
+        backgroundColor: orange[900],
+      },
+    },
+
+    '@media (max-width: 540px)': {
+      fluidGridCell: {
+        gridColumn: '1 !important',
+      },
     },
   });
 
