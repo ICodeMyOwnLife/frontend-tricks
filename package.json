@@ -82,6 +82,7 @@
   },
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "yarn type-check && yarn lint-staged",
       "prepare-commit-msg": "exec < /dev/tty && npx git-cz --hook || true"
     }
