@@ -1,10 +1,11 @@
 import React, { FC, memo } from 'react';
 import clsx from 'clsx';
-import classes from './styles.module.scss';
+import useStyles from './styles';
 
-export const TextComponent: FC<TextProps> = ({ className }) => (
-  <div className={clsx(classes.Text, className)}>THIS IS TEXT</div>
-);
+export const TextComponent: FC<TextProps> = ({ className }) => {
+  const classes = useStyles();
+  return <div className={clsx(classes.text, className)}>THIS IS TEXT</div>;
+};
 
 const Text = memo(TextComponent);
 Text.displayName = 'Text';

@@ -319,21 +319,6 @@ const ROUTES: RouteInfo[] = [
     ],
   },
   {
-    name: 'Git',
-    path: 'git',
-    childRoutes: [
-      {
-        name: 'Pre-Commit',
-        path: '/git/pre-commit',
-        component: lazy(() =>
-          import(
-            /* webpackChunkName: "git__PreCommit1" */ 'pages/git/PreCommit1'
-          ),
-        ),
-      },
-    ],
-  },
-  {
     name: 'JavaScript',
     path: 'js',
     childRoutes: [
@@ -466,6 +451,21 @@ const ROUTES: RouteInfo[] = [
         component: lazy(() =>
           import(
             /* webpackChunkName: "react__TypeScript1" */ 'pages/react/TypeScript1'
+          ),
+        ),
+      },
+    ],
+  },
+  {
+    name: 'Tools',
+    path: 'tools',
+    childRoutes: [
+      {
+        name: 'Pre-Commit',
+        path: '/tools/pre-commit',
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "tools__PreCommit1" */ 'pages/tools/PreCommit1'
           ),
         ),
       },

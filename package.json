@@ -52,6 +52,7 @@
     "ua-parser-js": "^0.7.20"
   },
   "scripts": {
+    "commit": "npx git-cz",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "build:staging": "env-cmd -f .env.staging react-scripts build",
