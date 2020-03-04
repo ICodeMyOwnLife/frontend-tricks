@@ -20,10 +20,20 @@ commitizen init cz-conventional-changelog --yarn --dev --exact`}
         </p>
         <p>
           Alternatively, incorporate <code>commitizen</code> and{' '}
-          <code>commitlint</code> into the existing git commit workflow by
-          adding this entry to husky hooks in <code>package.json</code>
+          <code>commitlint</code> into the existing git commit workflow
         </p>
-        <CodeViewer language="bash">{`ya -D husky @commitlint/{config-conventional,cli}`}</CodeViewer>
+        <CodeViewer language="bash">{`yarn add -D husky @commitlint/{config-conventional,cli}`}</CodeViewer>
+        <p>
+          Add <code>commitlint.config.js</code>
+        </p>
+        <CodeViewer language="javascript">
+          {`module.exports = {
+  extends: ['@commitlint/config-conventional'],
+};`}
+        </CodeViewer>
+        <p>
+          A these entry to husky hooks in <code>package.json</code>
+        </p>
         <CodeViewer language="json">
           {`"husky": {
   "hooks": {
