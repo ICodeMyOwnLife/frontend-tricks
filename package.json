@@ -81,7 +81,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn type-check && yarn lint-staged"
+      "pre-commit": "yarn type-check && yarn lint-staged",
+      "prepare-commit-msg": "exec < /dev/tty && npx git-cz --hook || true"
     }
   },
   "lint-staged": {
