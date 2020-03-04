@@ -62,7 +62,8 @@
     "deploy:heroku": "git push heroku master",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "lint:fix": "yarn lint --fix",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "release": "release-it --ci"
   },
   "eslintConfig": {
     "extends": "react-app"
