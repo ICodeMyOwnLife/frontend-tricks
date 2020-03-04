@@ -461,6 +461,15 @@ const ROUTES: RouteInfo[] = [
     path: 'tools',
     childRoutes: [
       {
+        name: 'Commit',
+        path: '/tools/commit',
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "tools__Commit1" */ 'pages/tools/Commit1'
+          ),
+        ),
+      },
+      {
         name: 'Pre-Commit',
         path: '/tools/pre-commit',
         component: lazy(() =>
