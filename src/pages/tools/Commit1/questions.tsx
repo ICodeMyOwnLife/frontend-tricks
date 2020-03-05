@@ -15,7 +15,7 @@ const questions: QuestionInfo[] = [
 commitizen init cz-conventional-changelog --yarn --dev --exact`}
         </CodeViewer>
         <p>
-          Run <code>git cz</code> or <code>npx git-cz</code> instead of{' '}
+          Run <code>git-cz</code> or <code>npx git-cz</code> instead of{' '}
           <code>git commit</code> when committing
         </p>
         <p>
@@ -32,7 +32,7 @@ commitizen init cz-conventional-changelog --yarn --dev --exact`}
 };`}
         </CodeViewer>
         <p>
-          A these entry to husky hooks in <code>package.json</code>
+          Add these entries to husky hooks in <code>package.json</code>
         </p>
         <CodeViewer language="json">
           {`"husky": {
