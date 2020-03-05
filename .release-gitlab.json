@@ -1,0 +1,13 @@
+{
+  "git": {
+    "commitMessage": "chore(release): release ${version}",
+    "pushRepo": "gitlab"
+  },
+  "gitlab": {
+    "release": true,
+    "origin": "https://gitlab.com"
+  },
+  "npm": {
+    "publish": false
+  }
+}

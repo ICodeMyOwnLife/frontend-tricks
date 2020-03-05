@@ -70,7 +70,8 @@
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "lint:fix": "yarn lint --fix",
     "type-check": "tsc --noEmit",
-    "release": "release-it --ci"
+    "release-github": "release-it --ci --config .release-github.json",
+    "release-gitlab": "release-it --ci --config .release-gitlab.json"
   },
   "eslintConfig": {
     "extends": "react-app"

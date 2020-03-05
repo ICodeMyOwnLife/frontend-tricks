@@ -1,0 +1,13 @@
+{
+  "git": {
+    "commitMessage": "chore(release): release ${version}",
+    "pushRepo": "origin"
+  },
+  "github": {
+    "release": true,
+    "origin": "https://github.com"
+  },
+  "npm": {
+    "publish": false
+  }
+}
