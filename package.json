@@ -54,8 +54,8 @@
     "lint-staged": "^9.5.0",
     "node-sass": "^4.13.0",
     "react-scripts": "^3.3.0",
+    "release-it": "^12.6.3",
     "source-map-explorer": "^2.1.2",
-    "standard-version": "^7.1.0",
     "typescript": "^3.7.3"
   },
   "scripts": {
@@ -70,7 +70,7 @@
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "lint:fix": "yarn lint --fix",
     "type-check": "tsc --noEmit",
-    "release": "standard-version && git push --follow-tags"
+    "release": "release-it --ci"
   },
   "eslintConfig": {
     "extends": "react-app"
