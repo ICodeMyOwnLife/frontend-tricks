@@ -28,6 +28,7 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
+    "@size-limit/preset-app": "^4.0.2",
     "@types/enzyme": "^3.10.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/enzyme-to-json": "^1.5.3",
@@ -55,23 +56,25 @@
     "node-sass": "^4.13.0",
     "react-scripts": "^3.3.0",
     "release-it": "^12.6.3",
+    "size-limit": "^4.0.2",
     "source-map-explorer": "^2.1.2",
     "typescript": "^3.7.3"
   },
   "scripts": {
-    "commit": "git-cz",
-    "start": "react-scripts start",
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "build": "react-scripts build",
     "build:staging": "env-cmd -f .env.staging react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "commit": "git-cz",
     "deploy:heroku": "git push heroku master",
+    "eject": "react-scripts eject",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "lint:fix": "yarn lint --fix",
-    "type-check": "tsc --noEmit",
     "release-github": "release-it --ci --config .release-github.json",
-    "release-gitlab": "release-it --ci --config .release-gitlab.json"
+    "release-gitlab": "release-it --ci --config .release-gitlab.json",
+    "size": "yarn build && size-limit",
+    "start": "react-scripts start",
+    "test": "react-scripts test",
+    "type-check": "tsc --noEmit"
   },
   "eslintConfig": {
     "extends": "react-app"

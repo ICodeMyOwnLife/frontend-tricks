@@ -387,15 +387,6 @@ const ROUTES: RouteInfo[] = [
     path: 'react',
     childRoutes: [
       {
-        name: 'Bundle Size',
-        path: '/react/bundle-size',
-        component: lazy(() =>
-          import(
-            /* webpackChunkName: "react__BundleSize1" */ 'pages/react/BundleSize1'
-          ),
-        ),
-      },
-      {
         name: 'Deployment',
         path: '/react/deployment',
         component: lazy(() =>
@@ -461,6 +452,15 @@ const ROUTES: RouteInfo[] = [
     path: 'tools',
     childRoutes: [
       {
+        name: 'Bundle Size',
+        path: '/tools/bundle-size',
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "tools__BundleSize1" */ 'pages/tools/BundleSize1'
+          ),
+        ),
+      },
+      {
         name: 'Commit',
         path: '/tools/commit',
         component: lazy(() =>
@@ -475,6 +475,15 @@ const ROUTES: RouteInfo[] = [
         component: lazy(() =>
           import(
             /* webpackChunkName: "tools__PreCommit1" */ 'pages/tools/PreCommit1'
+          ),
+        ),
+      },
+      {
+        name: 'Release',
+        path: '/tools/release',
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "tools__Release1" */ 'pages/tools/Release1'
           ),
         ),
       },
