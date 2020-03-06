@@ -109,6 +109,13 @@ const ROUTES: RouteInfo[] = [
         ),
       },
       {
+        name: 'Input',
+        path: '/css/input',
+        component: lazy(() =>
+          import(/* webpackChunkName: "css__Input1" */ 'pages/css/Input1'),
+        ),
+      },
+      {
         name: 'Input Hacks',
         path: '/css/input-hacks',
         component: lazy(() =>
@@ -457,6 +464,15 @@ const ROUTES: RouteInfo[] = [
         component: lazy(() =>
           import(
             /* webpackChunkName: "tools__BundleSize1" */ 'pages/tools/BundleSize1'
+          ),
+        ),
+      },
+      {
+        name: 'Code Analysis',
+        path: '/tools/code-analysis',
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "tools__CodeAnalysis1" */ 'pages/tools/CodeAnalysis1'
           ),
         ),
       },

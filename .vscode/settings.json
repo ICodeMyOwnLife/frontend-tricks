@@ -36,5 +36,9 @@
   ],
   "files.exclude": {
     "**/.git": false
-  }
+  },
+  "sonarlint.connectedMode.project": {
+    "projectKey": "frontend-tricks"
+  },
+  "git.ignoreLimitWarning": true
 }
