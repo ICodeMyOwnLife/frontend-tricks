@@ -47,7 +47,7 @@ export default SelectFormControl;
 export interface SelectFormControlProps
   extends OmitFrom<SelectProps, 'children'> {
   label: string;
-  options: (string | NameValueOption)[];
+  options: readonly (string | NameValueOption)[];
 }
 
 export interface NameValueOption {

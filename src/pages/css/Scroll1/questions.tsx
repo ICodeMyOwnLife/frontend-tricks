@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
 import CodeViewer from 'components/CodeViewer';
@@ -87,8 +88,34 @@ const questions: QuestionInfo[] = [
         url: `https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-align`,
       },
       {
+        name: `[MDN] CSS Scroll Snap`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap`,
+      },
+      {
         name: `[CSS-TRICKS] Practical CSS Scroll Snapping`,
         url: `https://css-tricks.com/practical-css-scroll-snapping/`,
+      },
+    ],
+  },
+  {
+    question: `How to control scroll chaining and page refreshing when scrolling over the boundaries of a container?`,
+    answer: (
+      <div>
+        <p>
+          Use <code>overscroll-behavior</code>
+        </p>
+        <p>
+          The <code>overscroll-behavior</code> CSS property sets what a browser
+          does when reaching the boundary of a scrolling area. It's a shorthand
+          for <code>overscroll-behavior-x</code> and{' '}
+          <code>overscroll-behavior-y</code>
+        </p>
+      </div>
+    ),
+    references: [
+      {
+        name: `[MDN] overscroll-behavior`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/CSS/overscroll-behavior`,
       },
     ],
   },

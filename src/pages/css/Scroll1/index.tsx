@@ -3,6 +3,7 @@ import QuestionPage from 'components/QuestionPage';
 import Section from 'components/Section';
 import ScrollMargin from './ScrollMargin';
 import ScrollSnap from './ScrollSnap';
+import OverScroll from './OverScroll';
 import questions from './questions';
 
 export const Scroll1Component: FC = () => (
@@ -12,6 +13,9 @@ export const Scroll1Component: FC = () => (
     </Section>
     <Section title="Scroll Snap">
       <ScrollSnap />
+    </Section>
+    <Section title="Over-scroll">
+      <OverScroll />
     </Section>
   </QuestionPage>
 );

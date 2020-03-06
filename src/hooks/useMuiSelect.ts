@@ -5,11 +5,11 @@ import {
   ValueTargetEventHandler,
 } from 'cb-hooks/dist/types/common';
 
-const useMuiSelect = useTextInput as (
-  initialValue?: InitialState<string>,
+const useMuiSelect = useTextInput as <TValue extends string>(
+  initialValue?: InitialState<TValue>,
 ) => readonly [
-  string,
-  Dispatch<SetStateAction<string>>,
+  TValue,
+  Dispatch<SetStateAction<TValue>>,
   ValueTargetEventHandler<unknown>,
 ];
 

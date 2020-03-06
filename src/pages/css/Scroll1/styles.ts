@@ -97,6 +97,35 @@ const styles = ({ spacing }: Theme) =>
         backgroundColor: lime[600],
       },
     },
+    overScrollInputs: {
+      display: 'grid',
+      gridTemplateColumns: `repeat(3, 1fr)`,
+      gridGap: spacing(2, 4),
+      marginBottom: spacing(3),
+    },
+    overScroll: {
+      position: 'relative',
+      height: 360,
+      overflowY: 'auto',
+      backgroundImage: `linear-gradient(to top, #16222a, #3a6073)`,
+    },
+    overScrollContent: {
+      height: 2400,
+    },
+    overScrollDialog: {
+      position: 'sticky',
+      bottom: 0,
+      width: 240,
+      height: 240,
+      marginLeft: 'auto',
+      border: `1px solid ${grey[300]}`,
+      opacity: 0.5,
+      overflowY: 'auto',
+    },
+    overScrollDialogContent: {
+      height: 1200,
+      backgroundImage: `linear-gradient(to top, #ff4b1f, #ff9068)`,
+    },
   });
 
 const useStyles = makeStyles(styles, { classNamePrefix: 'Scroll1' });
