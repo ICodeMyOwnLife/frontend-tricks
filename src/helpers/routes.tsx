@@ -455,6 +455,21 @@ const ROUTES: RouteInfo[] = [
     ],
   },
   {
+    name: 'Security',
+    path: 'security',
+    childRoutes: [
+      {
+        name: 'ReCaptcha',
+        path: '/security/recaptcha',
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "security__ReCaptcha1" */ 'pages/security/ReCaptcha1'
+          ),
+        ),
+      },
+    ],
+  },
+  {
     name: 'Tools',
     path: 'tools',
     childRoutes: [
