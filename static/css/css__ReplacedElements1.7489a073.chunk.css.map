@@ -1,0 +1,1 @@
+{"version":3,"sources":["styles.module.scss"],"names":[],"mappings":"AAAA,qBACE,kBAAmB,CACnB,sBAAuB","file":"css__ReplacedElements1.7489a073.chunk.css","sourcesContent":[".Image {\n  object-fit: contain;\n  object-position: center;\n}\n"]}
