@@ -1,24 +1,12 @@
-import { useState, useEffect, Dispatch, SetStateAction } from 'react';
+import { useState, useCallback } from 'react';
 import { useScript } from 'cb-hooks';
 import backendService from 'services/backendService';
 
-const siteKey = process.env.REACT_APP_SITE_KEY!;
+export const v3SiteKey = process.env.REACT_APP_RECAPTCHA_V3_SITE_KEY!;
+export const checkboxSiteKey = process.env.REACT_APP_RECAPTCHA_WIDGET_SITE_KEY!;
 
-const runReCaptchaV3 = (
-  setVerifyResponse: Dispatch<
-    SetStateAction<ReCaptchaVerifyResponse | undefined>
-  >,
-) => {
-  if (!window.grecaptcha) return;
-
-  window.grecaptcha.ready(async () => {
-    const token = await window.grecaptcha.execute(siteKey, { action: 'test' });
-    const res = await backendService.post<ReCaptchaVerifyResponse>(
-      '/verify-recaptcha',
-      { token },
-    );
-    setVerifyResponse(res.data);
-  });
+const v3Attrs: Partial<HTMLScriptElement> = {
+  src: `https://www.google.com/recaptcha/api.js?render=${v3SiteKey}`,
 };
 
 export const useReCaptchaV3 = () => {
@@ -26,13 +14,22 @@ export const useReCaptchaV3 = () => {
     ReCaptchaVerifyResponse
   >();
 
-  useScript({
-    src: `https://www.google.com/recaptcha/api.js?render=${siteKey}`,
-    onload: () => runReCaptchaV3(setVerifyResponse),
-  });
+  const verify = useCallback(() => {
+    if (!window.grecaptcha) return;
 
-  useEffect(() => {
-    runReCaptchaV3(setVerifyResponse);
+    window.grecaptcha.ready(async () => {
+      const token = await window.grecaptcha.execute(v3SiteKey, {
+        action: 'test',
+      });
+      const res = await backendService.post<ReCaptchaVerifyResponse>(
+        '/verify-recaptcha',
+        { token },
+      );
+      setVerifyResponse(res.data);
+    });
   }, []);
-  return verifyResponse;
+
+  useScript(v3Attrs);
+
+  return { verify, verifyResponse };
 };

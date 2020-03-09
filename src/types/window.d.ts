@@ -9,15 +9,15 @@ interface Clipboard {
   write: (items: ClipboardItem[]) => Promise<void>;
 }
 
-interface ClipboardItem {
-  types: string[];
-  getType: (type: string) => Promise<Blob>;
-}
-
 declare var ClipboardItem: {
   prototype: ClipboardItem;
   new (init: { [type: string]: Blob }): ClipboardItem;
 };
+
+interface ClipboardItem {
+  types: string[];
+  getType: (type: string) => Promise<Blob>;
+}
 
 declare namespace Intl {
   interface ListFormatOptions {
@@ -26,22 +26,18 @@ declare namespace Intl {
     type?: string;
   }
 
-  interface ListFormat {
-    format: (list: string[]) => string;
-  }
-
   var ListFormat: {
     new (locales?: string | string[], options?: ListFormatOptions): ListFormat;
   };
+
+  interface ListFormat {
+    format: (list: string[]) => string;
+  }
 
   interface RelativeTimeFormatOptions {
     localeMatcher?: string;
     numeric?: string;
     style?: string;
-  }
-
-  interface RelativeTimeFormat {
-    format: (value: number, unit: string) => string;
   }
 
   var RelativeTimeFormat: {
@@ -50,6 +46,10 @@ declare namespace Intl {
       options?: RelativeTimeFormatOptions,
     ): RelativeTimeFormat;
   };
+}
+
+interface RelativeTimeFormat {
+  format: (value: number, unit: string) => string;
 }
 
 interface MemoryInfo {
