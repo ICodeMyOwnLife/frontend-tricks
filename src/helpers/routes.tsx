@@ -474,6 +474,13 @@ const ROUTES: RouteInfo[] = [
     path: 'tools',
     childRoutes: [
       {
+        name: 'Build',
+        path: '/tools/build',
+        component: lazy(() =>
+          import(/* webpackChunkName: "tools__Build1" */ 'pages/tools/Build1'),
+        ),
+      },
+      {
         name: 'Bundle Size',
         path: '/tools/bundle-size',
         component: lazy(() =>
