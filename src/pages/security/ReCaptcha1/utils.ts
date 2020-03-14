@@ -1,38 +1,83 @@
-import { useState, useEffect, Dispatch, SetStateAction } from 'react';
-import { useScript } from 'cb-hooks';
+import { useState, useCallback, useRef } from 'react';
+import {
+  ReCaptchaV3Object,
+  ReCaptchaVerifyResponse,
+  ReCaptchaCheckboxObject,
+} from 'cb-react-recaptcha/dist/types/common';
 import backendService from 'services/backendService';
 
-const siteKey = process.env.REACT_APP_SITE_KEY!;
+export const v3SiteKey = process.env.REACT_APP_RECAPTCHA_V3_SITE_KEY!;
+export const checkboxSiteKey = process.env.REACT_APP_RECAPTCHA_WIDGET_SITE_KEY!;
 
-const runReCaptchaV3 = (
-  setVerifyResponse: Dispatch<
-    SetStateAction<ReCaptchaVerifyResponse | undefined>
-  >,
-) => {
-  if (!window.grecaptcha) return;
-
-  window.grecaptcha.ready(async () => {
-    const token = await window.grecaptcha.execute(siteKey, { action: 'test' });
-    const res = await backendService.post<ReCaptchaVerifyResponse>(
-      '/verify-recaptcha',
-      { token },
-    );
-    setVerifyResponse(res.data);
+const verify = async (url: string, response: string) => {
+  const res = await backendService.post<ReCaptchaVerifyResponse>(url, {
+    response,
   });
+  return res.data;
 };
 
+const verifyV3 = (response: string) => verify('/verify-recaptcha-v3', response);
+
+const verifyCheckbox = (response: string) =>
+  verify('/verify-recaptcha-checkbox', response);
+
 export const useReCaptchaV3 = () => {
-  const [verifyResponse, setVerifyResponse] = useState<
+  const [responseV3, setResponseV3] = useState<string>();
+  const [verifyResponseV3, setVerifyResponseV3] = useState<
     ReCaptchaVerifyResponse
   >();
+  const refV3 = useRef<ReCaptchaV3Object>(null);
 
-  useScript({
-    src: `https://www.google.com/recaptcha/api.js?render=${siteKey}`,
-    onload: () => runReCaptchaV3(setVerifyResponse),
-  });
-
-  useEffect(() => {
-    runReCaptchaV3(setVerifyResponse);
+  const handleVerifyV3 = useCallback(async (response: string) => {
+    setResponseV3(response);
+    const verifyResponse = await verifyV3(response);
+    setVerifyResponseV3(verifyResponse);
   }, []);
-  return verifyResponse;
+
+  const getResponseV3 = useCallback(async () => {
+    const response = await refV3.current?.getResponse();
+    if (response) {
+      handleVerifyV3(response);
+    }
+  }, [handleVerifyV3]);
+
+  return { getResponseV3, handleVerifyV3, refV3, responseV3, verifyResponseV3 };
+};
+
+export const useReCaptchaCheckbox = () => {
+  const [responseCheckbox, setResponseCheckbox] = useState<string>();
+  const [verifyResponseCheckbox, setVerifyResponseCheckbox] = useState<
+    ReCaptchaVerifyResponse
+  >();
+  const refCheckbox = useRef<ReCaptchaCheckboxObject>(null);
+
+  const handleExpiredCheckbox = useCallback(() => {
+    setResponseCheckbox(undefined);
+    setVerifyResponseCheckbox(undefined);
+  }, []);
+
+  const handleVerifyCheckbox = useCallback(async (response: string) => {
+    setResponseCheckbox(response);
+    const verifyResponse = await verifyCheckbox(response);
+    setVerifyResponseCheckbox(verifyResponse);
+  }, []);
+
+  const getResponseCheckbox = useCallback(() => {
+    const response = refCheckbox.current?.getResponse();
+    if (response) {
+      handleVerifyCheckbox(response);
+    }
+  }, [handleVerifyCheckbox]);
+
+  const resetCheckbox = useCallback(() => refCheckbox.current?.reset(), []);
+
+  return {
+    getResponseCheckbox,
+    handleExpiredCheckbox,
+    handleVerifyCheckbox,
+    refCheckbox,
+    resetCheckbox,
+    responseCheckbox,
+    verifyResponseCheckbox,
+  };
 };

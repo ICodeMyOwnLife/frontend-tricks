@@ -101,6 +101,14 @@ const questions: QuestionInfo[] = [
         name: `[GitHub] release-it.json`,
         url: `https://github.com/release-it/release-it/blob/master/conf/release-it.json`,
       },
+      {
+        name: `[GitHub] cb-hooks`,
+        url: `https://github.com/ICodeMyOwnLife/cb-hooks/blob/master/package.json`,
+      },
+      {
+        name: `[GitHub] cb-react-recaptcha`,
+        url: `https://github.com/ICodeMyOwnLife/cb-react-recaptcha/blob/master/package.json`,
+      },
     ],
   },
 ];

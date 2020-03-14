@@ -144,6 +144,14 @@ yarn analyze`}
         name: `[GitHub] autoprefixer/package.json`,
         url: `https://github.com/postcss/autoprefixer/blob/master/package.json`,
       },
+      {
+        name: `[GitHub] cb-hooks`,
+        url: `https://github.com/ICodeMyOwnLife/cb-hooks/blob/master/package.json`,
+      },
+      {
+        name: `[GitHub] cb-react-recaptcha`,
+        url: `https://github.com/ICodeMyOwnLife/cb-react-recaptcha/blob/master/package.json`,
+      },
     ],
   },
 ];

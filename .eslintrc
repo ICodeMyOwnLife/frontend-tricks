@@ -1,5 +1,5 @@
 {
   "extends": "react-ts",
-  "globals": { "ClipboardItem": true, "grecaptcha": true },
+  "globals": { "ClipboardItem": true },
   "ignorePatterns": ["src/types"]
 }

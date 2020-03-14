@@ -71,6 +71,14 @@ npx commitizen init cz-conventional-changelog --yarn --dev --exact`}
         name: `[GitHub] commitlint`,
         url: `https://github.com/conventional-changelog/commitlint`,
       },
+      {
+        name: `[GitHub] cb-hooks`,
+        url: `https://github.com/ICodeMyOwnLife/cb-hooks/blob/master/package.json`,
+      },
+      {
+        name: `[GitHub] cb-react-recaptcha`,
+        url: `https://github.com/ICodeMyOwnLife/cb-react-recaptcha/blob/master/package.json`,
+      },
     ],
   },
 ];

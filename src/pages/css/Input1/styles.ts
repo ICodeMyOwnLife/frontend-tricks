@@ -1,6 +1,14 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core';
 import { grey, green } from '@material-ui/core/colors';
 
+const checkInputHeight = 32;
+const checkInputBorderWidth = 2;
+const switchWidth = 52;
+const switchPadding = 2;
+const switchHandleSize =
+  checkInputHeight - 2 * checkInputBorderWidth - 2 * switchPadding;
+const switchHandleTranslateX = switchWidth - checkInputHeight;
+
 const styles = ({ spacing }: Theme) =>
   createStyles({
     root: {},
@@ -15,8 +23,23 @@ const styles = ({ spacing }: Theme) =>
       padding: spacing(1, 0),
     },
     checkInput: {
+      position: 'relative',
+      height: checkInputHeight,
       marginRight: spacing(1.5),
+      border: `${checkInputBorderWidth}px solid`,
+      borderColor: grey[600],
       transition: '200ms ease',
+
+      '&::after': {
+        content: '""',
+        position: 'absolute',
+        transition: '200ms ease',
+      },
+
+      '&:checked': {
+        borderColor: green[100],
+        backgroundColor: green[600],
+      },
 
       '&:focus, &:active': {
         outline: 'none',
@@ -30,23 +53,13 @@ const styles = ({ spacing }: Theme) =>
       },
     },
     box: {
-      position: 'relative',
       width: 32,
-      height: 32,
-      border: `2px solid`,
-      borderColor: grey[600],
 
       '&::after': {
-        content: '""',
-        position: 'absolute',
         opacity: 0,
-        transition: '200ms ease',
       },
 
       '&:checked': {
-        backgroundColor: green[600],
-        borderColor: green[100],
-
         '&::after': {
           opacity: 1,
         },
@@ -78,6 +91,28 @@ const styles = ({ spacing }: Theme) =>
         backgroundColor: green[100],
         borderRadius: '100%',
         transform: `translate(-50%, -50%)`,
+      },
+    },
+    switch: {
+      position: 'relative',
+      width: switchWidth,
+      borderRadius: checkInputHeight / 2,
+
+      '&::after': {
+        width: switchHandleSize,
+        height: switchHandleSize,
+        left: switchPadding,
+        top: switchPadding,
+        backgroundColor: grey[600],
+        borderRadius: '50%',
+        transform: `translateX(0)`,
+      },
+
+      '&:checked': {
+        '&::after': {
+          backgroundColor: green[100],
+          transform: `translateX(${switchHandleTranslateX}px)`,
+        },
       },
     },
   });

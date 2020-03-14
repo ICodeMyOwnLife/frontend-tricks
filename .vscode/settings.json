@@ -29,9 +29,12 @@
     "plusplus",
     "predeploy",
     "prismjs",
+    "recaptcha",
     "repos",
     "scrollable",
+    "sitekey",
     "srgb",
+    "tabindex",
     "todos",
     "unhighlight"
   ],

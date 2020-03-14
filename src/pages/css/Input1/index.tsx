@@ -4,6 +4,7 @@ import QuestionPage from 'components/QuestionPage';
 import Section from 'components/Section';
 import Checkbox from './Checkbox';
 import Radio from './Radio';
+import Switch from './Switch';
 import questions from './questions';
 import useStyles from './styles';
 
@@ -25,6 +26,10 @@ export const Input1Component: FC = () => {
           <Box>
             <Radio id="radio1" label="Radio 1" name="radio" />
             <Radio id="radio2" label="Radio 2" name="radio" />
+          </Box>
+          <Box>
+            <Switch id="switch1" label="Switch 1" />
+            <Switch id="switch2" label="Switch 2" />
           </Box>
         </Box>
       </Section>
