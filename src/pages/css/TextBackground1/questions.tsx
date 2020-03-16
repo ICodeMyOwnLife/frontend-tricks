@@ -7,24 +7,25 @@ const questions: QuestionInfo[] = [
     question: `How to set gradient or image background for text?`,
     answer: (
       <div>
-        <p>
-          1. Use <code>background-image</code> to add gradient or image
-        </p>
-        <p>
-          2. Set <code>background-clip: text</code> to clip the background. We
-          also need to set <code>color: transparent</code> or{' '}
-          <code>text-fill-color: transparent</code> to remove the fill color
-          from the text
-        </p>
-        <p>
-          3. Add <code>background-color</code> fallback
-        </p>
+        <ol>
+          <li>
+            Use <code>background-image</code> to add gradient or image
+          </li>
+          <li>
+            Set <code>background-clip:text</code> to clip the background. We
+            also need to set <code>color:transparent</code> or{' '}
+            <code>text-fill-color:transparent</code> to remove the fill color
+            from the text
+          </li>
+          <li>
+            Add <code>background-color</code> fallback
+          </li>
+        </ol>
+
         <CodeViewer language="css">
-          {`
-.TextBackground1-text-175 {
+          {`.TextBackground1-backgroundText-176 {
   color: transparent;
   font-size: 140px;
-  text-align: center;
   font-weight: bold;
   background-clip: text;
   background-color: #ffcdd2;
@@ -33,32 +34,46 @@ const questions: QuestionInfo[] = [
   -webkit-text-fill-color: transparent;
 }
 
-.TextBackground1-linearBackground-176 {
+.TextBackground1-linearBackground-177 {
   background-image: linear-gradient(
-        45deg,
-        rgba(0, 128, 0, 1) 0%,
-        rgba(255, 255, 0, 1) 50%,
-        rgba(0, 128, 0, 1) 100%
+        to bottom,
+        #004d40 0%,
+        #ffee58 50%,
+        #004d40 100%
       );
 }
 
-.TextBackground1-radialBackground-177 {
+.TextBackground1-radialBackground-178 {
   background-image: radial-gradient(
         ellipse at center,
-        rgba(235, 196, 255, 1) 0%,
+        #ba68c8 0%,
         rgba(0, 0, 0, 1) 100%
       );
 }
 
-.TextBackground1-conicBackground-178 {
+.TextBackground1-conicBackground-179 {
   background-image: conic-gradient(
-        #42a5f5,
-        #ffee58,
-        #ef5350,
-        #42a5f5);
+        from 65deg,
+        #f44336,
+        #e91e63,
+        #9c27b0,
+        #673ab7,
+        #3f51b5,
+        #2196f3,
+        #03a9f4,
+        #00bcd4,
+        #009688,
+        #4caf50,
+        #8bc34a,
+        #cddc39,
+        #ffeb3b,
+        #ffc107,
+        #ff9800,
+        #ff5722,
+        #f44336);
 }
 
-.TextBackground1-imageBackground-179 {
+.TextBackground1-imageBackground-180 {
   background-size: cover;
   background-image: url(/static/media/1.195411ab.jpg);
   background-repeat: no-repeat;
@@ -79,6 +94,104 @@ const questions: QuestionInfo[] = [
       {
         name: `How to add a gradient overlay to text with CSS`,
         url: `https://fossheim.io/writing/posts/css-text-gradient/`,
+      },
+    ],
+  },
+  {
+    question: `How to animate the color of a text on hover?`,
+    answer: (
+      <div>
+        <p>3 ways to animate the color of text:</p>
+        <ol>
+          <li>
+            Use <code>background-clip:text</code> and animate{' '}
+            <code>background-position</code>
+          </li>
+          <li>
+            Use a pseudo-element on top of the text and animate its{' '}
+            <code>width</code>/<code>heigh</code>
+          </li>
+          <li>
+            Use a pseudo-element on top of the text and animate its{' '}
+            <code>clip-path</code>
+          </li>
+        </ol>
+
+        <CodeViewer language="css">
+          {`.TextBackground1-hoverText-182 {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  font-size: 80px;
+  font-weight: bold;
+}
+
+.TextBackground1-hoverText1-183 {
+  color: transparent;
+  transition: background-position-x 500ms ease;
+  background-clip: text;
+  background-size: 200% 100%;
+  background-image: linear-gradient(to right, #ffff00, #fb8c00 25%, #ffff00 50%, #fb8c00 50%);
+  -moz-background-clip: text;
+  background-position-x: 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.TextBackground1-hoverText1-183:hover {
+  background-position-x: 0;
+}
+
+.TextBackground1-hoverText2-184 {
+  color: #fb8c00;
+}
+.TextBackground1-hoverText2-184::after {
+  top: 0;
+  left: 0;
+  color: transparent;
+  height: 0;
+  content: attr(data-text);
+  overflow: hidden;
+  position: absolute;
+  transition: height 500ms ease;
+  background-clip: text;
+  background-image: linear-gradient(to right, #ffff00, #fb8c00, #ffff00);
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.TextBackground1-hoverText2-184:hover::after {
+  height: 100%;
+}
+
+.TextBackground1-hoverText3-185 {
+  color: #fb8c00;
+}
+.TextBackground1-hoverText3-185::after {
+  top: 0;
+  left: 0;
+  color: transparent;
+  right: 0;
+  bottom: 0;
+  content: attr(data-text);
+  position: absolute;
+  clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+  transition: clip-path 500ms ease;
+  background-clip: text;
+  background-image: linear-gradient(to right, #ffff00, #fb8c00, #ffff00);
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.TextBackground1-hoverText3-185:hover::after {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}`}
+        </CodeViewer>
+      </div>
+    ),
+    references: [
+      {
+        name: `[CSS-TRICkS] 4 Ways to Animate the Color of a Text Link on Hover`,
+        url: `https://css-tricks.com/4-ways-to-animate-the-color-of-a-text-link-on-hover/`,
       },
     ],
   },
