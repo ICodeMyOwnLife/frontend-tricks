@@ -220,6 +220,13 @@ const ROUTES: RouteInfo[] = [
         ),
       },
       {
+        name: 'Canvas',
+        path: '/dom/canvas',
+        component: lazy(() =>
+          import(/* webpackChunkName: "dom__Canvas1" */ 'pages/dom/Canvas1'),
+        ),
+      },
+      {
         name: 'Clipboard',
         path: '/dom/clipboard',
         component: lazy(() =>
