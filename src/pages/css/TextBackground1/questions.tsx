@@ -12,9 +12,9 @@ const questions: QuestionInfo[] = [
             Use <code>background-image</code> to add gradient or image
           </li>
           <li>
-            Set <code>background-clip:text</code> to clip the background. We
-            also need to set <code>color:transparent</code> or{' '}
-            <code>text-fill-color:transparent</code> to remove the fill color
+            Set <code>background-clip: text</code> to clip the background. We
+            also need to set <code>color: transparent</code> or{' '}
+            <code>text-fill-color: transparent</code> to remove the fill color
             from the text
           </li>
           <li>

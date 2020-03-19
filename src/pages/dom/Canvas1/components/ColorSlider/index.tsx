@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import React, { FC, memo, ChangeEvent } from 'react';
 import { SliderProps, Slider } from '@material-ui/core';
 import { BaseColor } from 'utils/colors/BaseColor';
 import { useColorSlider } from './utils';
@@ -36,8 +36,9 @@ ColorSlider.displayName = 'ColorSlider';
 export default ColorSlider;
 
 export interface ColorSliderProps
-  extends OmitFrom<SliderProps, 'classes' | 'valueLabelDisplay'> {
-  thumbColorCreator: (value: number) => BaseColor;
+  extends OmitFrom<SliderProps, 'classes' | 'onChange' | 'valueLabelDisplay'> {
   defaultValue: number;
   gradientStops: GradientStop[];
+  onChange: (e: ChangeEvent<{}>, value: number | number[]) => void;
+  thumbColorCreator: (value: number) => BaseColor;
 }

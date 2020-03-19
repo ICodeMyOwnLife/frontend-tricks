@@ -197,6 +197,15 @@ const ROUTES: RouteInfo[] = [
           ),
         ),
       },
+      {
+        name: 'Transform',
+        path: '/css/transform',
+        component: lazy(() =>
+          import(
+            /* webpackChunkName: "css__Transform1" */ 'pages/css/Transform1'
+          ),
+        ),
+      },
     ],
   },
   {

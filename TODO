@@ -1,5 +1,6 @@
+// TODO: make rows in grid the same height using grid-auto-rows: 1fr
 // TODO: Inspect CodeEditor: why so heavy???
-// TODO: Implement loader
+// TODO: Implement spin loader
 // TODO: Input hack
 // TODO: update all styles.ts files
 // TODO: migrate all to Mui
