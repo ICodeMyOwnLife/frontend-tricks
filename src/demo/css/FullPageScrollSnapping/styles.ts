@@ -14,7 +14,7 @@ const styles = ({ spacing }: Theme) =>
       maxWidth: '100vw',
       overflowX: 'auto',
       scrollSnapType: 'x mandatory',
-      scrollSnapAlign: 'start',
+      scrollSnapAlign: 'center',
     },
     page: {
       display: 'flex',
@@ -24,7 +24,7 @@ const styles = ({ spacing }: Theme) =>
       width: '100vw',
       height: '100vh',
       color: 'white',
-      scrollSnapAlign: 'start',
+      scrollSnapAlign: 'center',
     },
     title: {
       marginBottom: spacing(4),

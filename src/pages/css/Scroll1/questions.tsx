@@ -72,7 +72,7 @@ const questions: QuestionInfo[] = [
             and may need <code>overflow: auto</code>
           </li>
           <li>
-            The item should have <code>scroll-snap-align</code> set to{' '}
+            The items should have <code>scroll-snap-align</code> set to{' '}
             <code>[ start | end | center ]{`{(1, 2)}`}</code>
           </li>
         </ol>
@@ -104,7 +104,7 @@ const questions: QuestionInfo[] = [
   grid-auto-flow: column;
   scroll-snap-type: x mandatory;
   grid-auto-columns: 1fr;
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 }
 
 .FullPageScrollSnapping-page-5 {
@@ -115,7 +115,7 @@ const questions: QuestionInfo[] = [
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 }`}
         </CodeViewer>
       </div>

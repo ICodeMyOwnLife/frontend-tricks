@@ -15,7 +15,7 @@ import { LoremIpsum } from 'lorem-ipsum';
 import { Typography } from '@material-ui/core';
 import useStyles from './styles';
 
-const loremIpsum = new LoremIpsum({ wordsPerSentence: { min: 6, max: 12 } });
+const loremIpsum = new LoremIpsum({ wordsPerSentence: { min: 4, max: 8 } });
 const backgroundColorGroups: string[][] = [
   [red[800], red[700], red[900]],
   [deepPurple[700], deepPurple[900], deepPurple[600], deepPurple[800]],
