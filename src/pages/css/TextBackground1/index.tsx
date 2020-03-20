@@ -1,35 +1,31 @@
 import React, { FC, memo } from 'react';
 import QuestionPage from 'components/QuestionPage';
 import Section from 'components/Section';
-import BackgroundText from './BackgroundText';
+import StaticText from './components/StaticText';
+import HoverText from './components/HoverText';
+import ShinyText from './components/ShinyText';
 import questions from './questions';
-import useStyles from './styles';
-import HoverText from './HoverText';
 
-export const TextBackground1Component: FC = () => {
-  const classes = useStyles();
+export const TextBackground1Component: FC = () => (
+  <QuestionPage questions={questions} title="Text Background 1">
+    <Section title="Static Text">
+      <StaticText variant="linear">LINEAR</StaticText>
+      <StaticText variant="radial">RADIAL</StaticText>
+      <StaticText variant="conic">CONIC</StaticText>
+      <StaticText variant="image">IMAGE</StaticText>
+    </Section>
 
-  return (
-    <QuestionPage
-      className={classes.root}
-      questions={questions}
-      title="Text Background 1"
-    >
-      <Section title="Background Text">
-        <BackgroundText className={classes.linearBackground} />
-        <BackgroundText className={classes.radialBackground} />
-        <BackgroundText className={classes.conicBackground} />
-        <BackgroundText className={classes.imageBackground} />
-      </Section>
+    <Section title="Hover Text">
+      <HoverText variant="horizontal">HORIZONTAL</HoverText>
+      <HoverText variant="vertical">VERTICAL</HoverText>
+      <HoverText variant="diagonal">DIAGONAL</HoverText>
+    </Section>
 
-      <Section title="Hover Text">
-        <HoverText className={classes.hoverText1} />
-        <HoverText className={classes.hoverText2} />
-        <HoverText className={classes.hoverText3} />
-      </Section>
-    </QuestionPage>
-  );
-};
+    <Section title="Shiny Text">
+      <ShinyText />
+    </Section>
+  </QuestionPage>
+);
 
 const TextBackground1 = memo(TextBackground1Component);
 TextBackground1.displayName = 'TextBackground1';

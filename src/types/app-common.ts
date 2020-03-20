@@ -2,9 +2,13 @@ import { ReactNode } from 'react';
 import { RouteProps } from 'react-router-dom';
 import { ReferenceInfo } from 'components/References';
 
-export interface RouteInfo extends LinkInfo, OmitFrom<RouteProps, 'path'> {
+export interface RouteInfo extends SimpleRouteInfo {
   childRoutes?: RouteInfo[];
 }
+
+export interface SimpleRouteInfo
+  extends LinkInfo,
+    OmitFrom<RouteProps, 'path'> {}
 
 export interface LinkInfo {
   name: string;

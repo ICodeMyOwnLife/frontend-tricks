@@ -1,35 +1,28 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { CssBaseline, Box, Container } from '@material-ui/core';
+import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { CssBaseline, Box } from '@material-ui/core';
 import { ThemeProvider } from '@material-ui/core/styles';
-import { useToggle } from 'cb-hooks';
 import theme from 'theme';
-import MenuBar from 'components/MenuBar';
-import SideBar from 'components/SideBar';
-import AppRouter from 'components/AppRouter';
-import ROUTES from 'helpers/routes';
+import AppLayout from 'AppLayout';
+import DemoLayout from 'DemoLayout';
 
-const App: React.FC = () => {
-  const [drawerVisible, toggleDrawerVisible] = useToggle(false);
-
-  return (
-    <Box>
-      <CssBaseline />
-      <ThemeProvider theme={theme}>
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
-          <MenuBar toggleDrawerVisible={toggleDrawerVisible} />
-          <SideBar
-            drawerVisible={drawerVisible}
-            toggleDrawerVisible={toggleDrawerVisible}
-            routes={ROUTES}
-          />
-          <Container>
-            <AppRouter routes={ROUTES} />
-          </Container>
-        </BrowserRouter>
-      </ThemeProvider>
-    </Box>
-  );
-};
+const App: React.FC = () => (
+  <Box>
+    <CssBaseline />
+    <ThemeProvider theme={theme}>
+      <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <Switch>
+          <Route path="/app">
+            <AppLayout />
+          </Route>
+          <Route path="/demo">
+            <DemoLayout />
+          </Route>
+          <Redirect from="/" to="/app" exact />
+        </Switch>
+      </BrowserRouter>
+    </ThemeProvider>
+  </Box>
+);
 
 export default App;

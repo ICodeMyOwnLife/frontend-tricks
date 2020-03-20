@@ -35,10 +35,10 @@ export const SideBarComponent: FC<SideBarProps> = ({
       <List component="nav">
         {routes.map(props => (
           <NestableLinkItem
+            {...props}
             key={props.path}
             nestedLevel={0}
             pathname={pathname}
-            {...props}
           />
         ))}
       </List>

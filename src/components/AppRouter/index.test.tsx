@@ -1,12 +1,12 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import toJson from 'enzyme-to-json';
-import ROUTES from 'helpers/routes';
+import appRoutes from 'helpers/appRoutes';
 import AppRouter from '.';
 
 describe(`AppRouter`, () => {
   test(`renders without crashing`, () => {
-    const wrapper = shallow(<AppRouter routes={ROUTES} />);
+    const wrapper = shallow(<AppRouter routes={appRoutes} />);
     expect(toJson(wrapper)).toMatchSnapshot();
   });
 });

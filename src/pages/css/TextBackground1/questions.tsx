@@ -23,18 +23,22 @@ const questions: QuestionInfo[] = [
         </ol>
 
         <CodeViewer language="css">
-          {`.TextBackground1-backgroundText-176 {
+          {`.StaticText-root-186 {
+  text-align: center;
+}
+
+.StaticText-text-187 {
   color: transparent;
   font-size: 140px;
   font-weight: bold;
   background-clip: text;
-  background-color: #ffcdd2;
+  background-color: #ffa726;
   -moz-background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.TextBackground1-linearBackground-177 {
+.StaticText-linear-188 {
   background-image: linear-gradient(
         to bottom,
         #004d40 0%,
@@ -43,7 +47,7 @@ const questions: QuestionInfo[] = [
       );
 }
 
-.TextBackground1-radialBackground-178 {
+.StaticText-radial-189 {
   background-image: radial-gradient(
         ellipse at center,
         #ba68c8 0%,
@@ -51,7 +55,7 @@ const questions: QuestionInfo[] = [
       );
 }
 
-.TextBackground1-conicBackground-179 {
+.StaticText-conic-190 {
   background-image: conic-gradient(
         from 65deg,
         #f44336,
@@ -73,7 +77,7 @@ const questions: QuestionInfo[] = [
         #f44336);
 }
 
-.TextBackground1-imageBackground-180 {
+.StaticText-image-191 {
   background-size: cover;
   background-image: url(/static/media/1.195411ab.jpg);
   background-repeat: no-repeat;
@@ -104,12 +108,13 @@ const questions: QuestionInfo[] = [
         <p>3 ways to animate the color of text:</p>
         <ol>
           <li>
-            Use <code>background-clip:text</code> and animate{' '}
-            <code>background-position</code>
+            Use <code>background-clip: text</code> with hard-stop, double-sized
+            linear background and animate <code>background-position</code>
           </li>
           <li>
-            Use a pseudo-element on top of the text and animate its{' '}
-            <code>width</code>/<code>heigh</code>
+            Use a pseudo-element on top of the text with{' '}
+            <code>overflow: hidden</code> and animate its <code>width</code>/
+            <code>heigh</code>
           </li>
           <li>
             Use a pseudo-element on top of the text and animate its{' '}
@@ -118,15 +123,18 @@ const questions: QuestionInfo[] = [
         </ol>
 
         <CodeViewer language="css">
-          {`.TextBackground1-hoverText-182 {
-  cursor: pointer;
+          {`.HoverText-root-192 {
+  text-align: center;
+}
+
+.HoverText-text-193 {
   display: inline-block;
   position: relative;
   font-size: 80px;
   font-weight: bold;
 }
 
-.TextBackground1-hoverText1-183 {
+.HoverText-horizontal-194 {
   color: transparent;
   transition: background-position-x 500ms ease;
   background-clip: text;
@@ -137,14 +145,16 @@ const questions: QuestionInfo[] = [
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.TextBackground1-hoverText1-183:hover {
+
+.HoverText-horizontal-194:hover {
   background-position-x: 0;
 }
 
-.TextBackground1-hoverText2-184 {
+.HoverText-vertical-195 {
   color: #fb8c00;
 }
-.TextBackground1-hoverText2-184::after {
+
+.HoverText-vertical-195::after {
   top: 0;
   left: 0;
   color: transparent;
@@ -159,14 +169,16 @@ const questions: QuestionInfo[] = [
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.TextBackground1-hoverText2-184:hover::after {
+
+.HoverText-vertical-195:hover::after {
   height: 100%;
 }
 
-.TextBackground1-hoverText3-185 {
+.HoverText-diagonal-196 {
   color: #fb8c00;
 }
-.TextBackground1-hoverText3-185::after {
+
+.HoverText-diagonal-196::after {
   top: 0;
   left: 0;
   color: transparent;
@@ -182,7 +194,8 @@ const questions: QuestionInfo[] = [
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.TextBackground1-hoverText3-185:hover::after {
+
+.HoverText-diagonal-196:hover::after {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }`}
         </CodeViewer>
@@ -192,6 +205,58 @@ const questions: QuestionInfo[] = [
       {
         name: `[CSS-TRICkS] 4 Ways to Animate the Color of a Text Link on Hover`,
         url: `https://css-tricks.com/4-ways-to-animate-the-color-of-a-text-link-on-hover/`,
+      },
+      {
+        name: `[MDN] clip-path`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path`,
+      },
+    ],
+  },
+  {
+    question: `How to create a shiny text?`,
+    answer: (
+      <div>
+        <p>
+          Use <code>background-clip: text</code> long-sized, half-transparent
+          linear background and animate <code>background-position</code>
+        </p>
+
+        <CodeViewer language="css">
+          {`.ShinyText-root-197 {
+  text-align: center;
+}
+
+.ShinyText-text-198 {
+  color: transparent;
+  display: inline-block;
+  position: relative;
+  animation: ShinyText-keyframes-shiny-199 7s linear infinite;
+  font-size: 80px;
+  font-weight: bold;
+  background-clip: text;
+  background-size: 500% 100%;
+  background-image: linear-gradient(105deg, transparent 40%, #64ffda 50%, transparent 60%);
+  -moz-background-clip: text;
+  background-position-x: 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@-webkit-keyframes ShinyText-keyframes-shiny-199 {
+  from {
+    background-position-x: 400%;
+  }
+  to {
+    background-position-x: 0;
+  }
+}`}
+        </CodeViewer>
+      </div>
+    ),
+    references: [
+      {
+        name: `[CodePen] Shining Text Effect`,
+        url: `https://codepen.io/grohit/pen/mdJqEzK`,
       },
     ],
   },

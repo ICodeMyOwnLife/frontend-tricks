@@ -1,6 +1,8 @@
 import React, { FC, memo } from 'react';
 import QuestionPage from 'components/QuestionPage';
 import Section from 'components/Section';
+import ViewDemo from 'components/ViewDemo';
+import demoRoutes from 'helpers/demoRoutes';
 import ScrollMargin from './ScrollMargin';
 import ScrollSnap from './ScrollSnap';
 import OverScroll from './OverScroll';
@@ -12,6 +14,7 @@ export const Scroll1Component: FC = () => (
       <ScrollMargin />
     </Section>
     <Section title="Scroll Snap">
+      <ViewDemo route={demoRoutes.fullPageScrollSnapping} />
       <ScrollSnap />
     </Section>
     <Section title="Over-scroll">

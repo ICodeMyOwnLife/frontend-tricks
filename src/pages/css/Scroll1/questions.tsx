@@ -25,8 +25,7 @@ const questions: QuestionInfo[] = [
           transition to the scroll
         </p>
         <CodeViewer language="css">
-          {`
-.Scroll1-scrollMargin-184 {
+          {`.Scroll1-scrollMargin-184 {
   height: 320px;
   position: relative;
   overflow-y: auto;
@@ -54,16 +53,30 @@ const questions: QuestionInfo[] = [
         name: `[CSS-TRICKS] Fixed Headers and Jump Links? The Solution is scroll-margin-top`,
         url: `https://css-tricks.com/fixed-headers-and-jump-links-the-solution-is-scroll-margin-top/`,
       },
+      {
+        name: `How to animate scrolling to anchor links with one line of CSS`,
+        url: `https://gomakethings.com/how-to-animate-scrolling-to-anchor-links-with-one-line-of-css/`,
+      },
     ],
   },
   {
     question: `How to lock the viewport to certain elements or locations when scrolling?`,
     answer: (
       <div>
-        <p>
-          Use a combination of <code>scroll-snap-type</code> and{' '}
-          <code>scroll-snap-align</code>
-        </p>
+        <ol>
+          <li>
+            The container should have <code>scroll-snap-type</code> set to{' '}
+            <code>
+              [ x | y | block | inline | both ] [ mandatory | proximity ]?
+            </code>{' '}
+            and may need <code>overflow: auto</code>
+          </li>
+          <li>
+            The item should have <code>scroll-snap-align</code> set to{' '}
+            <code>[ start | end | center ]{`{(1, 2)}`}</code>
+          </li>
+        </ol>
+
         <p>
           The <code>scroll-snap-type</code> CSS property sets how strictly snap
           points are enforced on the scroll container in case there is one.
@@ -76,9 +89,50 @@ const questions: QuestionInfo[] = [
           axis, respectively. If only one value is specified, the second value
           defaults to the same value.
         </p>
+
+        <CodeViewer language="css">
+          {`.FullPageScrollSnapping-root-3 {
+  max-height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+}
+
+.FullPageScrollSnapping-pageGroup-4 {
+  display: grid;
+  max-width: 100vw;
+  overflow-x: auto;
+  grid-auto-flow: column;
+  scroll-snap-type: x mandatory;
+  grid-auto-columns: 1fr;
+  scroll-snap-align: start;
+}
+
+.FullPageScrollSnapping-page-5 {
+  color: white;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  scroll-snap-align: start;
+}`}
+        </CodeViewer>
       </div>
     ),
     references: [
+      {
+        name: `[CSS-TRICKS] Practical CSS Scroll Snapping`,
+        url: `https://css-tricks.com/practical-css-scroll-snapping/`,
+      },
+      {
+        name: `Full Page Scroll-Snapping HTML Sections`,
+        url: `https://www.bram.us/2020/03/18/full-page-scroll-snapping-html-sections/`,
+      },
+      {
+        name: `How to use CSS Scroll Snap`,
+        url: `https://blog.logrocket.com/how-to-use-css-scroll-snap/`,
+      },
       {
         name: `[MDN] scroll-snap-type`,
         url: `https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-snap-type`,
@@ -90,10 +144,6 @@ const questions: QuestionInfo[] = [
       {
         name: `[MDN] CSS Scroll Snap`,
         url: `https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Scroll_Snap`,
-      },
-      {
-        name: `[CSS-TRICKS] Practical CSS Scroll Snapping`,
-        url: `https://css-tricks.com/practical-css-scroll-snapping/`,
       },
     ],
   },
