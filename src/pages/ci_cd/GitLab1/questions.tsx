@@ -92,7 +92,7 @@ git push`}
         url: `https://gitlab.com/gitlab-org/gitlab-foss/issues/29642`,
       },
       {
-        name: `[stackoverflow] Code coverage from Jest to stdout to GitLab`,
+        name: `[Stack Overflow] Code coverage from Jest to stdout to GitLab`,
         url: `https://stackoverflow.com/questions/50798747/code-coverage-from-jest-to-stdout-to-gitlab`,
       },
     ],

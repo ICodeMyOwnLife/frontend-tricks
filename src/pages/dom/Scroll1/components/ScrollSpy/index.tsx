@@ -6,8 +6,8 @@ import { useScrollSpy } from 'cb-hooks';
 import useStyles from './styles';
 
 const loremIpsum = new LoremIpsum({
-  sentencesPerParagraph: { min: 6, max: 16 },
-  wordsPerSentence: { min: 8, max: 20 },
+  sentencesPerParagraph: { min: 2, max: 5 },
+  wordsPerSentence: { min: 8, max: 12 },
 });
 
 const sections = Array.from({ length: 7 }, (_, index) => ({

@@ -20,22 +20,25 @@ const questions: QuestionInfo[] = [
           <li>
             Add <code>background-color</code> fallback
           </li>
+          <li>
+            In Safari, multi-line text with <code>background-clip: text</code>{' '}
+            will have some weird appearance, to fix that, add{' '}
+            <code>box-decoration-break: clone</code>
+          </li>
         </ol>
 
         <CodeViewer language="css">
-          {`.StaticText-root-186 {
-  text-align: center;
-}
-
-.StaticText-text-187 {
+          {`.StaticText-text-187 {
   color: transparent;
-  font-size: 140px;
+  font-size: 120px;
   font-weight: bold;
+  line-height: 1.2;
   background-clip: text;
   background-color: #ffa726;
   -moz-background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
 }
 
 .StaticText-linear-188 {
@@ -99,6 +102,10 @@ const questions: QuestionInfo[] = [
         name: `How to add a gradient overlay to text with CSS`,
         url: `https://fossheim.io/writing/posts/css-text-gradient/`,
       },
+      {
+        name: `Multi-line gradient links`,
+        url: `https://zellwk.com/blog/multi-line-gradient-links/`,
+      },
     ],
   },
   {
@@ -123,11 +130,7 @@ const questions: QuestionInfo[] = [
         </ol>
 
         <CodeViewer language="css">
-          {`.HoverText-root-192 {
-  text-align: center;
-}
-
-.HoverText-text-193 {
+          {`.HoverText-text-193 {
   display: inline-block;
   position: relative;
   font-size: 80px;
@@ -144,6 +147,7 @@ const questions: QuestionInfo[] = [
   background-position-x: 100%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
 }
 
 .HoverText-horizontal-194:hover {
@@ -168,6 +172,7 @@ const questions: QuestionInfo[] = [
   -moz-background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
 }
 
 .HoverText-vertical-195:hover::after {
@@ -193,6 +198,7 @@ const questions: QuestionInfo[] = [
   -moz-background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
 }
 
 .HoverText-diagonal-196:hover::after {
@@ -222,11 +228,7 @@ const questions: QuestionInfo[] = [
         </p>
 
         <CodeViewer language="css">
-          {`.ShinyText-root-197 {
-  text-align: center;
-}
-
-.ShinyText-text-198 {
+          {`.ShinyText-text-198 {
   color: transparent;
   display: inline-block;
   position: relative;
@@ -235,11 +237,12 @@ const questions: QuestionInfo[] = [
   font-weight: bold;
   background-clip: text;
   background-size: 500% 100%;
-  background-image: linear-gradient(105deg, transparent 40%, #64ffda 50%, transparent 60%);
+  background-image: linear-gradient(105deg, transparent 40%, #18ffff 50%, transparent 60%);
   -moz-background-clip: text;
   background-position-x: 400%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
 }
 
 @-webkit-keyframes ShinyText-keyframes-shiny-199 {

@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { QuestionInfo } from 'types/app-common';
 import CodeViewer from 'components/CodeViewer';
@@ -12,13 +13,17 @@ const questions: QuestionInfo[] = [
           multiple values separated by commas
         </p>
 
+        <p>The stacking order of multiple background is "first is on top."</p>
+
         <CodeViewer language="css">
           {`.Background1-multiLayer1-174 {
   background: #ffc63e url(/static/media/1.8154abe6.png);
 }
+
 .Background1-multiLayer2-175 {
   background: linear-gradient(to bottom, #00000000 0%, #000000ff 100%), linear-gradient(to right, #ffffff 0%, #ff00a5 100%);
 }
+
 .Background1-multiLayer3-176 {
   background: url(/static/media/2.32351df8.png) center/contain no-repeat, url(/static/media/3.3fa57ebb.png) center/cover no-repeat, linear-gradient(to right, rgb(36, 218, 168) 0%, rgb(124, 179, 17) 100%);
 }`}
@@ -41,6 +46,10 @@ const questions: QuestionInfo[] = [
       {
         name: `[CSS-TRICKS] CSS Basics: Using Multiple Backgrounds`,
         url: `https://css-tricks.com/css-basics-using-multiple-backgrounds/`,
+      },
+      {
+        name: `[CSS-TRICKS] Stacking Order of Multiple Backgrounds`,
+        url: `https://css-tricks.com/stacking-order-of-multiple-backgrounds/`,
       },
     ],
   },

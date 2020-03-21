@@ -1,5 +1,5 @@
 import { makeStyles, createStyles } from '@material-ui/core';
-import { teal } from '@material-ui/core/colors';
+import { cyan } from '@material-ui/core/colors';
 import { backgroundClipCss } from '../styles';
 
 const styles = () =>
@@ -13,7 +13,7 @@ const styles = () =>
       display: 'inline-block',
       fontSize: 80,
       fontWeight: 'bold',
-      backgroundImage: `linear-gradient(105deg, transparent 40%, ${teal.A200} 50%, transparent 60%)`,
+      backgroundImage: `linear-gradient(105deg, transparent 40%, ${cyan.A200} 50%, transparent 60%)`,
       backgroundSize: `500% 100%`,
       backgroundPositionX: `400%`,
       animation: '$shiny 7s linear infinite',

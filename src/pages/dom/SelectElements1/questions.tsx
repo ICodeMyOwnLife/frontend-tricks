@@ -369,7 +369,7 @@ interface Element extends Node, ParentNode, NonDocumentTypeChildNode, ChildNode,
         url: `https://developer.mozilla.org/en-US/docs/Web/JavaScript/Introduction_to_using_XPath_in_JavaScript`,
       },
       {
-        name: `[stackoverflow] Javascript .querySelector find <div> by innerTEXT`,
+        name: `[Stack Overflow] Javascript .querySelector find <div> by innerTEXT`,
         url: `https://stackoverflow.com/questions/37098405/javascript-queryselector-find-div-by-innertext#answer-37098628`,
       },
     ],

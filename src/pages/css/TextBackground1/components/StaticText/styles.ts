@@ -27,8 +27,9 @@ const styles = () =>
     },
     text: {
       ...backgroundClipCss,
-      fontSize: 140,
+      fontSize: 120,
       fontWeight: 'bold',
+      lineHeight: 1.2,
       backgroundColor: orange[400],
     },
     linear: {

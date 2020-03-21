@@ -19,7 +19,7 @@ const questions: QuestionInfo[] = [
     ),
     references: [
       {
-        name: `[stackoverflow] jQuery or javascript to find memory usage of page`,
+        name: `[Stack Overflow] jQuery or javascript to find memory usage of page`,
         url: `https://stackoverflow.com/questions/2530228/jquery-or-javascript-to-find-memory-usage-of-page`,
       },
       {
@@ -41,7 +41,7 @@ const questions: QuestionInfo[] = [
     ),
     references: [
       {
-        name: `[stackoverflow] How to monitor the memory usage of Node.js?`,
+        name: `[Stack Overflow] How to monitor the memory usage of Node.js?`,
         url: `https://stackoverflow.com/questions/20018588/how-to-monitor-the-memory-usage-of-node-js`,
       },
       {

@@ -9,20 +9,20 @@ import questions from './questions';
 export const TextBackground1Component: FC = () => (
   <QuestionPage questions={questions} title="Text Background 1">
     <Section title="Static Text">
-      <StaticText variant="linear">LINEAR</StaticText>
-      <StaticText variant="radial">RADIAL</StaticText>
-      <StaticText variant="conic">CONIC</StaticText>
-      <StaticText variant="image">IMAGE</StaticText>
+      <StaticText variant="linear">LINEAR BACKGROUND</StaticText>
+      <StaticText variant="radial">RADIAL BACKGROUND</StaticText>
+      <StaticText variant="conic">CONIC BACKGROUND</StaticText>
+      <StaticText variant="image">IMAGE BACKGROUND</StaticText>
     </Section>
 
     <Section title="Hover Text">
-      <HoverText variant="horizontal">HORIZONTAL</HoverText>
-      <HoverText variant="vertical">VERTICAL</HoverText>
-      <HoverText variant="diagonal">DIAGONAL</HoverText>
+      <HoverText variant="horizontal">HORIZONTAL FILL EFFECT</HoverText>
+      <HoverText variant="vertical">VERTICAL FILL EFFECT</HoverText>
+      <HoverText variant="diagonal">DIAGONAL FILL EFFECT</HoverText>
     </Section>
 
     <Section title="Shiny Text">
-      <ShinyText />
+      <ShinyText>PRETTY SHINY TEXT</ShinyText>
     </Section>
   </QuestionPage>
 );

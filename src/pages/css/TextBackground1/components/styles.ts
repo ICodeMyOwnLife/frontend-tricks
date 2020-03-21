@@ -6,4 +6,6 @@ export const backgroundClipCss: CSSProperties = {
   backgroundClip: 'text',
   MozBackgroundClip: 'text',
   WebkitBackgroundClip: 'text',
+  boxDecorationBreak: 'clone',
+  WebkitBoxDecorationBreak: 'clone',
 };

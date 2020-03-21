@@ -16,6 +16,7 @@ const questions: QuestionInfo[] = [
           {`const useScrollSpy = () => {
   const [id, setId] = useState<string>();
   const elementMapRef = useRef(new Map<Element, string>());
+  const intersectingElementsRef = useRef(new Set<Element>());
 
   const register = useCallback((arg: string | Element) => {
     if (typeof arg === 'string') {
@@ -32,18 +33,30 @@ const questions: QuestionInfo[] = [
     return undefined;
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const observer = new IntersectionObserver(
       entries => {
-        const intersectingEntries = entries.filter(
-          ({ isIntersecting }) => isIntersecting,
+        entries.forEach(({ isIntersecting, target }) => {
+          if (isIntersecting) {
+            intersectingElementsRef.current.add(target);
+          } else {
+            intersectingElementsRef.current.delete(target);
+          }
+        });
+
+        if (!intersectingElementsRef.current.size) return;
+
+        const selectedElement = Array.from(
+          intersectingElementsRef.current,
+        ).reduce((prev, curr) =>
+          prev.getBoundingClientRect().top < curr.getBoundingClientRect().top
+            ? prev
+            : curr,
         );
 
-        if (!intersectingEntries.length) return;
-
-        const { target } = intersectingEntries[0];
         const newId =
-          elementMapRef.current.get(target) ?? target.getAttribute('id');
+          elementMapRef.current.get(selectedElement) ??
+          selectedElement.getAttribute('id');
 
         if (typeof newId === 'string') {
           setId(newId);
