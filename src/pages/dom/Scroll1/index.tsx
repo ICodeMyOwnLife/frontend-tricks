@@ -3,6 +3,7 @@ import QuestionPage from 'components/QuestionPage';
 import Section from 'components/Section';
 import ScrollSpy from './components/ScrollSpy';
 import LazyLoad from './components/LazyLoad';
+import InfiniteScroll from './components/InfiniteScroll';
 import questions from './questions';
 
 export const Scroll1Component: FC = () => (
@@ -13,6 +14,10 @@ export const Scroll1Component: FC = () => (
 
     <Section title="Lazy Load">
       <LazyLoad />
+    </Section>
+
+    <Section title="Infinite Scroll">
+      <InfiniteScroll />
     </Section>
   </QuestionPage>
 );
