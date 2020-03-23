@@ -180,7 +180,7 @@ const questions: QuestionInfo[] = [
         </p>
         <p>
           The <code>grid-area</code> CSS property is a shorthand property for
-          <code>grid-row-start</code>, <code>grid-column-start</code>,
+          <code>grid-row-start</code>, <code>grid-column-start</code>,{' '}
           <code>grid-row-end</code> and <code>grid-column-end</code>, specifying
           a grid item’s size and location within the grid by contributing a
           line, a span, or nothing (automatic) to its grid placement, thereby
@@ -224,6 +224,10 @@ const questions: QuestionInfo[] = [
       {
         name: `Understanding CSS Grid: Grid Template Areas`,
         url: `https://www.smashingmagazine.com/2020/02/understanding-css-grid-template-areas/`,
+      },
+      {
+        name: `CSS Grid Template Areas In Action`,
+        url: `https://ishadeed.com/article/grid-area/`,
       },
       {
         name: `[CSS-TRICKS] A Complete Guide to Grid`,

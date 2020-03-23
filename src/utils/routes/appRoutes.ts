@@ -30,6 +30,13 @@ const appRoutes = [
   ]),
   generateAppRoute('CSS', [
     [
+      'Aspect Ratio Box',
+      () =>
+        import(
+          /* webpackChunkName: "css_AspectRatioBox1" */ 'pages/css/AspectRatioBox1'
+        ),
+    ],
+    [
       'Background',
       () =>
         import(
@@ -204,6 +211,13 @@ const appRoutes = [
       () =>
         import(
           /* webpackChunkName: "dom_MediaQuery1" */ 'pages/dom/MediaQuery1'
+        ),
+    ],
+    [
+      'Page Visibility',
+      () =>
+        import(
+          /* webpackChunkName: "dom_PageVisibility1" */ 'pages/dom/PageVisibility1'
         ),
     ],
     [

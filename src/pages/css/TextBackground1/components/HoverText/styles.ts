@@ -60,11 +60,15 @@ const styles = () =>
         bottom: 0,
         backgroundImage: highlightLinear,
         clipPath: `polygon(0 0, 0 0, 0 0, 0 0)`, // one point at the top left
-        transition: `clip-path 500ms ease`,
+        WebkitClipPath: `polygon(0 0, 0 0, 0 0, 0 0)`, // one point at the top left
+        transitionDuration: '500ms',
+        msTransitionTimingFunction: 'ease',
+        transitionProperty: 'clip-path, -webkit-clip-path',
       },
 
       '&:hover::after': {
         clipPath: `polygon(0 0, 100% 0, 100% 100%, 0 100%)`, // totally fill the bounding rect
+        WebkitClipPath: `polygon(0 0, 100% 0, 100% 100%, 0 100%)`, // totally fill the bounding rect
       },
     },
   });

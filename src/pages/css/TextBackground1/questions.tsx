@@ -130,14 +130,18 @@ const questions: QuestionInfo[] = [
         </ol>
 
         <CodeViewer language="css">
-          {`.HoverText-text-193 {
+          {`.HoverText-root-218 {
+  text-align: center;
+}
+
+.HoverText-text-219 {
   display: inline-block;
   position: relative;
   font-size: 80px;
   font-weight: bold;
 }
 
-.HoverText-horizontal-194 {
+.HoverText-horizontal-220 {
   color: transparent;
   transition: background-position-x 500ms ease;
   background-clip: text;
@@ -150,15 +154,15 @@ const questions: QuestionInfo[] = [
   -webkit-box-decoration-break: clone;
 }
 
-.HoverText-horizontal-194:hover {
+.HoverText-horizontal-220:hover {
   background-position-x: 0;
 }
 
-.HoverText-vertical-195 {
+.HoverText-vertical-221 {
   color: #fb8c00;
 }
 
-.HoverText-vertical-195::after {
+.HoverText-vertical-221::after {
   top: 0;
   left: 0;
   color: transparent;
@@ -175,15 +179,15 @@ const questions: QuestionInfo[] = [
   -webkit-box-decoration-break: clone;
 }
 
-.HoverText-vertical-195:hover::after {
+.HoverText-vertical-221:hover::after {
   height: 100%;
 }
 
-.HoverText-diagonal-196 {
+.HoverText-diagonal-222 {
   color: #fb8c00;
 }
 
-.HoverText-diagonal-196::after {
+.HoverText-diagonal-222::after {
   top: 0;
   left: 0;
   color: transparent;
@@ -192,17 +196,21 @@ const questions: QuestionInfo[] = [
   content: attr(data-text);
   position: absolute;
   clip-path: polygon(0 0, 0 0, 0 0, 0 0);
-  transition: clip-path 500ms ease;
   background-clip: text;
   background-image: linear-gradient(to right, #ffff00, #fb8c00, #ffff00);
+  -webkit-clip-path: polygon(0 0, 0 0, 0 0, 0 0);
+  transition-duration: 500ms;
+  transition-property: clip-path, -webkit-clip-path;
   -moz-background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-box-decoration-break: clone;
+  -ms-transition-timing-function: ease;
 }
 
-.HoverText-diagonal-196:hover::after {
+.HoverText-diagonal-222:hover::after {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }`}
         </CodeViewer>
       </div>

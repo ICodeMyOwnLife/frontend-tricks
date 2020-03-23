@@ -153,6 +153,10 @@ export interface UseScrollSpyRegister<TElement extends Element> {
         url: `https://css-tricks.com/sticky-table-of-contents-with-scrolling-active-states/`,
       },
       {
+        name: `Smooth Scrolling Sticky ScrollSpy Navigation`,
+        url: `https://www.bram.us/2020/01/10/smooth-scrolling-sticky-scrollspy-navigation/`,
+      },
+      {
         name: `[MDN] Intersection Observer API`,
         url: `https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API`,
       },

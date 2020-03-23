@@ -65,6 +65,10 @@ const questions: QuestionInfo[] = [
         url: `https://www.smashingmagazine.com/2007/07/css-specificity-things-you-should-know/`,
       },
       {
+        name: `The CSS Cascade`,
+        url: `https://wattenberger.com/blog/css-cascade`,
+      },
+      {
         name: `CSS Specificity Wars`,
         url: `https://stuffandnonsense.co.uk/archives/css_specificity_wars.html`,
       },
