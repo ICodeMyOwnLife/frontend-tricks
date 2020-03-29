@@ -56,7 +56,7 @@ const questions: QuestionInfo[] = [
     ),
     references: [
       {
-        name: `[CSS TRICKS] Aspect Ratio Boxes`,
+        name: `[CSS-TRICKS] Aspect Ratio Boxes`,
         url: `https://css-tricks.com/aspect-ratio-boxes/`,
       },
     ],

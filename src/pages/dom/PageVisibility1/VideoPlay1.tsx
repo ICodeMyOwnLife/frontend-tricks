@@ -2,6 +2,7 @@
 import React, { FC, memo } from 'react';
 import { IconButton } from '@material-ui/core';
 import FontIcon from 'components/FontIcon';
+import { VIDEO_SAMPLE_URL } from 'constants/links';
 import { useVideo } from './utils';
 import useStyles from './styles';
 
@@ -16,7 +17,7 @@ export const VideoPlay1Component: FC = () => {
         className={classes.player1}
         loop
         ref={videoRef}
-        src="https://www.sample-videos.com/video123/mp4/480/big_buck_bunny_480p_30mb.mp4"
+        src={VIDEO_SAMPLE_URL}
       />
 
       <div>

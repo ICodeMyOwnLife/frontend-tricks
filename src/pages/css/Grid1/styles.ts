@@ -89,6 +89,31 @@ const styles = ({ spacing }: Theme) =>
       color: grey[900],
       opacity: 0.5,
     },
+    autoGridWrapper: {
+      position: 'relative',
+    },
+    autoGrid: {
+      position: 'relative',
+      display: 'grid',
+
+      '&.horizontal': {
+        gridAutoFlow: 'column',
+        gridAutoColumns: '1fr',
+      },
+
+      '&.vertical': {
+        gridAutoFlow: 'row',
+        gridAutoRows: '1fr',
+      },
+    },
+    autoGridBackLayerCell: {
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+    },
+    autoGridCell: {
+      border: `1px solid ${grey[100]}`,
+    },
     fluidGrid: {
       display: 'grid',
       gridTemplateColumns: `repeat(auto-fit, minmax(200px, 1fr))`,

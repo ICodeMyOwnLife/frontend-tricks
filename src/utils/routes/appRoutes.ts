@@ -69,6 +69,11 @@ const appRoutes = [
         import(/* webpackChunkName: "css_FullPage1" */ 'pages/css/FullPage1'),
     ],
     [
+      'Gradient',
+      () =>
+        import(/* webpackChunkName: "css_Gradient1" */ 'pages/css/Gradient1'),
+    ],
+    [
       'Grid',
       () => import(/* webpackChunkName: "css_Grid1" */ 'pages/css/Grid1'),
     ],
@@ -100,6 +105,13 @@ const appRoutes = [
     [
       'Newline',
       () => import(/* webpackChunkName: "css_Newline1" */ 'pages/css/Newline1'),
+    ],
+    [
+      'Pseudo-Element',
+      () =>
+        import(
+          /* webpackChunkName: "css_PseudoElement1" */ 'pages/css/PseudoElement1'
+        ),
     ],
     [
       'Replaced Elements',
@@ -276,6 +288,13 @@ const appRoutes = [
     ],
   ]),
   generateAppRoute('React', [
+    [
+      'Change Event',
+      () =>
+        import(
+          /* webpackChunkName: "react_ChangeEvent1" */ 'pages/react/ChangeEvent1'
+        ),
+    ],
     [
       'Deployment',
       () =>

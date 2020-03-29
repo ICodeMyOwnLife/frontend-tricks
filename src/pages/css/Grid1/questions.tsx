@@ -5,6 +5,24 @@ import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [
   {
+    question: `How to create CSS Grid layout?`,
+    answer: <div />,
+    references: [
+      {
+        name: `Understanding CSS Grid: Creating A Grid Container`,
+        url: `https://www.smashingmagazine.com/2020/01/understanding-css-grid-container/`,
+      },
+      {
+        name: `Understanding CSS Grid: Grid Lines`,
+        url: `https://www.smashingmagazine.com/2020/01/understanding-css-grid-lines/`,
+      },
+      {
+        name: `[CSS-TRICKS] A Complete Guide to Grid`,
+        url: `https://css-tricks.com/snippets/css/complete-guide-grid/`,
+      },
+    ],
+  },
+  {
     question: (
       <span>
         What is the difference between <code>justify-content</code> vs{' '}
@@ -228,6 +246,53 @@ const questions: QuestionInfo[] = [
       {
         name: `CSS Grid Template Areas In Action`,
         url: `https://ishadeed.com/article/grid-area/`,
+      },
+      {
+        name: `[CSS-TRICKS] A Complete Guide to Grid`,
+        url: `https://css-tricks.com/snippets/css/complete-guide-grid/`,
+      },
+    ],
+  },
+  {
+    question: (
+      <span>
+        How to make a <code>grid-auto-flow: column</code> grid have same-width
+        columns and make a <code>grid-auto-flow: row</code> grid have
+        same-height rows?
+      </span>
+    ),
+    answer: (
+      <div>
+        <p>
+          Use <code>grid-auto-columns: 1fr</code> with{' '}
+          <code>grid-auto-flow: column</code> grid
+        </p>
+        <p>
+          Use <code>grid-auto-rows: 1fr</code> with{' '}
+          <code>grid-auto-flow: row</code> grid
+        </p>
+
+        <CodeViewer language="css">
+          {`.Grid1-autoGrid-194.horizontal {
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+}
+
+.Grid1-autoGrid-194.vertical {
+  grid-auto-flow: row;
+  grid-auto-rows: 1fr;
+}`}
+        </CodeViewer>
+      </div>
+    ),
+    references: [
+      {
+        name: `[MDN] grid-auto-rows`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows`,
+      },
+      {
+        name: `[MDN] grid-auto-columns`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-columns`,
       },
       {
         name: `[CSS-TRICKS] A Complete Guide to Grid`,

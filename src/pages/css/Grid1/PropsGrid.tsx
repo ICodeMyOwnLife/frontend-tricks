@@ -1,6 +1,5 @@
 /* eslint-disable react/no-array-index-key */
 import React, { FC, memo, CSSProperties, useMemo } from 'react';
-import { Box } from '@material-ui/core';
 import clsx from 'clsx';
 import useMuiSelect from 'hooks/useMuiSelect';
 import SelectFormControl from 'components/SelectFormControl';
@@ -43,8 +42,8 @@ export const PropsGridComponent: FC = () => {
   ];
 
   return (
-    <Box>
-      <Box className={classes.inputGrid}>
+    <div>
+      <div className={classes.inputGrid}>
         <SelectFormControl
           label="justify-content"
           onChange={handleChangeJustifyContent}
@@ -81,24 +80,24 @@ export const PropsGridComponent: FC = () => {
           options={placeSelfOptions}
           value={alignSelf}
         />
-      </Box>
+      </div>
 
-      <Box className={classes.propsGridWrapper}>
-        <Box
+      <div className={classes.propsGridWrapper}>
+        <div
           className={clsx(classes.propsGrid, classes.backLayer)}
           style={backLayerStyle}
         >
           {childStyles.map((_, index) => (
             <div className={classes.backLayerCell} key={index} />
           ))}
-        </Box>
-        <Box className={classes.propsGrid} style={gridStyle}>
+        </div>
+        <div className={classes.propsGrid} style={gridStyle}>
           {childStyles.map((style, index) => (
             <div className={classes.gridCell} key={index} style={style} />
           ))}
-        </Box>
-      </Box>
-    </Box>
+        </div>
+      </div>
+    </div>
   );
 };
 

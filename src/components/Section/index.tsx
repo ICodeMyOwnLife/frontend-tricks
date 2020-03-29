@@ -31,9 +31,9 @@ Section.displayName = 'Section';
 export default Section;
 
 export interface SectionProps {
-  className?: string;
-  title: string;
-  titleVariant?: TypographyProps['variant'];
-  titleClassName?: string;
   children?: ReactNode;
+  className?: string;
+  title: ReactNode;
+  titleClassName?: string;
+  titleVariant?: TypographyProps['variant'];
 }

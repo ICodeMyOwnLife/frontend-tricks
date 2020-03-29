@@ -69,6 +69,18 @@ const questions: QuestionInfo[] = [
         url: `https://wattenberger.com/blog/css-cascade`,
       },
       {
+        name: `Selectors Explained`,
+        url: `https://hugogiraudel.github.io/selectors-explained/`,
+      },
+      {
+        name: `Specificity Calculator`,
+        url: `https://specificity.keegan.st/`,
+      },
+      {
+        name: `CSS Specificity calculator`,
+        url: `https://polypane.app/css-specificity-calculator/`,
+      },
+      {
         name: `CSS Specificity Wars`,
         url: `https://stuffandnonsense.co.uk/archives/css_specificity_wars.html`,
       },
@@ -79,14 +91,6 @@ const questions: QuestionInfo[] = [
       {
         name: `CSS Specificity`,
         url: `https://cssspecificity.com/`,
-      },
-      {
-        name: `Specificity Calculator`,
-        url: `https://specificity.keegan.st/`,
-      },
-      {
-        name: `CSS Specificity calculator`,
-        url: `https://polypane.app/css-specificity-calculator/`,
       },
       {
         name: `[Stack Overflow] What are the implications of using “!important” in CSS?`,

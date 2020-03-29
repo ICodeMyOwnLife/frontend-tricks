@@ -5,9 +5,10 @@ import Section from 'components/Section';
 import ResponsiveGrid from './ResponsiveGrid';
 import PropsGrid from './PropsGrid';
 import AreaGrid from './AreaGrid';
+import AutoGrid from './AutoGrid';
+import FluidGrid from './FluidGrid';
 import questions from './questions';
 import useStyles from './styles';
-import FluidGrid from './FluidGrid';
 
 export const Grid1Component: FC = () => {
   const classes = useStyles();
@@ -31,6 +32,9 @@ export const Grid1Component: FC = () => {
       </Section>
       <Section title="Areas and auto flow">
         <AreaGrid />
+      </Section>
+      <Section title="Auto Grid">
+        <AutoGrid />
       </Section>
       <Section title="Fluid Responsive Grid">
         <FluidGrid />

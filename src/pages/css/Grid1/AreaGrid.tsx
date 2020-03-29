@@ -1,6 +1,5 @@
 /* eslint-disable react/no-array-index-key */
 import React, { FC, memo, CSSProperties } from 'react';
-import { Box } from '@material-ui/core';
 import {
   amber,
   blue,
@@ -93,8 +92,8 @@ export const AreaGridComponent: FC = () => {
   ];
 
   return (
-    <Box>
-      <Box className={classes.inputGrid}>
+    <div>
+      <div className={classes.inputGrid}>
         <SelectFormControl
           label="Block 1"
           onChange={handleChangeBlock1Area}
@@ -149,8 +148,8 @@ export const AreaGridComponent: FC = () => {
           options={flows}
           value={flow}
         />
-      </Box>
-      <Box className={classes.areaGrid} style={{ gridAutoFlow: flow }}>
+      </div>
+      <div className={classes.areaGrid} style={{ gridAutoFlow: flow }}>
         {childStyles.map((childStyle, index) => {
           let style = childStyle;
           if (blockAreas[index]) {
@@ -162,8 +161,8 @@ export const AreaGridComponent: FC = () => {
             </div>
           );
         })}
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 };
 
