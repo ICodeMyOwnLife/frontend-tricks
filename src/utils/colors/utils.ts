@@ -4,9 +4,7 @@ export const calculateMod = (value: number, dividend: number) =>
 export const floatToByte = (value: number) => Math.round(value * 255);
 
 export const floatToHexString = (value: number) =>
-  floatToByte(value)
-    .toString(16)
-    .padStart(2, '0');
+  floatToByte(value).toString(16).padStart(2, '0');
 
 export const floatToPercentageString = (value: number) =>
   `${(value * 100).toFixed(2)}%`;

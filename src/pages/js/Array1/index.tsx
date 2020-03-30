@@ -24,10 +24,7 @@ export const Array1Component: FC = () => {
 
   const [itemsString, setItemsString] = useState('1 1 2 3 3');
   const uniqueArray = useMemo(() => {
-    const items = itemsString
-      .split(' ')
-      .filter(Boolean)
-      .map(Number);
+    const items = itemsString.split(' ').filter(Boolean).map(Number);
     return Array.from(new Set(items));
   }, [itemsString]);
 

@@ -7,7 +7,7 @@
     "@material-ui/icons": "^4.9.1",
     "axios": "^0.19.2",
     "brace": "^0.11.1",
-    "cb-hooks": "^1.6.0",
+    "cb-hooks": "^1.7.0",
     "cb-react-recaptcha": "^1.0.2",
     "clsx": "^1.1.0",
     "file-saver": "^2.0.2",
