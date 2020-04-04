@@ -6,6 +6,9 @@ import {
   yellow,
   blue,
   grey,
+  pink,
+  cyan,
+  green,
 } from '@material-ui/core/colors';
 
 const styles = ({ spacing }: Theme) =>
@@ -69,6 +72,22 @@ const styles = ({ spacing }: Theme) =>
         ${blue[900]} 28%,
         ${blue[900]} 29%,
         ${blue[400]} 29%)`,
+    },
+    '@keyframes background1': {
+      '0%': {
+        backgroundPosition: '0% 50%',
+      },
+      '50%': {
+        backgroundPosition: '100% 50%',
+      },
+      '100%': {
+        backgroundPosition: '0% 50%',
+      },
+    },
+    linear6: {
+      backgroundImage: `linear-gradient(-45deg, ${deepOrange[400]}, ${pink[500]}, ${cyan[600]}, ${green.A700})`,
+      backgroundSize: '200% 200%',
+      animation: `$background1 16s ease infinite`,
     },
   });
 

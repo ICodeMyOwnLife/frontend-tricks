@@ -10,7 +10,6 @@ export const ConicComponent: FC = () => {
       <div className={clsx(classes.circle, classes.conic1)} />
       <div className={clsx(classes.circle, classes.conic2)} />
       <div className={clsx(classes.circle, classes.conic3)} />
-      <div className={clsx(classes.circle, classes.conic4)} />
     </div>
   );
 };

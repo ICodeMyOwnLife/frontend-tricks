@@ -1,6 +1,8 @@
 import React, { FC, memo, ReactNode } from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import clsx from 'clsx';
+import { useTitle } from 'cb-hooks';
+import { APP_NAME } from 'constants/common';
 import useStyles from './styles';
 
 export const PageLayoutComponent: FC<PageLayoutProps> = ({
@@ -9,12 +11,13 @@ export const PageLayoutComponent: FC<PageLayoutProps> = ({
   children,
 }) => {
   const classes = useStyles();
+  useTitle(`${title} - Page - ${APP_NAME}`);
 
   return (
-    <Box className={clsx(classes.root, className)}>
+    <div className={clsx(classes.root, className)}>
       <Typography variant="h3">{title}</Typography>
-      <Box className={classes.content}>{children}</Box>
-    </Box>
+      <div className={classes.content}>{children}</div>
+    </div>
   );
 };
 
@@ -25,5 +28,5 @@ export default PageLayout;
 export interface PageLayoutProps {
   className?: string;
   title: string;
-  children: ReactNode;
+  children?: ReactNode;
 }

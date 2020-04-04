@@ -13,6 +13,8 @@ import {
 } from '@material-ui/core/colors';
 import { LoremIpsum } from 'lorem-ipsum';
 import { Typography } from '@material-ui/core';
+import DemoLayout from 'components/DemoLayout';
+import demoRoutes from 'utils/routes/demoRoutes';
 import useStyles from './styles';
 
 const loremIpsum = new LoremIpsum({ wordsPerSentence: { min: 4, max: 8 } });
@@ -47,26 +49,28 @@ export const FullPageScrollSnappingComponent: FC = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      {pageGroups.map((pageGroup, groupIndex) => (
-        <div className={classes.pageGroup} key={groupIndex}>
-          {pageGroup.map(({ backgroundColor, subtitle, title }) => (
-            <div
-              className={classes.page}
-              key={title}
-              style={{ backgroundColor }}
-            >
-              <Typography className={classes.title} variant="h2">
-                {title}
-              </Typography>
-              <Typography className={classes.subtitle} variant="h6">
-                {subtitle}
-              </Typography>
-            </div>
-          ))}
-        </div>
-      ))}
-    </div>
+    <DemoLayout title={demoRoutes.fullPageScrollSnapping.name}>
+      <div className={classes.root}>
+        {pageGroups.map((pageGroup, groupIndex) => (
+          <div className={classes.pageGroup} key={groupIndex}>
+            {pageGroup.map(({ backgroundColor, subtitle, title }) => (
+              <div
+                className={classes.page}
+                key={title}
+                style={{ backgroundColor }}
+              >
+                <Typography className={classes.title} variant="h2">
+                  {title}
+                </Typography>
+                <Typography className={classes.subtitle} variant="h6">
+                  {subtitle}
+                </Typography>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </DemoLayout>
   );
 };
 

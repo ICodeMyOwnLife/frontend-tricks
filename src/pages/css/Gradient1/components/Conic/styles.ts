@@ -6,7 +6,6 @@ import {
   indigo,
   green,
   orange,
-  amber,
 } from '@material-ui/core/colors';
 
 const diameter = 240;
@@ -47,33 +46,17 @@ const styles = ({ spacing }: Theme) =>
     },
     conic3: {
       backgroundImage: `conic-gradient(
-        from -40deg,
-        ${amber.A200} 80deg,
-        transparent 80deg,
-        transparent 120deg,
-        ${amber.A200} 120deg,
-        ${amber.A200} 200deg,
-        transparent 200deg,
-        transparent 240deg,
-        ${amber.A200} 240deg,
-        ${amber.A200} 320deg,
-        transparent 320deg
-        )`,
-      animation: `$rotate 4s linear infinite`,
-    },
-    conic4: {
-      backgroundImage: `conic-gradient(
         ${red.A200},
         ${red.A200} 50deg,
         ${yellow.A200} 50deg,
         ${yellow.A200} 70deg,
         ${purple.A200} 70deg,
-        ${purple.A200} 82deg,
-        ${green.A200} 82deg,
-        ${green.A200} 168deg,
-        ${orange.A200} 168deg,
-        ${orange.A200} 194deg,
-        ${indigo.A200} 194deg,
+        ${purple.A200} 102deg,
+        ${green.A200} 102deg,
+        ${green.A200} 192deg,
+        ${orange.A200} 192deg,
+        ${orange.A200} 224deg,
+        ${indigo.A200} 224deg,
         ${indigo.A200})`,
     },
   });

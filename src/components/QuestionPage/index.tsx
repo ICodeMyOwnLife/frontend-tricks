@@ -1,9 +1,9 @@
 /* eslint-disable react/no-array-index-key */
-import React, { FC, memo, ReactNode } from 'react';
+import React, { FC, memo } from 'react';
 import { Box, Typography, List } from '@material-ui/core';
 import QuestionItem from 'components/QuestionItem';
 import { QuestionInfo } from 'types/app-common';
-import PageLayout from 'components/PageLayout';
+import PageLayout, { PageLayoutProps } from 'components/PageLayout';
 import useStyles from './styles';
 
 export const QuestionPageComponent: FC<QuestionPageProps> = ({
@@ -34,9 +34,6 @@ const QuestionPage = memo(QuestionPageComponent);
 QuestionPage.displayName = 'QuestionPage';
 export default QuestionPage;
 
-export interface QuestionPageProps {
-  className?: string;
-  title: string;
+export interface QuestionPageProps extends PageLayoutProps {
   questions: QuestionInfo[];
-  children?: ReactNode;
 }

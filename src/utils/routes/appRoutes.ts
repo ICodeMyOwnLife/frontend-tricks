@@ -214,6 +214,11 @@ const appRoutes = [
       () => import(/* webpackChunkName: "dom_Intl1" */ 'pages/dom/Intl1'),
     ],
     [
+      'Link Tags',
+      () =>
+        import(/* webpackChunkName: "dom_LinkTags1" */ 'pages/dom/LinkTags1'),
+    ],
+    [
       'Live Edit',
       () =>
         import(/* webpackChunkName: "dom_LiveEdit1" */ 'pages/dom/LiveEdit1'),
