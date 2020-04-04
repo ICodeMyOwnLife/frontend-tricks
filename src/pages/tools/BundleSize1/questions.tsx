@@ -58,6 +58,17 @@ yarn analyze`}
         </p>
 
         <p>
+          Alternatives:
+          <ul>
+            <li>
+              <a href="https://github.com/siddharthkp/bundlesize">
+                <code>bundlesize</code>
+              </a>
+            </li>
+          </ul>
+        </p>
+
+        <p>
           1. For JS application (web app): install <code>size-limit</code> with{' '}
           <code>@size-limit/preset-app</code> preset then add{' '}
           <code>.size-limit.json</code>

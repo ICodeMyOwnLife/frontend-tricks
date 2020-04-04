@@ -34,13 +34,13 @@
     "todos",
     "unhighlight"
   ],
+  "git.ignoreLimitWarning": true,
   "files.exclude": {
     "**/.git": false
   },
   "sonarlint.connectedMode.project": {
     "projectKey": "frontend-tricks"
   },
-  "git.ignoreLimitWarning": true,
   "javascript.preferences.quoteStyle": "single",
   "typescript.preferences.quoteStyle": "single",
   "javascript.updateImportsOnFileMove.enabled": "always",
@@ -54,5 +54,6 @@
     "javascriptreact",
     "typescript",
     "typescriptreact"
-  ]
+  ],
+  "editor.tabSize": 2
 }
