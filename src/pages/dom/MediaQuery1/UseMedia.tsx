@@ -1,10 +1,12 @@
 import React, { FC, memo } from 'react';
-import { QueryObject } from 'json2mq';
+import json2mq, { QueryObject } from 'json2mq';
 import { useMediaQuery } from 'cb-hooks';
 import Result, { ResultProps } from './Result';
 
 export const UseMediaComponent: FC<UseMediaProps> = ({ query, view }) => {
-  const { media, matches } = useMediaQuery(query);
+  const { media, matches } = useMediaQuery(
+    typeof query === 'string' ? query : json2mq(query),
+  );
   return <Result media={media} matches={matches} view={view} />;
 };
 

@@ -23,10 +23,9 @@ const createRadialGradient = ({
   y: string;
 }) => `radial-gradient(
   100% 100% at ${x} ${y},
-  transparent 49%,
-  ${brown.A700} 49%,
-  ${brown.A700} 51%,
-  transparent 51%
+  transparent 0 49%,
+  ${brown.A700} 0 51%,
+  transparent 0 100%
 )`;
 
 const diameter = 240;
@@ -63,24 +62,16 @@ const styles = ({ spacing }: Theme) =>
     },
     radial3: {
       backgroundImage: `radial-gradient(
-        closest-side
+        closest-side,
         ${yellow[400]} 10%,
-        transparent 20%,
-        transparent 36%,
-        ${yellow[500]} 36%,
-        ${yellow[500]} 38%,
-        transparent 40%,
-        transparent 56%,
-        ${yellow[600]} 56%,
-        ${yellow[600]} 58%,
-        transparent 60%,
-        transparent 76%,
-        ${yellow[700]} 76%,
-        ${yellow[700]} 78%,
-        transparent 80%,
-        transparent 96%,
-        ${yellow[800]} 96%,
-        ${yellow[800]} 98%,
+        transparent 20% 36%,
+        ${yellow[500]} 36% 38%,
+        transparent 40% 56%,
+        ${yellow[600]} 56% 58%,
+        transparent 60% 76%,
+        ${yellow[700]} 76% 78%,
+        transparent 80% 96%,
+        ${yellow[800]} 96% 98%,
         transparent 100%)`,
     },
     radial4: {

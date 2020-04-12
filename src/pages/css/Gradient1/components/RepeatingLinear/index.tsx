@@ -7,7 +7,8 @@ export const RepeatingLinearComponent: FC = () => {
 
   return (
     <div className={classes.root}>
-      <div className={clsx(classes.rectangle, classes.repeatingLinear1)} />
+      <div className={clsx(classes.rectangleShort, classes.repeatingLinear1)} />
+      <div className={clsx(classes.rectangleTall, classes.repeatingLinear2)} />
     </div>
   );
 };

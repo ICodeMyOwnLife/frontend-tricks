@@ -13,6 +13,7 @@ export const LinearComponent: FC = () => {
       <div className={clsx(classes.rectangle, classes.linear4)} />
       <div className={clsx(classes.rectangle, classes.linear5)} />
       <div className={clsx(classes.rectangle, classes.linear6)} />
+      <div className={clsx(classes.rectangle, classes.linear7)} />
     </div>
   );
 };

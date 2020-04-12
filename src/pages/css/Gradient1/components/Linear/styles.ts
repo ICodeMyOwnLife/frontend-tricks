@@ -9,6 +9,9 @@ import {
   pink,
   cyan,
   green,
+  red,
+  amber,
+  lime,
 } from '@material-ui/core/colors';
 
 const styles = ({ spacing }: Theme) =>
@@ -56,22 +59,15 @@ const styles = ({ spacing }: Theme) =>
     linear5: {
       backgroundImage: `linear-gradient(
         140deg,
-        ${blue[400]} 20%,
-        ${blue[900]} 20%,
-        ${blue[900]} 23%,
-        ${blue[400]} 23%,
-        ${blue[400]} 24%,
-        ${blue[900]} 24%,
-        ${blue[900]} 25%,
-        ${blue[400]} 25%,
-        ${blue[400]} 26%,
-        ${blue[900]} 26%,
-        ${blue[900]} 27%,
-        ${blue[400]} 27%,
-        ${blue[400]} 28%,
-        ${blue[900]} 28%,
-        ${blue[900]} 29%,
-        ${blue[400]} 29%)`,
+        ${blue[400]} 0 20%,
+        ${blue[900]} 0 23%,
+        ${blue[400]} 0 24%,
+        ${blue[900]} 0 25%,
+        ${blue[400]} 0 26%,
+        ${blue[900]} 0 27%,
+        ${blue[400]} 0 28%,
+        ${blue[900]} 0 29%,
+        ${blue[400]} 0 100%)`,
     },
     '@keyframes background1': {
       '0%': {
@@ -85,9 +81,27 @@ const styles = ({ spacing }: Theme) =>
       },
     },
     linear6: {
-      backgroundImage: `linear-gradient(-45deg, ${deepOrange[400]}, ${pink[500]}, ${cyan[600]}, ${green.A700})`,
+      backgroundImage: `linear-gradient(
+        -45deg,
+        ${deepOrange[400]},
+        ${pink[500]},
+        ${cyan[600]},
+        ${green.A700})`,
       backgroundSize: '200% 200%',
       animation: `$background1 16s ease infinite`,
+    },
+    linear7: {
+      backgroundImage: `linear-gradient(
+        90deg,
+        ${indigo[500]} 0 calc(100% / 8),
+        ${deepPurple[400]} 0 calc(200% / 8),
+        ${red[500]} 0 calc(300% / 8),
+        ${deepOrange[400]} 0 calc(400% / 8),
+        ${amber[600]} 0 calc(500% / 8),
+        ${lime[500]} 0 calc(600% / 8),
+        ${green.A700} 0 calc(700% / 8),
+        ${cyan.A400} 0 calc(800% / 8)
+      )`,
     },
   });
 

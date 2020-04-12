@@ -6,7 +6,7 @@ const renderRoute = ({
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   name,
   path,
-  exact = true,
+  exact = false,
   childRoutes,
   ...props
 }: RouteInfo): ReactNode =>

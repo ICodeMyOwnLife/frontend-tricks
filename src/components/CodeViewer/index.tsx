@@ -5,17 +5,18 @@ import { okaidia } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import useStyles from './styles';
 
 export const CodeViewerComponent: FC<CodeViewerProps> = ({
-  className,
   children,
-  style = okaidia,
+  className,
   language,
+  style = okaidia,
+  value,
 }) => {
   const classes = useStyles();
 
   return (
-    <div className={clsx(classes.CodeViewer, className)}>
+    <div className={clsx(classes.root, className)}>
       <SyntaxHighlighter language={language} style={style}>
-        {children}
+        {value || children}
       </SyntaxHighlighter>
     </div>
   );
@@ -26,10 +27,11 @@ CodeViewer.displayName = 'CodeViewer';
 export default CodeViewer;
 
 export interface CodeViewerProps {
-  className?: string;
-  style?: object;
   children: string;
+  className?: string;
   language: CodeViewerLanguage;
+  style?: object;
+  value?: string;
 }
 
 export type CodeViewerLanguage =

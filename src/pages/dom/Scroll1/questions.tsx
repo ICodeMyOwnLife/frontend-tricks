@@ -333,6 +333,10 @@ export interface UseLazyLoadRegister {
         url: `https://www.smashingmagazine.com/2020/03/infinite-scroll-lazy-image-loading-react/`,
       },
       {
+        name: `[Medium] How to Lazy Load Images With Intersection Observer`,
+        url: `https://medium.com/javascript-in-plain-english/how-to-lazy-load-images-with-intersection-observer-beced03e4a43`,
+      },
+      {
         name: `[GitHub] use-lazyload`,
         url: `https://github.com/BKJang/use-lazyload`,
       },

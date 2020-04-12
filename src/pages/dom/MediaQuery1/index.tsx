@@ -6,15 +6,15 @@ import {
   TextField,
   Typography,
 } from '@material-ui/core';
-import json2mq from 'json2mq';
 import Media from 'react-media';
+import json2mq from 'json2mq';
 import { useTextInput } from 'cb-hooks';
 import QuestionPage from 'components/QuestionPage';
 import Section from 'components/Section';
 import { mediaQueries } from 'constants/mediaQueries';
-import questions from './questions';
 import UseMediaQuery from './UseMediaQuery';
 import UseMedia from './UseMedia';
+import questions from './questions';
 
 export const MediaQuery1Component: FC = () => {
   const theme = useTheme();

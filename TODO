@@ -1,5 +1,4 @@
-// TODO: make rows in grid the same height using grid-auto-rows: 1fr
-// TODO: Inspect CodeEditor: why so heavy???
+// TODO: Inspect CodeEditor: why so heavy???: remove unused themes
 // TODO: Implement spin loader
 // TODO: Input hack
 // TODO: update all styles.ts files

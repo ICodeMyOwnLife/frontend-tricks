@@ -46,18 +46,12 @@ const styles = ({ spacing }: Theme) =>
     },
     conic3: {
       backgroundImage: `conic-gradient(
-        ${red.A200},
-        ${red.A200} 50deg,
-        ${yellow.A200} 50deg,
-        ${yellow.A200} 70deg,
-        ${purple.A200} 70deg,
-        ${purple.A200} 102deg,
-        ${green.A200} 102deg,
-        ${green.A200} 192deg,
-        ${orange.A200} 192deg,
-        ${orange.A200} 224deg,
-        ${indigo.A200} 224deg,
-        ${indigo.A200})`,
+        ${red.A200} 0 50deg,
+        ${yellow.A200} 0 70deg,
+        ${purple.A200} 0 102deg,
+        ${green.A200} 0 192deg,
+        ${orange.A200} 0 224deg,
+        ${indigo.A200} 0 360deg)`,
     },
   });
 

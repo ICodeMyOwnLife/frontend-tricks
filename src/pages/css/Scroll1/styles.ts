@@ -1,4 +1,4 @@
-import { makeStyles, createStyles, Theme } from '@material-ui/core';
+import { makeStyles, createStyles, Theme, fade } from '@material-ui/core';
 import {
   amber,
   blue,
@@ -8,6 +8,7 @@ import {
   grey,
   indigo,
   lime,
+  yellow,
 } from '@material-ui/core/colors';
 
 const styles = ({ spacing }: Theme) =>
@@ -32,21 +33,44 @@ const styles = ({ spacing }: Theme) =>
     scrollPadding: {
       height: 400,
     },
+    '@keyframes targeted': {
+      '0%': {
+        color: cyan[600],
+        backgroundColor: 'transparent',
+      },
+      '50%': {
+        color: cyan[900],
+        backgroundColor: fade(yellow[200], 0.7),
+      },
+      '100%': {
+        color: cyan[600],
+        backgroundColor: 'transparent',
+      },
+    },
     scrollHeading: {
+      width: 'fit-content',
       scrollMarginTop: `${spacing(9)}px`,
       scrollSnapAlign: 'start',
+
+      '&:target': {
+        animation: `$targeted 2s ease 0.4s`,
+      },
     },
     scrollLinkBar: {
       position: 'sticky',
-      display: 'flex',
+      display: 'grid',
+      gridTemplateRows: 'auto auto',
       bottom: 0,
       width: 'fit-content',
       margin: '0 auto',
-      padding: spacing(2, 1.5),
+      padding: spacing(2, 3, 0),
       backgroundColor: grey[900],
     },
-    scrollLink: {
-      margin: spacing(0, 1.5),
+    scrollLinks: {
+      display: 'grid',
+      gridAutoFlow: 'column',
+      gridAutoColumns: '1fr',
+      gridGap: spacing(0, 3),
     },
     scrollSnap: {},
     scrollSnapInputs: {

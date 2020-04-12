@@ -30,6 +30,11 @@ const appRoutes = [
   ]),
   generateAppRoute('CSS', [
     [
+      'Animation',
+      () =>
+        import(/* webpackChunkName: "css_Animation1" */ 'pages/css/Animation1'),
+    ],
+    [
       'Aspect Ratio Box',
       () =>
         import(
@@ -125,6 +130,11 @@ const appRoutes = [
       () => import(/* webpackChunkName: "css_Scroll1" */ 'pages/css/Scroll1'),
     ],
     [
+      'Scrollbar',
+      () =>
+        import(/* webpackChunkName: "css_Scrollbar1" */ 'pages/css/Scrollbar1'),
+    ],
+    [
       'Shapes',
       () => import(/* webpackChunkName: "css_Shapes1" */ 'pages/css/Shapes1'),
     ],
@@ -208,6 +218,10 @@ const appRoutes = [
       'File Input',
       () =>
         import(/* webpackChunkName: "dom_FileInput1" */ 'pages/dom/FileInput1'),
+    ],
+    [
+      'History',
+      () => import(/* webpackChunkName: "dom_History1" */ 'pages/dom/History1'),
     ],
     [
       'Intl',
@@ -386,11 +400,32 @@ const appRoutes = [
   ]),
   generateAppRoute('VS Code', [
     [
+      'Emmets',
+      () =>
+        import(/* webpackChunkName: "code_Emmets1" */ 'pages/vs_code/Emmets1'),
+    ],
+    [
       'Extensions',
       () =>
         import(
           /* webpackChunkName: "code_Extensions1" */ 'pages/vs_code/Extensions1'
         ),
+    ],
+    [
+      'Fonts',
+      () =>
+        import(/* webpackChunkName: "code_Fonts1" */ 'pages/vs_code/Fonts1'),
+    ],
+    [
+      'Snippets',
+      () =>
+        import(
+          /* webpackChunkName: "code_Snippets1" */ 'pages/vs_code/Snippets1'
+        ),
+    ],
+    [
+      'Tips',
+      () => import(/* webpackChunkName: "code_Tips1" */ 'pages/vs_code/Tips1'),
     ],
   ]),
   generateAppRoute('Webpack', [

@@ -11,7 +11,7 @@ const favicons = Array.from(
 
 export const FaviconsComponent: FC = () => {
   const classes = useStyles();
-  const [favicon, , handleChangeFavicon] = useMuiSelect();
+  const [favicon, , handleChangeFavicon] = useMuiSelect(favicons[0]);
   useFavicon(favicon);
 
   return (

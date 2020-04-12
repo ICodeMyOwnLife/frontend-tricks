@@ -22,10 +22,8 @@ const styles = () =>
     repeatingConic1: {
       backgroundImage: `repeating-conic-gradient(
         from calc(-1turn / 12),
-        ${green[500]} calc(0turn / 6),
-        ${green[500]} calc(1turn / 6),
-        transparent calc(1turn / 6),
-        transparent calc(2turn / 6),
+        ${green[500]} 0 calc(1turn / 6),
+        transparent 0 calc(2turn / 6),
         ${green[500]} calc(2turn / 6)
       )`,
       animation: `$rotate 6s linear infinite`,

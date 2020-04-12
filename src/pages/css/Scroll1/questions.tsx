@@ -24,6 +24,10 @@ const questions: QuestionInfo[] = [
           Optionally using <code>scroll-behavior: smooth</code> to add a smooth
           transition to the scroll
         </p>
+        <p>
+          <b>Notice:</b> The <code>scroll-margin-top</code> setting won't work
+          when <code>overflow: hidden</code> is set on the item.
+        </p>
         <CodeViewer language="css">
           {`.Scroll1-scrollMargin-184 {
   height: 320px;
@@ -56,6 +60,58 @@ const questions: QuestionInfo[] = [
       {
         name: `How to animate scrolling to anchor links with one line of CSS`,
         url: `https://gomakethings.com/how-to-animate-scrolling-to-anchor-links-with-one-line-of-css/`,
+      },
+    ],
+  },
+  {
+    question: `How to style the scroll target?`,
+    answer: (
+      <div>
+        <p>
+          Use <code>:target</code> pseudo-class
+        </p>
+        <p>
+          The <code>:target</code> CSS pseudo-class represents a unique element
+          (the target element) with an id matching the URL's fragment.
+        </p>
+        <CodeViewer language="css">
+          {`@-webkit-keyframes ScrollTarget-keyframes-highlight-7 {
+  from {
+    outline-color: transparent;
+    outline-width: 0;
+  }
+  to {
+    outline-color: #fdd835;
+    outline-width: 2px;
+    background-color: #6d4c41;
+  }
+}
+
+.ScrollTarget-post-8 {
+  border: 1px solid #6d4c41;
+  margin: 0px 24px 24px;
+  padding: 16px 24px 24px;
+  background-color: #3e2723;
+  scroll-margin-top: 64px;
+  scroll-snap-align: start;
+}
+
+.ScrollTarget-post-8:target {
+  animation: ScrollTarget-keyframes-highlight-7 1s ease 0.3s alternate 2;
+  outline-style: solid;
+  outline-width: 0;
+}`}
+        </CodeViewer>
+      </div>
+    ),
+    references: [
+      {
+        name: `[MDN] :target`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/CSS/:target`,
+      },
+      {
+        name: `[MDN] Using the :target pseudo-class in selectors`,
+        url: `https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Selectors/Using_the_%3Atarget_pseudo-class_in_selectors`,
       },
     ],
   },

@@ -21,10 +21,8 @@ const styles = () =>
     },
     repeatingRadial1: {
       backgroundImage: `repeating-radial-gradient(
-        transparent 0%,
-        transparent 2%,
-        ${amber.A400} 2%,
-        ${amber.A400} 4%,
+        transparent 0 2%,
+        ${amber.A400} 0 4%,
         transparent 4%
       )`,
       backgroundPosition: 'center',

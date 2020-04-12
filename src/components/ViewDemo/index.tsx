@@ -5,14 +5,17 @@ import useStyles from './styles';
 
 export const ViewDemoComponent: FC<ViewDemoProps> = ({
   route: { name, path },
+  urlInfo,
 }) => {
   const classes = useStyles();
+  const url = new URL(path, window.location.origin);
+  Object.assign(url, urlInfo);
 
   return (
     <Link
       className={classes.root}
       color="secondary"
-      href={path}
+      href={url.toString()}
       target="_blank"
       variant="h6"
     >
@@ -27,4 +30,7 @@ export default ViewDemo;
 
 export interface ViewDemoProps {
   route: SimpleRouteInfo;
+  urlInfo?: UrlInfo;
 }
+
+export type UrlInfo = Partial<OmitFrom<URL, 'toJSON' | 'toString'>>;
