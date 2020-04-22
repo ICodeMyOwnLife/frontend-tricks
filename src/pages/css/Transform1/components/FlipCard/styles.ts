@@ -45,6 +45,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'FlipCard' });
+const useStyles = makeStyles(styles, { name: 'FlipCard' });
 
 export default useStyles;

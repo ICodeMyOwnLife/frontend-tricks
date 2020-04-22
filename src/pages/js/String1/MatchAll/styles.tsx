@@ -6,6 +6,6 @@ const styles = () =>
     inputGroup: { gridColumn: 'span 3' },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'MatchAll' });
+const useStyles = makeStyles(styles, { name: 'MatchAll' });
 
 export default useStyles;

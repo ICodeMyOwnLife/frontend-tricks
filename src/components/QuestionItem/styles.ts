@@ -52,6 +52,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'QuestionItem' });
+const useStyles = makeStyles(styles, { name: 'QuestionItem' });
 
 export default useStyles;

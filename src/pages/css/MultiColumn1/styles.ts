@@ -25,6 +25,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'MultiColumn1' });
+const useStyles = makeStyles(styles, { name: 'MultiColumn1' });
 
 export default useStyles;

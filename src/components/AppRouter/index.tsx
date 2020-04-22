@@ -1,5 +1,6 @@
 import React, { FC, memo, Suspense, Fragment, ReactNode } from 'react';
 import { Route, RouteProps } from 'react-router-dom';
+import Spinner from 'components/Spinner';
 import { RouteInfo } from 'types/app-common';
 
 const renderRoute = ({
@@ -17,7 +18,7 @@ const renderRoute = ({
   );
 
 export const AppRouterComponent: FC<AppRouterProps> = ({ routes }) => (
-  <Suspense fallback="Loading...">{routes.map(renderRoute)}</Suspense>
+  <Suspense fallback={<Spinner loading />}>{routes.map(renderRoute)}</Suspense>
 );
 
 const AppRouter = memo(AppRouterComponent);

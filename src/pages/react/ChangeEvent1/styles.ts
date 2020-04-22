@@ -18,6 +18,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'ChangeEvent1' });
+const useStyles = makeStyles(styles, { name: 'ChangeEvent1' });
 
 export default useStyles;

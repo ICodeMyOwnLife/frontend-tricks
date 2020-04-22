@@ -21,6 +21,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'HistoryListen' });
+const useStyles = makeStyles(styles, { name: 'HistoryListen' });
 
 export default useStyles;

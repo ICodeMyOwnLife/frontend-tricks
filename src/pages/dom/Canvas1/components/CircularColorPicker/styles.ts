@@ -12,7 +12,7 @@ const styles = () =>
   });
 
 const useStyles = makeStyles(styles, {
-  classNamePrefix: 'CircularColorPicker',
+  name: 'CircularColorPicker',
 });
 
 export default useStyles;

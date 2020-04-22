@@ -49,7 +49,7 @@ const questions: QuestionInfo[] = [
         </p>
 
         <CodeViewer language="tsx">
-          {`const saveFileManually: SaveFileFunction = ({
+          {`export const saveFileManually: SaveFileFunction = ({
   blob,
   contentType,
   contentDisposition,
@@ -63,7 +63,7 @@ const questions: QuestionInfo[] = [
   document.body.appendChild(link);
   link.click();
   URL.revokeObjectURL(objectUrl);
-  document.body.removeChild(link);
+  link.remove();
 };`}
         </CodeViewer>
 

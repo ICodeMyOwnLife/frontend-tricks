@@ -103,6 +103,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'InputHacks1' });
+const useStyles = makeStyles(styles, { name: 'InputHacks1' });
 
 export default useStyles;

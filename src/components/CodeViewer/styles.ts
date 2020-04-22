@@ -15,6 +15,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'CodeViewer' });
+const useStyles = makeStyles(styles, { name: 'CodeViewer' });
 
 export default useStyles;

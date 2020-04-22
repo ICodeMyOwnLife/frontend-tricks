@@ -1,7 +1,7 @@
 import React, { FC, memo, Dispatch, SetStateAction } from 'react';
 import { Box, Button, Collapse } from '@material-ui/core';
 import { useToggle } from 'cb-hooks';
-import CodeEditor from 'components/CodeEditor';
+import HtmlCodeEditor from 'components/HtmlCodeEditor';
 import useStyles from './styles';
 
 export const EditorComponent: FC<EditorProps> = ({
@@ -23,9 +23,8 @@ export const EditorComponent: FC<EditorProps> = ({
         Toggle Edit
       </Button>
       <Collapse in={editorVisible}>
-        <CodeEditor
+        <HtmlCodeEditor
           className={classes.codeEditor}
-          language="html"
           value={html}
           onChange={setHtml}
         />

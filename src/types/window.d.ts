@@ -61,3 +61,7 @@ interface MemoryInfo {
 interface Performance {
   memory: MemoryInfo;
 }
+
+interface Window {
+  mozRTCPeerConnection: typeof window.RTCPeerConnection;
+}

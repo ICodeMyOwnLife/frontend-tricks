@@ -73,6 +73,6 @@ const styles = () =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'HoverText' });
+const useStyles = makeStyles(styles, { name: 'HoverText' });
 
 export default useStyles;

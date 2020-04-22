@@ -76,6 +76,6 @@ const styles = () =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'StaticText' });
+const useStyles = makeStyles(styles, { name: 'StaticText' });
 
 export default useStyles;

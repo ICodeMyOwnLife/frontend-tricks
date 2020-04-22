@@ -32,6 +32,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'PageVisibility1' });
+const useStyles = makeStyles(styles, { name: 'PageVisibility1' });
 
 export default useStyles;

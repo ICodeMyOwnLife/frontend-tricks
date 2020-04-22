@@ -30,6 +30,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'Clipboard1' });
+const useStyles = makeStyles(styles, { name: 'Clipboard1' });
 
 export default useStyles;

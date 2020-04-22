@@ -42,6 +42,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'Query1' });
+const useStyles = makeStyles(styles, { name: 'Query1' });
 
 export default useStyles;

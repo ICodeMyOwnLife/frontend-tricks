@@ -33,6 +33,6 @@ const styles = () =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'AspectRatioBox1' });
+const useStyles = makeStyles(styles, { name: 'AspectRatioBox1' });
 
 export default useStyles;

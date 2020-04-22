@@ -14,17 +14,11 @@ const questions: QuestionInfo[] = [
         </p>
 
         <CodeViewer language="tsx">
-          {`const defaultGetId = <TElement extends Element>(element: TElement) =>
-  element?.getAttribute('id');
-
-const isElement = <TElement extends Element>(o: unknown): o is TElement =>
-  o instanceof Element;
-
-const useScrollSpy = <TElement extends Element = Element>(
-  { getId = defaultGetId, ...options }: UseScrollSpyOptions<TElement> = {
-    threshold: 1,
-  },
-) => {
+          {`const useScrollSpy = <TElement extends Element = Element>({
+  getId = defaultGetId,
+  threshold = 1,
+  ...rest
+}: UseScrollSpyOptions<TElement> = {}) => {
   const [id, setId] = useState<string>();
   const elementMapRef = useRef(new Map<TElement, string>());
   const intersectingElementsRef = useRef(new Set<TElement>());
@@ -56,8 +50,8 @@ const useScrollSpy = <TElement extends Element = Element>(
   useIntersectionObserverEffect(
     () => Array.from(elementMapRef.current.keys()),
     entries => {
-      entries.forEach(({ isIntersecting, target }) => {
-        if (isIntersecting) {
+      entries.forEach(({ intersectionRatio, target }) => {
+        if (intersectionRatio >= threshold) {
           intersectingElementsRef.current.add(target as TElement);
         } else {
           intersectingElementsRef.current.delete(target as TElement);
@@ -81,39 +75,47 @@ const useScrollSpy = <TElement extends Element = Element>(
         setId(newId);
       }
     },
-    options,
+    { ...rest, threshold },
   );
 
   return [id, register] as const;
-};
-
-export default useScrollSpy;
-
-export interface UseScrollSpyOptions<TElement extends Element>
-  extends IntersectionObserverInit {
-  getId?: (element: TElement) => string | null | undefined;
-}
-
-export interface UseScrollSpyRegister<TElement extends Element> {
-  (element: TElement): void;
-  (id: string): (element: TElement) => void;
-}`}
+};`}
         </CodeViewer>
 
         <CodeViewer language="tsx">
           {`export const ScrollSpyComponent: FC = () => {
   const classes = useStyles();
-  const [scrollId, register] = useScrollSpy();
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [targetId, register] = useScrollSpy({
+    root: () => contentRef.current,
+  });
+
+  useLayoutEffect(() => {
+    if (targetId) {
+      const element = document.getElementById(createLinkId(targetId));
+      element?.scrollIntoView({
+        // behavior: 'smooth', // There is currently a bug in Chrome, scrollIntoView won't work when adding this line
+        block: 'nearest',
+      });
+    }
+  }, [targetId]);
 
   return (
     <div className={classes.root}>
-      <div className={classes.contentContainer}>
+      <div className={classes.contentContainer} ref={contentRef}>
         {sections.map(({ paragraphs, heading, id }) => (
           <Fragment key={id}>
             <Typography
               className={classes.heading}
               id={id}
               innerRef={register}
+              onClick={() =>
+                setTimeout(() => {
+                  document
+                    .getElementById(createLinkId(id))
+                    ?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                }, 10)
+              }
               variant="h4"
             >
               {heading}
@@ -131,9 +133,12 @@ export interface UseScrollSpyRegister<TElement extends Element> {
           {sections.map(({ heading, id }) => (
             <ListItem
               button
-              className={clsx(classes.navLink, { active: scrollId === id })}
+              className={clsx(classes.navLink, {
+                active: targetId === id,
+              })}
               component="a"
               href={\`#$\{id}\`}
+              id={createLinkId(id)}
               key={id}
             >
               <ListItemText primary={heading} />
@@ -173,9 +178,7 @@ export interface UseScrollSpyRegister<TElement extends Element> {
         </p>
 
         <CodeViewer language="typescript">
-          {`const defaultGetSrc = (image: HTMLImageElement) => image.dataset.src;
-
-const useLazyLoad = ({
+          {`const useLazyLoad = ({
   getSrc = defaultGetSrc,
   ...options
 }: UseLazyLoadOptions = {}) => {
@@ -223,19 +226,7 @@ const useLazyLoad = ({
   );
 
   return register;
-};
-
-export default useLazyLoad;
-
-export interface UseLazyLoadOptions extends IntersectionObserverInit {
-  getSrc?: (image: HTMLImageElement) => string | null | undefined;
-}
-
-export interface UseLazyLoadRegister {
-  (image: HTMLImageElement): void;
-  (src: string): (image: HTMLImageElement) => void;
-}
-`}
+};`}
         </CodeViewer>
 
         <CodeViewer language="tsx">
@@ -361,11 +352,7 @@ export interface UseLazyLoadRegister {
         </p>
 
         <CodeViewer language="typescript">
-          {`const isIntersectingObserverInit = (
-  o: unknown,
-): o is IntersectionObserverInit => o instanceof Object;
-
-const useInfiniteScroll: UseInfiniteScroll = (
+          {`const useInfiniteScroll: UseInfiniteScroll = (
   elementRef: RefObject<Element>,
   loadMore: () => void | Promise<unknown>,
   ...args: any[]
@@ -374,10 +361,10 @@ const useInfiniteScroll: UseInfiniteScroll = (
   const loading: boolean | undefined =
     typeof args[0] === 'boolean' ? args[0] : undefined;
   const options:
-    | IntersectionObserverInit
-    | undefined = isIntersectingObserverInit(args[0])
+    | UseIntersectionObserverEffectOptions
+    | undefined = isOptionsObject(args[0])
     ? args[0]
-    : isIntersectingObserverInit(args[1])
+    : isOptionsObject(args[1])
     ? args[1]
     : undefined;
 
@@ -404,23 +391,7 @@ const useInfiniteScroll: UseInfiniteScroll = (
     },
     options,
   );
-};
-
-export default useInfiniteScroll;
-
-export interface UseInfiniteScroll {
-  (
-    elementRef: RefObject<Element>,
-    loadMore: () => Promise<unknown>,
-    options?: IntersectionObserverInit,
-  ): void;
-  (
-    elementRef: RefObject<Element>,
-    loadMore: VoidFunction,
-    loading: boolean,
-    options?: IntersectionObserverInit,
-  ): void;
-}`}
+};`}
         </CodeViewer>
 
         <CodeViewer language="tsx">

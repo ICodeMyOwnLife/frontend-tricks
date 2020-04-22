@@ -55,6 +55,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'Conic' });
+const useStyles = makeStyles(styles, { name: 'Conic' });
 
 export default useStyles;

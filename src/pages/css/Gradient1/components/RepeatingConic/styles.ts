@@ -30,6 +30,6 @@ const styles = () =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'RepeatingConic' });
+const useStyles = makeStyles(styles, { name: 'RepeatingConic' });
 
 export default useStyles;

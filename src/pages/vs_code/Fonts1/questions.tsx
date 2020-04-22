@@ -25,7 +25,7 @@ const questions: QuestionInfo[] = [
         <p>To enable stylistic sets:</p>
         <CodeViewer language="json">
           {`{
-  "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'zero', 'onum'"
+  "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'zero', 'onum'"
 }`}
         </CodeViewer>
       </div>
@@ -80,7 +80,7 @@ const questions: QuestionInfo[] = [
 
 .Fonts1-ligature-260 {
   text-rendering: optimizeLegibility;
-  font-feature-settings: "liga", "calt", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "zero", "onum";
+  font-feature-settings: "liga", "calt", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "zero", "onum";
   -web-kit-font-smoothing: antialiased;
   -moz-font-feature-settings: "liga", "calt", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "zero", "onum";
   -webkit-font-feature-settings: "liga", "calt", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "zero", "onum";

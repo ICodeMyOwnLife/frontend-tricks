@@ -1,5 +1,4 @@
 {
   "extends": "react-ts",
-  "globals": { "ClipboardItem": true },
-  "ignorePatterns": ["src/types"]
+  "globals": { "ClipboardItem": true }
 }

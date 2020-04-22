@@ -147,6 +147,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'Grid1' });
+const useStyles = makeStyles(styles, { name: 'Grid1' });
 
 export default useStyles;

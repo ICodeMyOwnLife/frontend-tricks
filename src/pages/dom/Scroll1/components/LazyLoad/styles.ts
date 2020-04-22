@@ -31,6 +31,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'LazyLoad' });
+const useStyles = makeStyles(styles, { name: 'LazyLoad' });
 
 export default useStyles;

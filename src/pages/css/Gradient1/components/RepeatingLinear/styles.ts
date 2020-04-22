@@ -37,6 +37,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'RepeatingLinear' });
+const useStyles = makeStyles(styles, { name: 'RepeatingLinear' });
 
 export default useStyles;

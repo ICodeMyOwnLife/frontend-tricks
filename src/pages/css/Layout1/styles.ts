@@ -5,6 +5,6 @@ const styles = () =>
     root: {},
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'Layout1' });
+const useStyles = makeStyles(styles, { name: 'Layout1' });
 
 export default useStyles;

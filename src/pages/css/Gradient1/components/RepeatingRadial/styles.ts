@@ -30,6 +30,6 @@ const styles = () =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'RepeatingRadial' });
+const useStyles = makeStyles(styles, { name: 'RepeatingRadial' });
 
 export default useStyles;

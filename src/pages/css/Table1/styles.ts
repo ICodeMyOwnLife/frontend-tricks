@@ -9,6 +9,6 @@ const styles = () =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'Table1' });
+const useStyles = makeStyles(styles, { name: 'Table1' });
 
 export default useStyles;

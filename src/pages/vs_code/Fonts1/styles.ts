@@ -1,7 +1,7 @@
 import { makeStyles, createStyles, Theme } from '@material-ui/core';
 
 const ligaSettings =
-  '"liga", "calt", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "zero", "onum"';
+  '"liga", "calt", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "zero", "onum"';
 
 const nonLigaSettings = '"liga" off, "calt" off';
 
@@ -48,6 +48,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'Fonts1' });
+const useStyles = makeStyles(styles, { name: 'Fonts1' });
 
 export default useStyles;

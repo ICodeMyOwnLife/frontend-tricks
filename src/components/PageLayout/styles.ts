@@ -10,6 +10,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'PageLayout' });
+const useStyles = makeStyles(styles, { name: 'PageLayout' });
 
 export default useStyles;

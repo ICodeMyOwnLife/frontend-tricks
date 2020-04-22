@@ -8,6 +8,6 @@ const styles = () =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'RegExpExperiment' });
+const useStyles = makeStyles(styles, { name: 'RegExpExperiment' });
 
 export default useStyles;

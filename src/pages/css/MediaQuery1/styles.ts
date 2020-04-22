@@ -25,6 +25,6 @@ const styles = () =>
     ...queryStyles,
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'MediaQuery1' });
+const useStyles = makeStyles(styles, { name: 'MediaQuery1' });
 
 export default useStyles;

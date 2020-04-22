@@ -9,6 +9,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'ViewDemo' });
+const useStyles = makeStyles(styles, { name: 'ViewDemo' });
 
 export default useStyles;

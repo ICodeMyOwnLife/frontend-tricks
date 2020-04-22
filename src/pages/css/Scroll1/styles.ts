@@ -152,6 +152,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'Scroll1' });
+const useStyles = makeStyles(styles, { name: 'Scroll1' });
 
 export default useStyles;

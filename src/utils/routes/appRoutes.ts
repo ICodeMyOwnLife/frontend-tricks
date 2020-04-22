@@ -227,6 +227,7 @@ const appRoutes = [
       'Intl',
       () => import(/* webpackChunkName: "dom_Intl1" */ 'pages/dom/Intl1'),
     ],
+    ['IP', () => import(/* webpackChunkName: "dom_IP1" */ 'pages/dom/IP1')],
     [
       'Link Tags',
       () =>
@@ -276,6 +277,10 @@ const appRoutes = [
     [
       'Array',
       () => import(/* webpackChunkName: "js_Array1" */ 'pages/js/Array1'),
+    ],
+    [
+      'Module',
+      () => import(/* webpackChunkName: "js_Module1" */ 'pages/js/Module1'),
     ],
     [
       'Object',

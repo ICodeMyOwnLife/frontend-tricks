@@ -67,6 +67,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'FlexOverflow1' });
+const useStyles = makeStyles(styles, { name: 'FlexOverflow1' });
 
 export default useStyles;

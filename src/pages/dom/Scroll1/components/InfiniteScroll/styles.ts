@@ -22,6 +22,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'InfiniteScroll' });
+const useStyles = makeStyles(styles, { name: 'InfiniteScroll' });
 
 export default useStyles;

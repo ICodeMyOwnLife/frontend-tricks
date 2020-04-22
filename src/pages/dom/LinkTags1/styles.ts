@@ -27,6 +27,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'LinkTags1' });
+const useStyles = makeStyles(styles, { name: 'LinkTags1' });
 
 export default useStyles;

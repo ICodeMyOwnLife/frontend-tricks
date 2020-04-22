@@ -45,7 +45,7 @@ const styles = ({ spacing }: Theme) =>
   });
 
 const useStyles = makeStyles(styles, {
-  classNamePrefix: 'ColorPicker',
+  name: 'ColorPicker',
 });
 
 export default useStyles;

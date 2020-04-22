@@ -5,10 +5,10 @@ const styles = ({ spacing }: Theme) =>
   createStyles({
     root: {
       display: 'flex',
+      maxHeight: 400,
     },
     contentContainer: {
       flex: 1,
-      maxHeight: 400,
       paddingRight: spacing(3),
       overflowY: 'auto',
       scrollBehavior: 'smooth',
@@ -27,6 +27,7 @@ const styles = ({ spacing }: Theme) =>
     navContainer: {
       width: 160,
       borderLeft: `1px solid ${fade(blue[200], 0.8)}`,
+      overflowY: 'auto',
     },
     navLink: {
       '&.active': {
@@ -36,6 +37,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'ScrollSpy' });
+const useStyles = makeStyles(styles, { name: 'ScrollSpy' });
 
 export default useStyles;

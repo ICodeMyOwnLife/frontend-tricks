@@ -38,7 +38,7 @@ export const saveFileManually: SaveFileFunction = ({
   document.body.appendChild(link);
   link.click();
   URL.revokeObjectURL(objectUrl);
-  document.body.removeChild(link);
+  link.remove();
 };
 
 export const saveFileWithFileSaver: SaveFileFunction = ({

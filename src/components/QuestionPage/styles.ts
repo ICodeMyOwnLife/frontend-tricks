@@ -8,6 +8,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'QuestionPage' });
+const useStyles = makeStyles(styles, { name: 'QuestionPage' });
 
 export default useStyles;

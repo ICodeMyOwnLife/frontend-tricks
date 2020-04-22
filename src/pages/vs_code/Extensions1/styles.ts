@@ -17,6 +17,6 @@ const styles = () =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'Extensions1' });
+const useStyles = makeStyles(styles, { name: 'Extensions1' });
 
 export default useStyles;

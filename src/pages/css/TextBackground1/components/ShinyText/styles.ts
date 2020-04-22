@@ -28,6 +28,6 @@ const styles = () =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'ShinyText' });
+const useStyles = makeStyles(styles, { name: 'ShinyText' });
 
 export default useStyles;

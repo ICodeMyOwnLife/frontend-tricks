@@ -1,6 +1,6 @@
 import React, { FC, memo, useState } from 'react';
 import { Box, Button } from '@material-ui/core';
-import CodeEditor from 'components/CodeEditor';
+import JsCodeEditor from 'components/JsCodeEditor';
 import CodeViewer from 'components/CodeViewer';
 import { useHandleExecute } from './utils';
 import useStyles from './styles';
@@ -20,7 +20,7 @@ export const CodeExecutorComponent: FC<CodeExecutorProps> = ({
 
   return (
     <Box className={classes.root}>
-      <CodeEditor language="javascript" value={code} onChange={onCodeChange} />
+      <JsCodeEditor value={code} onChange={onCodeChange} />
       <Button
         className={classes.executeButton}
         variant="contained"

@@ -45,7 +45,7 @@ const styles = () =>
     }),
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'ColorSlider' });
+const useStyles = makeStyles(styles, { name: 'ColorSlider' });
 
 export default useStyles;
 

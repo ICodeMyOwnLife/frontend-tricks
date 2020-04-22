@@ -24,6 +24,6 @@ const styles = ({ palette, spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'IntlLayout' });
+const useStyles = makeStyles(styles, { name: 'IntlLayout' });
 
 export default useStyles;

@@ -30,6 +30,6 @@ const styles = () =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'App' });
+const useStyles = makeStyles(styles, { name: 'App' });
 
 export default useStyles;

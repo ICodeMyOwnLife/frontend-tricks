@@ -66,6 +66,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'Scrollbar1' });
+const useStyles = makeStyles(styles, { name: 'Scrollbar1' });
 
 export default useStyles;

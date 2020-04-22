@@ -9,7 +9,7 @@ const styles = () =>
   });
 
 const useStyles = makeStyles(styles, {
-  classNamePrefix: 'RectangularColorPicker',
+  name: 'RectangularColorPicker',
 });
 
 export default useStyles;

@@ -105,6 +105,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'Linear' });
+const useStyles = makeStyles(styles, { name: 'Linear' });
 
 export default useStyles;

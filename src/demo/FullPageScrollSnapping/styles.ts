@@ -39,7 +39,7 @@ const styles = ({ spacing }: Theme) =>
   });
 
 const useStyles = makeStyles(styles, {
-  classNamePrefix: 'FullPageScrollSnapping',
+  name: 'FullPageScrollSnapping',
 });
 
 export default useStyles;

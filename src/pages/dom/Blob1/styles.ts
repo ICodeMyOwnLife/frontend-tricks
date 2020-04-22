@@ -10,6 +10,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'Blob1' });
+const useStyles = makeStyles(styles, { name: 'Blob1' });
 
 export default useStyles;

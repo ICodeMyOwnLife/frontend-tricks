@@ -125,7 +125,7 @@ export const isObtrusiveScrollbar = () => {
     parent.appendChild(child);
     document.body.appendChild(parent);
     isObtrusive = size - child.clientWidth > 0;
-    document.body.removeChild(parent);
+    parent.remove();
   }
 
   return isObtrusive;

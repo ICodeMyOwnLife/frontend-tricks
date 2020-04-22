@@ -20,6 +20,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'Background1' });
+const useStyles = makeStyles(styles, { name: 'Background1' });
 
 export default useStyles;

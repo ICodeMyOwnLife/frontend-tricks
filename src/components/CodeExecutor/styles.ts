@@ -13,6 +13,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'CodeExecuter' });
+const useStyles = makeStyles(styles, { name: 'CodeExecuter' });
 
 export default useStyles;

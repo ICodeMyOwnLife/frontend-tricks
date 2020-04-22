@@ -11,6 +11,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'ReCaptcha1' });
+const useStyles = makeStyles(styles, { name: 'ReCaptcha1' });
 
 export default useStyles;

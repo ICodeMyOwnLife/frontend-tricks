@@ -37,6 +37,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'Flex1' });
+const useStyles = makeStyles(styles, { name: 'Flex1' });
 
 export default useStyles;

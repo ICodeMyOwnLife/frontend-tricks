@@ -64,6 +64,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'StickyHeaderTable' });
+const useStyles = makeStyles(styles, { name: 'StickyHeaderTable' });
 
 export default useStyles;

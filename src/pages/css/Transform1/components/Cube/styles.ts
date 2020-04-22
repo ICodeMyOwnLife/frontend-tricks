@@ -59,7 +59,7 @@ const styles = () =>
     }),
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'Cube' });
+const useStyles = makeStyles(styles, { name: 'Cube' });
 
 export default useStyles;
 

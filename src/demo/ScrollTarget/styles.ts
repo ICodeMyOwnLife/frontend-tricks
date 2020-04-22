@@ -68,6 +68,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'ScrollTarget' });
+const useStyles = makeStyles(styles, { name: 'ScrollTarget' });
 
 export default useStyles;

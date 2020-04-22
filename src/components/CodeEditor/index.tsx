@@ -3,44 +3,12 @@
 /* eslint-disable global-require */
 import React, { FC, memo } from 'react';
 import ReactAce, { IAceEditorProps } from 'react-ace';
-import 'brace/mode/jsx';
-
-const languages = ['typescript', 'javascript', 'html', 'scss', 'json'] as const;
-languages.forEach(lang => {
-  require(`brace/mode/${lang}`);
-  require(`brace/snippets/${lang}`);
-});
-
-const themes = [
-  'ambiance',
-  'chaos',
-  'chrome',
-  'clouds',
-  'dawn',
-  'dracula',
-  'eclipse',
-  'github',
-  'katzenmilch',
-  'kr_theme',
-  'kuroir',
-  'merbivore',
-  'monokai',
-  'tomorrow_night',
-  'tomorrow',
-  'twilight',
-] as const;
-themes.forEach(theme => {
-  require(`brace/theme/${theme}`);
-});
-
-import 'brace/ext/language_tools';
-import 'brace/ext/beautify';
-import 'brace/ext/emmet';
-import 'brace/ext/searchbox';
+import 'ace-builds/webpack-resolver';
+import 'ace-builds/src-noconflict/theme-merbivore';
+import 'ace-builds/src-noconflict/ext-language_tools';
+import 'ace-builds/src-noconflict/ext-beautify';
 
 export const CodeEditorComponent: FC<CodeEditorProps> = ({
-  language,
-  theme = 'merbivore',
   enableBasicAutocompletion = true,
   enableLiveAutocompletion = true,
   enableSnippets = true,
@@ -53,8 +21,8 @@ export const CodeEditorComponent: FC<CodeEditorProps> = ({
   ...props
 }) => (
   <ReactAce
-    mode={language}
-    theme={theme}
+    {...props}
+    theme="merbivore"
     enableBasicAutocompletion={enableBasicAutocompletion}
     enableLiveAutocompletion={enableLiveAutocompletion}
     enableSnippets={enableSnippets}
@@ -65,7 +33,6 @@ export const CodeEditorComponent: FC<CodeEditorProps> = ({
     showGutter={showGutter}
     tabSize={tabSize}
     editorProps={{ $blockScrolling: Infinity }}
-    {...props}
   />
 );
 
@@ -74,10 +41,4 @@ CodeEditor.displayName = 'CodeEditor';
 export default CodeEditor;
 
 export interface CodeEditorProps
-  extends OmitFrom<
-    IAceEditorProps,
-    'mode' | 'theme' | 'editorProps' | 'setOptions'
-  > {
-  language: typeof languages[number];
-  theme?: typeof themes[number];
-}
+  extends OmitFrom<IAceEditorProps, 'theme' | 'editorProps' | 'setOptions'> {}

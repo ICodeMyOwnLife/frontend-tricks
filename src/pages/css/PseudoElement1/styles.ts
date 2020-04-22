@@ -160,6 +160,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'PseudoElement1' });
+const useStyles = makeStyles(styles, { name: 'PseudoElement1' });
 
 export default useStyles;

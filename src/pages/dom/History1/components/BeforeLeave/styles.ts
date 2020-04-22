@@ -36,6 +36,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'BeforeLeave' });
+const useStyles = makeStyles(styles, { name: 'BeforeLeave' });
 
 export default useStyles;

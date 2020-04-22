@@ -32,6 +32,6 @@ const styles = () =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'PlayState' });
+const useStyles = makeStyles(styles, { name: 'PlayState' });
 
 export default useStyles;

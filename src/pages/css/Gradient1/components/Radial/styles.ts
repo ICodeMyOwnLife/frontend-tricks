@@ -80,6 +80,6 @@ const styles = ({ spacing }: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { classNamePrefix: 'Radial' });
+const useStyles = makeStyles(styles, { name: 'Radial' });
 
 export default useStyles;
