@@ -246,6 +246,10 @@ const appRoutes = [
         ),
     ],
     [
+      'New Tab',
+      () => import(/* webpackChunkName: "dom_NewTab1" */ 'pages/dom/NewTab1'),
+    ],
+    [
       'Page Visibility',
       () =>
         import(
@@ -293,6 +297,15 @@ const appRoutes = [
     [
       'String',
       () => import(/* webpackChunkName: "js_String1" */ 'pages/js/String1'),
+    ],
+  ]),
+  generateAppRoute('Material UI', [
+    [
+      'Styling',
+      () =>
+        import(
+          /* webpackChunkName: "mui_Styling1" */ 'pages/material_ui/Styling1'
+        ),
     ],
   ]),
   generateAppRoute('NodeJS', [

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import { useArray } from 'cb-hooks';
+import { useArray, useFetch } from 'cb-hooks';
+import { BASE_URL } from 'constants/common';
 
 const createPeerConnection = (onNewIp: (ip: string) => void) => {
   const PeerConnection =
@@ -34,7 +35,7 @@ const createPeerConnection = (onNewIp: (ip: string) => void) => {
   return peerConnection;
 };
 
-export const useUserIp = () => {
+export const useClientIps = () => {
   const [ips, , prepend] = useArray<string>([]);
 
   useEffect(() => {
@@ -43,4 +44,9 @@ export const useUserIp = () => {
   }, [prepend]);
 
   return ips;
+};
+
+export const useGetIps = () => {
+  const { result } = useFetch(`${BASE_URL}/ip`);
+  return result;
 };

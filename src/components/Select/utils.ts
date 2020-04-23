@@ -12,7 +12,7 @@ export const useSelect = ({
   name: string;
   validationOptions: ValidationOptions | undefined;
 }) => {
-  const handleChange = useCallback<ChangeEventHandler<{ value: unknown }>>(
+  const handleChange = useCallback<ChangeEventHandler<{ value: any }>>(
     ({ target: { value } }) => setValue(name, value),
     [name, setValue],
   );
@@ -22,7 +22,7 @@ export const useSelect = ({
   }, [name, register, validationOptions]);
 
   useEffect(() => {
-    setValue(name, defaultValue);
+    setValue(name, defaultValue as any);
   }, [defaultValue, name, setValue]);
 
   return { value: watch(name, ''), handleChange };
