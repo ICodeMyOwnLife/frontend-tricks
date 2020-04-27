@@ -10,12 +10,17 @@ const styles = () =>
       '& code': {
         fontFamily: `'Fira Code', 'Courier New', Courier, monospace !important`,
         fontSize: 14,
-        color: deepOrange.A400,
+        color: deepOrange[700],
         fontFeatureSettings: ligaSettings,
         MozFontFeatureSettings: ligaSettings,
         WebkitFontFeatureSettings: ligaSettings,
         WebKitFontSmoothing: 'antialiased',
         textRendering: 'optimizeLegibility',
+      },
+
+      '& a': {
+        fontWeight: 'bolder',
+        textDecoration: 'none',
       },
     },
     '@font-face firaCode': {

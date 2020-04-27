@@ -415,6 +415,13 @@ const appRoutes = [
       () =>
         import(/* webpackChunkName: "tools_Release1" */ 'pages/tools/Release1'),
     ],
+    [
+      'Yarn Scripts',
+      () =>
+        import(
+          /* webpackChunkName: "tools_YarnScripts1" */ 'pages/tools/YarnScripts1'
+        ),
+    ],
   ]),
   generateAppRoute('VS Code', [
     [

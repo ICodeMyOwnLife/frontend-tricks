@@ -10,9 +10,7 @@ export const ReferencesComponent: FC<ReferencesProps> = ({
     <ol>
       {references!.map(({ name, url }) => (
         <li key={url}>
-          <a href={url} target="_blank" rel="noopener noreferrer">
-            {name}
-          </a>
+          <a href={url}>{name}</a>
         </li>
       ))}
     </ol>
