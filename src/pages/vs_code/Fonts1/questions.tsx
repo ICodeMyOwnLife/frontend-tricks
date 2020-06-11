@@ -25,7 +25,7 @@ const questions: QuestionInfo[] = [
         <p>To enable stylistic sets:</p>
         <CodeViewer language="json">
           {`{
-  "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'zero', 'onum'"
+  "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'zero', 'onum'"
 }`}
         </CodeViewer>
       </div>
@@ -61,10 +61,9 @@ const questions: QuestionInfo[] = [
 @font-face {
   font-family: Fira Code;
   src: 
-      url('/vs_code/Fonts1/FiraCode-Retina.otf') format('opentype'),
-      url('/vs_code/Fonts1/FiraCode-Retina.woff2') format('woff2'),
-      url('/vs_code/Fonts1/FiraCode-Retina.woff') format('woff'),
-      url('/vs_code/Fonts1/FiraCode-Retina.ttf') format('truetype');
+      url('/vs_code/Fonts1/FiraCode-Medium.woff2') format('woff2'),
+      url('/vs_code/Fonts1/FiraCode-Medium.woff') format('woff'),
+      url('/vs_code/Fonts1/FiraCode-Medium.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }`}
@@ -80,10 +79,10 @@ const questions: QuestionInfo[] = [
 
 .Fonts1-ligature-260 {
   text-rendering: optimizeLegibility;
-  font-feature-settings: "liga", "calt", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "zero", "onum";
+  font-feature-settings: "liga", "calt", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "zero", "onum";
   -web-kit-font-smoothing: antialiased;
-  -moz-font-feature-settings: "liga", "calt", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "zero", "onum";
-  -webkit-font-feature-settings: "liga", "calt", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "zero", "onum";
+  -moz-font-feature-settings: "liga", "calt", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "zero", "onum";
+  -webkit-font-feature-settings: "liga", "calt", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08", "zero", "onum";
 }
 
 .Fonts1-nonLigature-261 {

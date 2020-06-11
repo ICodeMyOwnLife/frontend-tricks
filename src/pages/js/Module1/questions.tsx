@@ -682,6 +682,15 @@ export default run;`}
             <a href="https://rollupjs.org/guide/en/">Rollup</a>: bundler for ES
             modules
           </li>
+          <li>
+            <a href="https://github.com/parcel-bundler/parcel">Parcel</a>
+          </li>
+          <li>
+            <a href="https://fuse-box.org/">FuseBox</a>
+          </li>
+          <li>
+            <a href="https://www.snowpack.dev/">Snowpack</a>
+          </li>
         </ul>
       </div>
     ),
@@ -689,6 +698,10 @@ export default run;`}
       {
         name: `A 10 minute primer to JavaScript modules, module formats, module loaders and module bundlers`,
         url: `https://www.jvandemo.com/a-10-minute-primer-to-javascript-modules-module-formats-module-loaders-and-module-bundlers/`,
+      },
+      {
+        name: `[Medium] JavaScript Bundlers, a Comparison`,
+        url: `https://medium.com/@ajmeyghani/javascript-bundlers-a-comparison-e63f01f2a364`,
       },
     ],
   },
