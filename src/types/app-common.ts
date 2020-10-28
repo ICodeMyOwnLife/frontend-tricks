@@ -25,3 +25,7 @@ export interface QuestionInfo {
 export interface ValueTargetEvent<TValue = string> {
   target: { value: TValue };
 }
+
+export interface HaveClasses<TName extends string> {
+  classes?: Partial<Record<TName, string>>;
+}

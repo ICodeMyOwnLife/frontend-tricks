@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React, { FC, memo } from 'react';
-import useStyles from './StickyHeaderTable.styles';
+import useStyles from './styles';
 
 export const StickyHeaderTableComponent: FC<StickyHeaderTableProps> = ({
   cols,

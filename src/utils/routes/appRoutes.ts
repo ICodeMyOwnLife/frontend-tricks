@@ -191,6 +191,13 @@ const appRoutes = [
         import(/* webpackChunkName: "dom_Clipboard1" */ 'pages/dom/Clipboard1'),
     ],
     [
+      'Communication',
+      () =>
+        import(
+          /* webpackChunkName: "dom_Communication1" */ 'pages/dom/Communication1'
+        ),
+    ],
+    [
       'Device Detection',
       () =>
         import(

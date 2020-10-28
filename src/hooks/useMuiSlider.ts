@@ -1,13 +1,14 @@
 import { useState, useCallback, ChangeEvent } from 'react';
-import { InitialState } from 'cb-hooks/dist/types/common';
+import { ValueFactory } from 'cb-toolset/function';
 
 const useMuiSlider = <TValue extends number | number[]>(
-  initialValue: InitialState<TValue>,
+  initialValue: ValueFactory<TValue>,
 ) => {
   const [value, setValue] = useState(initialValue);
   const handleChange = useCallback(
     (_: ChangeEvent<{}>, newValue: number | number[]) =>
       setValue(newValue as TValue),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [],
   );
   return [value, setValue, handleChange] as const;

@@ -10,6 +10,7 @@
     "brace": "^0.11.1",
     "cb-hooks": "^2.0.2",
     "cb-react-recaptcha": "^1.0.2",
+    "cb-toolset": "^0.8.0",
     "clsx": "^1.1.0",
     "file-saver": "^2.0.2",
     "json2mq": "^0.2.0",
@@ -67,12 +68,13 @@
     "release-it": "^13.5.5",
     "size-limit": "^4.4.5",
     "source-map-explorer": "^2.4.2",
-    "typescript": "^3.8.3"
+    "typescript": "^4.0.5"
   },
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "build": "react-scripts build",
     "build:staging": "env-cmd -f .env.staging react-scripts build",
+    "build:web-workers": "tsc -p public/workers",
     "commit": "git-cz",
     "deploy:heroku": "git push heroku master",
     "eject": "react-scripts eject",
@@ -102,12 +104,6 @@
       "last 1 safari version"
     ]
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn type-check && yarn lint-staged"
-    }
-  },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "yarn lint:fix"
@@ -122,6 +118,6 @@
     }
   },
   "engines": {
-    "node": ">=12.16.1"
+    "node": "^12.16.1"
   }
 }

@@ -1,5 +1,5 @@
 import { useCallback, Reducer, useReducer } from 'react';
-import { ValueTargetEvent } from 'cb-hooks/dist/types/common';
+import { ValueTargetEvent } from 'cb-toolset/dom';
 
 const reducer: Reducer<InputState, InputAction> = (state, action) => {
   switch (action.type) {

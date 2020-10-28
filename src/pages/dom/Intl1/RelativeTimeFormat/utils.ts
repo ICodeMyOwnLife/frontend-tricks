@@ -18,9 +18,9 @@ export const handleSubmit: OnSubmit<RelativeTimeFormatFormData> = ({
 
 export interface RelativeTimeFormatFormData {
   locale?: string;
-  localeMatcher?: string;
-  numeric?: string;
-  style?: string;
-  unit: string;
+  localeMatcher?: Intl.RelativeTimeFormatLocaleMatcher;
+  numeric?: Intl.RelativeTimeFormatNumeric;
+  style?: Intl.RelativeTimeFormatStyle;
+  unit: Intl.RelativeTimeFormatUnit;
   value: number | string;
 }
