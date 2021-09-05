@@ -59,11 +59,6 @@ export const extensions: ExtensionInfo[] = [
     url: `https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint`,
   },
   {
-    author: 'D1n910',
-    name: 'Fast Open HTML in Default Browser',
-    url: `https://marketplace.visualstudio.com/items?itemName=D1n910.fast-open-html-in-browser`,
-  },
-  {
     author: 'Don Jayamanne',
     name: 'Git History',
     highlyRecommended: true,
@@ -141,6 +136,11 @@ export const extensions: ExtensionInfo[] = [
     url: `https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense`,
   },
   {
+    author: 'peakchen90',
+    name: 'Open In Default Browser',
+    url: `https://marketplace.visualstudio.com/items?itemName=peakchen90.open-html-in-browser`,
+  },
+  {
     author: 'Ryuichi Inagaki',
     name: 'Partial Diff',
     url: `https://marketplace.visualstudio.com/items?itemName=ryu1kn.partial-diff`,
@@ -162,8 +162,9 @@ export const extensions: ExtensionInfo[] = [
     url: `https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode`,
   },
   {
-    author: 'Robin Bentley',
+    author: 'Syler',
     name: 'Sass',
+    url: `https://marketplace.visualstudio.com/items?itemName=Syler.sass-indented`,
   },
   {
     author: 'Sibiraj',
