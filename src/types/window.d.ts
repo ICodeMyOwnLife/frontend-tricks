@@ -1,23 +1,23 @@
-interface Blob {
-  arrayBuffer: () => Promise<ArrayBuffer>;
-  stream: () => ReadableStream;
-  text: () => Promise<string>;
-}
+// interface Blob {
+//   arrayBuffer: () => Promise<ArrayBuffer>;
+//   stream: () => ReadableStream;
+//   text: () => Promise<string>;
+// }
 
-interface Clipboard {
-  read: () => Promise<ClipboardItem[]>;
-  write: (items: ClipboardItem[]) => Promise<void>;
-}
+// interface Clipboard {
+//   read: () => Promise<ClipboardItem[]>;
+//   write: (items: ClipboardItem[]) => Promise<void>;
+// }
 
-declare var ClipboardItem: {
-  prototype: ClipboardItem;
-  new (init: { [type: string]: Blob }): ClipboardItem;
-};
+// declare var ClipboardItem: {
+//   prototype: ClipboardItem;
+//   new (init: { [type: string]: Blob }): ClipboardItem;
+// };
 
-interface ClipboardItem {
-  types: string[];
-  getType: (type: string) => Promise<Blob>;
-}
+// interface ClipboardItem {
+//   types: string[];
+//   getType: (type: string) => Promise<Blob>;
+// }
 
 declare namespace Intl {
   interface ListFormatOptions {
@@ -34,18 +34,18 @@ declare namespace Intl {
     format: (list: string[]) => string;
   }
 
-  interface RelativeTimeFormatOptions {
-    localeMatcher?: string;
-    numeric?: string;
-    style?: string;
-  }
+  // interface RelativeTimeFormatOptions {
+  //   localeMatcher?: string;
+  //   numeric?: string;
+  //   style?: string;
+  // }
 
-  var RelativeTimeFormat: {
-    new (
-      locales?: string | string[],
-      options?: RelativeTimeFormatOptions,
-    ): RelativeTimeFormat;
-  };
+  // var RelativeTimeFormat: {
+  //   new (
+  //     locales?: string | string[],
+  //     options?: RelativeTimeFormatOptions,
+  //   ): RelativeTimeFormat;
+  // };
 }
 
 interface RelativeTimeFormat {

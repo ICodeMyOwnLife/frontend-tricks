@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import RegExpExperiment from '../RegExpExperiment';
 
 const defaultString = `$199.99 250 $37.50 12

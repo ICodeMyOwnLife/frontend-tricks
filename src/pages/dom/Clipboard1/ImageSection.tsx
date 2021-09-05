@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { Input, Button } from '@material-ui/core';
 import Section from 'components/Section';
 import { useHandlePaste } from './utils';

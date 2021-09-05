@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import React, { FC, memo, useRef } from 'react';
+import { FC, memo, useRef } from 'react';
 import { Button } from '@material-ui/core';
 import clsx from 'clsx';
 import { LoremIpsum } from 'lorem-ipsum';

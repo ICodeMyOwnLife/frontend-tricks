@@ -1,4 +1,4 @@
-import React, { FC, memo, ReactNode } from 'react';
+import { FC, memo, ReactNode } from 'react';
 import { Typography } from '@material-ui/core';
 import clsx from 'clsx';
 import { useTitle } from 'cb-hooks';

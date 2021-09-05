@@ -1,4 +1,4 @@
-import React, { FC, memo, InputHTMLAttributes } from 'react';
+import { FC, memo, InputHTMLAttributes } from 'react';
 import { Box } from '@material-ui/core';
 import clsx from 'clsx';
 import useStyles from './styles';

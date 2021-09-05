@@ -1,4 +1,4 @@
-import React, { FC, memo, useRef } from 'react';
+import { FC, memo, useRef } from 'react';
 import clsx from 'clsx';
 import { useDebounceValue } from 'cb-hooks';
 import useMuiSlider from 'hooks/useMuiSlider';

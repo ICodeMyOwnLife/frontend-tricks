@@ -1,4 +1,4 @@
-import React, { FC, memo, ChangeEvent, useCallback } from 'react';
+import { FC, memo, ChangeEvent, useCallback } from 'react';
 import clsx from 'clsx';
 import { InputProps } from 'components/Input';
 import classes from './styles.module.scss';

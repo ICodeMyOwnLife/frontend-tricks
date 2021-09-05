@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from 'react';
 import CodeViewer from 'components/CodeViewer';
 import { QuestionInfo } from 'types/app-common';
 

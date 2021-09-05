@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import json2mq, { QueryObject } from 'json2mq';
 import { useMediaQuery } from 'cb-hooks';
 import Result, { ResultProps } from './Result';

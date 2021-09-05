@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { Box, Typography } from '@material-ui/core';
 import clsx from 'clsx';
 import { PreviewContainerProps } from './types';

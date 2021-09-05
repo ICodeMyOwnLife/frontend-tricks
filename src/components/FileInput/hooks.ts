@@ -167,7 +167,7 @@ export const useObjectUrl = ({
       objectUrl = URL.createObjectURL(file);
       setSrc(objectUrl);
     } catch (e) {
-      setError(e);
+      setError(e as string);
     }
 
     const cleanup = () => {

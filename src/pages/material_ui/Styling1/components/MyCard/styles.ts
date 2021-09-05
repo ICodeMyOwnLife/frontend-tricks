@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-ignore */
 import { makeStyles, createStyles, Theme, fade } from '@material-ui/core';
 import { blueGrey } from '@material-ui/core/colors';
 import { Rule, StyleSheet } from 'jss';
@@ -61,15 +60,15 @@ declare module '@material-ui/core/styles/overrides' {
 }
 
 declare module '@material-ui/styles/withStyles/withStyles' {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   export interface WithStylesOptions<Theme> {
     // @ts-ignore
     generateClassName?: GenerateClassName;
   }
 }
 
-type ClassKey<
-  TStyles extends (...args: any[]) => Record<string, any>
-> = keyof ReturnType<TStyles>;
+type ClassKey<TStyles extends (...args: any[]) => Record<string, any>> =
+  keyof ReturnType<TStyles>;
 
 type GenerateClassName = (
   rule: Rule,

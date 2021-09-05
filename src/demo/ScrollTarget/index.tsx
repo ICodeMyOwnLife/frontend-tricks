@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { LoremIpsum } from 'lorem-ipsum';
 import DemoLayout from 'components/DemoLayout';
 import demoRoutes from 'utils/routes/demoRoutes';

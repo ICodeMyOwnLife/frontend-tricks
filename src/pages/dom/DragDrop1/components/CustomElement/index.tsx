@@ -1,4 +1,4 @@
-import React, { FC, memo, HTMLAttributes } from 'react';
+import { FC, memo, HTMLAttributes } from 'react';
 import clsx from 'clsx';
 import { CustomItemData } from '../types';
 import useStyles from './styles';

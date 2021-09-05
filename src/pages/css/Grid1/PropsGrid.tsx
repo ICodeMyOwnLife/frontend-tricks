@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React, { FC, memo, CSSProperties, useMemo } from 'react';
+import { FC, memo, CSSProperties, useMemo } from 'react';
 import clsx from 'clsx';
 import useMuiSelect from 'hooks/useMuiSelect';
 import SelectFormControl from 'components/SelectFormControl';

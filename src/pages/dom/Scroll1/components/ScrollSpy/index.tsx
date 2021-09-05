@@ -1,4 +1,4 @@
-import React, { FC, memo, Fragment, useRef, useLayoutEffect } from 'react';
+import { FC, memo, Fragment, useRef, useLayoutEffect } from 'react';
 import { Typography, List, ListItem, ListItemText } from '@material-ui/core';
 import clsx from 'clsx';
 import { LoremIpsum } from 'lorem-ipsum';

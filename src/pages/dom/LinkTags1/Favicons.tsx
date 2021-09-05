@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { useFavicon } from 'cb-hooks';
 import useMuiSelect from 'hooks/useMuiSelect';
 import SelectFormControl from 'components/SelectFormControl';

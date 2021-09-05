@@ -1,4 +1,4 @@
-import React, { FC, memo, useState, useEffect } from 'react';
+import { FC, memo, useState, useEffect } from 'react';
 import MobileDetect from 'mobile-detect';
 import QuestionPage from 'components/QuestionPage';
 import questions from './questions';

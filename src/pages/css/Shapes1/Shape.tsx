@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import classes from './styles.module.scss';
 
 export const ShapeComponent: FC<ShapeProps> = ({ type }) => (

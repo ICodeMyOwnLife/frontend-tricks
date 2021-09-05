@@ -9,7 +9,7 @@ Select **User Snippets** under Code > Preferences and select the language (by la
   "My Class Component": {
     "prefix": "rcc",
     "body": [
-      "import React, { Component } from 'react';\n\n",
+      "import { Component } from 'react';\n\n",
       "export class ${1:MyComponent} extends Component<$1Props, $1State> {",
       "\treadonly state: Readonly<$1State> = {$4};\n",
       "\trender() {",
@@ -25,7 +25,7 @@ Select **User Snippets** under Code > Preferences and select the language (by la
   "My Pure Component": {
     "prefix": "rpc",
     "body": [
-      "import React, { PureComponent } from 'react';\n\n",
+      "import { PureComponent } from 'react';\n\n",
       "export class ${1:MyComponent} extends PureComponent<$1Props, $1State> {",
       "\treadonly state: Readonly<$1State> = {$4};\n",
       "\trender() {",

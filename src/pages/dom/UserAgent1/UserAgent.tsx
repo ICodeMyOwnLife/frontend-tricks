@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import {
   Grid,
   Typography,
@@ -52,5 +52,5 @@ UserAgent.displayName = 'UserAgent';
 export default UserAgent;
 
 export interface UserAgentProps {
-  uaResult?: IUAParser.IResult;
+  uaResult?: UAParser.IResult;
 }

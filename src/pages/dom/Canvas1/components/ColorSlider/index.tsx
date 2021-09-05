@@ -1,4 +1,4 @@
-import React, { FC, memo, ChangeEvent } from 'react';
+import { FC, memo, ChangeEvent } from 'react';
 import { SliderProps, Slider } from '@material-ui/core';
 import { BaseColor } from 'utils/colors/BaseColor';
 import { useColorSlider } from './utils';

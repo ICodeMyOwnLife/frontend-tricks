@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { Button } from '@material-ui/core';
 import MyCard from '../MyCard';
 import useStyles from './styles';

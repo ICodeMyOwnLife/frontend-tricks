@@ -1,4 +1,4 @@
-import React, { FC, memo, ReactNode } from 'react';
+import { FC, memo, ReactNode } from 'react';
 import { Box } from '@material-ui/core';
 import ButtonFileInput from './ButtonFileInput';
 import LabelFileInput from './LabelFileInput';

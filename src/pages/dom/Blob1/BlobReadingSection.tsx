@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { Input } from '@material-ui/core';
 import Section, { SectionProps } from 'components/Section';
 import { ButtonFileInput } from 'components/FileInput';

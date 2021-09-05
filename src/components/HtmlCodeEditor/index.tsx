@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 // Import to CodeEditor should go before imports to ace-builds mode and snippet
 import CodeEditor, { CodeEditorProps } from 'components/CodeEditor';
 import 'ace-builds/src-noconflict/mode-html';

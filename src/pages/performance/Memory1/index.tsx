@@ -1,4 +1,4 @@
-import React, { FC, memo, useState, useCallback } from 'react';
+import { FC, memo, useState, useCallback } from 'react';
 import QuestionPage from 'components/QuestionPage';
 import NumberInput from 'components/NumberInput';
 import Button from 'components/Button';

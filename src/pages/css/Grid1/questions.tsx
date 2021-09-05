@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from 'react';
 import { QuestionInfo } from 'types/app-common';
 import CodeViewer from 'components/CodeViewer';
 
@@ -178,8 +177,7 @@ const questions: QuestionInfo[] = [
         url: `https://dev.to/nunocpnp/css-grid-auto-fit-auto-fill-4hkh`,
       },
       {
-        name:
-          '[CSS-TRICKS] Auto-Sizing Columns in CSS Grid: `auto-fill` vs `auto-fit`',
+        name: '[CSS-TRICKS] Auto-Sizing Columns in CSS Grid: `auto-fill` vs `auto-fit`',
         url: `https://css-tricks.com/auto-sizing-columns-css-grid-auto-fill-vs-auto-fit/`,
       },
     ],

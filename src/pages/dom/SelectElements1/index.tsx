@@ -1,4 +1,4 @@
-import React, { FC, memo, useRef, useState } from 'react';
+import { FC, memo, useRef, useState } from 'react';
 import QuestionPage from 'components/QuestionPage';
 import Section from 'components/Section';
 import questions from './questions';

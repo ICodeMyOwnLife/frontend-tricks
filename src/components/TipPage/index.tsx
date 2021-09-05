@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import PageLayout, { PageLayoutProps } from 'components/PageLayout';
 import Markdown from './components/Markdown';
 

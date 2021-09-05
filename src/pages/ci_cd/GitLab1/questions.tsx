@@ -1,5 +1,4 @@
 /* eslint-disable no-useless-escape */
-import React from 'react';
 import { QuestionInfo } from 'types/app-common';
 import CodeViewer from 'components/CodeViewer';
 

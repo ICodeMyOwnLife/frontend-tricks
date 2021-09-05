@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { Icon } from '@material-ui/core';
 import { IconProps } from '@material-ui/core/Icon';
 

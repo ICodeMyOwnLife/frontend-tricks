@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { useForm } from 'react-hook-form';
 import { Input } from '@material-ui/core';
 import InputControl from 'components/InputControl';

@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { UAParser } from 'ua-parser-js';
 import QuestionPage from 'components/QuestionPage';
 import Section from 'components/Section';

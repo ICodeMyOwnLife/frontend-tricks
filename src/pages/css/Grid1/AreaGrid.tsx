@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React, { FC, memo, CSSProperties } from 'react';
+import { FC, memo, CSSProperties } from 'react';
 import {
   amber,
   blue,

@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Input, Button, Typography } from '@material-ui/core';
 import useBeforeLeave from 'hooks/useBeforeLeave';

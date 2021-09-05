@@ -1,7 +1,7 @@
 /* eslint-disable import/first */
 /* eslint-disable import/no-dynamic-require */
 /* eslint-disable global-require */
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import ReactAce, { IAceEditorProps } from 'react-ace';
 import 'ace-builds/webpack-resolver';
 import 'ace-builds/src-noconflict/theme-merbivore';

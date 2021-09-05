@@ -1,4 +1,4 @@
-import React, { forwardRef, FC, memo } from 'react';
+import { forwardRef, FC, memo } from 'react';
 import {
   Link as RouterLink,
   LinkProps as RouterLinkProps,

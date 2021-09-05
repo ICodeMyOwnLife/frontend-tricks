@@ -1,4 +1,4 @@
-import React, { FC, memo, ReactNode } from 'react';
+import { FC, memo, ReactNode } from 'react';
 import { Typography } from '@material-ui/core';
 import { InputEventLog } from './utils';
 import useStyles from './styles';

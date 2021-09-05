@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { useLocation } from 'react-router';
 import { Drawer, useTheme, Toolbar, Divider, List } from '@material-ui/core';
 import AppLink from 'components/AppLink';

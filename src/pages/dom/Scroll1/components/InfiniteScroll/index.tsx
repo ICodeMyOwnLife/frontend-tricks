@@ -1,4 +1,4 @@
-import React, { FC, memo, useReducer, Reducer, useRef } from 'react';
+import { FC, memo, useReducer, Reducer, useRef } from 'react';
 import {
   List,
   ListItem,

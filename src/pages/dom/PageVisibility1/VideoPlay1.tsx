@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/media-has-caption */
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { IconButton } from '@material-ui/core';
 import FontIcon from 'components/FontIcon';
 import { VIDEO_SAMPLE_URL } from 'constants/links';

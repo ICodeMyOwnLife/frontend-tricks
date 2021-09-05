@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import clsx from 'clsx';
 import QuestionPage from 'components/QuestionPage';
 import questions from './questions';

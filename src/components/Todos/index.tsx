@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { Box, Typography } from '@material-ui/core';
 
 export const TodosComponent: FC<TodosProps> = ({ className, todos }) => (

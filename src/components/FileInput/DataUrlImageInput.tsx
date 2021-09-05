@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { useDataUrl } from './hooks';
 import ImagePreview from './ImagePreview';
 import InputContainer from './InputContainer';

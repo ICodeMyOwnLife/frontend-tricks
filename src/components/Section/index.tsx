@@ -1,4 +1,4 @@
-import React, { FC, memo, ReactNode } from 'react';
+import { FC, memo, ReactNode } from 'react';
 import clsx from 'clsx';
 import { Paper, Typography } from '@material-ui/core';
 import { TypographyProps } from '@material-ui/core/Typography';

@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { Typography, Button, Link } from '@material-ui/core';
 import { BASE_URL } from 'constants/common';
 import { useOpener, useReferrer } from './utils';

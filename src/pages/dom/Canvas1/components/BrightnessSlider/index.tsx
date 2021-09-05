@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { BaseColor } from 'utils/colors/BaseColor';
 import ColorSlider, { ColorSliderProps } from '../ColorSlider';
 import { GradientStop } from '../ColorSlider/styles';

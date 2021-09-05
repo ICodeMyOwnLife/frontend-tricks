@@ -1,4 +1,4 @@
-import React, { FC, memo, RefObject } from 'react';
+import { FC, memo, RefObject } from 'react';
 import { useEventHandler } from './utils';
 import EventInfo from './EventInfo';
 

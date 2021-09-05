@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { useMediaQuery } from '@material-ui/core';
 import Result from './Result';
 

@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import CustomElement, { CustomElementProps } from '../CustomElement';
 import { useHandleDragStart } from './utils';
 import { EffectAllowed } from '../constants';

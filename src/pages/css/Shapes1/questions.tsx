@@ -1,5 +1,4 @@
 import { QuestionInfo } from 'types/app-common';
-import React from 'react';
 import CodeViewer from 'components/CodeViewer';
 
 const questions: QuestionInfo[] = [

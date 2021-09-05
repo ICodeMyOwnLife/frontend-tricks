@@ -1,4 +1,4 @@
-import React, { FC, memo, Fragment } from 'react';
+import { FC, memo, Fragment } from 'react';
 import { Typography, Link } from '@material-ui/core';
 import ViewDemo from 'components/ViewDemo';
 import demoRoutes from 'utils/routes/demoRoutes';

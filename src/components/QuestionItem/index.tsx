@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { ListItem, ListItemText, Collapse, Box } from '@material-ui/core';
 import { useToggle } from 'cb-hooks';
 import References from 'components/References';

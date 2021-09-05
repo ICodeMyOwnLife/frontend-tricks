@@ -1,4 +1,4 @@
-import React, { FC, memo, ReactNode } from 'react';
+import { FC, memo, ReactNode } from 'react';
 import useStyles from './styles';
 
 export const MyCardComponent: FC<MyCardProps> = ({ content, heading }) => {

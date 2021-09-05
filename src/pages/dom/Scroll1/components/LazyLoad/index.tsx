@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { LoremIpsum } from 'lorem-ipsum';
 import { useLazyLoad } from 'cb-hooks';
 import src1 from './1.jpg';

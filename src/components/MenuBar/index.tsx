@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { AppBar, Toolbar, IconButton } from '@material-ui/core';
 import { Menu as MenuIcon } from '@material-ui/icons';
 import AppLink from 'components/AppLink';

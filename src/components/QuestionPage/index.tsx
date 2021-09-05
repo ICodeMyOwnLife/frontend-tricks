@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { Box, Typography, List } from '@material-ui/core';
 import QuestionItem from 'components/QuestionItem';
 import { QuestionInfo } from 'types/app-common';

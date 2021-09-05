@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { TableRow, TableCell, Checkbox, Box } from '@material-ui/core';
 
 export const ResultComponent: FC<ResultProps> = ({

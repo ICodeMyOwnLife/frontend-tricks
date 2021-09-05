@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import QuestionPage from 'components/QuestionPage';
 import ShapeContainer from './ShapeContainer';
 import questions from './questions';

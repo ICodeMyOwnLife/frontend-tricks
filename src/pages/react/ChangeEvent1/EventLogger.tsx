@@ -1,4 +1,4 @@
-import React, { FC, memo, useRef } from 'react';
+import { FC, memo, useRef } from 'react';
 import EventInfo from './EventInfo';
 import { useOnChange } from './utils';
 import useStyles from './styles';

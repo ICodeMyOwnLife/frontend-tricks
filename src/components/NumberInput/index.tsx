@@ -1,4 +1,4 @@
-import React, { FC, memo, ChangeEvent, useCallback } from 'react';
+import { FC, memo, ChangeEvent, useCallback } from 'react';
 import Input, { InputProps } from 'components/Input';
 
 export const NumberInputComponent: FC<NumberInputProps> = ({

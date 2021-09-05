@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import GeneralDropTarget from '../GeneralDropTarget';
 import CustomDrop from '../CustomDrop';
 import ItemDataViewer from '../ItemDataView';

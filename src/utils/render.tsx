@@ -1,5 +1,4 @@
 /* eslint-disable react/jsx-indent */
-import React from 'react';
 import { MenuItem } from '@material-ui/core';
 
 export const renderOptions = (

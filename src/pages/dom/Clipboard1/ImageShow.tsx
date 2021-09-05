@@ -1,4 +1,4 @@
-import React, { FC, memo, ImgHTMLAttributes } from 'react';
+import { FC, memo, ImgHTMLAttributes } from 'react';
 import { Box, Button } from '@material-ui/core';
 import { useHandleCopy } from './utils';
 import useStyles from './styles';

@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import CustomElement from '../CustomElement';
 import CustomDropTarget from '../CustomDropTarget';
 import { useCustomDrop } from './utils';

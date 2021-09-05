@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { TextField, FormControlLabel, Checkbox } from '@material-ui/core';
 import ReactPlayer from 'react-player';
 import { useTextInput, useCheckInput, usePageVisibilityState } from 'cb-hooks';

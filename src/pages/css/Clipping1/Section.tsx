@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import clsx from 'clsx';
 import imgSrc from './1.jpg';
 import classes from './styles.module.scss';

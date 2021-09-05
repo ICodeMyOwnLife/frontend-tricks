@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import { QuestionInfo } from 'types/app-common';
-import React from 'react';
 import CodeViewer from 'components/CodeViewer';
 import ghPagesSrc from './gh-pages.png';
 

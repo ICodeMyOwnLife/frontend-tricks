@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { Box, Button, Typography } from '@material-ui/core';
 import { ReCaptchaV3, ReCaptchaCheckbox } from 'cb-react-recaptcha';
 import QuestionPage from 'components/QuestionPage';

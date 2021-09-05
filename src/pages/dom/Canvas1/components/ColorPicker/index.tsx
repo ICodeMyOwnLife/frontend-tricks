@@ -1,4 +1,4 @@
-import React, { FC, memo, ReactNode, RefObject } from 'react';
+import { FC, memo, ReactNode, RefObject } from 'react';
 import clsx from 'clsx';
 import { BaseColor } from 'utils/colors/BaseColor';
 import { preventDefault } from 'utils/events';

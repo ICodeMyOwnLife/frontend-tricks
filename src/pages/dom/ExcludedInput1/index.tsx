@@ -1,4 +1,4 @@
-import React, { FC, memo, useState, FormEvent, useCallback } from 'react';
+import { FC, memo, useState, FormEvent, useCallback } from 'react';
 import QuestionPage from 'components/QuestionPage';
 import questions from './questions';
 import classes from './styles.module.scss';

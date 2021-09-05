@@ -8,11 +8,11 @@ export const useHandleCopy = ({ src }: { src: string }) =>
     const res = await fetch(src);
     const blob = await res.blob();
     try {
-      const item = new ClipboardItem({ [blob.type]: blob });
+      const item = new ClipboardItem({ [blob.type]: res.blob() });
       await navigator.clipboard.write([item]);
       alert('Copied to clipboard');
     } catch (error) {
-      alert(error.message);
+      if (error instanceof Error) alert(error.message);
     }
   }, [src]);
 
@@ -35,7 +35,7 @@ export const useHandlePaste = () => {
         setUrl(URL.createObjectURL(blob));
       }
     } catch (error) {
-      alert(error.message);
+      if (error instanceof Error) alert(error.message);
     }
   }, []);
 

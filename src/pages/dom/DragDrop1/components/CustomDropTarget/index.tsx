@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import clsx from 'clsx';
 import { useCustomDropTarget } from './utils';
 import { DropEffect } from '../constants';

@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { useFetchText } from 'cb-hooks';
 import CodeViewer from 'components/CodeViewer';

@@ -1,4 +1,0 @@
-{
-  "extends": "react-ts",
-  "globals": { "ClipboardItem": true }
-}

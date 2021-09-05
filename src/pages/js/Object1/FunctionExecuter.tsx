@@ -1,4 +1,4 @@
-import React, { FC, memo, useState } from 'react';
+import { FC, memo, useState } from 'react';
 import CodeExecutor from 'components/CodeExecutor';
 
 export const FunctionExecuterComponent: FC<FunctionExecuterProps> = ({

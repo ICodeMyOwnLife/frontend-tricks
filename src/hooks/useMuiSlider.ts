@@ -1,8 +1,8 @@
 import { useState, useCallback, ChangeEvent } from 'react';
-import { InitialState } from 'cb-hooks/dist/types/common';
+import { ValueFactory } from 'cb-toolset/function';
 
 const useMuiSlider = <TValue extends number | number[]>(
-  initialValue: InitialState<TValue>,
+  initialValue: ValueFactory<TValue>,
 ) => {
   const [value, setValue] = useState(initialValue);
   const handleChange = useCallback(

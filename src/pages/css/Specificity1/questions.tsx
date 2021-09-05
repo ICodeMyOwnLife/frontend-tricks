@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from 'react';
 import { QuestionInfo } from 'types/app-common';
 
 const questions: QuestionInfo[] = [
@@ -27,8 +26,8 @@ const questions: QuestionInfo[] = [
         </ol>
         <p>
           Universal selector (<code>*</code>), combinators (<code>+</code>,{' '}
-          <code>></code>, <code>~</code>, <code>' '</code>, <code>||</code>) and
-          negation pseudo-class (<code>:not()</code>) have no effect on
+          <code>{'>'}</code>, <code>~</code>, <code>' '</code>, <code>||</code>)
+          and negation pseudo-class (<code>:not()</code>) have no effect on
           specificity. (The selectors declared inside <code>:not()</code> do,
           however.)
         </p>

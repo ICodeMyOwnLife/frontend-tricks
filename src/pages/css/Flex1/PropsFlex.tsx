@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { Box } from '@material-ui/core';
 import useMuiSelect from 'hooks/useMuiSelect';
 import SelectFormControl from 'components/SelectFormControl';

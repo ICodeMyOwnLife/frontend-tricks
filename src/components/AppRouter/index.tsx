@@ -1,4 +1,4 @@
-import React, { FC, memo, Suspense, Fragment, ReactNode } from 'react';
+import { FC, memo, Suspense, Fragment, ReactNode } from 'react';
 import { Route, RouteProps } from 'react-router-dom';
 import Spinner from 'components/Spinner';
 import { RouteInfo } from 'types/app-common';

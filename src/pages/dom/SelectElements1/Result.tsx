@@ -1,4 +1,4 @@
-import React, { FC, memo, RefObject } from 'react';
+import { FC, memo, RefObject } from 'react';
 import { Box, Typography } from '@material-ui/core';
 import useStyles from './styles';
 import { useUpdateResultOnMutated } from './utils';

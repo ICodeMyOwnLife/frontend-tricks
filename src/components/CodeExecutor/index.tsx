@@ -1,4 +1,4 @@
-import React, { FC, memo, useState } from 'react';
+import { FC, memo, useState } from 'react';
 import { Box, Button } from '@material-ui/core';
 import JsCodeEditor from 'components/JsCodeEditor';
 import CodeViewer from 'components/CodeViewer';

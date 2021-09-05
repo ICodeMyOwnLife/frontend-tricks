@@ -4,11 +4,10 @@ import { BASE_URL } from 'constants/common';
 
 const createPeerConnection = (onNewIp: (ip: string) => void) => {
   const PeerConnection =
-    window.RTCPeerConnection ||
-    window.webkitRTCPeerConnection ||
-    window.mozRTCPeerConnection;
+    window.RTCPeerConnection || window.mozRTCPeerConnection;
   const peerConnection = new PeerConnection({ iceServers: [] });
-  const ipRegex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g;
+  const ipRegex =
+    /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/g;
   const ipList: { [ip: string]: true } = {};
 
   const iterateIp = (ip: string) => {

@@ -1,4 +1,4 @@
-import React, { FC, memo, useState } from 'react';
+import { FC, memo, useState } from 'react';
 import { Checkbox, FormControlLabel } from '@material-ui/core';
 import QuestionPage from 'components/QuestionPage';
 import {

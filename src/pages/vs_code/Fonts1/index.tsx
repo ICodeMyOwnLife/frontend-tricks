@@ -1,5 +1,5 @@
 /* eslint-disable no-useless-escape */
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { Typography } from '@material-ui/core';
 import clsx from 'clsx';
 import { useFetchText } from 'cb-hooks';

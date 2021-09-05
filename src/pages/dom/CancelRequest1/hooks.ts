@@ -108,7 +108,10 @@ export const useFetch = () => {
       setResult(await getFetchResult(response, false));
       requestRef.current = undefined;
     } catch (error) {
-      setResult({ loading: false, error: getFetchError(error) });
+      setResult({
+        loading: false,
+        error: getFetchError(error as DOMException),
+      });
     }
   }, []);
 

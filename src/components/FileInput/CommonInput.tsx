@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { useObjectUrl } from './hooks';
 import CommonPreview from './CommonPreview';
 import InputContainer from './InputContainer';

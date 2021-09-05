@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import QuestionPage from 'components/QuestionPage';
 import { BASE_URL } from 'constants/common';
 import { Card, CardHeader, CardContent, TextField } from '@material-ui/core';

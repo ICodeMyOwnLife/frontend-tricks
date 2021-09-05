@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { Checkbox, FormControlLabel } from '@material-ui/core';
 import { useCheckInput } from 'cb-hooks';
 import QuestionPage from 'components/QuestionPage';

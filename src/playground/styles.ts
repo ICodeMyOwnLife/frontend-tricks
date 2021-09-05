@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-ignore */
 import { makeStyles, createStyles } from '@material-ui/core';
 
 const styles = () =>

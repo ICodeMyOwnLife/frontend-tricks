@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { Link } from '@material-ui/core';
 import { SimpleRouteInfo } from 'types/app-common';
 import useStyles from './styles';

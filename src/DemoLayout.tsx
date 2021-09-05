@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { FC, memo, Suspense } from 'react';
+import { FC, memo, Suspense } from 'react';
 import { Route } from 'react-router';
 import demoRoutes from 'utils/routes/demoRoutes';
 

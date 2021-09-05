@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import { Grid, FormLabel, Input, Button, Typography } from '@material-ui/core';
 import clsx from 'clsx';
 import QuestionPage from 'components/QuestionPage';

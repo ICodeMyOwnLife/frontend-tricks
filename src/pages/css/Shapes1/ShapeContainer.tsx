@@ -1,4 +1,4 @@
-import React, { FC, memo } from 'react';
+import { FC, memo } from 'react';
 import Shape, { ShapeType } from './Shape';
 import classes from './styles.module.scss';
 

@@ -34,19 +34,6 @@ export const handleSubmit: OnSubmit<DateTimeFormatFormData> = ({
   return dateTimeFormat.format(new Date());
 };
 
-export interface DateTimeFormatFormData {
-  day?: string;
-  era?: string;
-  formatMatcher?: string;
-  hour?: string;
-  hour12?: boolean;
+export interface DateTimeFormatFormData extends Intl.DateTimeFormatOptions {
   locale?: string;
-  localeMatcher?: string;
-  minute?: string;
-  month?: string;
-  second?: string;
-  timeZone?: string;
-  timeZoneName?: string;
-  weekday?: string;
-  year?: string;
 }
